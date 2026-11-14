@@ -16,11 +16,22 @@ if env_file.exists():
                 os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!&$5rn2+sp#h-#!&h6+7+q3)57_zxp0)u@tpv5k2fa731r6(@h'
+SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-!&$5rn2+sp#h-#!&h6+7+q3)57_zxp0)u@tpv5k2fa731r6(@h')
 
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'True').lower() in ('true', '1')
 
 ALLOWED_HOSTS = ['*'] # Hamma hostlarga ruxsat berdik
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.onrender.com',
+    'https://*.railway.app',
+    'https://*.pythonanywhere.com',
+    'http://localhost:8000',
+    'http://127.0.0.1:8000',
+]
+extra_csrf = os.getenv('CSRF_TRUSTED_ORIGINS', '')
+if extra_csrf:
+    CSRF_TRUSTED_ORIGINS.extend([origin.strip() for origin in extra_csrf.split(',') if origin.strip()])
 
 INSTALLED_APPS = [
     'unfold',
@@ -78,6 +89,13 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+if os.getenv('DATABASE_URL'):
+    import dj_database_url
+    DATABASES['default'] = dj_database_url.config(
+        conn_max_age=600,
+        ssl_require=True
+    )
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
