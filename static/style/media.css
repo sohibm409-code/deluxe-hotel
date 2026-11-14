@@ -36,14 +36,37 @@
     font-size: 40px;
   }
 
-  .about__wrapper,
-  .stats__grid,
-  .testimonial__grid {
+  .about {
+    padding: 75px 0;
+  }
+
+  .about__wrapper {
     grid-template-columns: 1fr;
+    gap: 50px;
   }
 
   .about__images {
-    max-width: 700px;
+    max-width: 680px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .about__content {
+    padding-left: 0;
+  }
+
+  .about__title {
+    font-size: 34px;
+  }
+
+  .about__highlights {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .stats__grid,
+  .testimonial__grid {
+    grid-template-columns: 1fr;
   }
 
   .services__grid {
@@ -144,18 +167,69 @@
     padding: 18px;
   }
 
+  .about {
+    padding: 65px 0;
+  }
+
+  .about__wrapper {
+    gap: 45px;
+  }
+
+  .about__img--big {
+    height: 420px;
+  }
+
   .about__img--small {
-    width: 180px;
-    height: 180px;
-    left: 18px;
-    bottom: -20px;
+    width: 190px;
+    height: 190px;
+    left: 20px;
+    bottom: -22px;
+    border-width: 6px;
+  }
+
+  .about__exp-badge {
+    top: 18px;
+    right: 18px;
+    padding: 10px 15px;
+  }
+
+  .about__exp-badge .badge-number {
+    font-size: 20px;
   }
 
   .play-btn {
-    left: 62px;
-    bottom: 32px;
-    width: 64px;
-    height: 64px;
+    left: 50% !important;
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translate(-50%, -50%) !important;
+    width: 68px;
+    height: 68px;
+    font-size: 19px;
+  }
+
+  .play-btn:hover {
+    transform: translate(-50%, -50%) scale(1.08) !important;
+  }
+
+  .about__title {
+    font-size: 30px;
+  }
+
+  .about__highlights {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .about__actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .about__btn-primary,
+  .about__btn-video {
+    width: 100%;
+    justify-content: center;
   }
 
   .room__image img,
@@ -202,23 +276,155 @@
     padding: 18px;
   }
 
+  .about {
+    padding: 55px 0 65px;
+  }
+
+  .about__wrapper {
+    gap: 36px;
+  }
+
+  .about__images {
+    position: relative;
+    width: 100%;
+  }
+
   .about__img--big {
-    height: 400px;
+    height: 330px;
+    border-radius: 14px;
   }
 
   .about__img--small {
-    position: static;
-    width: 100%;
-    height: 220px;
-    margin-top: 16px;
-    border: none;
+    width: 130px;
+    height: 130px;
+    left: 12px;
+    bottom: -16px;
+    border: 5px solid #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    position: absolute;
+    margin-top: 0;
+  }
+
+  .about__exp-badge {
+    top: 12px;
+    right: 12px;
+    padding: 7px 12px;
+    border-radius: 10px;
+  }
+
+  .about__exp-badge .badge-icon {
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+
+  .about__exp-badge .badge-number {
+    font-size: 17px;
+  }
+
+  .about__exp-badge .badge-text {
+    font-size: 9px;
+    letter-spacing: 0.3px;
   }
 
   .play-btn {
-    left: 50%;
-    top: 40%;
-    bottom: auto;
-    transform: translate(-50%, -50%);
+    left: 50% !important;
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translate(-50%, -50%) !important;
+    width: 62px;
+    height: 62px;
+    font-size: 17px;
+  }
+
+  .play-btn:hover {
+    transform: translate(-50%, -50%) scale(1.08) !important;
+  }
+
+  .about__badge {
+    font-size: 10.5px;
+    padding: 5px 12px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  .about__title {
+    font-size: 26px;
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+
+  .about__lead {
+    font-size: 14.5px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .about__desc {
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .about__highlights {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+
+  .about__highlight-card {
+    padding: 12px 14px;
+  }
+
+  .about__highlight-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+  }
+
+  .about__highlight-info h5 {
+    font-size: 13.5px;
+  }
+
+  .about__highlight-info p {
+    font-size: 12px;
+  }
+
+  .about__trust-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding-top: 14px;
+    margin-bottom: 22px;
+  }
+
+  .about__stars {
+    font-size: 15px;
+  }
+
+  .about__rating-score {
+    font-size: 13px;
+    padding: 2px 8px;
+  }
+
+  .about__rating-text {
+    font-size: 12.5px;
+  }
+
+  .about__actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .about__btn-primary,
+  .about__btn-video {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 18px;
+    font-size: 13.5px;
   }
 
   .service h3,
@@ -229,5 +435,29 @@
 
   .stat h3 {
     font-size: 40px;
+  }
+}
+
+@media (max-width: 380px) {
+  .about__img--small {
+    display: none;
+  }
+
+  .about__title {
+    font-size: 23px;
+  }
+
+  .play-btn {
+    width: 56px !important;
+    height: 56px !important;
+    font-size: 16px !important;
+  }
+
+  .about__exp-badge {
+    padding: 6px 10px;
+  }
+
+  .about__exp-badge .badge-number {
+    font-size: 15px;
   }
 }
