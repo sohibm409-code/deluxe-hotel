@@ -1,7 +1,16 @@
 from django.db import models
 
 class Blog(models.Model):
+    CATEGORY_CHOICES = [
+        ('hotels', "Mehmonxona yangiliklari"),
+        ('restaurant', "Restoran & Taomlar"),
+        ('events', "Tadbirlar & To'ylar"),
+        ('tourism', "Toshkent Bo'ylab Sayohat"),
+        ('tips', "Mehmonlar uchun Maslahatlar"),
+    ]
+
     full_name = models.CharField(max_length=200, verbose_name="Sarlavha")
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, default='hotels', verbose_name="Rukn (Kategoriya)")
     description = models.TextField(verbose_name="Maqola matni")
     image = models.ImageField(upload_to='blog_images/', null=True, blank=True, verbose_name="Yuklangan rasm")
     image_url = models.URLField(max_length=500, null=True, blank=True, verbose_name="Tashqi rasm URL")
@@ -21,3 +30,21 @@ class Blog(models.Model):
         if self.image_url:
             return self.image_url
         return "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80"
+
+
+class BlogComment(models.Model):
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='comments', verbose_name="Maqola")
+    name = models.CharField(max_length=120, verbose_name="Ism")
+    email = models.EmailField(verbose_name="Email")
+    comment = models.TextField(verbose_name="Izoh matni")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Yuborilgan vaqt")
+    is_approved = models.BooleanField(default=True, verbose_name="Tasdiqlangan")
+
+    class Meta:
+        verbose_name = "Blog Izohi"
+        verbose_name_plural = "Blog Izohlari"
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return f"{self.name} - {self.blog.full_name}"
+

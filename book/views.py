@@ -121,6 +121,22 @@ class BookingCreateView(View):
             elif not booking.room_name:
                 booking.room_name = "Umumiy buyurtma"
             booking.save()
+
+            # Telegram notification
+            try:
+                from core.telegram import notify_telegram
+                notify_telegram(
+                    f"🏨 <b>Yangi Xona Bron Qilindi!</b>\n\n"
+                    f"👤 <b>Mehmon:</b> {booking.customer_name}\n"
+                    f"📞 <b>Telefon:</b> {booking.customer_phone}\n"
+                    f"🛏 <b>Xona:</b> {booking.room_name}\n"
+                    f"📅 <b>Sanalar:</b> {booking.check_in.strftime('%d.%m.%Y')} — {booking.check_out.strftime('%d.%m.%Y')}\n"
+                    f"👥 <b>Mehmonlar:</b> {booking.guests}\n"
+                    f"💬 <b>Qo'shimcha:</b> {booking.notes or 'Yo\'q'}"
+                )
+            except Exception:
+                pass
+
             messages.success(request, "Xonani bron qilish so'rovingiz qabul qilindi! Admin tasdiqlashi bilanoq xona siz uchun rasman band qilinadi.")
             return redirect("rooms:index")
 

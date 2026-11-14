@@ -264,3 +264,8 @@ def build_table_reservation_message(reservation) -> tuple[str, dict]:
 def send_table_reservation_notification(reservation, async_mode: bool = True) -> bool:
     message, reply_markup = build_table_reservation_message(reservation)
     return send_telegram_message(message, reply_markup=reply_markup, async_mode=async_mode)
+
+
+def notify_telegram(text: str, reply_markup: dict = None) -> bool:
+    """Convenience alias for sending text notifications."""
+    return send_telegram_message(text, reply_markup=reply_markup, async_mode=True)

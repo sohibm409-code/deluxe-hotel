@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block title %}Xonalar va Lyukslar | Deluxe Hotel &amp; Resort{% endblock %}
+
 {% load static %}
 
 
@@ -22,8 +24,8 @@
     </div>
     <div class="hero-overlay"></div>
     <div class="container hero-content">
-      <p class="hero-subtitle">HOME &nbsp; &gt; &nbsp; ROOMS</p>
-      <h1>Rooms</h1>
+      <p class="hero-subtitle">BOSH SAHIFA &nbsp; &gt; &nbsp; XONALAR</p>
+      <h1>Xonalar va Lyukslar</h1>
     </div>
   </section>
 
@@ -48,19 +50,26 @@
               <h3><a href="{% url 'rooms:detail' room.pk %}" style="color: inherit; text-decoration: none;">{{ room.title }}</a></h3>
               <div class="room-price">
                 <span class="price">${{ room.price }}</span>
-                <span class="night">per night</span>
+                <span class="night">/ tun</span>
               </div>
               <ul>
-                <li><span>Max:</span> {{ room.max_persons }} Persons</li>
-                <li><span>Size:</span> {{ room.size }} m2</li>
-                <li><span>View:</span> {{ room.view }}</li>
-                <li><span>Bed:</span> {{ room.bed }}</li>
+                <li><span>Sig'imi:</span> {{ room.max_persons }} kishi</li>
+                <li><span>Maydoni:</span> {{ room.size }} m²</li>
+                <li><span>Manzara:</span> {{ room.view }}</li>
+                <li><span>Yotoq:</span> {{ room.bed }}</li>
               </ul>
-              <a href="{% url 'book:book_room' room.pk %}" class="book-btn">Book Now <i class="fa-solid fa-arrow-right-long"></i></a>
+              <a href="{% url 'book:book_room' room.pk %}" class="book-btn">Band Qilish <i class="fa-solid fa-arrow-right-long"></i></a>
             </div>
           </div>
         {% empty %}
-          <p style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #888;">Xonalar topilmadi.</p>
+          <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; background: #fff; border-radius: 8px; border: 1px dashed #ddd;">
+            <i class="fa-solid fa-bed" style="font-size: 40px; color: #c19b76; margin-bottom: 15px;"></i>
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 22px; color: #222; margin-bottom: 8px;">Kechirasiz, xonalar topilmadi</h3>
+            <p style="color: #777; font-size: 14px; margin-bottom: 20px;">Qidiruv mezonlarini o'zgartirib ko'ring yoki barcha xonalarni ko'ring.</p>
+            <a href="{% url 'rooms:index' %}" style="display: inline-block; background: #c19b76; color: #fff; padding: 10px 24px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 13.5px;">
+              Barcha xonalar ro'yxati
+            </a>
+          </div>
         {% endfor %}
 
         </div>
@@ -69,24 +78,24 @@
       <!-- SIDEBAR -->
       <aside class="sidebar" data-aos="fade-left">
         <div class="sidebar-box">
-          <h3>Advanced Search</h3>
+          <h3>Qidiruv va Filtr</h3>
 
           <form class="search-form" method="GET" action="{% url 'rooms:index' %}">
             <select name="room_type">
-              <option value="">Room Type</option>
+              <option value="">Barcha xona toifalari</option>
               {% for rt in all_room_types %}
                 <option value="{{ rt }}" {% if request.GET.room_type == rt %}selected{% endif %}>{{ rt }}</option>
               {% endfor %}
             </select>
 
             <select name="adults">
-              <option value="">All Guests</option>
-              <option value="1 Adult" {% if request.GET.adults == "1 Adult" %}selected{% endif %}>1 Adult</option>
-              <option value="2 Adult" {% if request.GET.adults == "2 Adult" %}selected{% endif %}>2 Adult</option>
-              <option value="3 Adult" {% if request.GET.adults == "3 Adult" %}selected{% endif %}>3 Adult</option>
-              <option value="4 Adult" {% if request.GET.adults == "4 Adult" %}selected{% endif %}>4 Adult</option>
-              <option value="5 Adult" {% if request.GET.adults == "5 Adult" %}selected{% endif %}>5 Adult</option>
-              <option value="6 Adult" {% if request.GET.adults == "6 Adult" %}selected{% endif %}>6 Adult</option>
+              <option value="">Barcha mehmonlar</option>
+              <option value="1 kishi" {% if request.GET.adults == "1 kishi" %}selected{% endif %}>1 kishi</option>
+              <option value="2 kishi" {% if request.GET.adults == "2 kishi" %}selected{% endif %}>2 kishi</option>
+              <option value="3 kishi" {% if request.GET.adults == "3 kishi" %}selected{% endif %}>3 kishi</option>
+              <option value="4 kishi" {% if request.GET.adults == "4 kishi" %}selected{% endif %}>4 kishi</option>
+              <option value="5 kishi" {% if request.GET.adults == "5 kishi" %}selected{% endif %}>5 kishi</option>
+              <option value="6 kishi" {% if request.GET.adults == "6 kishi" %}selected{% endif %}>6+ kishi</option>
             </select>
 
             <div class="range-box">
@@ -95,19 +104,32 @@
               <input type="number" name="max_price" placeholder="Max $" value="{{ request.GET.max_price }}">
             </div>
 
-            <button type="submit">Search</button>
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i> Qidirish</button>
+            {% if request.GET.room_type or request.GET.adults or request.GET.min_price or request.GET.max_price %}
+              <a href="{% url 'rooms:index' %}" style="display: block; text-align: center; margin-top: 10px; font-size: 13px; color: #888; text-decoration: underline;">Filtrni tozalash</a>
+            {% endif %}
           </form>
         </div>
 
         <div class="sidebar-box">
-          <h3>Star Rating</h3>
-          <div class="rating-list">
-            <label><input type="checkbox"> <span>★★★★★</span></label>
-            <label><input type="checkbox"> <span>★★★★☆</span></label>
-            <label><input type="checkbox"> <span>★★★☆☆</span></label>
-            <label><input type="checkbox"> <span>★★☆☆☆</span></label>
-            <label><input type="checkbox"> <span>★☆☆☆☆</span></label>
-          </div>
+          <h3>Eksklyuziv Qulayliklar</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: #555;">
+            <li style="display: flex; align-items: center; gap: 10px;">
+              <i class="fa-solid fa-circle-check" style="color: #c19b76;"></i> 24/7 Resepshn va konsyerj
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px;">
+              <i class="fa-solid fa-circle-check" style="color: #c19b76;"></i> Yuqori tezlikdagi bepul Wi-Fi
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px;">
+              <i class="fa-solid fa-circle-check" style="color: #c19b76;"></i> Nonushta (Shved stoli)
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px;">
+              <i class="fa-solid fa-circle-check" style="color: #c19b76;"></i> Bepul avtoturargoh
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px;">
+              <i class="fa-solid fa-circle-check" style="color: #c19b76;"></i> Aeroport VIP transfer xizmati
+            </li>
+          </ul>
         </div>
       </aside>
 

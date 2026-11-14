@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1200" />
-    <title>Deluxe Hotel</title>
+    <title>{% block title %}Deluxe Hotel &amp; Resort — 5 Yulduzli Hashamatli Mehmonxona{% endblock %}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}" />
+    <link rel="alternate icon" type="image/png" href="{% static 'images/favicon.svg' %}" />
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">

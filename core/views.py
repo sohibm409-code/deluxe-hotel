@@ -74,6 +74,18 @@ def service_request_view(request):
             description="\n".join(details),
         )
 
+        try:
+            from .telegram import notify_telegram
+            notify_telegram(
+                f"🛎 <b>Yangi Xizmat So'rovi ({service_type})!</b>\n\n"
+                f"👤 <b>Ism:</b> {name}\n"
+                f"📞 <b>Telefon:</b> {phone}\n"
+                f"📧 <b>Email:</b> {email or 'Kiritilmagan'}\n"
+                f"📋 <b>Tafsilotlar:</b>\n" + "\n".join(details)
+            )
+        except Exception:
+            pass
+
         return JsonResponse({
             "status": "ok",
             "message": "Buyurtmangiz muvaffaqiyatli qabul qilindi! Menejerimiz tez orada siz bilan bog'lanadi."
@@ -113,6 +125,17 @@ def submit_testimonial_view(request):
             is_active=True,
             order=0,
         )
+
+        try:
+            from .telegram import notify_telegram
+            notify_telegram(
+                f"⭐ <b>Yangi Mehmon Fikri (Sayt orqali)!</b>\n\n"
+                f"👤 <b>Ism:</b> {name} ({role})\n"
+                f"⭐ <b>Reyting:</b> {'★' * rating} ({rating}/5)\n"
+                f"💬 <b>Fikr:</b>\n{content}"
+            )
+        except Exception:
+            pass
 
         return JsonResponse({
             "status": "ok",

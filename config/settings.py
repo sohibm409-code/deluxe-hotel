@@ -231,5 +231,12 @@ UNFOLD = {
     },
 }
 
+# ==============================================================================
+# TELEGRAM BOT NOTIFICATIONS
+# ==============================================================================
+# Yangi buyurtmalar (Xona, Stol, VIP Transfer, Xabar) haqida Telegramga xabar yuborish
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_ADMIN_CHAT_ID = os.getenv("TELEGRAM_ADMIN_CHAT_ID", "")
+
 
 
