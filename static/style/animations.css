@@ -1,0 +1,259 @@
+/* ========================================================
+   DELUXE HOTEL - LUXURY ANIMATIONS & TRANSITIONS
+   ======================================================== */
+
+/* 1. LUXURY PRELOADER */
+.page-preloader {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  background: #111111;
+  z-index: 9999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: all;
+}
+
+.page-preloader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preloader-logo {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #c19b76;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  animation: preloaderPulse 1.4s ease-in-out infinite alternate;
+}
+
+.preloader-sub {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 25px;
+}
+
+.preloader-bar-wrap {
+  width: 140px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.preloader-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 40%;
+  background: linear-gradient(90deg, #c19b76, #e5cfb5, #c19b76);
+  border-radius: 2px;
+  animation: preloaderBar 1.2s infinite ease-in-out;
+}
+
+@keyframes preloaderPulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes preloaderBar {
+  0% {
+    left: -40%;
+  }
+  50% {
+    left: 40%;
+    width: 60%;
+  }
+  100% {
+    left: 100%;
+    width: 40%;
+  }
+}
+
+
+/* 2. CINEMATIC HERO ENTRANCE ANIMATIONS */
+/* Background Ken-Burns subtle zoom on entrance */
+.hero,
+.rooms-hero,
+.restaurant-hero,
+.about-hero,
+.contact-hero,
+.blog-hero,
+.status-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before,
+.rooms-hero::before,
+.restaurant-hero::before,
+.about-hero::before,
+.contact-hero::before,
+.blog-hero::before,
+.status-hero::before {
+  content: "";
+  position: absolute;
+  inset: -15px;
+  background: inherit;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  animation: heroKenBurns 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  will-change: transform;
+}
+
+.hero > *,
+.rooms-hero > *,
+.restaurant-hero > *,
+.about-hero > *,
+.contact-hero > *,
+.blog-hero > *,
+.status-hero > * {
+  position: relative;
+  z-index: 3;
+}
+
+@keyframes heroKenBurns {
+  0% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Staggered Hero Typography Entrance */
+.hero__welcome,
+.hero-subtitle,
+.status-hero p {
+  opacity: 0;
+  animation: heroFadeDown 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s forwards;
+}
+
+.hero__title,
+.hero-content h1,
+.status-hero h1 {
+  opacity: 0;
+  animation: heroFadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
+}
+
+.hero__sub,
+.hero-content p,
+.hero-stats {
+  opacity: 0;
+  animation: heroFadeUp 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.45s forwards;
+}
+
+.hero__link,
+.hero .booking,
+.search-box-card {
+  opacity: 0;
+  animation: heroFadeUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s forwards;
+}
+
+@keyframes heroFadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* 3. CARD HOVER & INTERACTIVE EFFECTS */
+.room-card,
+.menu-item,
+.service-item,
+.about-card,
+.info-card,
+.blog-card,
+.booking-card {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+.room-card:hover,
+.about-card:hover,
+.info-card:hover,
+.blog-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Image zoom inside cards */
+.room-card__img,
+.room-card img,
+.blog-card img,
+.about-image img,
+.about__img {
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+.room-card:hover .room-card__img,
+.room-card:hover img,
+.blog-card:hover img {
+  transform: scale(1.04) !important;
+}
+
+/* Button Pulse/Glow */
+.nav__btn,
+.btn-book-now,
+.booking__btn,
+.btn-reserve-submit {
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+.nav__btn:hover,
+.btn-book-now:hover,
+.btn-reserve-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(193, 155, 118, 0.4);
+}
+
+/* Floating elements */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}

@@ -29,7 +29,7 @@
         <div class="rooms-grid">
 
         {% for room in rooms %}
-          <div class="room-card">
+          <div class="room-card" data-aos="fade-up" data-aos-delay="{% cycle '100' '200' '300' %}">
             <a href="{% url 'rooms:detail' room.pk %}">
               <img src="{{ room.get_display_image }}" alt="{{ room.title }}">
             </a>
@@ -56,7 +56,7 @@
       </div>
 
       <!-- SIDEBAR -->
-      <aside class="sidebar">
+      <aside class="sidebar" data-aos="fade-left">
         <div class="sidebar-box">
           <h3>Advanced Search</h3>
 

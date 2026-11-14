@@ -144,7 +144,7 @@
 
   <!-- ABOUT RESTAURANT -->
   <section class="restaurant-about">
-    <div class="container about-wrapper">
+    <div class="container about-wrapper" data-aos="fade-up">
       <div class="about-image">
         <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=80"
           alt="Restaurant interior">
@@ -186,7 +186,7 @@
       <div class="menu-grid" id="menu-items-grid">
         {% if menu_items %}
           {% for item in menu_items %}
-            <article class="menu-item menu-card cat-{{ item.category.id }}">
+            <article class="menu-item menu-card cat-{{ item.category.id }}" data-aos="fade-up" data-aos-delay="{% cycle '100' '200' %}">
               <img src="{{ item.get_display_image }}" alt="{{ item.title }}">
               <div class="menu-item__content">
                 <div class="menu-top">
@@ -253,7 +253,7 @@
         <p>Restoranimizda yoqimli oqshom o'tkazish uchun oldindan stol band qiling. So'rovingiz qabul qilingach, administratorimiz tasdiqlaydi.</p>
       </div>
 
-      <div class="reservation-form">
+      <div class="reservation-form" data-aos="zoom-in">
         <form method="POST" action="{% url 'restaurant:index' %}">
           {% csrf_token %}
           <div class="res-grid">

@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="{% static 'style/style.css' %}?v=2" />
     <link rel="stylesheet" href="{% static 'style/footer.css' %}?v=2" />
     <link rel="stylesheet" href="{% static 'style/media.css' %}?v=2" />
+    <link rel="stylesheet" href="{% static 'style/animations.css' %}?v=1" />
+    <!-- AOS Scroll Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     {% block extra_css %}
     {% endblock %}
 
@@ -173,6 +176,17 @@
     </style>
 </head>
 <body>
+   <!-- Luxury Preloader -->
+   <div id="page-preloader" class="page-preloader">
+     <div class="preloader-content">
+       <div class="preloader-logo">Deluxe</div>
+       <div class="preloader-sub">Hotels &amp; Resorts</div>
+       <div class="preloader-bar-wrap">
+         <div class="preloader-bar"></div>
+       </div>
+     </div>
+   </div>
+
    {% if messages %}
      <div class="toast-container" id="toast-container">
        {% for message in messages %}
@@ -288,5 +302,54 @@
     </div>
   </footer>
 
+  <!-- AOS (Animate On Scroll) JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    // Smooth Preloader Handler
+    function dismissPreloader() {
+      var p = document.getElementById('page-preloader');
+      if (p && !p.classList.contains('loaded')) {
+        p.classList.add('loaded');
+      }
+    }
+
+    window.addEventListener('load', function() {
+      setTimeout(dismissPreloader, 200);
+    });
+    // Safety fallback
+    setTimeout(dismissPreloader, 1000);
+
+    // Page link transition & AOS init
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          duration: 800,
+          easing: 'ease-out-cubic',
+          once: true,
+          offset: 50
+        });
+      }
+
+      var links = document.querySelectorAll('a[href]');
+      links.forEach(function(link) {
+        var href = link.getAttribute('href');
+        if (
+          href &&
+          href.startsWith('/') &&
+          !href.startsWith('/#') &&
+          !href.startsWith('/super/admin') &&
+          link.target !== '_blank'
+        ) {
+          link.addEventListener('click', function(e) {
+            if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+            var p = document.getElementById('page-preloader');
+            if (p) {
+              p.classList.remove('loaded');
+            }
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>

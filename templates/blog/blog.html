@@ -22,7 +22,7 @@
       <div class="blog-grid">
 
         {% for post in blogs %}
-        <article class="blog-card">
+        <article class="blog-card" data-aos="fade-up" data-aos-delay="{% cycle '100' '200' '300' %}">
           <div class="blog-image">
             <a href="{% url 'blog:blog_detail' post.pk %}">
               <img src="{{ post.get_display_image }}" alt="{{ post.full_name }}">
