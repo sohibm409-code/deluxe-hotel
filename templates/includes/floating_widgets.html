@@ -1,0 +1,87 @@
+<!-- ========================================================
+     DELUXE HOTEL - FLOATING QUICK WIDGETS
+     ======================================================== -->
+
+<!-- 1. FLOATING SPEED DIAL (QUICK CONTACT) -->
+<div class="floating-speed-dial" id="floatingSpeedDial">
+  <button type="button" class="speed-dial-trigger" onclick="toggleSpeedDial()" aria-label="Tezkor Aloqa" title="Tezkor Aloqa">
+    <i class="fa-solid fa-headset icon-open"></i>
+    <i class="fa-solid fa-xmark icon-close"></i>
+  </button>
+
+  <div class="speed-dial-menu">
+    <!-- Telegram Chat -->
+    <a href="https://t.me/deluxe_hotel_resort" target="_blank" class="speed-dial-item" title="Telegram orqali bog'lanish">
+      <span class="speed-dial-tooltip">Telegram Chat</span>
+      <span class="speed-dial-btn btn-telegram">
+        <i class="fa-brands fa-telegram"></i>
+      </span>
+    </a>
+
+    <!-- Direct Phone Call -->
+    <a href="tel:+998940550855" class="speed-dial-item" title="To'g'ridan-to'g'ri qo'ng'iroq">
+      <span class="speed-dial-tooltip">Qo'ng'iroq: +998 (94) 055-08-55</span>
+      <span class="speed-dial-btn btn-phone">
+        <i class="fa-solid fa-phone"></i>
+      </span>
+    </a>
+
+    <!-- VIP Transfer Modal -->
+    <button type="button" class="speed-dial-item" onclick="openServiceModal('modal-transfer'); toggleSpeedDial();" title="VIP Transfer buyurtma qilish">
+      <span class="speed-dial-tooltip">VIP Transfer buyurtma</span>
+      <span class="speed-dial-btn btn-transfer">
+        <i class="fa-solid fa-car-side"></i>
+      </span>
+    </button>
+
+    <!-- 24/7 Reception Modal -->
+    <button type="button" class="speed-dial-item" onclick="openServiceModal('modal-reception'); toggleSpeedDial();" title="24/7 Resepshn & Qabulxona">
+      <span class="speed-dial-tooltip">24/7 Resepshn</span>
+      <span class="speed-dial-btn btn-reception">
+        <i class="fa-solid fa-bell-concierge"></i>
+      </span>
+    </button>
+  </div>
+</div>
+
+<!-- 2. BACK TO TOP BUTTON -->
+<button type="button" class="back-to-top-btn" id="backToTopBtn" onclick="scrollToTop()" aria-label="Yuqoriga qaytish" title="Yuqoriga qaytish">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script>
+  function toggleSpeedDial() {
+    var dial = document.getElementById('floatingSpeedDial');
+    if (dial) {
+      dial.classList.toggle('open');
+    }
+  }
+
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  // Scroll listener for Back to Top button
+  window.addEventListener('scroll', function() {
+    var btn = document.getElementById('backToTopBtn');
+    if (!btn) return;
+    if (window.scrollY > 350) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+
+  // Close speed dial when clicking outside
+  document.addEventListener('click', function(e) {
+    var dial = document.getElementById('floatingSpeedDial');
+    if (dial && dial.classList.contains('open')) {
+      if (!dial.contains(e.target)) {
+        dial.classList.remove('open');
+      }
+    }
+  });
+</script>

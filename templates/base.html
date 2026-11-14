@@ -251,60 +251,81 @@
 
         {%  endblock %}
     </div>
- <footer class="footer" id="footer">
+  <footer class="footer" id="footer">
     <div class="container">
       <div class="footer__grid">
         <div class="footer__col">
           <h3>Deluxe Hotel</h3>
           <p>
-            Far far away, behind the word mountains, far from the countries
-            Vokalia and Consonantia, there live the blind texts.
+            Toshkentning qoq markazida joylashgan 5 yulduzli hashamat maskani. Biz har bir mehmonimizga shohona qulaylik, sharqona mehmondo‘stlik va unutilmas xotiralarni taqdim etamiz.
           </p>
           <div class="footer__socials">
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://t.me/deluxe_hotel_resort" target="_blank" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+            <a href="https://instagram.com/deluxe_hotel_tashkent" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://facebook.com/deluxehoteltashkent" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://youtube.com/@deluxe_hotel" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
           </div>
         </div>
 
         <div class="footer__col">
-          <h3>Useful Links</h3>
+          <h3>Foydali Havolalar</h3>
           <ul>
-            <li><a href="{% url 'rooms:index' %}">Rooms & Suites</a></li>
-            <li><a href="{% url 'restaurant:index' %}">Restaurant & Menu</a></li>
-            <li><a href="{% url 'book:status' %}">Check Booking Status</a></li>
-            <li><a href="{% url 'blog:blog' %}">Hotel Blog</a></li>
+            <li><a href="{% url 'rooms:index' %}">Xonalar va Lyukslar</a></li>
+            <li><a href="{% url 'restaurant:index' %}">Restoran &amp; Menyu</a></li>
+            <li><a href="{% url 'book:status' %}">Bron holatini tekshirish</a></li>
+            <li><a href="{% url 'blog:blog' %}">Mehmonxona Blogi</a></li>
+            <li><a href="{% url 'book:create' %}">Xona band qilish</a></li>
           </ul>
         </div>
 
         <div class="footer__col">
-          <h3>Deluxe Services</h3>
+          <h3>Eksklyuziv Xizmatlar</h3>
           <ul>
-            <li><a href="{% url 'core:about' %}">About Our Hotel</a></li>
-            <li><a href="{% url 'contact:index' %}">Contact Us</a></li>
-            <li><a href="{% url 'restaurant:index' %}#reserve-table">Table Reservation</a></li>
-            <li><a href="{% url 'book:create' %}">Book a Room</a></li>
+            <li><a href="{% url 'core:about' %}">Mehmonxona haqida</a></li>
+            <li><a href="javascript:void(0)" onclick="openServiceModal('modal-reception')">24/7 Resepshn &amp; Konsyerj</a></li>
+            <li><a href="javascript:void(0)" onclick="openServiceModal('modal-transfer')">VIP Transfer buyurtma</a></li>
+            <li><a href="{% url 'restaurant:index' %}#reserve-table">Restoranda stol band qilish</a></li>
+            <li><a href="{% url 'contact:index' %}">Biz bilan bog'lanish</a></li>
           </ul>
         </div>
 
         <div class="footer__col">
-          <h3>Have a Questions?</h3>
+          <h3>Bog'lanish Ma'lumotlari</h3>
           <ul>
-            <li><i class="fa-solid fa-location-dot"></i> 203 Fake St. Mountain View, San Francisco, California, USA</li>
-            <li><i class="fa-solid fa-phone"></i> +998 94 055 08 55</li>
-            <li><i class="fa-solid fa-envelope"></i> sohibm@gmail.com</li>
+            <li><i class="fa-solid fa-location-dot"></i> Toshkent sh., Amir Temur shoh ko'chasi, 45-uy</li>
+            <li><i class="fa-solid fa-phone"></i> <a href="tel:+998940550855">+998 (94) 055-08-55</a></li>
+            <li><i class="fa-solid fa-envelope"></i> <a href="mailto:info@deluxe-hotel.uz">info@deluxe-hotel.uz</a></li>
+            <li><i class="fa-solid fa-clock"></i> 24/7 Kechayu-kunduz xizmat</li>
           </ul>
         </div>
       </div>
 
-      <div class="footer__bottom">
-        Copyright © All rights reserved | Deluxe Clone
+      <!-- Payment & Security Strip -->
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 25px 0 15px; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 35px; flex-wrap: wrap; gap: 16px;">
+        <div style="display: flex; align-items: center; gap: 12px; font-size: 13px; color: rgba(255, 255, 255, 0.65);">
+          <span>Qabul qilinadigan to'lovlar:</span>
+          <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; color: #fff; font-weight: 600; font-size: 11.5px;">UzCard</span>
+          <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; color: #fff; font-weight: 600; font-size: 11.5px;">Humo</span>
+          <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; color: #fff; font-weight: 600; font-size: 11.5px;">Visa</span>
+          <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; color: #fff; font-weight: 600; font-size: 11.5px;">MasterCard</span>
+          <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; color: #fff; font-weight: 600; font-size: 11.5px;">Naqd</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #c19b76;">
+          <i class="fa-solid fa-shield-halved"></i> 100% Xavfsiz bron qilish tizimi
+        </div>
+      </div>
+
+      <div class="footer__bottom" style="padding-top: 15px; border-top: none;">
+        Copyright © 2026 Deluxe Hotel &amp; Resort. Barcha huquqlar himoyalangan.
       </div>
     </div>
   </footer>
 
-  <!-- Service Interactive Modals (Reception, Transfer, Spa) -->
+  <!-- Service Interactive Modals (Reception, Transfer, Video) -->
   {% include 'includes/service_modals.html' %}
+
+  <!-- Floating Quick Widgets (Speed Dial + Back to Top) -->
+  {% include 'includes/floating_widgets.html' %}
 
   <!-- AOS (Animate On Scroll) JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>

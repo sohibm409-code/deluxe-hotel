@@ -255,92 +255,78 @@
       </div>
     </section>
 
-    <section class="stats">
+    <section class="stats" id="statsSection">
       <div class="stats__overlay"></div>
       <div class="container">
         <div class="stats__grid">
           {% for stat in stats %}
           <div class="stat" data-aos="zoom-in" data-aos-delay="{% cycle '100' '200' '300' '400' %}">
-            <h3>{{ stat.value }}</h3>
+            <h3 class="stat-counter" data-target="{{ stat.value }}">0</h3>
             <p>{{ stat.title }}</p>
           </div>
           {% empty %}
           <div class="stat">
-            <h3>25K+</h3>
-            <p>Happy Guests</p>
+            <h3 class="stat-counter" data-target="25000">25,000+</h3>
+            <p>Mamnun Mehmonlar</p>
           </div>
           <div class="stat">
-            <h3>60</h3>
-            <p>Rooms</p>
+            <h3 class="stat-counter" data-target="60">60</h3>
+            <p>Hashamatli Xonalar</p>
           </div>
           <div class="stat">
-            <h3>45</h3>
-            <p>Staffs</p>
+            <h3 class="stat-counter" data-target="85">85+</h3>
+            <p>Professional Xodimlar</p>
           </div>
           <div class="stat">
-            <h3>12</h3>
-            <p>Destination</p>
+            <h3 class="stat-counter" data-target="15">15+</h3>
+            <p>Yillik Tajriba</p>
           </div>
           {% endfor %}
         </div>
       </div>
     </section>
 
-    <section class="testimonial section">
+    <section class="testimonial section" id="testimonials">
       <div class="container">
+        <div class="section__head center" data-aos="fade-up" style="margin-bottom: 45px;">
+          <span class="section__sub">MEHMONLARIMIZ FIKRLARI</span>
+          <h2 class="section__title">Mijozlarimiz Nima Deydi?</h2>
+        </div>
+
         <div class="testimonial__grid">
           {% for testimonial in testimonials %}
-          <article class="testimonial__card" data-aos="fade-up" data-aos-delay="{% cycle '100' '200' '300' %}">
+          <article class="testimonial__card" data-aos="fade-up" data-aos-delay="{% cycle '100' '200' '300' '400' %}">
+            <div style="color: #ffb703; font-size: 14px; margin-bottom: 12px; display: flex; gap: 4px;">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
             <p>
-              {{ testimonial.content }}
+              "{{ testimonial.content }}"
             </p>
             <div class="testimonial__user">
               <img src="{{ testimonial.get_display_image }}" alt="{{ testimonial.name }}">
               <div>
-                <h4>{{ testimonial.name }}</h4>
+                <h4>{{ testimonial.name }} <i class="fa-solid fa-circle-check" style="color: #25d366; font-size: 13px;" title="Tasdiqlangan mehmon"></i></h4>
                 <span>{{ testimonial.role }}</span>
               </div>
             </div>
           </article>
           {% empty %}
           <article class="testimonial__card">
-            <p>
-              A small river named Duden flows by their place and supplies it with
-              the necessary regelialia. It is a paradisematic country.
-            </p>
-            <div class="testimonial__user">
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Nathan Smith">
-              <div>
-                <h4>Nathan Smith</h4>
-                <span>Guests</span>
-              </div>
+            <div style="color: #ffb703; font-size: 14px; margin-bottom: 12px; display: flex; gap: 4px;">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </div>
-          </article>
-
-          <article class="testimonial__card">
             <p>
-              A small river named Duden flows by their place and supplies it with
-              the necessary regelialia. It is a paradisematic country.
+              "Poytaxtdagi eng shinam va xizmat sifati yuqori bo'lgan mehmonxona. Xonalarning tozaligi va restoran taomlari a'lo darajada!"
             </p>
             <div class="testimonial__user">
-              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Nathan Smith">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Alisher Usmonov">
               <div>
-                <h4>Nathan Smith</h4>
-                <span>Guests</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="testimonial__card">
-            <p>
-              A small river named Duden flows by their place and supplies it with
-              the necessary regelialia. It is a paradisematic country.
-            </p>
-            <div class="testimonial__user">
-              <img src="https://randomuser.me/api/portraits/men/51.jpg" alt="Nathan Smith">
-              <div>
-                <h4>Nathan Smith</h4>
-                <span>Guests</span>
+                <h4>Alisher Usmonov <i class="fa-solid fa-circle-check" style="color: #25d366; font-size: 13px;"></i></h4>
+                <span>Tadbirkor, Toshkent</span>
               </div>
             </div>
           </article>
@@ -348,6 +334,97 @@
         </div>
       </div>
     </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq section" id="faq" style="background: #ffffff; padding: 90px 0;">
+      <div class="container" style="max-width: 960px; margin: 0 auto;">
+        <div class="section__head center" data-aos="fade-up" style="margin-bottom: 45px;">
+          <span class="section__sub">SAVOLLAR VA JAVOBLAR</span>
+          <h2 class="section__title">Ko‘p Beriladigan Savollar (FAQ)</h2>
+        </div>
+
+        <div class="faq-accordion" data-aos="fade-up">
+          <!-- FAQ 1 -->
+          <div class="faq-item active">
+            <button type="button" class="faq-question" onclick="toggleFaq(this)">
+              <span><i class="fa-regular fa-clock" style="color: #c19b76; margin-right: 10px;"></i> Check-in va Check-out vaqtlari qanday belgilangan?</span>
+              <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-answer">
+              Xonaga kirish (Check-in) soat <strong>14:00</strong> dan boshlanadi, xonani topshirish (Check-out) esa soat <strong>12:00</strong> gacha amalga oshiriladi. Agar siz erta kelishingiz yoki kechroq ketishingiz kerak bo'lsa, xonalar mavjudligiga qarab 24/7 qabulxonamiz bilan kelishilgan holda bepul yoki qo'shimcha qulaylik bilan ruxsat beriladi.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question" onclick="toggleFaq(this)">
+              <span><i class="fa-solid fa-utensils" style="color: #c19b76; margin-right: 10px;"></i> Nonushta xona narxiga kiritilganmi va qaysi vaqtda beriladi?</span>
+              <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-answer">
+              Ha, Deluxe Hotelning barcha xonalar toifasi uchun shohona <strong>shved stoli (Buffet)</strong> nonushtasi narxga to'liq kiritilgan. Nonushta har kuni erta tong soat <strong>07:00 dan 10:30 gacha</strong> asosiy restoranimizda tortiladi. Istasangiz, xonangizga ham bepul eltib beriladi (Room Service).
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question" onclick="toggleFaq(this)">
+              <span><i class="fa-solid fa-credit-card" style="color: #c19b76; margin-right: 10px;"></i> Qanday to‘lov usullari qabul qilinadi?</span>
+              <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-answer">
+              Biz barcha ommabop to'lov tizimlarini qabul qilamiz: <strong>UzCard, Humo, Visa, MasterCard, Mir</strong> bank kartalari hamda milliy valyuta (so'm) yoki erkin konvertatsiya qilinadigan valyutalar orqali naqd to'lov. Saytimiz orqali band qilganda hech qanday ortiqcha komissiya olinmaydi.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question" onclick="toggleFaq(this)">
+              <span><i class="fa-solid fa-car-side" style="color: #c19b76; margin-right: 10px;"></i> Aeroport yoki vokzaldan transfer qanday buyurtma qilinadi?</span>
+              <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-answer">
+              Mehmonxonamiz shaxsiy biznes-klass avtoparkiga (Mercedes E-Class, VIP Minivan Mercedes V-Class, Executive SUV) ega. Saytimizdagi <a href="javascript:void(0)" onclick="openServiceModal('modal-transfer')" style="color: #c19b76; font-weight: 600; text-decoration: underline;">Transfer buyurtma oynasi</a> orqali yoki resepshnga qo'ng'iroq qilib samolyot reysi raqamini aytsangiz, shaxsiy haydovchimiz sizni ismingiz yozilgan planshet bilan kutib oladi.
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question" onclick="toggleFaq(this)">
+              <span><i class="fa-solid fa-children" style="color: #c19b76; margin-right: 10px;"></i> Bolalar bilan tashrif buyurganda shartlar qanaqa?</span>
+              <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-answer">
+              <strong>6 yoshgacha</strong> bo'lgan bolalar ota-onasi bilan alohida o'rin talab qilinmagan holda mutlaqo <strong>bepul</strong> istiqomat qilishadi. Shuningdek, talabingizga binoan xonaga bepul chaqaloqlar uchun qulay karavotcha (Baby cot) o'rnatib beriladi.
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item">
+            <button type="button" class="faq-question" onclick="toggleFaq(this)">
+              <span><i class="fa-solid fa-calendar-xmark" style="color: #c19b76; margin-right: 10px;"></i> Bronni bekor qilish (Cancellation policy) tartibi qanday?</span>
+              <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-answer">
+              Mehmonxonaga kelish rejalashtirilgan sanadan kamida <strong>24 soat oldin</strong> xonani bekor qilsangiz, hech qanday jarima qo'llanilmaydi va oldindan to'langan mablag' 100% qaytariladi yoki boshqa sanaga bepul ko'chiriladi.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function toggleFaq(btn) {
+        var item = btn.parentElement;
+        var allItems = document.querySelectorAll('.faq-item');
+        allItems.forEach(function(el) {
+          if (el !== item) {
+            el.classList.remove('active');
+          }
+        });
+        item.classList.toggle('active');
+      }
+    </script>
 
     <section class="blog section" id="blog">
       <div class="container">
@@ -376,30 +453,108 @@
       </div>
     </section>
 
-    <section class="instagram section">
+    <section class="instagram section" id="gallery">
       <div class="container">
-        <div class="section__head">
-          <h2 class="section__title center">Instagram</h2>
+        <div class="section__head center" data-aos="fade-up">
+          <span class="section__sub">@DELUXE_HOTEL_TASHKENT</span>
+          <h2 class="section__title center">Bizning Galereyamiz</h2>
         </div>
 
-        <div class="instagram__grid">
-          <a href="#" class="insta"><img
-              src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=700&q=80"
-              alt="Instagram photo"></a>
-          <a href="#" class="insta"><img
-              src="https://images.unsplash.com/photo-1444201983204-c43cbd584d93?auto=format&fit=crop&w=700&q=80"
-              alt="Instagram photo"></a>
-          <a href="#" class="insta"><img
-              src="https://images.unsplash.com/photo-1455587734955-081b22074882?auto=format&fit=crop&w=700&q=80"
-              alt="Instagram photo"></a>
-          <a href="#" class="insta"><img
-              src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=700&q=80"
-              alt="Instagram photo"></a>
-          <a href="#" class="insta"><img
-              src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=700&q=80"
-              alt="Instagram photo"></a>
+        <div class="instagram__grid" data-aos="fade-up">
+          <a href="https://instagram.com/deluxe_hotel_tashkent" target="_blank" class="insta" title="Instagram'da ko'rish">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=700&q=80" alt="Deluxe Room Interior">
+            <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; color: #fff; font-size: 24px;" class="insta-hover">
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+          </a>
+          <a href="https://instagram.com/deluxe_hotel_tashkent" target="_blank" class="insta" title="Instagram'da ko'rish">
+            <img src="https://images.unsplash.com/photo-1444201983204-c43cbd584d93?auto=format&fit=crop&w=700&q=80" alt="Deluxe Restaurant Terrace">
+            <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; color: #fff; font-size: 24px;" class="insta-hover">
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+          </a>
+          <a href="https://instagram.com/deluxe_hotel_tashkent" target="_blank" class="insta" title="Instagram'da ko'rish">
+            <img src="https://images.unsplash.com/photo-1455587734955-081b22074882?auto=format&fit=crop&w=700&q=80" alt="Deluxe Hotel Pool">
+            <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; color: #fff; font-size: 24px;" class="insta-hover">
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+          </a>
+          <a href="https://instagram.com/deluxe_hotel_tashkent" target="_blank" class="insta" title="Instagram'da ko'rish">
+            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=700&q=80" alt="Deluxe Suite Bedroom">
+            <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; color: #fff; font-size: 24px;" class="insta-hover">
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+          </a>
+          <a href="https://instagram.com/deluxe_hotel_tashkent" target="_blank" class="insta" title="Instagram'da ko'rish">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=700&q=80" alt="Deluxe Hotel Night View">
+            <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; opacity: 0; transition: 0.3s; color: #fff; font-size: 24px;" class="insta-hover">
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+          </a>
         </div>
       </div>
     </section>
+
+    <script>
+      // Live Stats Counter Animation
+      function animateCounters() {
+        var counters = document.querySelectorAll('.stat-counter');
+        counters.forEach(function(counter) {
+          var raw = counter.getAttribute('data-target') || '0';
+          var target = parseInt(raw.replace(/\D/g, ''), 10) || 0;
+          var isPlus = raw.includes('+') || target >= 1000;
+          var duration = 2000;
+          var startTime = null;
+
+          function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var progress = Math.min((timestamp - startTime) / duration, 1);
+            var ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+            var current = Math.floor(ease * target);
+
+            if (target >= 1000) {
+              counter.innerText = current.toLocaleString('en-US') + (isPlus ? '+' : '');
+            } else {
+              counter.innerText = current + (isPlus ? '+' : '');
+            }
+
+            if (progress < 1) {
+              window.requestAnimationFrame(step);
+            } else {
+              if (target >= 1000) {
+                counter.innerText = target.toLocaleString('en-US') + '+';
+              } else {
+                counter.innerText = target + (isPlus ? '+' : '');
+              }
+            }
+          }
+          window.requestAnimationFrame(step);
+        });
+      }
+
+      var statsSection = document.getElementById('statsSection');
+      if (statsSection && window.IntersectionObserver) {
+        var statsObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              animateCounters();
+              statsObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.25 });
+        statsObserver.observe(statsSection);
+      } else {
+        animateCounters();
+      }
+
+      // Instagram hover overlay
+      document.querySelectorAll('.insta').forEach(function(el) {
+        var hover = el.querySelector('.insta-hover');
+        if (hover) {
+          el.addEventListener('mouseenter', function() { hover.style.opacity = '1'; });
+          el.addEventListener('mouseleave', function() { hover.style.opacity = '0'; });
+        }
+      });
+    </script>
   </main>
 {%  endblock %}
