@@ -80,3 +80,48 @@ def service_request_view(request):
         })
     except Exception as e:
         return JsonResponse({"status": "error", "message": "Xatolik yuz berdi: " + str(e)}, status=500)
+
+
+@require_POST
+def submit_testimonial_view(request):
+    try:
+        name = request.POST.get("name", "").strip()
+        role = request.POST.get("role", "").strip() or "Mehmon"
+        content = request.POST.get("content", "").strip()
+        try:
+            rating = int(request.POST.get("rating", 5))
+        except (ValueError, TypeError):
+            rating = 5
+        image = request.FILES.get("image", None)
+
+        if not name or not content:
+            return JsonResponse({
+                "status": "error",
+                "message": "Iltimos, ismingiz va fikringizni kiriting."
+            }, status=400)
+
+        rating = max(1, min(5, rating))
+        avatar_url = f"https://ui-avatars.com/api/?name={name.replace(' ', '+')}&background=c19b76&color=fff&size=128"
+
+        testimonial = Testimonial.objects.create(
+            name=name,
+            role=role,
+            content=content,
+            rating=rating,
+            image=image,
+            image_url=avatar_url if not image else None,
+            is_active=True,
+            order=0,
+        )
+
+        return JsonResponse({
+            "status": "ok",
+            "message": "Katta rahmat! Fikringiz muvaffaqiyatli qabul qilindi va e'lon qilindi.",
+            "name": testimonial.name,
+            "role": testimonial.role,
+            "content": testimonial.content,
+            "rating": testimonial.rating,
+            "image": testimonial.get_display_image()
+        })
+    except Exception as e:
+        return JsonResponse({"status": "error", "message": "Xatolik yuz berdi: " + str(e)}, status=500)

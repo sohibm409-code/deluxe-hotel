@@ -179,11 +179,186 @@
   </div>
 </div>
 
+<!-- 4. GUEST REVIEW / TESTIMONIAL MODAL -->
+<div id="modal-leave-review" class="service-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="reviewModalTitle">
+  <div class="service-modal-box">
+    <div class="service-modal-header">
+      <h3 id="reviewModalTitle">
+        <i class="fa-solid fa-pen-to-square"></i> Mehmonxona Haqida Fikr Bildirish
+      </h3>
+      <button type="button" class="service-modal-close" onclick="closeServiceModal('modal-leave-review')" aria-label="Yopish">&times;</button>
+    </div>
+    <div class="service-modal-body">
+      <p style="font-size: 14px; color: #555; margin-bottom: 18px; line-height: 1.5;">
+        Sizning samimiy fikringiz biz uchun juda qadrlidir! Deluxe Hotelda o'tkazgan dam olishingiz yoki xizmat sifati haqida o'z xolis taassurotlaringizni qoldiring:
+      </p>
+
+      <form class="service-form" id="leaveReviewForm" onsubmit="handleReviewFormSubmit(event)" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div id="modal-review-alert" class="modal-feedback-alert"></div>
+
+        <!-- Star Rating Selector -->
+        <div>
+          <label class="service-form-label">Bahoyingiz (Reyting) *</label>
+          <div class="star-rating-select" id="starRatingSelect">
+            <span class="star-btn" data-val="1">★</span>
+            <span class="star-btn" data-val="2">★</span>
+            <span class="star-btn" data-val="3">★</span>
+            <span class="star-btn" data-val="4">★</span>
+            <span class="star-btn active" data-val="5">★</span>
+            <span id="starRatingText" style="font-size: 13.5px; color: #c19b76; font-weight: 600; margin-left: 10px;">5 yulduz (A'lo darajada!)</span>
+            <input type="hidden" name="rating" id="reviewRatingInput" value="5" />
+          </div>
+        </div>
+
+        <div class="form-group-row">
+          <div>
+            <label class="service-form-label">Ism va Familiyangiz *</label>
+            <input type="text" name="name" class="service-form-input" placeholder="Masalan: Sardor Rahimov" required />
+          </div>
+          <div>
+            <label class="service-form-label">Shahar yoki Maqomingiz</label>
+            <input type="text" name="role" class="service-form-input" placeholder="Masalan: Sayyoh, Toshkent" />
+          </div>
+        </div>
+
+        <div>
+          <label class="service-form-label">Fikr va taassurotlaringiz *</label>
+          <textarea name="content" rows="3" class="service-form-textarea" placeholder="Xonalar tozaligi, mehmondo'stlik, restoran va umumiy taassurotlaringiz..." required></textarea>
+        </div>
+
+        <div>
+          <label class="service-form-label">Rasmingiz yoki selfi (ixtiyoriy)</label>
+          <input type="file" name="image" accept="image/*" class="service-form-input" style="padding: 8px 12px;" />
+        </div>
+
+        <button type="submit" class="service-submit-btn">
+          <i class="fa-solid fa-paper-plane"></i> Fikrimni e'lon qilish
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
 
 <!-- =========================================================
      MODAL CONTROLLER SCRIPT
      ========================================================= -->
 <script>
+  function openReviewModal() {
+    openServiceModal('modal-leave-review');
+    initStarRating();
+  }
+
+  function initStarRating() {
+    var stars = document.querySelectorAll('#starRatingSelect .star-btn');
+    var input = document.getElementById('reviewRatingInput');
+    var label = document.getElementById('starRatingText');
+    var labels = {
+      1: "1 yulduz (Yomon)",
+      2: "2 yulduz (Qoniqarsiz)",
+      3: "3 yulduz (O'rtacha)",
+      4: "4 yulduz (Yaxshi)",
+      5: "5 yulduz (A'lo darajada!)"
+    };
+
+    function highlightStars(val) {
+      stars.forEach(function(s) {
+        var sVal = parseInt(s.getAttribute('data-val'), 10);
+        if (sVal <= val) {
+          s.classList.add('active');
+        } else {
+          s.classList.remove('active');
+        }
+      });
+      if (label && labels[val]) {
+        label.innerText = labels[val];
+      }
+    }
+
+    stars.forEach(function(star) {
+      star.onclick = function() {
+        var val = parseInt(this.getAttribute('data-val'), 10);
+        if (input) input.value = val;
+        highlightStars(val);
+      };
+    });
+  }
+
+  function handleReviewFormSubmit(event) {
+    event.preventDefault();
+    var form = event.target;
+    var btn = form.querySelector('button[type="submit"]');
+    var alertBox = document.getElementById('modal-review-alert');
+    var originalBtnText = btn.innerHTML;
+
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Yuborilmoqda...';
+
+    var formData = new FormData(form);
+
+    fetch("{% url 'core:submit_review' %}", {
+      method: "POST",
+      body: formData,
+      headers: {
+        "X-Requested-With": "XMLHttpRequest"
+      }
+    })
+    .then(function(res) {
+      return res.json().then(function(data) {
+        return { status: res.status, data: data };
+      });
+    })
+    .then(function(result) {
+      btn.disabled = false;
+      btn.innerHTML = originalBtnText;
+
+      if (result.status >= 200 && result.status < 300 && result.data.status === 'ok') {
+        alertBox.className = 'modal-feedback-alert success';
+        alertBox.innerText = result.data.message || 'Fikringiz muvaffaqiyatli qabul qilindi!';
+        
+        // Dynamically prepend to testimonial grid if on home page
+        var grid = document.querySelector('.testimonial__grid');
+        if (grid && result.data.name) {
+          var starIcons = '';
+          for (var i = 0; i < (result.data.rating || 5); i++) {
+            starIcons += '<i class="fa-solid fa-star"></i>';
+          }
+          var newCard = document.createElement('article');
+          newCard.className = 'testimonial__card';
+          newCard.style.animation = 'fadeIn 0.6s ease';
+          newCard.innerHTML = `
+            <div style="color: #ffb703; font-size: 14px; margin-bottom: 12px; display: flex; gap: 4px;">
+              ${starIcons}
+            </div>
+            <p>"${result.data.content}"</p>
+            <div class="testimonial__user">
+              <img src="${result.data.image}" alt="${result.data.name}">
+              <div>
+                <h4>${result.data.name} <i class="fa-solid fa-circle-check" style="color: #25d366; font-size: 13px;" title="Tasdiqlangan mehmon"></i></h4>
+                <span>${result.data.role}</span>
+              </div>
+            </div>
+          `;
+          grid.insertBefore(newCard, grid.firstChild);
+        }
+
+        form.reset();
+        setTimeout(function() {
+          closeServiceModal('modal-leave-review');
+        }, 2200);
+      } else {
+        alertBox.className = 'modal-feedback-alert error';
+        alertBox.innerText = (result.data && result.data.message) ? result.data.message : 'Xatolik yuz berdi. Qaytadan urinib ko\'ring.';
+      }
+    })
+    .catch(function(err) {
+      btn.disabled = false;
+      btn.innerHTML = originalBtnText;
+      alertBox.className = 'modal-feedback-alert error';
+      alertBox.innerText = 'Aloqa xatosi. Iltimos keyinroq urinib ko\'ring.';
+    });
+  }
   function openServiceModal(modalId) {
     var modal = document.getElementById(modalId);
     if (!modal) return;

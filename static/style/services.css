@@ -770,3 +770,53 @@
   border-top-color: #f7f1eb;
   transition: max-height 0.4s ease-in-out, padding 0.3s ease;
 }
+
+/* ========================================================
+   STAR RATING SELECTOR & REVIEW BUTTON STYLING
+   ======================================================== */
+.star-rating-select {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px 0 8px;
+}
+
+.star-rating-select .star-btn {
+  font-size: 30px;
+  color: #d8d0c8;
+  transition: color 0.2s ease, transform 0.2s ease;
+  user-select: none;
+}
+
+.star-rating-select .star-btn.active,
+.star-rating-select .star-btn.hover {
+  color: #ffb703;
+}
+
+.star-rating-select .star-btn:hover {
+  transform: scale(1.15);
+}
+
+.btn-leave-review {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  color: #ffffff;
+  border: none;
+  padding: 13px 30px;
+  border-radius: 30px;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(193, 155, 118, 0.35);
+  transition: all 0.3s ease;
+}
+
+.btn-leave-review:hover {
+  background: #1a1a1a;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+}
