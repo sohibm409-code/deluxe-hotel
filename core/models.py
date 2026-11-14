@@ -1,6 +1,13 @@
 from django.db import models
 
 class Service(models.Model):
+    ACTION_CHOICES = [
+        ("link", "Oddiy havola (URL / Sahifa)"),
+        ("modal_reception", "24/7 Resepshn va Qo'ng'iroq oynasi"),
+        ("modal_transfer", "Transfer buyurtma berish oynasi"),
+        ("modal_spa", "Spa & Wellness ma'lumot oynasi"),
+    ]
+
     title = models.CharField(max_length=150, verbose_name="Xizmat nomi")
     description = models.TextField(verbose_name="Tavsif")
     icon = models.CharField(
@@ -9,6 +16,11 @@ class Service(models.Model):
         verbose_name="Ikonka (FontAwesome)",
         help_text="Masalan: fa-regular fa-clock, fa-solid fa-champagne-glasses, fa-solid fa-car-side, fa-solid fa-water-ladder"
     )
+    badge = models.CharField(max_length=50, blank=True, default="", verbose_name="Belgi (Badge, masalan: 24/7, GOURMET, VIP, RELAX)")
+    action_type = models.CharField(max_length=50, choices=ACTION_CHOICES, default="link", verbose_name="Harakat turi")
+    link_url = models.CharField(max_length=255, blank=True, default="", verbose_name="Tugma havolasi (URL / tel)")
+    link_text = models.CharField(max_length=60, blank=True, default="Batafsil", verbose_name="Tugma matni")
+    features = models.TextField(blank=True, verbose_name="Qisqa afzalliklar (har bir qator alohida punkt)", help_text="Har bir afzallikni yangi qatordan yozing")
     order = models.PositiveIntegerField(default=0, verbose_name="Tartib raqami")
     is_active = models.BooleanField(default=True, verbose_name="Faol")
 
@@ -19,6 +31,11 @@ class Service(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_features_list(self):
+        if self.features:
+            return [item.strip() for item in self.features.splitlines() if item.strip()]
+        return []
 
 
 class Testimonial(models.Model):

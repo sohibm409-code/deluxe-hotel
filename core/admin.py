@@ -7,15 +7,34 @@ from .models import Service, Testimonial, HotelStat
 
 @admin.register(Service)
 class ServiceAdmin(ModelAdmin):
-    list_display = ("title", "preview_icon", "order", "display_active")
+    list_display = ("title", "badge_display", "preview_icon", "action_type", "link_text", "order", "display_active")
     list_editable = ("order",)
-    list_filter = ("is_active",)
-    search_fields = ("title", "description")
+    list_filter = ("action_type", "is_active")
+    search_fields = ("title", "description", "badge")
     ordering = ("order", "id")
+
+    fieldsets = (
+        ("Asosiy ma'lumotlar", {
+            "fields": ("title", "badge", "icon", "description", "features")
+        }),
+        ("Harakat va Tugma", {
+            "fields": ("action_type", "link_url", "link_text"),
+            "description": "Foydalanuvchi xizmat kartasidagi tugmani bosganda nima sodir bo'lishini belgilang."
+        }),
+        ("Boshqaruv", {
+            "fields": ("order", "is_active")
+        }),
+    )
 
     @display(description="Ikonka")
     def preview_icon(self, obj):
         return format_html('<i class="{}" style="font-size: 18px; color: #c19b76;"></i> <span style="font-size: 12px; color: #888;">({})</span>', obj.icon, obj.icon)
+
+    @display(description="Belgi (Badge)")
+    def badge_display(self, obj):
+        if obj.badge:
+            return format_html('<span style="background: #f7f1eb; color: #c19b76; font-weight: 600; padding: 3px 8px; border-radius: 4px; font-size: 11px;">{}</span>', obj.badge)
+        return "-"
 
     @display(description="Faolligi", label={True: "success", False: "danger"})
     def display_active(self, obj):

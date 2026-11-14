@@ -1,0 +1,344 @@
+{% load static %}
+<!-- =========================================================
+     DELUXE HOTEL - SERVICES INTERACTIVE MODALS
+     ========================================================= -->
+
+<!-- 1. 24/7 RECEPTION & CONCIERGE MODAL -->
+<div id="modal-reception" class="service-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="receptionModalTitle">
+  <div class="service-modal-box">
+    <div class="service-modal-header">
+      <h3 id="receptionModalTitle">
+        <i class="fa-regular fa-clock"></i> 24/7 Qabulxona & Konsyerj
+      </h3>
+      <button type="button" class="service-modal-close" onclick="closeServiceModal('modal-reception')" aria-label="Yopish">&times;</button>
+    </div>
+    <div class="service-modal-body">
+      <!-- Quick Contact Block -->
+      <div class="reception-contact-card">
+        <div class="reception-contact-info">
+          <h4>Kechayu-kunduz resepshn</h4>
+          <div class="phone-number">+998 (94) 055-08-55</div>
+        </div>
+        <a href="tel:+998940550855" class="reception-call-btn">
+          <i class="fa-solid fa-phone"></i> Qo'ng'iroq qilish
+        </a>
+      </div>
+
+      <!-- Quick Services List -->
+      <div class="reception-services-grid">
+        <div class="reception-service-item">
+          <i class="fa-solid fa-bell-concierge"></i>
+          <span>Konsyerj va xona xizmati</span>
+        </div>
+        <div class="reception-service-item">
+          <i class="fa-solid fa-suitcase-rolling"></i>
+          <span>Bagaj saqlash va eltish</span>
+        </div>
+        <div class="reception-service-item">
+          <i class="fa-solid fa-car"></i>
+          <span>Taksi va transfer chaqirish</span>
+        </div>
+        <div class="reception-service-item">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          <span>Tezkor check-in / check-out</span>
+        </div>
+      </div>
+
+      <!-- Callback Request Form -->
+      <form class="service-form" onsubmit="handleServiceFormSubmit(event, 'modal-reception')">
+        {% csrf_token %}
+        <input type="hidden" name="service_type" value="24/7 Resepshn va Konsyerj" />
+        
+        <div id="modal-reception-alert" class="modal-feedback-alert"></div>
+
+        <p style="font-size: 13.5px; color: #666; margin: 0 0 4px;">
+          Yoki aloqa ma'lumotlaringizni qoldiring, resepshn navbatchi xodimi 3 daqiqa ichida sizga qo'ng'iroq qiladi:
+        </p>
+
+        <div class="form-group-row">
+          <div>
+            <label class="service-form-label">Ismingiz *</label>
+            <input type="text" name="name" class="service-form-input" placeholder="Masalan: Azizbek" required />
+          </div>
+          <div>
+            <label class="service-form-label">Telefon raqamingiz *</label>
+            <input type="tel" name="phone" class="service-form-input" placeholder="+998 90 123 45 67" required />
+          </div>
+        </div>
+
+        <div>
+          <label class="service-form-label">Iltimos yoki savolingiz (ixtiyoriy)</label>
+          <textarea name="notes" rows="2" class="service-form-textarea" placeholder="Xona xizmati, uyg'otish vaqti yoki qo'shimcha so'rov..."></textarea>
+        </div>
+
+        <button type="submit" class="service-submit-btn">
+          <i class="fa-solid fa-paper-plane"></i> Murojaatni yuborish
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- 2. VIP TRANSFER BOOKING MODAL -->
+<div id="modal-transfer" class="service-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="transferModalTitle">
+  <div class="service-modal-box">
+    <div class="service-modal-header">
+      <h3 id="transferModalTitle">
+        <i class="fa-solid fa-car-side"></i> VIP Transfer Buyurtma Qilish
+      </h3>
+      <button type="button" class="service-modal-close" onclick="closeServiceModal('modal-transfer')" aria-label="Yopish">&times;</button>
+    </div>
+    <div class="service-modal-body">
+      <p style="font-size: 14px; color: #555; margin-bottom: 18px; line-height: 1.5;">
+        Aeroport yoki vokzalda shaxsiy haydovchimiz ismingiz yozilgan planshet bilan kutib oladi va hashamatli premium avtomobilda to'g'ridan-to'g'ri mehmonxonamizga eltadi.
+      </p>
+
+      <form class="service-form" onsubmit="handleServiceFormSubmit(event, 'modal-transfer')">
+        {% csrf_token %}
+        <input type="hidden" name="service_type" value="VIP Transfer Xizmati" />
+
+        <div id="modal-transfer-alert" class="modal-feedback-alert"></div>
+
+        <div class="form-group-row">
+          <div>
+            <label class="service-form-label">Ism va Familiyangiz *</label>
+            <input type="text" name="name" class="service-form-input" placeholder="Aziz Karimov" required />
+          </div>
+          <div>
+            <label class="service-form-label">Telefon raqamingiz *</label>
+            <input type="tel" name="phone" class="service-form-input" placeholder="+998 90 123 45 67" required />
+          </div>
+        </div>
+
+        <div class="form-group-row">
+          <div>
+            <label class="service-form-label">Kutib olish / Borish joyi *</label>
+            <select name="pickup" class="service-form-select" required>
+              <option value="Islom Karimov nomidagi Toshkent Xalqaro Aeroporti (TAS)">Islom Karimov Toshkent Aeroporti (TAS)</option>
+              <option value="Shimoliy Temiryo'l Vokzali (Markaziy)">Shimoliy Vokzal (Toshkent)</option>
+              <option value="Janubiy Temiryo'l Vokzali">Janubiy Vokzal</option>
+              <option value="Mehmonxonadan Aeroportga kuzatish">Mehmonxonadan Aeroportga kuzatish</option>
+              <option value="Shahar ichida shaxsiy marshrut">Shahar ichida shaxsiy marshrut</option>
+            </select>
+          </div>
+          <div>
+            <label class="service-form-label">Avtomobil toifasi *</label>
+            <select name="car_type" class="service-form-select" required>
+              <option value="Business Sedan (Mercedes E-Class / BYD Han)">Business Sedan (Mercedes E-Class / BYD)</option>
+              <option value="VIP Minivan (Mercedes V-Class, 6-7 kishi)">VIP Minivan (Mercedes V-Class, 6-7 kishi)</option>
+              <option value="Executive SUV (Lexus LX / Land Cruiser)">Executive SUV (Lexus / Land Cruiser)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group-row">
+          <div>
+            <label class="service-form-label">Kutib olish sanasi</label>
+            <input type="date" name="date" class="service-form-input" />
+          </div>
+          <div>
+            <label class="service-form-label">Taxminiy vaqt / Reys raqami</label>
+            <input type="text" name="time" class="service-form-input" placeholder="Masalan: 14:30 yoki HY-271" />
+          </div>
+        </div>
+
+        <div>
+          <label class="service-form-label">Qo'shimcha izoh yoki yo'lovchilar soni</label>
+          <textarea name="notes" rows="2" class="service-form-textarea" placeholder="Bolalar o'rindig'i, katta bagaj yoki boshqa talablar..."></textarea>
+        </div>
+
+        <button type="submit" class="service-submit-btn">
+          <i class="fa-solid fa-check"></i> Transferni tasdiqlash va so'rov yuborish
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- 3. SPA & WELLNESS MODAL -->
+<div id="modal-spa" class="service-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="spaModalTitle">
+  <div class="service-modal-box">
+    <div class="service-modal-header">
+      <h3 id="spaModalTitle">
+        <i class="fa-solid fa-water-ladder"></i> Spa & Salomatlik Markazi
+      </h3>
+      <button type="button" class="service-modal-close" onclick="closeServiceModal('modal-spa')" aria-label="Yopish">&times;</button>
+    </div>
+    <div class="service-modal-body">
+      <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80" alt="Spa & Wellness" class="spa-banner-img" />
+
+      <div class="spa-hours-box">
+        <strong>Ish tartibi:</strong> Har kuni <strong>08:00 dan 23:00 gacha</strong>.<br>
+        Mehmonxona aholisi uchun yopiq basseyn va trenajyor zali <strong>mutlaqo bepul</strong>.
+      </div>
+
+      <div class="spa-features-grid">
+        <div class="spa-feature-card">
+          <i class="fa-solid fa-person-swimming"></i>
+          <div>
+            <h5>Yopiq Isitiladigan Basseyn</h5>
+            <p>28-30°C haroratdagi suv, filtratsiya va panoramali oyna.</p>
+          </div>
+        </div>
+        <div class="spa-feature-card">
+          <i class="fa-solid fa-hot-tub-person"></i>
+          <div>
+            <h5>Fin Saunasi & Turk Hamomi</h5>
+            <p>Quruq bug' va tabiiy efir moylari bilan tozalanish.</p>
+          </div>
+        </div>
+        <div class="spa-feature-card">
+          <i class="fa-solid fa-spa"></i>
+          <div>
+            <h5>Relaks & Terapevtik Massaj</h5>
+            <p>Malakali massaj ustalaridan Shved va Tay massaji.</p>
+          </div>
+        </div>
+        <div class="spa-feature-card">
+          <i class="fa-solid fa-bath"></i>
+          <div>
+            <h5>Jakuzzi va Gidromassaj</h5>
+            <p>Mushaklar zo'riqishini yechuvchi shifobaxsh suv oqimlari.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spa Reservation Form -->
+      <form class="service-form" onsubmit="handleServiceFormSubmit(event, 'modal-spa')">
+        {% csrf_token %}
+        <input type="hidden" name="service_type" value="Spa & Salomatlik Muolajasi" />
+
+        <div id="modal-spa-alert" class="modal-feedback-alert"></div>
+
+        <div class="form-group-row">
+          <div>
+            <label class="service-form-label">Ismingiz *</label>
+            <input type="text" name="name" class="service-form-input" placeholder="Ismingiz" required />
+          </div>
+          <div>
+            <label class="service-form-label">Telefon raqamingiz *</label>
+            <input type="tel" name="phone" class="service-form-input" placeholder="+998 90 123 45 67" required />
+          </div>
+        </div>
+
+        <div class="form-group-row">
+          <div>
+            <label class="service-form-label">Xizmat turi</label>
+            <select name="notes" class="service-form-select">
+              <option value="Relaks Umumiy Massaj (60 daqiqa)">Relaks Umumiy Massaj (60 daqiqa)</option>
+              <option value="Aromaterapiya Massaji (90 daqiqa)">Aromaterapiya Massaji (90 daqiqa)</option>
+              <option value="Turk Hamomi va Kese Piling">Turk Hamomi va Kese Piling</option>
+              <option value="Fin Saunasi va Basseyn zali">Fin Saunasi va Basseyn zali</option>
+            </select>
+          </div>
+          <div>
+            <label class="service-form-label">Qulay vaqt / Sana</label>
+            <input type="text" name="time" class="service-form-input" placeholder="Masalan: Bugun soat 18:00" />
+          </div>
+        </div>
+
+        <button type="submit" class="service-submit-btn">
+          <i class="fa-solid fa-calendar-check"></i> Spa muolajasiga yozilish
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- =========================================================
+     MODAL CONTROLLER SCRIPT
+     ========================================================= -->
+<script>
+  function openServiceModal(modalId) {
+    var modal = document.getElementById(modalId);
+    if (!modal) return;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeServiceModal(modalId) {
+    var modal = document.getElementById(modalId);
+    if (!modal) return;
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    var alert = modal.querySelector('.modal-feedback-alert');
+    if (alert) {
+      alert.className = 'modal-feedback-alert';
+      alert.style.display = 'none';
+      alert.innerText = '';
+    }
+  }
+
+  // Close when clicking outside modal box
+  document.addEventListener('DOMContentLoaded', function() {
+    var overlays = document.querySelectorAll('.service-modal-overlay');
+    overlays.forEach(function(overlay) {
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+          closeServiceModal(overlay.id);
+        }
+      });
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        var activeModal = document.querySelector('.service-modal-overlay.active');
+        if (activeModal) {
+          closeServiceModal(activeModal.id);
+        }
+      }
+    });
+  });
+
+  // Handle Form Submission via AJAX
+  function handleServiceFormSubmit(event, modalId) {
+    event.preventDefault();
+    var form = event.target;
+    var btn = form.querySelector('button[type="submit"]');
+    var alertBox = document.getElementById(modalId + '-alert');
+    var originalBtnText = btn.innerHTML;
+
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Yuborilmoqda...';
+
+    var formData = new FormData(form);
+
+    fetch("{% url 'core:service_request' %}", {
+      method: "POST",
+      body: formData,
+      headers: {
+        "X-Requested-With": "XMLHttpRequest"
+      }
+    })
+    .then(function(res) {
+      return res.json().then(function(data) {
+        return { status: res.status, data: data };
+      });
+    })
+    .then(function(result) {
+      btn.disabled = false;
+      btn.innerHTML = originalBtnText;
+
+      if (result.status >= 200 && result.status < 300 && result.data.status === 'ok') {
+        alertBox.className = 'modal-feedback-alert success';
+        alertBox.innerText = result.data.message || 'Murojaatingiz muvaffaqiyatli qabul qilindi!';
+        form.reset();
+        setTimeout(function() {
+          closeServiceModal(modalId);
+        }, 2500);
+      } else {
+        alertBox.className = 'modal-feedback-alert error';
+        alertBox.innerText = (result.data && result.data.message) ? result.data.message : 'Xatolik yuz berdi. Iltimos qaytadan urinib ko\'ring.';
+      }
+    })
+    .catch(function(err) {
+      btn.disabled = false;
+      btn.innerHTML = originalBtnText;
+      alertBox.className = 'modal-feedback-alert error';
+      alertBox.innerText = 'Aloqa xatosi. Iltimos, keyinroq urinib ko\'ring yoki telefon orqali bog\'laning.';
+    });
+  }
+</script>
