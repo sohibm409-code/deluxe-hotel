@@ -513,30 +513,6 @@
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
-  .services__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .services__grid {
-    grid-template-columns: 1fr;
-  }
-  .form-group-row,
-  .reception-services-grid,
-  .spa-features-grid {
-    grid-template-columns: 1fr;
-  }
-  .reception-contact-card {
-    flex-direction: column;
-    text-align: center;
-    gap: 12px;
-  }
-  .service-modal-header {
-    padding: 18px 20px;
-  }
-  .service-modal-body {
-    padding: 20px;
-  }
+.services__grid {
+  grid-template-columns: repeat(3, 1fr) !important;
 }
