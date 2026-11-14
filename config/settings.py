@@ -23,6 +23,9 @@ DEBUG = True
 ALLOWED_HOSTS = ['*'] # Hamma hostlarga ruxsat berdik
 
 INSTALLED_APPS = [
+    'unfold',
+    'unfold.contrib.filters',
+    'unfold.contrib.forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -121,5 +124,112 @@ TELEGRAM_ADMIN_CHAT_ID = os.getenv("TELEGRAM_ADMIN_CHAT_ID", "")
 # SMS Xizmati sozlamalari (Eskiz.uz)
 ESKIZ_EMAIL = os.getenv("ESKIZ_EMAIL", "")
 ESKIZ_PASSWORD = os.getenv("ESKIZ_PASSWORD", "")
+
+# Unfold Modern Admin Dashboard sozlamalari
+UNFOLD = {
+    "SITE_TITLE": "Deluxe Hotel Admin",
+    "SITE_HEADER": "Deluxe Hotel",
+    "SITE_SUBHEADER": "Mehmonxona boshqaruv tizimi",
+    "SITE_URL": "/",
+    "SITE_SYMBOL": "hotel",
+    "SHOW_HISTORY": True,
+    "SHOW_VIEW_ON_SITE": True,
+    "COLORS": {
+        "primary": {
+            "50": "250 245 238",
+            "100": "243 234 220",
+            "200": "231 213 186",
+            "300": "216 188 147",
+            "400": "201 161 109",
+            "500": "193 155 118",
+            "600": "173 133 93",
+            "700": "144 105 76",
+            "800": "119 87 66",
+            "900": "99 73 57",
+            "950": "55 38 28",
+        },
+    },
+    "SIDEBAR": {
+        "show_search": True,
+        "show_all_applications": True,
+        "navigation": [
+            {
+                "title": "Buyurtmalar (Bookings)",
+                "separator": True,
+                "items": [
+                    {
+                        "title": "Xona bronlari",
+                        "icon": "hotel",
+                        "link": lambda request: "/super/admin/book/booking/",
+                    },
+                    {
+                        "title": "Stol bronlari",
+                        "icon": "restaurant",
+                        "link": lambda request: "/super/admin/restaurant/tablereservation/",
+                    },
+                ],
+            },
+            {
+                "title": "Mehmonxona va Xonalar",
+                "separator": True,
+                "items": [
+                    {
+                        "title": "Xonalar",
+                        "icon": "bed",
+                        "link": lambda request: "/super/admin/rooms/room/",
+                    },
+                    {
+                        "title": "Xizmatlar",
+                        "icon": "room_service",
+                        "link": lambda request: "/super/admin/core/service/",
+                    },
+                    {
+                        "title": "Mijozlar fikrlari",
+                        "icon": "reviews",
+                        "link": lambda request: "/super/admin/core/testimonial/",
+                    },
+                    {
+                        "title": "Statistika",
+                        "icon": "analytics",
+                        "link": lambda request: "/super/admin/core/hotelstat/",
+                    },
+                ],
+            },
+            {
+                "title": "Restoran va Taomlar",
+                "separator": True,
+                "items": [
+                    {
+                        "title": "Taom toifalari",
+                        "icon": "category",
+                        "link": lambda request: "/super/admin/restaurant/category/",
+                    },
+                    {
+                        "title": "Menyu taomlari",
+                        "icon": "dinner_dining",
+                        "link": lambda request: "/super/admin/restaurant/menuitem/",
+                    },
+                ],
+            },
+            {
+                "title": "Aloqa va Blog",
+                "separator": True,
+                "items": [
+                    {
+                        "title": "Blog maqolalari",
+                        "icon": "article",
+                        "link": lambda request: "/super/admin/blog/blog/",
+                    },
+                    {
+                        "title": "Murojaatlar (Contact)",
+                        "icon": "mail",
+                        "link": lambda request: "/super/admin/contact/contact/",
+                    },
+                ],
+            },
+        ],
+    },
+}
+
 
 

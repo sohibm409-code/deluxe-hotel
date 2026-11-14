@@ -1,26 +1,61 @@
 from django.contrib import admin
+from django.utils.html import format_html
+from unfold.admin import ModelAdmin
+from unfold.decorators import display
 from .models import Service, Testimonial, HotelStat
 
+
 @admin.register(Service)
-class ServiceAdmin(admin.ModelAdmin):
-    list_display = ("title", "icon", "order", "is_active")
-    list_editable = ("order", "is_active")
+class ServiceAdmin(ModelAdmin):
+    list_display = ("title", "preview_icon", "order", "display_active")
+    list_editable = ("order",)
     list_filter = ("is_active",)
     search_fields = ("title", "description")
     ordering = ("order", "id")
 
+    @display(description="Ikonka")
+    def preview_icon(self, obj):
+        return format_html('<i class="{}" style="font-size: 18px; color: #c19b76;"></i> <span style="font-size: 12px; color: #888;">({})</span>', obj.icon, obj.icon)
+
+    @display(description="Faolligi", label={True: "success", False: "danger"})
+    def display_active(self, obj):
+        return obj.is_active, "Faol" if obj.is_active else "Nofaol"
+
+
 @admin.register(Testimonial)
-class TestimonialAdmin(admin.ModelAdmin):
-    list_display = ("name", "role", "rating", "order", "is_active", "created_at")
-    list_editable = ("order", "is_active", "rating")
+class TestimonialAdmin(ModelAdmin):
+    list_display = ("preview_image", "name", "role", "rating_display", "order", "display_active", "created_at")
+    list_editable = ("order",)
     list_filter = ("is_active", "rating", "created_at")
     search_fields = ("name", "role", "content")
     ordering = ("order", "-created_at")
 
+    @display(description="Rasm")
+    def preview_image(self, obj):
+        img_url = obj.get_display_image()
+        return format_html(
+            '<img src="{}" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover;" />',
+            img_url
+        )
+
+    @display(description="Reyting")
+    def rating_display(self, obj):
+        stars = "★" * obj.rating + "☆" * (5 - obj.rating)
+        return format_html('<span style="color: #ffb703; font-size: 16px;">{}</span>', stars)
+
+    @display(description="Faolligi", label={True: "success", False: "danger"})
+    def display_active(self, obj):
+        return obj.is_active, "Faol" if obj.is_active else "Nofaol"
+
+
 @admin.register(HotelStat)
-class HotelStatAdmin(admin.ModelAdmin):
-    list_display = ("title", "value", "order", "is_active")
-    list_editable = ("value", "order", "is_active")
+class HotelStatAdmin(ModelAdmin):
+    list_display = ("title", "value", "order", "display_active")
+    list_editable = ("value", "order")
     list_filter = ("is_active",)
     search_fields = ("title",)
     ordering = ("order", "id")
+
+    @display(description="Faolligi", label={True: "success", False: "danger"})
+    def display_active(self, obj):
+        return obj.is_active, "Faol" if obj.is_active else "Nofaol"
