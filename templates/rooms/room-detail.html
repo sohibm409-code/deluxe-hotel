@@ -5,160 +5,614 @@
 <link rel="stylesheet" href="{% static 'style/rooms.css' %}">
 <style>
   .room-detail-section {
-    padding: 70px 0;
+    padding: 70px 0 100px;
+    background: #fafafa;
   }
   .room-detail-wrapper {
     display: flex;
-    gap: 40px;
+    gap: 45px;
+    align-items: flex-start;
   }
   .room-detail-main {
     flex: 2;
+    min-width: 0;
   }
   .room-detail-sidebar {
     flex: 1;
+    min-width: 320px;
+    position: sticky;
+    top: 100px;
+  }
+
+  /* PHOTO GALLERY & VIEWER */
+  .room-gallery-box {
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    margin-bottom: 35px;
+  }
+  .main-viewer-wrap {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #111;
   }
   .room-main-img {
     width: 100%;
-    height: 450px;
+    height: 100%;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 25px;
+    transition: opacity 0.35s ease-in-out, transform 0.4s ease;
   }
-  .room-detail-main h2 {
+  .viewer-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 5;
+  }
+  .viewer-nav-btn:hover {
+    background: #c19b76;
+    color: #fff;
+    transform: translateY(-50%) scale(1.08);
+  }
+  .viewer-prev { left: 16px; }
+  .viewer-next { right: 16px; }
+
+  .photo-counter-badge {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 5;
+  }
+  .photo-caption-tag {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    z-index: 5;
+    max-width: 60%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* THUMBNAILS STRIP */
+  .thumbnails-strip {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+  .thumbnails-strip::-webkit-scrollbar {
+    height: 5px;
+  }
+  .thumbnails-strip::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 4px;
+  }
+  .thumb-item {
+    width: 96px;
+    height: 68px;
+    min-width: 96px;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.25s ease;
+    opacity: 0.7;
+    position: relative;
+  }
+  .thumb-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .thumb-item:hover,
+  .thumb-item.active {
+    opacity: 1;
+    border-color: #c19b76;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(193, 155, 118, 0.3);
+  }
+
+  /* ROOM CONTENT & SPECS */
+  .room-detail-info {
+    background: #fff;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    margin-bottom: 35px;
+  }
+  .room-detail-info h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    margin-bottom: 15px;
+    font-size: 34px;
     color: #222;
+    margin-bottom: 15px;
+  }
+  .room-stars {
+    color: #ffb703;
+    font-size: 16px;
+    margin-bottom: 20px;
   }
   .room-specs {
-    display: flex;
-    gap: 25px;
-    background: #fbfbfb;
-    padding: 20px;
-    border-radius: 6px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    background: #fdfaf6;
+    padding: 22px;
+    border-radius: 8px;
     margin-bottom: 25px;
-    border: 1px solid #eee;
+    border: 1px solid #f1e7db;
   }
   .spec-item {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
   .spec-item span:first-child {
-    font-size: 13px;
+    font-size: 12px;
     color: #888;
     text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
   }
   .spec-item span:last-child {
     font-size: 16px;
     font-weight: 600;
-    color: #333;
-    margin-top: 4px;
+    color: #222;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
+  .spec-item i {
+    color: #c19b76;
+  }
+
   .room-detail-desc {
     font-size: 16px;
-    line-height: 1.8;
+    line-height: 1.85;
     color: #555;
     margin-bottom: 30px;
   }
+
+  /* AMENITIES SECTION */
+  .amenities-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #222;
+    margin: 30px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  .amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .amenity-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+  }
+  .amenity-card i {
+    color: #c19b76;
+    font-size: 18px;
+    width: 22px;
+    text-align: center;
+  }
+
+  /* PHOTO GALLERY GRID */
+  .gallery-grid-section {
+    background: #fff;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .gallery-grid-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: #222;
+    margin-bottom: 8px;
+  }
+  .gallery-grid-section p {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+  .photo-tiles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .photo-tile-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 220px;
+    cursor: pointer;
+  }
+  .photo-tile-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .photo-tile-item:hover img {
+    transform: scale(1.08);
+  }
+  .tile-caption-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.75) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.95;
+    transition: 0.3s;
+  }
+  .photo-tile-item:hover .tile-caption-overlay {
+    background: linear-gradient(180deg, transparent 20%, rgba(0,0,0,0.85) 100%);
+  }
+
+  /* SIDEBAR CARD */
   .book-card-box {
     background: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    position: sticky;
-    top: 90px;
+    padding: 35px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid #f0e6dc;
   }
   .book-card-box .price-tag {
-    font-size: 32px;
+    font-size: 38px;
     font-weight: 700;
-    color: #c5a880;
-    margin-bottom: 20px;
+    color: #c19b76;
+    margin-bottom: 8px;
+    font-family: 'Playfair Display', serif;
   }
   .book-card-box .price-tag span {
     font-size: 16px;
     color: #888;
     font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+  }
+  .book-guarantee-list {
+    margin: 25px 0;
+    padding-left: 0;
+    list-style: none;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 18px 0;
+  }
+  .book-guarantee-list li {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .book-guarantee-list li:last-child {
+    margin-bottom: 0;
+  }
+  .book-guarantee-list i {
+    color: #28a745;
   }
   .btn-book-now {
     display: block;
     text-align: center;
-    background: #c5a880;
+    background: #c19b76;
     color: #fff;
-    padding: 14px 20px;
-    border-radius: 4px;
+    padding: 16px 20px;
+    border-radius: 6px;
     font-weight: 600;
     text-transform: uppercase;
     text-decoration: none;
-    letter-spacing: 1px;
-    transition: background 0.3s;
+    letter-spacing: 1.5px;
+    font-size: 14px;
+    transition: background 0.3s, transform 0.2s;
   }
   .btn-book-now:hover {
-    background: #ab8e65;
+    background: #ab855f;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(193, 155, 118, 0.4);
+  }
+  .sidebar-help-box {
+    margin-top: 25px;
+    background: #fdfaf6;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px dashed #e2d2c1;
+  }
+  .sidebar-help-box h5 {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .sidebar-help-box a {
+    color: #c19b76;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+  }
+
+  @media (max-width: 992px) {
+    .room-detail-wrapper {
+      flex-direction: column;
+    }
+    .room-detail-sidebar {
+      width: 100%;
+      position: static;
+    }
+    .main-viewer-wrap {
+      height: 380px;
+    }
+    .amenities-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 600px) {
+    .main-viewer-wrap {
+      height: 280px;
+    }
+    .room-specs {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .photo-tiles-grid {
+      grid-template-columns: 1fr;
+    }
+    .amenities-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
 {% endblock %}
 
 {% block content %}
-  <!-- HERO -->
+  <!-- HERO SLIDER WITH ROOM PHOTOS -->
   <section class="rooms-hero">
     <div class="subpage-hero__slider">
-      <div class="subpage-hero__slide active" style="background-image: url('{{ room.get_display_image }}');"></div>
-      <div class="subpage-hero__slide" style="background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1920&q=80');"></div>
-      <div class="subpage-hero__slide" style="background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1920&q=80');"></div>
+      {% for img in room.get_all_images %}
+        <div class="subpage-hero__slide {% if forloop.first %}active{% endif %}" style="background-image: url('{{ img.url }}');"></div>
+      {% endfor %}
     </div>
     <div class="hero-overlay"></div>
     <div class="container hero-content">
-      <p class="hero-subtitle">DELUXE HOTEL &nbsp; &gt; &nbsp; ROOM DETAILS</p>
+      <p class="hero-subtitle">DELUXE HOTEL &nbsp; &gt; &nbsp; XONA TAFSILOTLARI</p>
       <h1>{{ room.title }}</h1>
     </div>
   </section>
 
   <section class="room-detail-section">
     <div class="container room-detail-wrapper">
+
+      <!-- MAIN COLUMN -->
       <div class="room-detail-main">
-        <img src="{{ room.get_display_image }}" alt="{{ room.title }}" class="room-main-img">
 
-        <h2>{{ room.title }}</h2>
+        <!-- INTERACTIVE IMAGE VIEWER -->
+        <div class="room-gallery-box" data-aos="fade-up">
+          <div class="main-viewer-wrap">
+            <img src="{{ room.get_display_image }}" alt="{{ room.title }}" id="mainViewerImg" class="room-main-img">
 
-        <div class="room-specs">
-          <div class="spec-item">
-            <span>Sig'imi</span>
-            <span><i class="fa-solid fa-user"></i> {{ room.max_persons }} kishi</span>
+            <button class="viewer-nav-btn viewer-prev" onclick="changeSlide(-1)" aria-label="Oldingi rasm">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="viewer-nav-btn viewer-next" onclick="changeSlide(1)" aria-label="Keyingi rasm">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+            <div class="photo-counter-badge">
+              <i class="fa-solid fa-camera"></i> <span id="currentImgIndex">1</span> / <span id="totalImgCount">{{ room.get_all_images|length }}</span>
+            </div>
+
+            <div class="photo-caption-tag" id="currentImgCaption">
+              {{ room.title }} - Asosiy ko'rinish
+            </div>
           </div>
-          <div class="spec-item">
-            <span>Maydoni</span>
-            <span><i class="fa-solid fa-maximize"></i> {{ room.size }} m²</span>
-          </div>
-          <div class="spec-item">
-            <span>Manzara</span>
-            <span><i class="fa-solid fa-eye"></i> {{ room.view }}</span>
-          </div>
-          <div class="spec-item">
-            <span>Krovat</span>
-            <span><i class="fa-solid fa-bed"></i> {{ room.bed }} ta</span>
+
+          <!-- THUMBNAILS -->
+          <div class="thumbnails-strip" id="thumbsStrip">
+            {% for img in room.get_all_images %}
+              <div class="thumb-item {% if forloop.first %}active{% endif %}"
+                   onclick="selectImage('{{ img.url }}', '{{ img.caption|escapejs }}', {{ forloop.counter0 }})">
+                <img src="{{ img.url }}" alt="{{ img.caption }}">
+              </div>
+            {% endfor %}
           </div>
         </div>
 
-        <div class="room-detail-desc">
-          {% if room.description %}
-            {{ room.description|linebreaks }}
-          {% else %}
-            <p>
-              Deluxe mehmonxonasidagi ushbu xona sizga yuqori darajadagi qulaylik va osoyishtalikni taqdim etadi. Zamonaviy dizayn, bepul Wi-Fi, konditsioner, mini-bar va to'liq jihozlangan hammom sizning xizmatingizda.
-            </p>
-          {% endif %}
+        <!-- DETAILS & SPECS -->
+        <div class="room-detail-info" data-aos="fade-up">
+          <h2>{{ room.title }}</h2>
+
+          <div class="room-stars">
+            {% for i in "12345" %}
+              <i class="fa-solid fa-star"></i>
+            {% endfor %}
+            <span style="color: #666; font-size: 14px; margin-left: 8px;">(5 yulduzli lyuks qulaylik)</span>
+          </div>
+
+          <div class="room-specs">
+            <div class="spec-item">
+              <span>Sig'imi</span>
+              <span><i class="fa-solid fa-user-group"></i> {{ room.max_persons }} kishi</span>
+            </div>
+            <div class="spec-item">
+              <span>Maydoni</span>
+              <span><i class="fa-solid fa-maximize"></i> {{ room.size }} m²</span>
+            </div>
+            <div class="spec-item">
+              <span>Manzara</span>
+              <span><i class="fa-solid fa-mountain-sun"></i> {{ room.view }}</span>
+            </div>
+            <div class="spec-item">
+              <span>Krovat</span>
+              <span><i class="fa-solid fa-bed"></i> {{ room.bed }} ta King</span>
+            </div>
+          </div>
+
+          <div class="room-detail-desc">
+            {% if room.description %}
+              {{ room.description|linebreaks }}
+            {% else %}
+              <p>
+                Deluxe mehmonxonasidagi ushbu xona sizga yuqori darajadagi hashamat, osoyishtalik va qulaylikni taqdim etadi. Zamonaviy dizayn, bepul yuqori tezlikdagi Wi-Fi, mikroiqlim konditsioneri, to'liq jihozlangan mini-bar hamda shaxsiy marmar vanna xonasi sizning xizmatingizda.
+              </p>
+            {% endif %}
+          </div>
+
+          <!-- AMENITIES -->
+          <h3 class="amenities-heading">Xonada mavjud qulayliklar</h3>
+          <div class="amenities-grid">
+            <div class="amenity-card"><i class="fa-solid fa-wifi"></i> Tezkor Wi-Fi (Bepul)</div>
+            <div class="amenity-card"><i class="fa-solid fa-snowflake"></i> Konditsioner &amp; Isitish</div>
+            <div class="amenity-card"><i class="fa-solid fa-tv"></i> 55" 4K Smart TV</div>
+            <div class="amenity-card"><i class="fa-solid fa-mug-hot"></i> Qahva mashinasi &amp; Choy</div>
+            <div class="amenity-card"><i class="fa-solid fa-hot-tub-person"></i> Jakuzzi / Marmar vanna</div>
+            <div class="amenity-card"><i class="fa-solid fa-mountain"></i> Shaxsiy balkon &amp; Manzara</div>
+            <div class="amenity-card"><i class="fa-solid fa-vault"></i> Shaxsiy seyf</div>
+            <div class="amenity-card"><i class="fa-solid fa-bell-concierge"></i> 24/7 Xona xizmati</div>
+            <div class="amenity-card"><i class="fa-solid fa-shirt"></i> Kir yuvish &amp; Dazmol</div>
+          </div>
         </div>
+
+        <!-- FULL PHOTO GALLERY GRID -->
+        <div class="gallery-grid-section" data-aos="fade-up">
+          <h3><i class="fa-solid fa-images" style="color: #c19b76;"></i> Xona fotogalereyasi</h3>
+          <p>Ushbu xonaning har bir go'shasi va qulayliklari bilan yaqindan tanishing</p>
+
+          <div class="photo-tiles-grid">
+            {% for img in room.get_all_images %}
+              <div class="photo-tile-item" onclick="selectImage('{{ img.url }}', '{{ img.caption|escapejs }}', {{ forloop.counter0 }}); window.scrollTo({top: 400, behavior: 'smooth'});">
+                <img src="{{ img.url }}" alt="{{ img.caption }}">
+                <div class="tile-caption-overlay">
+                  <span><i class="fa-solid fa-camera"></i> {{ img.caption }}</span>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
       </div>
 
-      <div class="room-detail-sidebar">
+      <!-- SIDEBAR -->
+      <div class="room-detail-sidebar" data-aos="fade-left">
         <div class="book-card-box">
           <div class="price-tag">
-            ${{ room.price }} <span>/ tun</span>
+            ${{ room.price }} <span>/ kuniga</span>
           </div>
-          <a href="{% url 'book:book_room' room.pk %}" class="btn-book-now">Ushbu xonani band qilish</a>
+          <p style="color: #666; font-size: 14px; margin-bottom: 20px;">Barcha soliqlar va xizmatlar narx ichida</p>
+
+          <a href="{% url 'book:book_room' room.pk %}" class="btn-book-now">
+            <i class="fa-solid fa-calendar-check"></i> Ushbu xonani band qilish
+          </a>
+
+          <ul class="book-guarantee-list">
+            <li><i class="fa-solid fa-check"></i> Tezkor onlayn tasdiqlash</li>
+            <li><i class="fa-solid fa-check"></i> Bepul nonushta kiritilgan</li>
+            <li><i class="fa-solid fa-check"></i> Telegram orqali 24/7 xabarnoma</li>
+            <li><i class="fa-solid fa-check"></i> Kelishdan 24 soat oldin bepul bekor qilish</li>
+          </ul>
+
+          <div class="sidebar-help-box">
+            <h5>Savollaringiz bormi?</h5>
+            <p style="font-size: 13px; color: #777; margin: 4px 0 8px;">Administrator bilan bog'laning:</p>
+            <a href="tel:+998940550855"><i class="fa-solid fa-phone"></i> +998 94 055 08 55</a>
+          </div>
         </div>
       </div>
+
     </div>
   </section>
+
+  <script>
+    // Gallery Data
+    const roomGallery = [
+      {% for img in room.get_all_images %}
+        { url: "{{ img.url }}", caption: "{{ img.caption|escapejs }}" },
+      {% endfor %}
+    ];
+
+    let currentPhotoIdx = 0;
+
+    function selectImage(url, caption, index) {
+      currentPhotoIdx = index;
+      const mainImg = document.getElementById('mainViewerImg');
+      const captionTag = document.getElementById('currentImgCaption');
+      const counterTag = document.getElementById('currentImgIndex');
+
+      mainImg.style.opacity = '0.3';
+      mainImg.style.transform = 'scale(0.98)';
+
+      setTimeout(() => {
+        mainImg.src = url;
+        captionTag.innerText = caption;
+        counterTag.innerText = index + 1;
+        mainImg.style.opacity = '1';
+        mainImg.style.transform = 'scale(1)';
+      }, 180);
+
+      // Update thumbnail active status
+      const thumbs = document.querySelectorAll('.thumb-item');
+      thumbs.forEach((t, i) => {
+        if (i === index) {
+          t.classList.add('active');
+          t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } else {
+          t.classList.remove('active');
+        }
+      });
+    }
+
+    function changeSlide(direction) {
+      if (roomGallery.length <= 1) return;
+      currentPhotoIdx = (currentPhotoIdx + direction + roomGallery.length) % roomGallery.length;
+      const target = roomGallery[currentPhotoIdx];
+      selectImage(target.url, target.caption, currentPhotoIdx);
+    }
+  </script>
 {% endblock %}
