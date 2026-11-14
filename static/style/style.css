@@ -247,8 +247,8 @@ select {
   position: relative;
   display: flex;
   align-items: center;
-  padding: 170px 0 80px;
-  background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80") center / cover no-repeat;
+  justify-content: center;
+  padding: 140px 0 100px;
 }
 
 .hero__overlay {
@@ -264,7 +264,7 @@ select {
 
 .hero__content {
   text-align: center;
-  margin-bottom: 70px;
+  margin-bottom: 0;
 }
 
 .hero__welcome {

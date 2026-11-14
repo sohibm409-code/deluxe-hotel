@@ -12,63 +12,19 @@
       </div>
       <div class="hero__overlay"></div>
       <div class="container">
-        <div class="hero__content">
+        <div class="hero__content" style="margin-bottom: 0;">
           <p class="hero__welcome">Welcome To Deluxe</p>
           <span class="hero__sub">Hotels &amp; Resorts</span>
           <h1 class="hero__title">Enjoy A Luxury Experience</h1>
-          <a href="#about" class="hero__link">Join With Us</a>
+          <div style="margin-top: 35px; display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;">
+            <a href="{% url 'rooms:index' %}" style="display: inline-flex; align-items: center; gap: 10px; background: #c19b76; color: #fff; padding: 16px 38px; border-radius: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(193, 155, 118, 0.45);">
+              <i class="fa-solid fa-bed"></i> Xonalarni Tanlash
+            </a>
+            <a href="{% url 'restaurant:index' %}" style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(6px); border: 1px solid rgba(255, 255, 255, 0.65); color: #fff; padding: 16px 38px; border-radius: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; text-decoration: none; transition: all 0.3s ease;">
+              <i class="fa-solid fa-utensils"></i> Restoran
+            </a>
+          </div>
         </div>
-
-        {% if messages %}
-          {% for message in messages %}
-            <div style="padding: 12px; margin-bottom: 20px; background: {% if message.tags == 'error' %}#f8d7da; color: #721c24; border: 1px solid #f5c6cb{% else %}#d4edda; color: #155724; border: 1px solid #c3e6cb{% endif %}; border-radius: 4px; text-align: center; font-weight: 500;">
-              {{ message }}
-            </div>
-          {% endfor %}
-        {% endif %}
-
-        <form class="booking" id="booking" method="POST" action="{% url 'book:quick_booking' %}">
-          {% csrf_token %}
-          <div class="booking__item">
-            <label>Check-in Date</label>
-            <input type="date" name="check_in" required>
-          </div>
-
-          <div class="booking__item">
-            <label>Check-out Date</label>
-            <input type="date" name="check_out" required>
-          </div>
-
-          <div class="booking__item">
-            <label>Room</label>
-            <select name="room">
-              {% for r in all_rooms %}
-                <option value="{{ r.title }}">{{ r.title }} (${{ r.price }})</option>
-              {% empty %}
-                <option value="Suite Room">Suite Room ($120.00)</option>
-                <option value="Family Room">Family Room ($200.00)</option>
-                <option value="Deluxe Room">Deluxe Room ($150.00)</option>
-                <option value="Classic Room">Classic Room ($90.00)</option>
-                <option value="Superior Room">Superior Room ($180.00)</option>
-                <option value="Luxury Room">Luxury Room ($250.00)</option>
-              {% endfor %}
-            </select>
-          </div>
-
-          <div class="booking__item">
-            <label>Customer</label>
-            <select name="guests">
-              <option value="1 Adult">1 Adult</option>
-              <option value="2 Adult">2 Adult</option>
-              <option value="3 Adult">3 Adult</option>
-              <option value="4 Adult">4 Adult</option>
-              <option value="5 Adult">5 Adult</option>
-              <option value="6 Adult">6 Adult</option>
-            </select>
-          </div>
-
-          <button type="submit" class="booking__btn">Check Availability</button>
-        </form>
       </div>
     </section>
 
