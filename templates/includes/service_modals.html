@@ -156,6 +156,29 @@
   </div>
 </div>
 
+<!-- 3. HOTEL VIRTUAL TOUR VIDEO MODAL -->
+<div id="modal-hotel-video" class="service-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle">
+  <div class="service-modal-box" style="max-width: 860px; background: #000000; border: 1px solid rgba(193, 155, 118, 0.4); padding: 0; overflow: hidden; border-radius: 12px;">
+    <div class="service-modal-header" style="background: #111111; padding: 14px 22px; border-bottom: 1.5px solid #c19b76;">
+      <h3 id="videoModalTitle" style="font-size: 17px; margin: 0; color: #ffffff;">
+        <i class="fa-solid fa-play" style="color: #c19b76; font-size: 14px;"></i> Deluxe Hotel - Virtual Video Sayohat
+      </h3>
+      <button type="button" class="service-modal-close" onclick="closeVideoModal()" aria-label="Yopish">&times;</button>
+    </div>
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000000;">
+      <iframe id="hotel-video-frame" 
+              src="" 
+              data-src="https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=1&rel=0" 
+              title="Deluxe Hotel Virtual Tour"
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;">
+      </iframe>
+    </div>
+  </div>
+</div>
+
 
 <!-- =========================================================
      MODAL CONTROLLER SCRIPT
@@ -178,6 +201,26 @@
       alert.className = 'modal-feedback-alert';
       alert.style.display = 'none';
       alert.innerText = '';
+    }
+  }
+
+  function openVideoModal() {
+    var modal = document.getElementById('modal-hotel-video');
+    var iframe = document.getElementById('hotel-video-frame');
+    if (modal && iframe) {
+      iframe.src = iframe.getAttribute('data-src');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeVideoModal() {
+    var modal = document.getElementById('modal-hotel-video');
+    var iframe = document.getElementById('hotel-video-frame');
+    if (modal && iframe) {
+      iframe.src = '';
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
     }
   }
 

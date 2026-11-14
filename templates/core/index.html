@@ -33,35 +33,100 @@
         <div class="about__wrapper" data-aos="fade-up">
           <div class="about__images">
             <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80"
-              alt="Hotel exterior" class="about__img about__img--big" />
-            <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=700&q=80"
-              alt="Pool" class="about__img about__img--small" />
-            <a href="#" class="play-btn"><i class="fa-solid fa-play"></i></a>
+              alt="Deluxe Hotel Luxury Exterior" class="about__img about__img--big" />
+            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80"
+              alt="Deluxe Premium Suite Interior" class="about__img about__img--small" />
+            
+            <!-- Floating Experience Badge -->
+            <div class="about__exp-badge">
+              <i class="fa-solid fa-crown badge-icon"></i>
+              <span class="badge-number">15+</span>
+              <span class="badge-text">Yillik Tajriba</span>
+            </div>
+
+            <!-- Pulsing Video Play Button -->
+            <a href="javascript:void(0)" onclick="openVideoModal()" class="play-btn" aria-label="Video Sayohatni Ko'rish">
+              <i class="fa-solid fa-play"></i>
+            </a>
           </div>
 
           <div class="about__content">
-            <span class="section__sub">Welcome to Deluxe Hotel</span>
-            <h2 class="section__title">Welcome To Our Hotel</h2>
-            <p>
-              On her way she met a copy. The copy warned the Little Blind Text,
-              that where it came from it would have been rewritten a thousand times
-              and everything that was left from its origin would be the word "and".
+            <div class="about__badge">
+              <i class="fa-solid fa-crown"></i> 5-YULDUZLI HASHAMAT VA QULAYLIK
+            </div>
+            <h2 class="about__title">Deluxe Hotelga Xush Kelibsiz</h2>
+            
+            <p class="about__lead">
+              Sharqona samimiy mehmondo‘stlik va xalqaro 5 yulduzli qulaylik uyg‘unlashgan muazzam maskan.
             </p>
-            <p>
-              But nothing the copy said could convince her and so it didn’t take
-              long until a few insidious Copy Writers ambushed her, made her drunk
-              with Longe and Parole and dragged her into their agency.
-            </p>
-            <p>
-              When she reached the first hills of the Italic Mountains, she had a
-              last view back on the skyline of her hometown Bookmarksgrove.
+            <p class="about__desc">
+              Toshkentning eng nufuzli manzilida joylashgan Deluxe Hotel — nafis interyer, sokin muhit va har bir mehmonga ko‘rsatiladigan individual e'tibor bilan ajralib turadi. Biz sizga shunchaki xona emas, balki betakror dam olish lahzalari va unutilmas xotiralarni tortiq etamiz.
             </p>
 
-            <div class="about__stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+            <!-- 4 Key Advantages Grid -->
+            <div class="about__highlights">
+              <div class="about__highlight-card">
+                <div class="about__highlight-icon">
+                  <i class="fa-solid fa-bed"></i>
+                </div>
+                <div class="about__highlight-info">
+                  <h5>50+ Hashamatli Xonalar</h5>
+                  <p>Panoramali derazalar, ortopedik karavotlar va shohona qulaylik.</p>
+                </div>
+              </div>
+
+              <div class="about__highlight-card">
+                <div class="about__highlight-icon">
+                  <i class="fa-solid fa-utensils"></i>
+                </div>
+                <div class="about__highlight-info">
+                  <h5>Gourmet Restoran</h5>
+                  <p>Yevropa va milliy taomlarning boy mualliflik menyusi.</p>
+                </div>
+              </div>
+
+              <div class="about__highlight-card">
+                <div class="about__highlight-icon">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="about__highlight-info">
+                  <h5>Qulay Markaziy Lokatsiya</h5>
+                  <p>Aeroport va shahar diqqatga sazovor joylariga bir necha daqiqa.</p>
+                </div>
+              </div>
+
+              <div class="about__highlight-card">
+                <div class="about__highlight-icon">
+                  <i class="fa-solid fa-bell-concierge"></i>
+                </div>
+                <div class="about__highlight-info">
+                  <h5>24/7 Shaxsiy Konsyerj</h5>
+                  <p>Har bir mehmonimiz uchun kechayu-kunduz individual e'tibor.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trust / Rating Bar -->
+            <div class="about__trust-row">
+              <div class="about__stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="about__rating-score">4.9 / 5.0</span>
+              <span class="about__rating-text">2,800+ mamnun mehmonlar e'tirofi (Booking.com &amp; TripAdvisor)</span>
+            </div>
+
+            <!-- Actions -->
+            <div class="about__actions">
+              <a href="{% url 'rooms:index' %}" class="about__btn-primary">
+                <i class="fa-solid fa-door-open"></i> Xonalar bilan tanishish
+              </a>
+              <button type="button" onclick="openVideoModal()" class="about__btn-video">
+                <i class="fa-solid fa-circle-play"></i> Video Sayohat
+              </button>
             </div>
           </div>
         </div>
