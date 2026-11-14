@@ -153,23 +153,43 @@
   <!-- ABOUT RESTAURANT -->
   <section class="restaurant-about">
     <div class="container about-wrapper" data-aos="fade-up">
-      <div class="about-image">
+      <div class="about-image" style="position: relative; overflow: hidden; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
         <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=80"
-          alt="Restaurant interior">
+          alt="Deluxe Royal Restaurant Interior" style="display: block; width: 100%; height: 560px; object-fit: cover;">
+        
+        <!-- Floating Quality Badge -->
+        <div style="position: absolute; bottom: 25px; left: 25px; background: rgba(17,17,17,0.88); backdrop-filter: blur(8px); border: 1.5px solid #c19b76; color: #fff; padding: 14px 22px; border-radius: 8px; display: flex; align-items: center; gap: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.35);">
+          <i class="fa-solid fa-award" style="color: #c19b76; font-size: 28px;"></i>
+          <div>
+            <strong style="display:block; font-size: 15px; color:#fff;">100% Halol &amp; Premium Sifat</strong>
+            <span style="font-size: 12px; color: rgba(255,255,255,0.75);">O'zbek milliy va Yevropa taomlari gultoji</span>
+          </div>
+        </div>
       </div>
 
       <div class="about-content">
-        <span class="section-subtitle">Bizning Restoran</span>
-        <h2>Haqiqiy Ta'm va Nafislik Uyg'unligi</h2>
+        <span class="section-subtitle" style="display: inline-flex; align-items: center; gap: 6px; font-weight: 700; letter-spacing: 2px;">
+          <i class="fa-solid fa-crown" style="color: #c19b76;"></i> SHOHONA GOURMET &amp; MILLIY TAOMLAR MASKANI
+        </span>
+        <h2>Deluxe Royal Restoran — O'zbek Mehmondo'stligi va Nafis Lazzatlar</h2>
         <p>
-          Deluxe Restaurant mehmonxonamizning eng shinam va xushmanzara go'shalaridan biridir. Tajribali bosh oshpazlarimiz milliy va Yevropa taomlarining eng sara namunalarini yangi va sifatli mahsulotlardan tayyorlaydi.
+          <strong>Deluxe Restaurant</strong> — Toshkent shahrining qoq markazida joylashgan, boy sharqona an'analar va xalqaro 5 yulduzli gastronomiya uyg'unlashgan muazzam maskan. Biz har bir aziz mehmonimizga haqiqiy shohona dasturxon, o'zbek milliy oshxonasining sara durdonalari hamda Yevropaning eng sara delikateslarini taqdim etamiz.
         </p>
         <p>
-          Romantik oqshomlar, do'stona uchrashuvlar hamda oilaviy tantanalar uchun maxsus sokin muhit, jonli musiqa va yuqori darajadagi servis xizmatingizda.
+          Maxsus qadimiy usulda tandirda pishirilgan Samarqandcha tandir kabob, olovli qozonlarda damlangan betakror Toshkent to'y oshi, shirador qozon kabob va xushbo'y somsalar — mohir bosh oshpazlarimiz tomonidan faqat tabiiy, toza va oliy toifali masalliqlardan pishiriladi.
         </p>
         <p>
-          O'zingizga qulay vaqt uchun oldindan stol band qiling va unutilmas lazzatdan bahramand bo'ling!
+          Sokin jonli musiqa, sharqona nafis interyer hamda oliy toifali servis tantanali tadbirlar, do'stona uchrashuvlar va unutilmas romantik oqshomlaringiz uchun ajoyib muhit bag'ishlaydi.
         </p>
+
+        <div style="display: flex; gap: 16px; margin-top: 25px; flex-wrap: wrap;">
+          <a href="#reserve-table" style="background: #c19b76; color: #fff; padding: 13px 28px; border-radius: 4px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; font-size: 14.5px;">
+            <i class="fa-solid fa-chair"></i> Stol Band Qilish
+          </a>
+          <a href="#menu" style="border: 1.5px solid #c19b76; color: #222; padding: 12px 24px; border-radius: 4px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; font-size: 14.5px;">
+            <i class="fa-solid fa-utensils" style="color: #c19b76;"></i> Menyu Bilan Tanishish
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -178,8 +198,11 @@
   <section class="menu-section" id="menu">
     <div class="container">
       <div class="section-title">
-        <span>Bizning Menyu</span>
-        <h2>Lazzatli Taomlar Ro'yxati</h2>
+        <span style="font-weight: 700; letter-spacing: 2px;">SHOHONA DASTURXON</span>
+        <h2>Milliy va Yevropa Taomlari Menyusi</h2>
+        <p style="max-width: 650px; margin: 12px auto 0; color: #666; font-size: 14.5px; line-height: 1.6;">
+          O'zbek milliy oshxonasining tansiq taomlari, shirinliklar hamda sara Yevropa delikateslaridan bahramand bo'ling
+        </p>
       </div>
 
       {% if categories %}
@@ -195,10 +218,19 @@
         {% if menu_items %}
           {% for item in menu_items %}
             <article class="menu-item menu-card cat-{{ item.category.id }}" data-aos="fade-up" data-aos-delay="{% cycle '100' '200' %}">
-              <img src="{{ item.get_display_image }}" alt="{{ item.title }}">
+              <div style="position: relative; flex-shrink: 0;">
+                <img src="{{ item.get_display_image }}" alt="{{ item.title }}" style="box-shadow: 0 4px 12px rgba(0,0,0,0.12);">
+              </div>
               <div class="menu-item__content">
                 <div class="menu-top">
-                  <h3>{{ item.title }}</h3>
+                  <h3 style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
+                    <span>{{ item.title }}</span>
+                    {% if item.is_featured %}
+                      <span style="background: rgba(193,155,118,0.15); color: #c19b76; border: 1px solid #c19b76; font-size: 10.5px; padding: 2px 8px; border-radius: 4px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; font-family: 'Poppins', sans-serif;">
+                        Tavsiya etiladi
+                      </span>
+                    {% endif %}
+                  </h3>
                   <span class="price">${{ item.price }}</span>
                 </div>
                 <p>{{ item.description|default:"Oshpazimizning maxsus retsepti asosida tayyorlangan lazzatli taom." }}</p>
