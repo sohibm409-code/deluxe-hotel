@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static  'style/about.css' %}">
+<link rel="stylesheet" href="{% static 'style/footer.css' %}" />
+
+{% endblock %}
+
+{% block content %}
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="hero-subtitle">HOME</p>
+      <h1>About Us</h1>
+
+      <div class="hero-stats">
+        {% for stat in stats %}
+        <div class="stat-box">
+          <h3>{{ stat.value }}</h3>
+          <p>{{ stat.title }}</p>
+        </div>
+        {% empty %}
+        <div class="stat-box">
+          <h3>500+</h3>
+          <p>Happy Guests</p>
+        </div>
+        <div class="stat-box">
+          <h3>42</h3>
+          <p>Rooms</p>
+        </div>
+        <div class="stat-box">
+          <h3>35</h3>
+          <p>Staff Members</p>
+        </div>
+        <div class="stat-box">
+          <h3>8</h3>
+          <p>Destinations</p>
+        </div>
+        {% endfor %}
+      </div>
+
+      <a href="#" class="video-btn">
+        <i class="fa-solid fa-play"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Welcome Section -->
+  <section class="welcome">
+    <div class="container welcome-wrapper">
+      <div class="welcome-image">
+        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80" alt="Deluxe Hotel Interior">
+      </div>
+
+      <div class="welcome-content">
+        <span class="section-subtitle">Welcome to Deluxe Hotel</span>
+        <h2>A Luxury Stay Beyond Your Expectations</h2>
+        <p>
+          On her way she met a copy. The copy warned the Little Blind Text,
+          that where it came from it would have been rewritten a thousand times.
+        </p>
+        <p>
+          But nothing the copy said could convince her and so it didn’t take long
+          until a few insidious Copy Writers ambushed her.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services">
+    <div class="container">
+      <div class="services-grid">
+        {% for service in services %}
+        <div class="service-card">
+          <div class="service-icon"><i class="{{ service.icon }}"></i></div>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </div>
+        {% empty %}
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-bell-concierge"></i></div>
+          <h3>24/7 Front Desk</h3>
+          <p>A small river named Duden flows by their place and supplies.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-utensils"></i></div>
+          <h3>Restaurant & Bar</h3>
+          <p>A small river named Duden flows by their place and supplies.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-car-side"></i></div>
+          <h3>Transfer Services</h3>
+          <p>A small river named Duden flows by their place and supplies.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-spa"></i></div>
+          <h3>Spa & Wellness</h3>
+          <p>A small river named Duden flows by their place and supplies.</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram Section -->
+  <section class="instagram">
+    <div class="container">
+      <span class="section-subtitle">Gallery</span>
+      <h2>Instagram Feed</h2>
+      <div class="instagram-grid">
+        <div class="insta-item"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=700&q=80" alt=""></div>
+        <div class="insta-item"><img src="https://images.unsplash.com/photo-1505692952047-1a78307da8f2?auto=format&fit=crop&w=700&q=80" alt=""></div>
+        <div class="insta-item"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=700&q=80" alt=""></div>
+        <div class="insta-item"><img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=700&q=80" alt=""></div>
+        <div class="insta-item"><img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=700&q=80" alt=""></div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

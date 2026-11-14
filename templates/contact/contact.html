@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static  'style/contact.css' %}">
+<link rel="stylesheet" href="{% static 'style/contact-media.css' %}" />
+
+{% endblock %}
+
+{% block content %}
+
+
+  <section class="contact-hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="hero-subtitle">HOME &nbsp; &gt; &nbsp; CONTACT</p>
+      <h1>Contact Us</h1>
+    </div>
+  </section>
+
+  <!-- info cards -->
+  <section class="contact-info">
+    <div class="container">
+      <div class="contact-info-grid">
+        <div class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <h3>Address</h3>
+          <p>198 West 21th Street, Suite 721 New York NY 10016</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+          <h3>Phone</h3>
+          <p>+998 94 759 26 16</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+          <h3>Email</h3>
+          <p>sohibm@gmail.com</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-globe"></i></div>
+          <h3>Website</h3>
+          <p>deluxehotel.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- form + map -->
+  <section class="contact-main">
+    <div class="container contact-main__wrapper">
+
+      <div class="contact-form-box">
+        <span class="section-subtitle">Get In Touch</span>
+        <h2>Send Us A Message</h2>
+
+        {% if messages %}
+          {% for message in messages %}
+            <div style="padding: 12px 16px; margin-bottom: 20px; background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; border-radius: 4px; font-weight: 500;">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+
+        <form class="contact-form" method="POST" action="{% url 'contact:index' %}">
+          {% csrf_token %}
+          <div class="form-row">
+            <input type="text" name="full_name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+          </div>
+
+          <div class="form-row">
+            <input type="text" name="subject" placeholder="Subject" required>
+            <input type="text" name="phone" placeholder="Phone" required>
+          </div>
+
+          <textarea name="description" placeholder="Write your message here..." required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <div class="contact-map-box">
+        <iframe src="https://www.google.com/maps?q=New%20York&z=12&output=embed" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+
+{%  endblock %}

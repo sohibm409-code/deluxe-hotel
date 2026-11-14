@@ -1,0 +1,306 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<style>
+  .status-hero {
+    min-height: 320px;
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+                url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+  }
+  .status-hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 52px;
+    margin-bottom: 10px;
+  }
+  .status-hero p {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .status-section {
+    padding: 70px 0 100px;
+    background: #fbfbfb;
+    min-height: 60vh;
+  }
+  .search-box-card {
+    background: #fff;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+    max-width: 650px;
+    margin: -40px auto 50px;
+    position: relative;
+    z-index: 10;
+  }
+  .search-box-card h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 26px;
+    color: #222;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .search-box-card p {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  .search-form-row {
+    display: flex;
+    gap: 12px;
+  }
+  .search-form-row input {
+    flex: 1;
+    padding: 14px 18px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+  }
+  .search-form-row input:focus {
+    border-color: #c19b76;
+    box-shadow: 0 0 0 3px rgba(193, 155, 118, 0.2);
+  }
+  .search-form-row button {
+    background: #c19b76;
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .search-form-row button:hover {
+    background: #a98059;
+  }
+
+  .results-wrapper {
+    max-width: 950px;
+    margin: 0 auto;
+  }
+  .section-heading-status {
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    color: #111;
+    margin: 40px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e8e8e8;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .booking-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    padding: 24px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid #c19b76;
+    transition: transform 0.2s;
+  }
+  .booking-card:hover {
+    transform: translateY(-2px);
+  }
+  .booking-info h4 {
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+    color: #222;
+    margin-bottom: 8px;
+  }
+  .booking-meta {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+  }
+  .booking-meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .booking-meta i {
+    color: #c19b76;
+  }
+
+  .badge-status {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .badge-confirmed {
+    background: #e6f7ec;
+    color: #1b873f;
+    border: 1px solid #b7e8c5;
+  }
+  .badge-pending {
+    background: #fff8e6;
+    color: #b38600;
+    border: 1px solid #ffe699;
+  }
+  .badge-cancelled {
+    background: #fdeeee;
+    color: #c92a2a;
+    border: 1px solid #f8c4c4;
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+  }
+  .no-results i {
+    font-size: 50px;
+    color: #c19b76;
+    margin-bottom: 18px;
+  }
+  .no-results h4 {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #222;
+  }
+  .no-results p {
+    color: #666;
+    font-size: 15px;
+  }
+  @media (max-width: 768px) {
+    .booking-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+    .search-form-row {
+      flex-direction: column;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+  <!-- HERO -->
+  <section class="status-hero">
+    <div class="container">
+      <p>DELUXE HOTEL &nbsp; &gt; &nbsp; BRON STATUSI</p>
+      <h1>Buyurtma Holati</h1>
+    </div>
+  </section>
+
+  <section class="status-section">
+    <div class="container">
+      <div class="search-box-card">
+        <h3><i class="fa-solid fa-magnifying-glass"></i> Buyurtmangizni tekshiring</h3>
+        <p>Bron qilish vaqtida kiritgan telefon raqamingizni yozing</p>
+
+        <form method="GET" action="{% url 'book:status' %}">
+          <div class="search-form-row">
+            <input type="text" name="phone" value="{{ phone_query }}" placeholder="Masalan: +998901234567 yoki 901234567" required>
+            <button type="submit"><i class="fa-solid fa-search"></i> Tekshirish</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="results-wrapper">
+        {% if searched %}
+          {% if room_bookings or table_reservations %}
+            {% if room_bookings %}
+              <h3 class="section-heading-status"><i class="fa-solid fa-hotel"></i> Mehmonxona Xonalari ({{ room_bookings.count }})</h3>
+              {% for b in room_bookings %}
+                <div class="booking-card">
+                  <div class="booking-info">
+                    <h4>{{ b.room.title|default:b.room_name }}</h4>
+                    <div class="booking-meta">
+                      <span><i class="fa-solid fa-calendar-check"></i> Kelish: <b>{{ b.check_in|date:"d.m.Y" }}</b></span>
+                      <span><i class="fa-solid fa-calendar-xmark"></i> Ketish: <b>{{ b.check_out|date:"d.m.Y" }}</b></span>
+                      <span><i class="fa-solid fa-user-group"></i> Mehmonlar: {{ b.guests }}</span>
+                      <span><i class="fa-solid fa-clock"></i> Buyurtma sanasi: {{ b.created_at|date:"d.m.Y, H:i" }}</span>
+                    </div>
+                  </div>
+                  <div>
+                    {% if b.status == 'confirmed' %}
+                      <span class="badge-status badge-confirmed"><i class="fa-solid fa-circle-check"></i> Tasdiqlangan</span>
+                    {% elif b.status == 'cancelled' %}
+                      <span class="badge-status badge-cancelled"><i class="fa-solid fa-circle-xmark"></i> Bekor qilingan</span>
+                    {% else %}
+                      <span class="badge-status badge-pending"><i class="fa-solid fa-clock-rotate-left"></i> Kutilmoqda</span>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endfor %}
+            {% endif %}
+
+            {% if table_reservations %}
+              <h3 class="section-heading-status"><i class="fa-solid fa-utensils"></i> Restoran Stol Bronlari ({{ table_reservations.count }})</h3>
+              {% for tr in table_reservations %}
+                <div class="booking-card">
+                  <div class="booking-info">
+                    <h4>Stol bron: {{ tr.guests }}</h4>
+                    <div class="booking-meta">
+                      <span><i class="fa-solid fa-calendar-day"></i> Sana: <b>{{ tr.reservation_date|date:"d.m.Y" }}</b></span>
+                      <span><i class="fa-solid fa-clock"></i> Vaqt: <b>{{ tr.reservation_time }}</b></span>
+                      <span><i class="fa-solid fa-user"></i> Mijoz: {{ tr.customer_name }}</span>
+                      {% if tr.special_requests %}
+                        <span><i class="fa-solid fa-comment-dots"></i> Istak: {{ tr.special_requests|truncatechars:35 }}</span>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div>
+                    {% if tr.status == 'confirmed' %}
+                      <span class="badge-status badge-confirmed"><i class="fa-solid fa-circle-check"></i> Tasdiqlangan</span>
+                    {% elif tr.status == 'cancelled' %}
+                      <span class="badge-status badge-cancelled"><i class="fa-solid fa-circle-xmark"></i> Bekor qilingan</span>
+                    {% else %}
+                      <span class="badge-status badge-pending"><i class="fa-solid fa-clock-rotate-left"></i> Kutilmoqda</span>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endfor %}
+            {% endif %}
+
+          {% else %}
+            <div class="no-results">
+              <i class="fa-regular fa-folder-open"></i>
+              <h4>Hech qanday buyurtma topilmadi</h4>
+              <p><b>"{{ phone_query }}"</b> raqami bilan rasmiylashtirilgan bron mavjud emas. Iltimos raqamni to'g'ri kiritganingizni tekshiring.</p>
+              <div style="margin-top: 25px;">
+                <a href="{% url 'rooms:index' %}" style="display: inline-block; background: #c19b76; color: #fff; padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: 500;">
+                  Xonalar ro'yxatiga o'tish
+                </a>
+              </div>
+            </div>
+          {% endif %}
+        {% else %}
+          <div class="no-results">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            <h4>Buyurtma holatini bilish oson!</h4>
+            <p>Yuqoridagi maydonga telefon raqamingizni kiriting va barcha xona hamda restoran buyurtmalaringizning joriy holatini bilib oling.</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

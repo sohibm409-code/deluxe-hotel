@@ -1,0 +1,292 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deluxe Hotel</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <link rel="stylesheet" href="{% static 'style/style.css' %}?v=2" />
+    <link rel="stylesheet" href="{% static 'style/footer.css' %}?v=2" />
+    <link rel="stylesheet" href="{% static 'style/media.css' %}?v=2" />
+    {% block extra_css %}
+    {% endblock %}
+
+    <style>
+      /* ================= GUARANTEED NAVBAR VISIBILITY STYLES ================= */
+      /* Home Page Navbar */
+      .header--home {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        background: transparent !important;
+        padding: 28px 0 !important;
+        z-index: 1000 !important;
+      }
+      .header--home .logo {
+        color: #ffffff !important;
+      }
+      .header--home .nav__list > li > a {
+        color: rgba(255, 255, 255, 0.95) !important;
+      }
+      .header--home .nav__list > li > a:hover,
+      .header--home .nav__list > li > a.active {
+        color: #c19b76 !important;
+      }
+      .header--home .nav__btn {
+        border: 1px solid rgba(255, 255, 255, 0.6) !important;
+        color: #ffffff !important;
+        padding: 12px 22px !important;
+      }
+      .header--home .nav__btn:hover {
+        background: #c19b76 !important;
+        border-color: #c19b76 !important;
+        color: #ffffff !important;
+      }
+      .header--home .menu-btn span {
+        background: #ffffff !important;
+      }
+
+      /* Subpages Navbar (Rooms, Restaurant, About, Blog, Contact, Book) */
+      .header--subpage {
+        position: sticky !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        background: #ffffff !important;
+        border-bottom: 1px solid #ebebeb !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+        padding: 16px 0 !important;
+        z-index: 1000 !important;
+      }
+      .header--subpage .logo {
+        color: #111111 !important;
+      }
+      .header--subpage .nav__list > li > a {
+        color: #222222 !important;
+        font-size: 15px !important;
+        font-weight: 500 !important;
+      }
+      .header--subpage .nav__list > li > a:hover,
+      .header--subpage .nav__list > li > a.active {
+        color: #c19b76 !important;
+      }
+      .header--subpage .nav__btn {
+        border: 1px solid #c19b76 !important;
+        color: #c19b76 !important;
+        padding: 10px 22px !important;
+        border-radius: 4px !important;
+        font-weight: 500 !important;
+        display: inline-block !important;
+      }
+      .header--subpage .nav__btn:hover {
+        background: #c19b76 !important;
+        color: #ffffff !important;
+      }
+      .header--subpage .menu-btn span {
+        background: #111111 !important;
+      }
+
+      /* ================= GLOBAL TOAST NOTIFICATIONS ================= */
+      .toast-container {
+        position: fixed;
+        top: 25px;
+        right: 25px;
+        z-index: 999999;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        max-width: 440px;
+        width: calc(100% - 40px);
+      }
+      .toast-alert {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: #ffffff;
+        padding: 16px 20px;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+        border-left: 5px solid #c19b76;
+        animation: toastIn 0.35s ease forwards;
+        font-family: 'Poppins', sans-serif;
+        color: #222;
+      }
+      .toast-alert.toast-success {
+        border-left-color: #28a745;
+      }
+      .toast-alert.toast-success .toast-icon {
+        color: #28a745;
+      }
+      .toast-alert.toast-error {
+        border-left-color: #dc3545;
+      }
+      .toast-alert.toast-error .toast-icon {
+        color: #dc3545;
+      }
+      .toast-alert.toast-warning {
+        border-left-color: #ffc107;
+      }
+      .toast-alert.toast-warning .toast-icon {
+        color: #e0a800;
+      }
+      .toast-icon {
+        font-size: 22px;
+        flex-shrink: 0;
+      }
+      .toast-text {
+        font-size: 14px;
+        line-height: 1.5;
+        flex: 1;
+        font-weight: 500;
+      }
+      .toast-close {
+        background: transparent;
+        border: none;
+        font-size: 20px;
+        color: #999;
+        cursor: pointer;
+        line-height: 1;
+        padding: 0 4px;
+        transition: color 0.2s;
+      }
+      .toast-close:hover {
+        color: #111;
+      }
+      @keyframes toastIn {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    </style>
+</head>
+<body>
+   {% if messages %}
+     <div class="toast-container" id="toast-container">
+       {% for message in messages %}
+         <div class="toast-alert toast-{{ message.tags }}">
+           <div class="toast-icon">
+             {% if 'error' in message.tags %}
+               <i class="fa-solid fa-circle-exclamation"></i>
+             {% elif 'success' in message.tags %}
+               <i class="fa-solid fa-circle-check"></i>
+             {% elif 'warning' in message.tags %}
+               <i class="fa-solid fa-triangle-exclamation"></i>
+             {% else %}
+               <i class="fa-solid fa-circle-info"></i>
+             {% endif %}
+           </div>
+           <div class="toast-text">{{ message }}</div>
+           <button class="toast-close" onclick="this.parentElement.remove()">&times;</button>
+         </div>
+       {% endfor %}
+     </div>
+     <script>
+       setTimeout(function() {
+         var container = document.getElementById('toast-container');
+         if (container) {
+           container.style.transition = 'opacity 0.6s ease';
+           container.style.opacity = '0';
+           setTimeout(function() { container.remove(); }, 600);
+         }
+       }, 7000);
+     </script>
+   {% endif %}
+   <header class="header {% if request.resolver_match.view_name == 'core:index' %}header--home{% else %}header--subpage{% endif %}">
+    <div class="container">
+      <div class="header__wrapper">
+        <a href="{% url 'core:index' %}" class="logo">Deluxe</a>
+
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-btn" aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <nav class="nav">
+          <ul class="nav__list">
+            <li><a href="{% url 'core:index' %}" class="{% if request.resolver_match.view_name == 'core:index' %}active{% endif %}">Home</a></li>
+            <li><a href="{% url 'rooms:index' %}" class="{% if request.resolver_match.app_name == 'rooms' %}active{% endif %}">Rooms</a></li>
+            <li><a href="{% url 'restaurant:index' %}" class="{% if request.resolver_match.app_name == 'restaurant' %}active{% endif %}">Restaurant</a></li>
+            <li><a href="{% url 'core:about' %}" class="{% if request.resolver_match.view_name == 'core:about' %}active{% endif %}">About</a></li>
+            <li><a href="{% url 'blog:blog' %}" class="{% if request.resolver_match.app_name == 'blog' %}active{% endif %}">Blog</a></li>
+            <li><a href="{% url 'contact:index' %}" class="{% if request.resolver_match.app_name == 'contact' %}active{% endif %}">Contact</a></li>
+            <li><a href="{% url 'book:status' %}" class="{% if request.resolver_match.view_name == 'book:status' %}active{% endif %}"><i class="fa-solid fa-magnifying-glass"></i> My Booking</a></li>
+            <li><a href="{% url 'book:create' %}" class="nav__btn">Book Now</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header> 
+    <div>
+        {% block content %}
+
+        {%  endblock %}
+    </div>
+ <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col">
+          <h3>Deluxe Hotel</h3>
+          <p>
+            Far far away, behind the word mountains, far from the countries
+            Vokalia and Consonantia, there live the blind texts.
+          </p>
+          <div class="footer__socials">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h3>Useful Links</h3>
+          <ul>
+            <li><a href="{% url 'rooms:index' %}">Rooms & Suites</a></li>
+            <li><a href="{% url 'restaurant:index' %}">Restaurant & Menu</a></li>
+            <li><a href="{% url 'book:status' %}">Check Booking Status</a></li>
+            <li><a href="{% url 'blog:blog' %}">Hotel Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3>Deluxe Services</h3>
+          <ul>
+            <li><a href="{% url 'core:about' %}">About Our Hotel</a></li>
+            <li><a href="{% url 'contact:index' %}">Contact Us</a></li>
+            <li><a href="{% url 'restaurant:index' %}#reserve-table">Table Reservation</a></li>
+            <li><a href="{% url 'book:create' %}">Book a Room</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3>Have a Questions?</h3>
+          <ul>
+            <li><i class="fa-solid fa-location-dot"></i> 203 Fake St. Mountain View, San Francisco, California, USA</li>
+            <li><i class="fa-solid fa-phone"></i> +998 94 055 08 55</li>
+            <li><i class="fa-solid fa-envelope"></i> sohibm@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        Copyright © All rights reserved | Deluxe Clone
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,327 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'style/resterant.css' %}">
+<link rel="stylesheet" href="{% static 'style/restarnd-media.css' %}" />
+<style>
+  /* Menu Category Filter */
+  .menu-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 45px;
+  }
+  .menu-tab-btn {
+    background: transparent;
+    border: 1px solid #dcdcdc;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .menu-tab-btn:hover,
+  .menu-tab-btn.active {
+    background: #c19b76;
+    border-color: #c19b76;
+    color: #ffffff;
+  }
+
+  /* Reservation Section */
+  .table-reservation-section {
+    padding: 90px 0;
+    background: linear-gradient(rgba(17, 17, 17, 0.88), rgba(17, 17, 17, 0.88)),
+                url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80") center/cover fixed no-repeat;
+    color: #fff;
+  }
+  .reservation-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .reservation-container .section-title h2 {
+    color: #fff;
+  }
+  .reservation-container .section-title p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 15px;
+    margin-top: 8px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .reservation-form {
+    margin-top: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 40px;
+    border-radius: 12px;
+  }
+  .res-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    text-align: left;
+  }
+  .res-full {
+    grid-column: 1 / -1;
+  }
+  .res-group label {
+    display: block;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    color: #c19b76;
+    font-weight: 500;
+  }
+  .res-group input,
+  .res-group select,
+  .res-group textarea {
+    width: 100%;
+    padding: 13px 16px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #222;
+    font-family: inherit;
+    box-sizing: border-box;
+    outline: none;
+    transition: 0.3s;
+  }
+  .res-group input:focus,
+  .res-group select:focus,
+  .res-group textarea:focus {
+    border-color: #c19b76;
+    box-shadow: 0 0 0 3px rgba(193, 155, 118, 0.3);
+  }
+  .btn-reserve-submit {
+    margin-top: 25px;
+    background: #c19b76;
+    color: #fff;
+    border: none;
+    padding: 15px 45px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+  }
+  .btn-reserve-submit:hover {
+    background: #a98059;
+  }
+  @media (max-width: 768px) {
+    .res-grid {
+      grid-template-columns: 1fr;
+    }
+    .reservation-form {
+      padding: 24px;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+
+  <!-- HERO -->
+  <section class="restaurant-hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="hero-subtitle">DELUXE HOTEL &nbsp; &gt; &nbsp; RESTAURANTS</p>
+      <h1>Deluxe Restaurant</h1>
+    </div>
+  </section>
+
+  <!-- ABOUT RESTAURANT -->
+  <section class="restaurant-about">
+    <div class="container about-wrapper">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=80"
+          alt="Restaurant interior">
+      </div>
+
+      <div class="about-content">
+        <span class="section-subtitle">Bizning Restoran</span>
+        <h2>Haqiqiy Ta'm va Nafislik Uyg'unligi</h2>
+        <p>
+          Deluxe Restaurant mehmonxonamizning eng shinam va xushmanzara go'shalaridan biridir. Tajribali bosh oshpazlarimiz milliy va Yevropa taomlarining eng sara namunalarini yangi va sifatli mahsulotlardan tayyorlaydi.
+        </p>
+        <p>
+          Romantik oqshomlar, do'stona uchrashuvlar hamda oilaviy tantanalar uchun maxsus sokin muhit, jonli musiqa va yuqori darajadagi servis xizmatingizda.
+        </p>
+        <p>
+          O'zingizga qulay vaqt uchun oldindan stol band qiling va unutilmas lazzatdan bahramand bo'ling!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELICIOUS FOOD MENU -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="section-title">
+        <span>Bizning Menyu</span>
+        <h2>Lazzatli Taomlar Ro'yxati</h2>
+      </div>
+
+      {% if categories %}
+      <div class="menu-tabs">
+        <button class="menu-tab-btn active" onclick="filterMenu('all', this)">Barchasi</button>
+        {% for cat in categories %}
+          <button class="menu-tab-btn" onclick="filterMenu('cat-{{ cat.id }}', this)">{{ cat.name }}</button>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <div class="menu-grid" id="menu-items-grid">
+        {% if menu_items %}
+          {% for item in menu_items %}
+            <article class="menu-item menu-card cat-{{ item.category.id }}">
+              <img src="{{ item.get_display_image }}" alt="{{ item.title }}">
+              <div class="menu-item__content">
+                <div class="menu-top">
+                  <h3>{{ item.title }}</h3>
+                  <span class="price">${{ item.price }}</span>
+                </div>
+                <p>{{ item.description|default:"Oshpazimizning maxsus retsepti asosida tayyorlangan lazzatli taom." }}</p>
+              </div>
+            </article>
+          {% endfor %}
+        {% else %}
+          <!-- DEFAULT SAMPLES -->
+          <article class="menu-item menu-card">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80" alt="Grilled beef">
+            <div class="menu-item__content">
+              <div class="menu-top">
+                <h3>Grilled Beef with Potatoes</h3>
+                <span class="price">$20.00</span>
+              </div>
+              <p>Yumshoq go'sht va maxsus ziravorlar bilan qovurilgan kartoshka.</p>
+            </div>
+          </article>
+          <article class="menu-item menu-card">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Chicken pasta">
+            <div class="menu-item__content">
+              <div class="menu-top">
+                <h3>Creamy Chicken Pasta</h3>
+                <span class="price">$29.00</span>
+              </div>
+              <p>Qaymoqli sous, yangi ko'katlar va tovuq filesi bilan tayyorlangan pasta.</p>
+            </div>
+          </article>
+          <article class="menu-item menu-card">
+            <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?auto=format&fit=crop&w=600&q=80" alt="Burger">
+            <div class="menu-item__content">
+              <div class="menu-top">
+                <h3>Ultimate Overload Burger</h3>
+                <span class="price">$20.00</span>
+              </div>
+              <p>Shirador mol go'shti, pishloq, sabzavotlar va maxsus sous.</p>
+            </div>
+          </article>
+          <article class="menu-item menu-card">
+            <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=600&q=80" alt="Fresh salad">
+            <div class="menu-item__content">
+              <div class="menu-top">
+                <h3>Fresh Garden Salad</h3>
+                <span class="price">$15.00</span>
+              </div>
+              <p>Yangi uzilgan sabzavotlar, zaytun mevasi va yengil zaytun moyi sousi.</p>
+            </div>
+          </article>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLE RESERVATION SECTION -->
+  <section class="table-reservation-section" id="reserve-table">
+    <div class="container reservation-container">
+      <div class="section-title">
+        <span>Bron qilish</span>
+        <h2>Stol band qilish</h2>
+        <p>Restoranimizda yoqimli oqshom o'tkazish uchun oldindan stol band qiling. So'rovingiz qabul qilingach, administratorimiz tasdiqlaydi.</p>
+      </div>
+
+      <div class="reservation-form">
+        <form method="POST" action="{% url 'restaurant:index' %}">
+          {% csrf_token %}
+          <div class="res-grid">
+            <div class="res-group">
+              <label><i class="fa-solid fa-user"></i> Ism-familiyangiz</label>
+              {{ reservation_form.customer_name }}
+            </div>
+            <div class="res-group">
+              <label><i class="fa-solid fa-phone"></i> Telefon raqamingiz</label>
+              {{ reservation_form.customer_phone }}
+            </div>
+            <div class="res-group">
+              <label><i class="fa-solid fa-calendar-days"></i> Tashrif sanasi</label>
+              {{ reservation_form.reservation_date }}
+            </div>
+            <div class="res-group">
+              <label><i class="fa-solid fa-clock"></i> Tashrif vaqti</label>
+              {{ reservation_form.reservation_time }}
+            </div>
+            <div class="res-group">
+              <label><i class="fa-solid fa-users"></i> Mehmonlar soni</label>
+              {{ reservation_form.guests }}
+            </div>
+            <div class="res-group">
+              <label><i class="fa-solid fa-envelope"></i> Elektron pochta (ixtiyoriy)</label>
+              {{ reservation_form.customer_email }}
+            </div>
+            <div class="res-group res-full">
+              <label><i class="fa-solid fa-comment-dots"></i> Qo'shimcha istaklar / Izoh</label>
+              {{ reservation_form.special_requests }}
+            </div>
+          </div>
+
+          <button type="submit" class="btn-reserve-submit">
+            <i class="fa-solid fa-check"></i> Stolni band qilish
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section class="instagram">
+    <div class="container">
+      <h2>Instagram</h2>
+      <div class="instagram-grid">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=700&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=700&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=700&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=700&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=700&q=80" alt="">
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function filterMenu(categoryClass, btn) {
+      document.querySelectorAll('.menu-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const items = document.querySelectorAll('.menu-card');
+      items.forEach(item => {
+        if (categoryClass === 'all' || item.classList.contains(categoryClass)) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+{% endblock %}

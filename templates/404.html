@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section style="min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 100px 20px; background: #fafafa;">
+  <div class="container" style="max-width: 650px;">
+    <h1 style="font-family: 'Playfair Display', serif; font-size: 110px; font-weight: 900; color: #c19b76; margin: 0; line-height: 1;">404</h1>
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 32px; color: #222; margin: 20px 0 15px;">Sahifa topilmadi</h2>
+    <p style="font-size: 16px; color: #666; line-height: 1.8; margin-bottom: 35px;">
+      Kechirasiz, siz qidirayotgan sahifa mavjud emas, o'chirilgan yoki manzili o'zgartirilgan bo'lishi mumkin.
+    </p>
+    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+      <a href="{% url 'core:index' %}" style="background: #c19b76; color: #fff; padding: 14px 30px; border-radius: 4px; font-weight: 600; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; text-decoration: none;">
+        <i class="fa-solid fa-house"></i> Bosh sahifa
+      </a>
+      <a href="{% url 'rooms:index' %}" style="background: #222; color: #fff; padding: 14px 30px; border-radius: 4px; font-weight: 600; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; text-decoration: none;">
+        <i class="fa-solid fa-bed"></i> Xonalar
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

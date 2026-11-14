@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'style/rooms.css' %}">
+<style>
+  .booking-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+  }
+  .booking-card {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+  .booking-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #222;
+  }
+  .booking-card p.sub {
+    color: #777;
+    margin-bottom: 30px;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #333;
+  }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.3s;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: #c5a880;
+  }
+  .form-row {
+    display: flex;
+    gap: 20px;
+  }
+  .form-row .form-group {
+    flex: 1;
+  }
+  .btn-submit {
+    background: #c5a880;
+    color: #fff;
+    border: none;
+    padding: 14px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .btn-submit:hover {
+    background: #ab8e65;
+  }
+  .room-summary-box {
+    background: #faf7f2;
+    padding: 15px 20px;
+    border-left: 4px solid #c5a880;
+    margin-bottom: 25px;
+    border-radius: 4px;
+  }
+  .room-summary-box h4 {
+    margin: 0 0 5px 0;
+    color: #333;
+  }
+  .room-summary-box p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+  <!-- HERO -->
+  <section class="rooms-hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="hero-subtitle">DELUXE HOTEL &nbsp; &gt; &nbsp; RESERVATION</p>
+      <h1>Book A Room</h1>
+    </div>
+  </section>
+
+  <section class="booking-section">
+    <div class="container">
+      <div class="booking-card">
+        <h2>Reserve Your Stay</h2>
+        <p class="sub">Iltimos, ma'lumotlaringizni to'ldiring va qulay xonani band qiling.</p>
+
+        {% if room %}
+        <div class="room-summary-box">
+          <h4>Tanlangan xona: {{ room.title }}</h4>
+          <p>Narxi: <strong>${{ room.price }}</strong> / tun &bull; Sig'imi: {{ room.max_persons }} kishi &bull; {{ room.view }}</p>
+        </div>
+        {% endif %}
+
+        {% if messages %}
+          {% for message in messages %}
+            <div style="padding: 12px; margin-bottom: 20px; background: #d4edda; color: #155724; border-radius: 4px; border: 1px solid #c3e6cb;">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+
+        {% if form.non_field_errors %}
+          <div style="padding: 14px 18px; margin-bottom: 20px; background: #f8d7da; color: #721c24; border-radius: 4px; border: 1px solid #f5c6cb; font-weight: 500;">
+            {% for error in form.non_field_errors %}
+              <div><i class="fa-solid fa-circle-exclamation"></i> {{ error }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <form method="POST">
+          {% csrf_token %}
+
+          {% if not room %}
+          <div class="form-group">
+            <label>Xona</label>
+            {{ form.room }}
+          </div>
+          {% endif %}
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Kelish sanasi (Check-in)</label>
+              {{ form.check_in }}
+              {% if form.check_in.errors %}
+                <div style="color: #dc3545; font-size: 13px; margin-top: 4px;">{{ form.check_in.errors.0 }}</div>
+              {% endif %}
+            </div>
+            <div class="form-group">
+              <label>Ketish sanasi (Check-out)</label>
+              {{ form.check_out }}
+              {% if form.check_out.errors %}
+                <div style="color: #dc3545; font-size: 13px; margin-top: 4px;">{{ form.check_out.errors.0 }}</div>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Mehmonlar soni</label>
+            {{ form.guests }}
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Ismingiz</label>
+              {{ form.customer_name }}
+            </div>
+            <div class="form-group">
+              <label>Telefon raqamingiz</label>
+              {{ form.customer_phone }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Email manzilingiz (ixtiyoriy)</label>
+            {{ form.customer_email }}
+          </div>
+
+          <div class="form-group">
+            <label>Qo'shimcha istaklar (ixtiyoriy)</label>
+            {{ form.notes }}
+          </div>
+
+          <button type="submit" class="btn-submit">Band qilishni tasdiqlash</button>
+        </form>
+      </div>
+    </div>
+  </section>
+{% endblock %}

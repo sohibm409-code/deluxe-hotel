@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section style="min-height: 70vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 100px 20px; background: #fafafa;">
+  <div class="container" style="max-width: 650px;">
+    <h1 style="font-family: 'Playfair Display', serif; font-size: 110px; font-weight: 900; color: #dc3545; margin: 0; line-height: 1;">500</h1>
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 32px; color: #222; margin: 20px 0 15px;">Serverda kutilmagan xatolik</h2>
+    <p style="font-size: 16px; color: #666; line-height: 1.8; margin-bottom: 35px;">
+      Kechirasiz, tizimda nosozlik yuz berdi. Texnik mutaxassislarimiz bu muammo ustida ishlamoqda. Iltimos, birozdan so'ng qayta urinib ko'ring.
+    </p>
+    <div>
+      <a href="{% url 'core:index' %}" style="background: #c19b76; color: #fff; padding: 14px 30px; border-radius: 4px; font-weight: 600; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; text-decoration: none;">
+        <i class="fa-solid fa-house"></i> Bosh sahifaga qaytish
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

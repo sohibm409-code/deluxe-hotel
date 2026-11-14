@@ -1,0 +1,221 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static  'style/blog.css' %}">
+<link rel="stylesheet" href="{% static 'style/blog-media.css' %}" />
+
+{% endblock %}
+
+{% block content %}
+
+  <!-- HERO START -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="container hero-content">
+      <p class="breadcrumb">
+        <a href="{% url 'core:index' %}">Home</a>
+        <span>/</span>
+        <a href="{% url 'blog:blog' %}">Blog</a>
+        <span>/</span>
+        <span>{{ blog.full_name }}</span>
+      </p>
+      <h1>{{ blog.full_name }}</h1>
+    </div>
+  </section>
+  <!-- HERO END -->
+
+  <!-- BLOG CONTENT START -->
+  <main class="blog-page section-space">
+    <div class="container blog-layout">
+
+      <!-- LEFT CONTENT -->
+      <article class="blog-main">
+        <div class="post-card">
+          <span class="post-label">HOTEL BLOG</span>
+          <h2>{{ blog.full_name }}</h2>
+          <div class="post-meta">
+            <span><i class="ri-user-3-line"></i> Admin</span>
+            <span><i class="ri-calendar-2-line"></i> {{ blog.created_at|date:"F d, Y" }}</span>
+          </div>
+
+          <img src="{{ blog.get_display_image }}" alt="{{ blog.full_name }}" class="post-main-image" />
+
+          <div class="blog-text-content" style="margin-top: 25px; line-height: 1.8; font-size: 16px; color: #444;">
+            {{ blog.description|linebreaks }}
+          </div>
+        </div>
+
+        <!-- AUTHOR BOX -->
+        <div class="author-box card-space">
+          <img src="https://picsum.photos/160/160?random=31" alt="Author" />
+          <div class="author-info">
+            <h4>Lance Smith</h4>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+              itaque, autem necessitatibus voluptate quod mollitia delectus aut,
+              sunt placeat nam vero culpa sapiente consectetur similique.
+            </p>
+          </div>
+        </div>
+
+        <!-- COMMENTS -->
+        <section class="comments card-space">
+          <h3>6 Comments</h3>
+
+          <div class="comment-item">
+            <img src="https://picsum.photos/100/100?random=41" alt="User" />
+            <div class="comment-body">
+              <div class="comment-top">
+                <h4>John Doe</h4>
+                <span>December 7, 2018 at 2:21pm</span>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
+                quidem laborum necessitatibus, ipsam impedit vitae autem.
+              </p>
+              <a href="#" class="reply-btn">Reply</a>
+            </div>
+          </div>
+
+          <div class="comment-item reply-1">
+            <img src="https://picsum.photos/100/100?random=42" alt="User" />
+            <div class="comment-body">
+              <div class="comment-top">
+                <h4>John Doe</h4>
+                <span>December 7, 2018 at 2:21pm</span>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
+                quidem laborum necessitatibus, ipsam impedit vitae autem.
+              </p>
+              <a href="#" class="reply-btn">Reply</a>
+            </div>
+          </div>
+
+          <div class="comment-item reply-2">
+            <img src="https://picsum.photos/100/100?random=43" alt="User" />
+            <div class="comment-body">
+              <div class="comment-top">
+                <h4>John Doe</h4>
+                <span>December 7, 2018 at 2:21pm</span>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
+                quidem laborum necessitatibus, ipsam impedit vitae autem.
+              </p>
+              <a href="#" class="reply-btn">Reply</a>
+            </div>
+          </div>
+
+          <div class="comment-item">
+            <img src="https://picsum.photos/100/100?random=44" alt="User" />
+            <div class="comment-body">
+              <div class="comment-top">
+                <h4>John Doe</h4>
+                <span>December 7, 2018 at 2:21pm</span>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
+                quidem laborum necessitatibus, ipsam impedit vitae autem.
+              </p>
+              <a href="#" class="reply-btn">Reply</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- COMMENT FORM -->
+        <section class="comment-form-section card-space">
+          <h3>Leave a comment</h3>
+
+          <form class="comment-form">
+            <div class="form-row">
+              <div class="input-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" placeholder="Your name" />
+              </div>
+
+              <div class="input-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" placeholder="Your email" />
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="website">Website</label>
+              <input type="text" id="website" placeholder="Your website" />
+            </div>
+
+            <div class="input-group">
+              <label for="message">Message</label>
+              <textarea id="message" rows="7" placeholder="Write your comment..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Post Comment</button>
+          </form>
+        </section>
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="sidebar-box">
+          <h3>Categories</h3>
+          <ul class="category-list">
+            <li><a href="#">Properties <span>(12)</span></a></li>
+            <li><a href="#">Home <span>(22)</span></a></li>
+            <li><a href="#">House <span>(37)</span></a></li>
+            <li><a href="#">Villa <span>(42)</span></a></li>
+            <li><a href="#">Apartment <span>(14)</span></a></li>
+            <li><a href="#">Condominium <span>(140)</span></a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-box">
+          <h3>Recent Blog</h3>
+
+          {% for r_blog in recent_blogs %}
+          <div class="recent-post">
+            <a href="{% url 'blog:blog_detail' r_blog.pk %}" style="display: flex; gap: 15px; text-decoration: none; color: inherit; width: 100%;">
+              <img src="{{ r_blog.get_display_image }}" alt="{{ r_blog.full_name }}" style="width: 80px; height: 60px; object-fit: cover; border-radius: 4px;" />
+              <div>
+                <h4 style="font-size: 14px; margin: 0 0 5px 0;">{{ r_blog.full_name }}</h4>
+                <p style="font-size: 12px; color: #888; margin: 0;">{{ r_blog.created_at|date:"F d, Y" }}</p>
+              </div>
+            </a>
+          </div>
+          {% empty %}
+            <p>Boshqa yangi bloglar mavjud emas.</p>
+          {% endfor %}
+        </div>
+
+        <div class="sidebar-box">
+          <h3>Tag Cloud</h3>
+          <div class="tag-cloud">
+            <a href="#">dish</a>
+            <a href="#">menu</a>
+            <a href="#">food</a>
+            <a href="#">sweet</a>
+            <a href="#">tasty</a>
+            <a href="#">delicious</a>
+            <a href="#">desserts</a>
+            <a href="#">drinks</a>
+          </div>
+        </div>
+
+        <div class="sidebar-box">
+          <h3>Paragraph</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+            itaque, autem necessitatibus voluptate quod mollitia delectus aut,
+            sunt placeat nam vero culpa sapiente consectetur similique.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </main>
+  <!-- BLOG CONTENT END -->
+
+{% endblock %}

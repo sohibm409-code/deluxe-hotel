@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static  'style/rooms.css' %}">
+<link rel="stylesheet" href="{% static 'style/rooms-media.css' %}" />
+
+{% endblock %}
+
+{% block content %}
+
+  <!-- HERO -->
+  <section class="rooms-hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="hero-subtitle">HOME &nbsp; &gt; &nbsp; ROOMS</p>
+      <h1>Rooms</h1>
+    </div>
+  </section>
+
+  <!-- ROOMS -->
+  <section class="rooms-section">
+    <div class="container rooms-layout">
+
+      <div class="rooms-content">
+        <div class="rooms-grid">
+
+        {% for room in rooms %}
+          <div class="room-card">
+            <a href="{% url 'rooms:detail' room.pk %}">
+              <img src="{{ room.get_display_image }}" alt="{{ room.title }}">
+            </a>
+            <div class="room-card__body">
+              <h3><a href="{% url 'rooms:detail' room.pk %}" style="color: inherit; text-decoration: none;">{{ room.title }}</a></h3>
+              <div class="room-price">
+                <span class="price">${{ room.price }}</span>
+                <span class="night">per night</span>
+              </div>
+              <ul>
+                <li><span>Max:</span> {{ room.max_persons }} Persons</li>
+                <li><span>Size:</span> {{ room.size }} m2</li>
+                <li><span>View:</span> {{ room.view }}</li>
+                <li><span>Bed:</span> {{ room.bed }}</li>
+              </ul>
+              <a href="{% url 'book:book_room' room.pk %}" class="book-btn">Book Now <i class="fa-solid fa-arrow-right-long"></i></a>
+            </div>
+          </div>
+        {% empty %}
+          <p style="grid-column: 1 / -1; text-align: center; padding: 40px; color: #888;">Xonalar topilmadi.</p>
+        {% endfor %}
+
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="sidebar-box">
+          <h3>Advanced Search</h3>
+
+          <form class="search-form" method="GET" action="{% url 'rooms:index' %}">
+            <select name="room_type">
+              <option value="">Room Type</option>
+              {% for rt in all_room_types %}
+                <option value="{{ rt }}" {% if request.GET.room_type == rt %}selected{% endif %}>{{ rt }}</option>
+              {% endfor %}
+            </select>
+
+            <select name="adults">
+              <option value="">All Guests</option>
+              <option value="1 Adult" {% if request.GET.adults == "1 Adult" %}selected{% endif %}>1 Adult</option>
+              <option value="2 Adult" {% if request.GET.adults == "2 Adult" %}selected{% endif %}>2 Adult</option>
+              <option value="3 Adult" {% if request.GET.adults == "3 Adult" %}selected{% endif %}>3 Adult</option>
+              <option value="4 Adult" {% if request.GET.adults == "4 Adult" %}selected{% endif %}>4 Adult</option>
+              <option value="5 Adult" {% if request.GET.adults == "5 Adult" %}selected{% endif %}>5 Adult</option>
+              <option value="6 Adult" {% if request.GET.adults == "6 Adult" %}selected{% endif %}>6 Adult</option>
+            </select>
+
+            <div class="range-box">
+              <input type="number" name="min_price" placeholder="Min $" value="{{ request.GET.min_price }}">
+              <span>-</span>
+              <input type="number" name="max_price" placeholder="Max $" value="{{ request.GET.max_price }}">
+            </div>
+
+            <button type="submit">Search</button>
+          </form>
+        </div>
+
+        <div class="sidebar-box">
+          <h3>Star Rating</h3>
+          <div class="rating-list">
+            <label><input type="checkbox"> <span>★★★★★</span></label>
+            <label><input type="checkbox"> <span>★★★★☆</span></label>
+            <label><input type="checkbox"> <span>★★★☆☆</span></label>
+            <label><input type="checkbox"> <span>★★☆☆☆</span></label>
+            <label><input type="checkbox"> <span>★☆☆☆☆</span></label>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section class="instagram">
+    <div class="container">
+      <h2>Instagram</h2>
+      <div class="instagram-grid">
+        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=700&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1505692952047-1a78307da8f2?auto=format&fit=crop&w=700&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=700&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=700&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=700&q=80" alt="">
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
