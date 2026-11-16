@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1200" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Deluxe Hotel &amp; Resort — 5 Yulduzli Hashamatli Mehmonxona{% endblock %}</title>
 
     <!-- Favicon -->
@@ -16,90 +16,92 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-    <link rel="stylesheet" href="{% static 'style/style.css' %}?v=2" />
-    <link rel="stylesheet" href="{% static 'style/footer.css' %}?v=2" />
-    <link rel="stylesheet" href="{% static 'style/media.css' %}?v=2" />
-    <link rel="stylesheet" href="{% static 'style/animations.css' %}?v=1" />
-    <link rel="stylesheet" href="{% static 'style/services.css' %}?v=1" />
+    <link rel="stylesheet" href="{% static 'style/style.css' %}?v=3" />
+    <link rel="stylesheet" href="{% static 'style/footer.css' %}?v=3" />
+    <link rel="stylesheet" href="{% static 'style/animations.css' %}?v=3" />
+    <link rel="stylesheet" href="{% static 'style/services.css' %}?v=3" />
+    <link rel="stylesheet" href="{% static 'style/media.css' %}?v=3" />
     <!-- AOS Scroll Animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     {% block extra_css %}
     {% endblock %}
 
     <style>
-      /* ================= GUARANTEED NAVBAR VISIBILITY STYLES ================= */
-      /* Home Page Navbar */
-      .header--home {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        background: transparent !important;
-        padding: 28px 0 !important;
-        z-index: 1000 !important;
-      }
-      .header--home .logo {
-        color: #ffffff !important;
-      }
-      .header--home .nav__list > li > a {
-        color: rgba(255, 255, 255, 0.95) !important;
-      }
-      .header--home .nav__list > li > a:hover,
-      .header--home .nav__list > li > a.active {
-        color: #c19b76 !important;
-      }
-      .header--home .nav__btn {
-        border: 1px solid rgba(255, 255, 255, 0.6) !important;
-        color: #ffffff !important;
-        padding: 12px 22px !important;
-      }
-      .header--home .nav__btn:hover {
-        background: #c19b76 !important;
-        border-color: #c19b76 !important;
-        color: #ffffff !important;
-      }
-      .header--home .menu-btn span {
-        background: #ffffff !important;
-      }
+      /* ================= DESKTOP NAVBAR VISIBILITY STYLES ================= */
+      @media (min-width: 993px) {
+        /* Home Page Navbar */
+        .header--home {
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100% !important;
+          background: transparent !important;
+          padding: 28px 0 !important;
+          z-index: 1000 !important;
+        }
+        .header--home .logo {
+          color: #ffffff !important;
+        }
+        .header--home .nav__list > li > a {
+          color: rgba(255, 255, 255, 0.95) !important;
+        }
+        .header--home .nav__list > li > a:hover,
+        .header--home .nav__list > li > a.active {
+          color: #c19b76 !important;
+        }
+        .header--home .nav__btn {
+          border: 1px solid rgba(255, 255, 255, 0.6) !important;
+          color: #ffffff !important;
+          padding: 12px 22px !important;
+        }
+        .header--home .nav__btn:hover {
+          background: #c19b76 !important;
+          border-color: #c19b76 !important;
+          color: #ffffff !important;
+        }
+        .header--home .menu-btn span {
+          background: #ffffff !important;
+        }
 
-      /* Subpages Navbar (Rooms, Restaurant, About, Blog, Contact, Book) */
-      .header--subpage {
-        position: sticky !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        background: #ffffff !important;
-        border-bottom: 1px solid #ebebeb !important;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
-        padding: 16px 0 !important;
-        z-index: 1000 !important;
-      }
-      .header--subpage .logo {
-        color: #111111 !important;
-      }
-      .header--subpage .nav__list > li > a {
-        color: #222222 !important;
-        font-size: 15px !important;
-        font-weight: 500 !important;
-      }
-      .header--subpage .nav__list > li > a:hover,
-      .header--subpage .nav__list > li > a.active {
-        color: #c19b76 !important;
-      }
-      .header--subpage .nav__btn {
-        border: 1px solid #c19b76 !important;
-        color: #c19b76 !important;
-        padding: 10px 22px !important;
-        border-radius: 4px !important;
-        font-weight: 500 !important;
-        display: inline-block !important;
-      }
-      .header--subpage .nav__btn:hover {
-        background: #c19b76 !important;
-        color: #ffffff !important;
-      }
-      .header--subpage .menu-btn span {
-        background: #111111 !important;
+        /* Subpages Navbar (Rooms, Restaurant, About, Blog, Contact, Book) */
+        .header--subpage {
+          position: sticky !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100% !important;
+          background: #ffffff !important;
+          border-bottom: 1px solid #ebebeb !important;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+          padding: 16px 0 !important;
+          z-index: 1000 !important;
+        }
+        .header--subpage .logo {
+          color: #111111 !important;
+        }
+        .header--subpage .nav__list > li > a {
+          color: #222222 !important;
+          font-size: 15px !important;
+          font-weight: 500 !important;
+        }
+        .header--subpage .nav__list > li > a:hover,
+        .header--subpage .nav__list > li > a.active {
+          color: #c19b76 !important;
+        }
+        .header--subpage .nav__btn {
+          border: 1px solid #c19b76 !important;
+          color: #c19b76 !important;
+          padding: 10px 22px !important;
+          border-radius: 4px !important;
+          font-weight: 500 !important;
+          display: inline-block !important;
+        }
+        .header--subpage .nav__btn:hover {
+          background: #c19b76 !important;
+          color: #ffffff !important;
+        }
+        .header--subpage .menu-btn span {
+          background: #111111 !important;
+        }
       }
 
       /* ================= GLOBAL TOAST NOTIFICATIONS ================= */
@@ -234,6 +236,7 @@
           <span></span>
           <span></span>
         </label>
+        <label for="menu-toggle" class="nav-overlay" aria-label="Close menu"></label>
 
         <nav class="nav">
           <ul class="nav__list">
