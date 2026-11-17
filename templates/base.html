@@ -16,15 +16,16 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-    <link rel="stylesheet" href="{% static 'style/style.css' %}?v=3" />
-    <link rel="stylesheet" href="{% static 'style/footer.css' %}?v=3" />
-    <link rel="stylesheet" href="{% static 'style/animations.css' %}?v=3" />
-    <link rel="stylesheet" href="{% static 'style/services.css' %}?v=3" />
-    <link rel="stylesheet" href="{% static 'style/media.css' %}?v=3" />
+    <link rel="stylesheet" href="{% static 'style/style.css' %}?v=12" />
+    <link rel="stylesheet" href="{% static 'style/footer.css' %}?v=12" />
+    <link rel="stylesheet" href="{% static 'style/animations.css' %}?v=12" />
+    <link rel="stylesheet" href="{% static 'style/services.css' %}?v=12" />
     <!-- AOS Scroll Animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     {% block extra_css %}
     {% endblock %}
+    <!-- Master Responsive CSS loaded last to guarantee mobile priority -->
+    <link rel="stylesheet" href="{% static 'style/media.css' %}?v=12" />
 
     <style>
       /* ================= DESKTOP NAVBAR VISIBILITY STYLES ================= */
@@ -315,8 +316,8 @@
       </div>
 
       <!-- Payment & Security Strip -->
-      <div style="display: flex; justify-content: space-between; align-items: center; padding: 25px 0 15px; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 35px; flex-wrap: wrap; gap: 16px;">
-        <div style="display: flex; align-items: center; gap: 12px; font-size: 13px; color: rgba(255, 255, 255, 0.65);">
+      <div class="footer-payment-strip" style="display: flex; justify-content: space-between; align-items: center; padding: 25px 0 15px; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 35px; flex-wrap: wrap; gap: 16px;">
+        <div class="payment-badges" style="display: flex; align-items: center; gap: 12px; font-size: 13px; color: rgba(255, 255, 255, 0.65); flex-wrap: wrap;">
           <span>Qabul qilinadigan to'lovlar:</span>
           <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; color: #fff; font-weight: 600; font-size: 11.5px;">UzCard</span>
           <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; color: #fff; font-weight: 600; font-size: 11.5px;">Humo</span>
