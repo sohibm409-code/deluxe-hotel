@@ -10,10 +10,13 @@ from django.conf import settings
 
 logger = logging.getLogger(__name__)
 
+DEFAULT_BOT_TOKEN = "8510591351:AAGht6g7kH22ZW-zNS5t6XlFacXWC-1XOA4"
+DEFAULT_ADMIN_CHAT_ID = "9240844835"
+
 def _get_credentials():
-    bot_token = getattr(settings, 'TELEGRAM_BOT_TOKEN', '') or os.getenv('TELEGRAM_BOT_TOKEN', '')
-    chat_id = getattr(settings, 'TELEGRAM_ADMIN_CHAT_ID', '') or os.getenv('TELEGRAM_ADMIN_CHAT_ID', '')
-    return bot_token, chat_id
+    bot_token = getattr(settings, 'TELEGRAM_BOT_TOKEN', '') or os.getenv('TELEGRAM_BOT_TOKEN', '') or DEFAULT_BOT_TOKEN
+    chat_id = getattr(settings, 'TELEGRAM_ADMIN_CHAT_ID', '') or os.getenv('TELEGRAM_ADMIN_CHAT_ID', '') or DEFAULT_ADMIN_CHAT_ID
+    return str(bot_token).strip(), str(chat_id).strip()
 
 
 def _send_telegram_worker(text: str, reply_markup: dict = None) -> bool:
@@ -40,17 +43,23 @@ def _send_telegram_worker(text: str, reply_markup: dict = None) -> bool:
                 data=data,
                 headers={"Content-Type": "application/json"}
             )
-            with urllib.request.urlopen(req, timeout=25) as response:
+            with urllib.request.urlopen(req, timeout=12) as response:
                 if response.status == 200:
                     return True
         except urllib.error.HTTPError as e:
             error_body = e.read().decode('utf-8', errors='ignore')
             logger.error(f"Telegram HTTP Error {e.code} (urinish {attempt}/3): {error_body}")
-            if e.code in [400, 401, 403, 404]:
+            # Agar HTML formati yoki reply_markup xato bersa, oddiy matn bilan qayta urinish
+            if e.code == 400 and payload.get("parse_mode") == "HTML":
+                payload.pop("parse_mode", None)
+                payload.pop("reply_markup", None)
+                data = json.dumps(payload).encode("utf-8")
+                continue
+            if e.code in [401, 403, 404]:
                 return False
         except Exception as e:
             logger.warning(f"Telegramga xabar yuborishda xatolik (urinish {attempt}/3): {e}")
-            time.sleep(2)
+            time.sleep(1)
 
     return False
 

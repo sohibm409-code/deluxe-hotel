@@ -143,11 +143,19 @@ def _poll_updates_loop():
                     offset = update["update_id"] + 1
                     if "callback_query" in update:
                         handle_callback_query(update["callback_query"])
+        except urllib.error.HTTPError as e:
+            if e.code == 409:
+                # Webhook o'rnatilgan bo'lsa polling kerak emas
+                logger.info("Telegram Webhook faol, polling to'xtatildi (409 Conflict).")
+                time.sleep(60)
+            else:
+                logger.warning(f"Telegram polling HTTP xatolik ({e.code}): {e}")
+                time.sleep(5)
         except urllib.error.URLError:
-            time.sleep(2)
+            time.sleep(5)
         except Exception as e:
             logger.error(f"Telegram polling loop xatolik: {e}")
-            time.sleep(2)
+            time.sleep(5)
 
 
 def start_polling_thread():

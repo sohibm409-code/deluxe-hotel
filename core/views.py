@@ -1,12 +1,19 @@
 import json
-from django.http import JsonResponse
+import logging
+import urllib.request
+import urllib.error
+from django.conf import settings
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.views.generic import TemplateView
 from blog.models import Blog
 from contact.models import Contact
 from rooms.models import Room
 from .models import Service, Testimonial, HotelStat
+
+logger = logging.getLogger(__name__)
 
 class IndexView(TemplateView):
     template_name = "core/index.html"
@@ -148,3 +155,120 @@ def submit_testimonial_view(request):
         })
     except Exception as e:
         return JsonResponse({"status": "error", "message": "Xatolik yuz berdi: " + str(e)}, status=500)
+
+
+@csrf_exempt
+def telegram_webhook_view(request):
+    """
+    Telegram Bot Webhook Controller.
+    Render va jonli serverlarda callback (tugmalar) va xabarlarni qabul qiladi.
+    """
+    if request.method == "POST":
+        try:
+            body = request.body.decode("utf-8")
+            update = json.loads(body)
+            logger.info(f"Telegram webhook update: id={update.get('update_id')}")
+
+            # 1. Inline Button Callback (Tasdiqlash / Bekor qilish)
+            if "callback_query" in update:
+                from .telegram_listener import handle_callback_query
+                handle_callback_query(update["callback_query"])
+
+            # 2. Oddiy xabar (/start, /id, /status)
+            elif "message" in update:
+                msg = update["message"]
+                chat_id = msg.get("chat", {}).get("id")
+                text = (msg.get("text") or "").strip()
+                first_name = msg.get("from", {}).get("first_name", "Mehmon")
+
+                if text.startswith("/start"):
+                    from .telegram import send_telegram_message
+                    reply = (
+                        f"👋 Assalomu alaykum, <b>{first_name}</b>!\n\n"
+                        f"🏨 <b>Deluxe Hotel & Resort</b> rasmiy bildirishnoma boti faol ishlamoqda.\n"
+                        f"🆔 Sizning Chat ID: <code>{chat_id}</code>\n\n"
+                        f"Sayt orqali kelgan barcha yangi xona bronlari, restoran stollari va "
+                        f"murojaatlar shu yerga avtomatik yetkaziladi."
+                    )
+                    send_telegram_message(reply, async_mode=True)
+                elif text == "/id":
+                    from .telegram import send_telegram_message
+                    send_telegram_message(f"🆔 Sizning Chat ID: <code>{chat_id}</code>", async_mode=True)
+
+            return JsonResponse({"ok": True})
+        except Exception as e:
+            logger.error(f"Telegram webhook xatolik: {e}", exc_info=True)
+            return JsonResponse({"ok": False, "error": str(e)}, status=200)
+
+    # GET so'rovi yuborilganda webhook holatini ko'rsatish
+    bot_token = getattr(settings, 'TELEGRAM_BOT_TOKEN', '')
+    masked_token = bot_token[:10] + "..." if bot_token else "Kiritilmagan"
+    return JsonResponse({
+        "status": "online",
+        "service": "Deluxe Hotel Telegram Webhook",
+        "bot_token": masked_token,
+        "instructions": "Bu URL Telegram Bot API webhook manzili sifatida xizmat qiladi."
+    })
+
+
+def setup_webhook_view(request):
+    """
+    Telegram Bot Webhookni avtomatik ulash yoki holatini tekshirish.
+    Faqat staff user yoki secret kalit bilan ishlaydi.
+    """
+    secret = request.GET.get("secret", "")
+    if not (request.user.is_staff or secret == "deluxe2026"):
+        return JsonResponse({"error": "Ruxsat etilmadi. Administrator bo'lishingiz kerak."}, status=403)
+
+    action = request.GET.get("action", "set")
+    bot_token = getattr(settings, 'TELEGRAM_BOT_TOKEN', '')
+    render_url = getattr(settings, 'RENDER_EXTERNAL_URL', '') or "https://deluxe-hotel-y0w8.onrender.com"
+    webhook_url = f"{render_url.rstrip('/')}/telegram/webhook/"
+
+    if action == "set":
+        url = f"https://api.telegram.org/bot{bot_token}/setWebhook?url={webhook_url}&drop_pending_updates=True"
+    elif action == "delete":
+        url = f"https://api.telegram.org/bot{bot_token}/deleteWebhook?drop_pending_updates=True"
+    else:
+        url = f"https://api.telegram.org/bot{bot_token}/getWebhookInfo"
+
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "DeluxeHotel/1.0"})
+        with urllib.request.urlopen(req, timeout=15) as res:
+            data = json.loads(res.read().decode("utf-8"))
+            return JsonResponse({
+                "action": action,
+                "target_webhook_url": webhook_url,
+                "telegram_response": data
+            })
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
+
+
+def test_send_telegram_view(request):
+    """
+    Telegramga xabar borishini sinab ko'rish uchun test view.
+    """
+    secret = request.GET.get("secret", "")
+    if not (request.user.is_staff or secret == "deluxe2026"):
+        return JsonResponse({"error": "Ruxsat etilmadi."}, status=403)
+
+    from .telegram import send_telegram_message, _get_credentials
+    bot_token, chat_id = _get_credentials()
+    
+    test_text = (
+        "🚀 <b>Deluxe Hotel & Resort — Jonli Test Xabarnomasi!</b>\n"
+        "━━━━━━━━━━━━━━━━━━━━\n"
+        "✅ Telegram tizimi internetda va mahalliy serverda 100% muvaffaqiyatli ishga tushirildi!\n"
+        f"🤖 Bot Token: <code>{bot_token[:10]}...</code>\n"
+        f"👤 Qabul qiluvchi Chat ID: <code>{chat_id}</code>\n"
+        "━━━━━━━━━━━━━━━━━━━━\n"
+        "Endi saytdagi har bir xona broni va stol buyurtmasi shu yerga keladi."
+    )
+    success = send_telegram_message(test_text, async_mode=False)
+    return JsonResponse({
+        "success": success,
+        "chat_id": chat_id,
+        "message": "Xabar Telegramga muvaffaqiyatli yetkazildi!" if success else "Xabar yuborishda xatolik yuz berdi."
+    })
+

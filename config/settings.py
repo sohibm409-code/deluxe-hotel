@@ -136,13 +136,7 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Telegram Bot sozlamalari
-TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
-TELEGRAM_ADMIN_CHAT_ID = os.getenv("TELEGRAM_ADMIN_CHAT_ID", "")
-
-# SMS Xizmati sozlamalari (Eskiz.uz)
-ESKIZ_EMAIL = os.getenv("ESKIZ_EMAIL", "")
-ESKIZ_PASSWORD = os.getenv("ESKIZ_PASSWORD", "")
+# Telegram Bot & SMS sozlamalari (pastda to'liq konfiguratsiya qilingan)
 
 # Unfold Modern Admin Dashboard sozlamalari
 UNFOLD = {
@@ -251,11 +245,19 @@ UNFOLD = {
 }
 
 # ==============================================================================
-# TELEGRAM BOT NOTIFICATIONS
+# TELEGRAM BOT & SMS NOTIFICATIONS
 # ==============================================================================
 # Yangi buyurtmalar (Xona, Stol, VIP Transfer, Xabar) haqida Telegramga xabar yuborish
-TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
-TELEGRAM_ADMIN_CHAT_ID = os.getenv("TELEGRAM_ADMIN_CHAT_ID", "")
+DEFAULT_TELEGRAM_BOT_TOKEN = "8510591351:AAGht6g7kH22ZW-zNS5t6XlFacXWC-1XOA4"
+DEFAULT_TELEGRAM_ADMIN_CHAT_ID = "9240844835"
+
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN") or DEFAULT_TELEGRAM_BOT_TOKEN
+TELEGRAM_ADMIN_CHAT_ID = os.getenv("TELEGRAM_ADMIN_CHAT_ID") or DEFAULT_TELEGRAM_ADMIN_CHAT_ID
+RENDER_EXTERNAL_URL = os.getenv("RENDER_EXTERNAL_URL") or "https://deluxe-hotel-y0w8.onrender.com"
+
+# SMS Xizmati sozlamalari (Eskiz.uz)
+ESKIZ_EMAIL = os.getenv("ESKIZ_EMAIL", "")
+ESKIZ_PASSWORD = os.getenv("ESKIZ_PASSWORD", "")
 
 
 
