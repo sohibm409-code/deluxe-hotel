@@ -820,3 +820,60 @@
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
   color: #ffffff;
 }
+
+/* ========================================================
+   SERVICES & MODALS — RESPONSIVE STYLES
+   ======================================================== */
+@media (max-width: 768px) {
+  .service-modal-box {
+    width: calc(100% - 24px) !important;
+    margin: 15px auto !important;
+    max-height: 92vh !important;
+  }
+  .service-modal-header {
+    padding: 16px 18px !important;
+  }
+  .service-modal-header h3 {
+    font-size: 18px !important;
+  }
+  .service-modal-body {
+    padding: 20px 16px !important;
+  }
+  .reception-contact-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+    padding: 16px !important;
+  }
+  .reception-call-btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  .reception-services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  .form-group-row {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .floating-speed-dial {
+    bottom: 20px !important;
+    right: 16px !important;
+  }
+  .speed-dial-trigger {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 19px !important;
+  }
+  .speed-dial-tooltip {
+    display: none !important;
+  }
+  .back-to-top-btn {
+    bottom: 20px !important;
+    left: 16px !important;
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 16px !important;
+  }
+}

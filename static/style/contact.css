@@ -80,7 +80,7 @@ button {
 .nav__list > li > a,
 .nav__list a {
   font-size: 15px;
-  color: #222222 !important;
+  color: #222222;
   transition: 0.3s;
 }
 
@@ -88,7 +88,7 @@ button {
 .nav__list > li > a.active,
 .nav__list a:hover,
 .nav__list a.active {
-  color: var(--gold) !important;
+  color: var(--gold);
 }
 
 #menu-toggle {

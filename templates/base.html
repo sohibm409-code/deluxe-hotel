@@ -238,7 +238,14 @@
         </label>
         <label for="menu-toggle" class="nav-overlay" aria-label="Close menu"></label>
 
-        <nav class="nav">
+        <nav class="nav" id="mainNav">
+          <div class="nav-drawer-header">
+            <div class="nav-drawer-brand">
+              <span class="nav-drawer-logo">Deluxe</span>
+              <span class="nav-drawer-stars">★★★★★</span>
+            </div>
+            <label for="menu-toggle" class="nav-drawer-close" aria-label="Close menu">&times;</label>
+          </div>
           <ul class="nav__list">
             <li><a href="{% url 'core:index' %}" class="{% if request.resolver_match.view_name == 'core:index' %}active{% endif %}">Home</a></li>
             <li><a href="{% url 'rooms:index' %}" class="{% if request.resolver_match.app_name == 'rooms' %}active{% endif %}">Rooms</a></li>
@@ -378,6 +385,15 @@
         });
       }
       initHeroSliders();
+
+      // Close mobile drawer when a nav link is clicked
+      var menuToggle = document.getElementById('menu-toggle');
+      var navLinks = document.querySelectorAll('.nav__list a');
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          if (menuToggle) menuToggle.checked = false;
+        });
+      });
 
       var links = document.querySelectorAll('a[href]');
       links.forEach(function(link) {
