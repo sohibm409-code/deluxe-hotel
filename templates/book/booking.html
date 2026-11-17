@@ -1,31 +1,52 @@
 {% extends "base.html" %}
-{% block title %}Xona Band Qilish (Onlayn Bron) | Deluxe Hotel{% endblock %}
+{% block title %}Xona Band Qilish (Onlayn Bron) | Deluxe Hotel &amp; Resort{% endblock %}
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'style/rooms.css' %}?v=15">
+<link rel="stylesheet" href="{% static 'style/rooms.css' %}?v=16">
 <style>
   .booking-section {
-    padding: 80px 0;
-    background-color: #f8f9fa;
+    padding: 70px 0 90px;
+    background-color: #f7f6f3;
+  }
+  .booking-container {
+    max-width: 820px;
+    margin: 0 auto;
   }
   .booking-card {
-    max-width: 700px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    background: #ffffff;
+    padding: 45px;
+    border-radius: 14px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+    border: 1px solid #eee;
   }
   .booking-card h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    margin-bottom: 10px;
-    color: #222;
+    font-size: 32px;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+    text-align: center;
   }
   .booking-card p.sub {
     color: #777;
     margin-bottom: 30px;
+    text-align: center;
+    font-size: 15px;
+  }
+  .form-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    color: #222;
+    margin: 28px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #f0e8dd;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .form-section-title i {
+    color: #c19b76;
+    font-size: 17px;
   }
   .form-group {
     margin-bottom: 20px;
@@ -34,74 +55,290 @@
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
-    font-size: 14px;
-    color: #333;
+    font-size: 13.5px;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
-  .form-group input, .form-group select, .form-group textarea {
+  .form-group input, 
+  .form-group select, 
+  .form-group textarea {
     width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 13px 16px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
     font-size: 15px;
+    color: #222;
+    background: #ffffff;
+    box-sizing: border-box;
     outline: none;
-    transition: border 0.3s;
+    transition: all 0.25s ease;
+    font-family: inherit;
   }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-    border-color: #c5a880;
+  .form-group input:focus, 
+  .form-group select:focus, 
+  .form-group textarea:focus {
+    border-color: #c19b76;
+    box-shadow: 0 0 0 3px rgba(193, 155, 118, 0.2);
   }
   .form-row {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
   }
-  .form-row .form-group {
-    flex: 1;
-  }
-  .btn-submit {
-    background: #c5a880;
-    color: #fff;
-    border: none;
-    padding: 14px 30px;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
-    transition: background 0.3s;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  .btn-submit:hover {
-    background: #ab8e65;
-  }
+  
+  /* Selected Room Box */
   .room-summary-box {
-    background: #faf7f2;
-    padding: 15px 20px;
-    border-left: 4px solid #c5a880;
-    margin-bottom: 25px;
-    border-radius: 4px;
+    background: linear-gradient(135deg, #fdfbf7 0%, #f6f0e6 100%);
+    padding: 20px 24px;
+    border: 1px solid #ecdcc8;
+    border-left: 5px solid #c19b76;
+    margin-bottom: 28px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
   }
-  .room-summary-box h4 {
-    margin: 0 0 5px 0;
-    color: #333;
+  .room-summary-details h4 {
+    margin: 0 0 6px 0;
+    font-size: 20px;
+    color: #1a1a1a;
+    font-family: 'Playfair Display', serif;
   }
-  .room-summary-box p {
+  .room-summary-details p {
     margin: 0;
     color: #666;
     font-size: 14px;
   }
+  .room-summary-price {
+    text-align: right;
+  }
+  .room-summary-price .price-val {
+    font-size: 26px;
+    font-weight: 700;
+    color: #c19b76;
+  }
+  .room-summary-price .price-unit {
+    font-size: 13px;
+    color: #888;
+  }
+
+  /* Live Price Calculation Strip */
+  .calc-summary-strip {
+    background: #1e1e1e;
+    color: #ffffff;
+    padding: 20px 24px;
+    border-radius: 10px;
+    margin: 25px 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .calc-item {
+    display: flex;
+    flex-direction: column;
+  }
+  .calc-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 4px;
+  }
+  .calc-val {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+  }
+  .calc-total {
+    text-align: right;
+  }
+  .calc-total .total-amount {
+    font-size: 28px;
+    font-weight: 700;
+    color: #e5b98a;
+  }
+  .calc-total .total-uzs {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  /* Interactive Payment Method Cards */
+  .payment-options-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .payment-card {
+    background: #ffffff;
+    border: 2px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 16px 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    user-select: none;
+  }
+  .payment-card:hover {
+    border-color: #c19b76;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  }
+  .payment-card.active {
+    border-color: #c19b76;
+    background: #faf6f0;
+    box-shadow: 0 4px 16px rgba(193, 155, 118, 0.18);
+  }
+  .payment-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .payment-card-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: #f4efe9;
+    color: #c19b76;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+  .payment-card.active .payment-card-icon {
+    background: #c19b76;
+    color: #ffffff;
+  }
+  .payment-card-check {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: transparent;
+    transition: all 0.2s ease;
+  }
+  .payment-card.active .payment-card-check {
+    border-color: #c19b76;
+    background: #c19b76;
+    color: #ffffff;
+  }
+  .payment-card-title {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 4px;
+  }
+  .payment-card-desc {
+    font-size: 11.5px;
+    color: #777;
+    line-height: 1.4;
+  }
+
+  /* Payment Instructions Dynamic Box */
+  .payment-hint-box {
+    background: #fdfbf7;
+    border: 1px solid #ebd9c3;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    color: #6c5339;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+  .payment-hint-box i {
+    font-size: 17px;
+    color: #c19b76;
+    margin-top: 2px;
+  }
+
+  /* Submit Button */
+  .btn-submit {
+    background: #c19b76;
+    color: #ffffff;
+    border: none;
+    padding: 16px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    box-shadow: 0 4px 18px rgba(193, 155, 118, 0.35);
+  }
+  .btn-submit:hover {
+    background: #a98059;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 22px rgba(193, 155, 118, 0.45);
+  }
+
+  /* Mobile Responsive */
   @media (max-width: 768px) {
     .booking-section {
-      padding: 45px 0;
+      padding: 40px 0 60px;
     }
     .booking-card {
       padding: 24px 18px;
+      border-radius: 12px;
     }
     .booking-card h2 {
       font-size: 24px;
     }
     .form-row {
-      flex-direction: column;
+      grid-template-columns: 1fr;
       gap: 0;
+    }
+    .payment-options-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .room-summary-box {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 16px;
+    }
+    .room-summary-price {
+      text-align: left;
+    }
+    .calc-summary-strip {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 18px;
+    }
+    .calc-total {
+      text-align: left;
+      width: 100%;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .payment-options-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
@@ -123,90 +360,339 @@
   </section>
 
   <section class="booking-section">
-    <div class="container">
+    <div class="container booking-container">
       <div class="booking-card">
-        <h2>Xona Band Qilish</h2>
-        <p class="sub">Iltimos, ma'lumotlaringizni to'ldiring va qulay xonani band qiling.</p>
+        <h2>Xonani Band Qilish</h2>
+        <p class="sub">Ma'lumotlaringizni to'ldiring, to'lov turini tanlang va qulay xonani band qiling.</p>
 
+        <!-- Selected Room Highlight -->
         {% if room %}
-        <div class="room-summary-box">
-          <h4>Tanlangan xona: {{ room.title }}</h4>
-          <p>Narxi: <strong>${{ room.price }}</strong> / tun &bull; Sig'imi: {{ room.max_persons }} kishi &bull; {{ room.view }}</p>
+        <div class="room-summary-box" id="preselectedRoomBox" data-room-price="{{ room.price }}">
+          <div class="room-summary-details">
+            <h4><i class="fa-solid fa-bed" style="color: #c19b76;"></i> {{ room.title }}</h4>
+            <p>Sig'imi: <b>{{ room.max_persons }} kishi</b> &bull; Maydoni: <b>{{ room.size }} m²</b> &bull; {{ room.view }}</p>
+          </div>
+          <div class="room-summary-price">
+            <div class="price-val">${{ room.price }}</div>
+            <div class="price-unit">1 kecha uchun</div>
+          </div>
         </div>
         {% endif %}
 
         {% if messages %}
           {% for message in messages %}
-            <div style="padding: 12px; margin-bottom: 20px; background: #d4edda; color: #155724; border-radius: 4px; border: 1px solid #c3e6cb;">
-              {{ message }}
+            <div style="padding: 14px 18px; margin-bottom: 24px; background: #e8f5e9; color: #2e7d32; border-radius: 8px; border: 1px solid #c8e6c9; font-weight: 500;">
+              <i class="fa-solid fa-circle-check"></i> {{ message }}
             </div>
           {% endfor %}
         {% endif %}
 
         {% if form.non_field_errors %}
-          <div style="padding: 14px 18px; margin-bottom: 20px; background: #f8d7da; color: #721c24; border-radius: 4px; border: 1px solid #f5c6cb; font-weight: 500;">
+          <div style="padding: 14px 18px; margin-bottom: 24px; background: #ffebee; color: #c62828; border-radius: 8px; border: 1px solid #ffcdd2; font-weight: 500;">
             {% for error in form.non_field_errors %}
               <div><i class="fa-solid fa-circle-exclamation"></i> {{ error }}</div>
             {% endfor %}
           </div>
         {% endif %}
 
-        <form method="POST">
+        <form method="POST" id="bookingMainForm">
           {% csrf_token %}
+
+          <!-- Section 1: Room & Dates -->
+          <div class="form-section-title">
+            <i class="fa-solid fa-calendar-days"></i> 1. Xona va Tashrif Sanalari
+          </div>
 
           {% if not room %}
           <div class="form-group">
-            <label>Xona</label>
-            {{ form.room }}
+            <label><i class="fa-solid fa-door-open"></i> Xonani tanlang</label>
+            <select name="room" class="form-select" id="bookingRoomSelect" required>
+              <option value="">--- Xonani tanlang ---</option>
+              {% for r in all_rooms %}
+                <option value="{{ r.id }}" data-price="{{ r.price }}" {% if form.room.value|stringformat:"s" == r.id|stringformat:"s" %}selected{% endif %}>
+                  {{ r.title }} — ${{ r.price }}/kecha ({{ r.max_persons }} kishi)
+                </option>
+              {% endfor %}
+            </select>
+            {% if form.room.errors %}
+              <div style="color: #d32f2f; font-size: 13px; margin-top: 4px;">{{ form.room.errors.0 }}</div>
+            {% endif %}
           </div>
+          {% else %}
+          <input type="hidden" name="room" value="{{ room.id }}" id="bookingRoomSelectHidden" data-price="{{ room.price }}">
           {% endif %}
 
           <div class="form-row">
             <div class="form-group">
-              <label>Kelish sanasi (Check-in)</label>
+              <label><i class="fa-solid fa-calendar-check"></i> Kelish sanasi (Check-in)</label>
               {{ form.check_in }}
               {% if form.check_in.errors %}
-                <div style="color: #dc3545; font-size: 13px; margin-top: 4px;">{{ form.check_in.errors.0 }}</div>
+                <div style="color: #d32f2f; font-size: 13px; margin-top: 4px;">{{ form.check_in.errors.0 }}</div>
               {% endif %}
             </div>
             <div class="form-group">
-              <label>Ketish sanasi (Check-out)</label>
+              <label><i class="fa-solid fa-calendar-xmark"></i> Ketish sanasi (Check-out)</label>
               {{ form.check_out }}
               {% if form.check_out.errors %}
-                <div style="color: #dc3545; font-size: 13px; margin-top: 4px;">{{ form.check_out.errors.0 }}</div>
+                <div style="color: #d32f2f; font-size: 13px; margin-top: 4px;">{{ form.check_out.errors.0 }}</div>
               {% endif %}
             </div>
           </div>
 
           <div class="form-group">
-            <label>Mehmonlar soni</label>
+            <label><i class="fa-solid fa-users"></i> Mehmonlar soni</label>
             {{ form.guests }}
+          </div>
+
+          <!-- Live Real-Time Price Calculation Strip -->
+          <div class="calc-summary-strip" id="calcSummaryStrip">
+            <div class="calc-item">
+              <span class="calc-label">Tanlangan xona</span>
+              <span class="calc-val" id="calcRoomTitle">{% if room %}{{ room.title }}{% else %}Xona tanlanmagan{% endif %}</span>
+            </div>
+            <div class="calc-item">
+              <span class="calc-label">Davomiyligi</span>
+              <span class="calc-val" id="calcNightsCount">1 kecha</span>
+            </div>
+            <div class="calc-item calc-total">
+              <span class="calc-label">Jami to'lov summasi</span>
+              <div class="total-amount" id="calcTotalPrice">${% if room %}{{ room.price }}{% else %}0{% endif %}</div>
+              <div class="total-uzs" id="calcTotalUzs">taxminan so'mda hisoblanadi</div>
+            </div>
+          </div>
+
+          <!-- Section 2: Payment Method (To'lov turi) -->
+          <div class="form-section-title">
+            <i class="fa-solid fa-credit-card"></i> 2. To'lov Turini Tanlang
+          </div>
+
+          <!-- Hidden actual input synced with payment cards -->
+          <input type="hidden" name="payment_method" id="selectedPaymentMethod" value="{{ form.payment_method.value|default:'cash' }}">
+
+          <div class="payment-options-grid">
+            <!-- 1. Cash -->
+            <div class="payment-card {% if form.payment_method.value == 'cash' or not form.payment_method.value %}active{% endif %}" data-method="cash">
+              <div class="payment-card-header">
+                <div class="payment-card-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+                <div class="payment-card-check"><i class="fa-solid fa-check"></i></div>
+              </div>
+              <div class="payment-card-title">Naqd to'lov</div>
+              <div class="payment-card-desc">Mehmonxonaga joylashish vaqtida qabulxonada naqd to'lash</div>
+            </div>
+
+            <!-- 2. UzCard -->
+            <div class="payment-card {% if form.payment_method.value == 'uzcard' %}active{% endif %}" data-method="uzcard">
+              <div class="payment-card-header">
+                <div class="payment-card-icon"><i class="fa-solid fa-credit-card"></i></div>
+                <div class="payment-card-check"><i class="fa-solid fa-check"></i></div>
+              </div>
+              <div class="payment-card-title">UzCard</div>
+              <div class="payment-card-desc">Milliy bank kartasi orqali to'lov (terminal yoki onlayn)</div>
+            </div>
+
+            <!-- 3. Humo -->
+            <div class="payment-card {% if form.payment_method.value == 'humo' %}active{% endif %}" data-method="humo">
+              <div class="payment-card-header">
+                <div class="payment-card-icon"><i class="fa-solid fa-credit-card"></i></div>
+                <div class="payment-card-check"><i class="fa-solid fa-check"></i></div>
+              </div>
+              <div class="payment-card-title">Humo</div>
+              <div class="payment-card-desc">Humo kontaktsiz bank kartasi orqali to'lov</div>
+            </div>
+
+            <!-- 4. Visa / MasterCard -->
+            <div class="payment-card {% if form.payment_method.value == 'visa_mastercard' %}active{% endif %}" data-method="visa_mastercard">
+              <div class="payment-card-header">
+                <div class="payment-card-icon"><i class="fa-brands fa-cc-visa"></i></div>
+                <div class="payment-card-check"><i class="fa-solid fa-check"></i></div>
+              </div>
+              <div class="payment-card-title">Visa / MasterCard</div>
+              <div class="payment-card-desc">Xalqaro xorijiy bank kartalari orqali to'lov</div>
+            </div>
+
+            <!-- 5. Payme -->
+            <div class="payment-card {% if form.payment_method.value == 'payme' %}active{% endif %}" data-method="payme">
+              <div class="payment-card-header">
+                <div class="payment-card-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                <div class="payment-card-check"><i class="fa-solid fa-check"></i></div>
+              </div>
+              <div class="payment-card-title">Payme ilovasi</div>
+              <div class="payment-card-desc">Payme ilovasi orqali to'g'ridan-to'g'ri to'lov havolasi</div>
+            </div>
+
+            <!-- 6. Click -->
+            <div class="payment-card {% if form.payment_method.value == 'click' %}active{% endif %}" data-method="click">
+              <div class="payment-card-header">
+                <div class="payment-card-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                <div class="payment-card-check"><i class="fa-solid fa-check"></i></div>
+              </div>
+              <div class="payment-card-title">Click ilovasi</div>
+              <div class="payment-card-desc">Click Up ilovasi orqali qulay va tezkor to'lov</div>
+            </div>
+          </div>
+
+          <!-- Dynamic payment explanation hint -->
+          <div class="payment-hint-box" id="paymentHintBox">
+            <i class="fa-solid fa-circle-info"></i>
+            <span id="paymentHintText">Mehmonxonaga tashrif buyurib (Check-in), qabulxonada naqd pul (so'm yoki valyuta) shaklida to'lashingiz mumkin.</span>
+          </div>
+
+          <!-- Section 3: Contact Details -->
+          <div class="form-section-title">
+            <i class="fa-solid fa-user-check"></i> 3. Mehmon Ma'lumotlari
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label>Ismingiz</label>
+              <label><i class="fa-solid fa-user"></i> Ism va Familiyangiz</label>
               {{ form.customer_name }}
+              {% if form.customer_name.errors %}
+                <div style="color: #d32f2f; font-size: 13px; margin-top: 4px;">{{ form.customer_name.errors.0 }}</div>
+              {% endif %}
             </div>
             <div class="form-group">
-              <label>Telefon raqamingiz</label>
+              <label><i class="fa-solid fa-phone"></i> Telefon raqamingiz</label>
               {{ form.customer_phone }}
+              {% if form.customer_phone.errors %}
+                <div style="color: #d32f2f; font-size: 13px; margin-top: 4px;">{{ form.customer_phone.errors.0 }}</div>
+              {% endif %}
             </div>
           </div>
 
           <div class="form-group">
-            <label>Email manzilingiz (ixtiyoriy)</label>
+            <label><i class="fa-solid fa-envelope"></i> Elektron pochta manzilingiz (ixtiyoriy)</label>
             {{ form.customer_email }}
           </div>
 
           <div class="form-group">
-            <label>Qo'shimcha istaklar (ixtiyoriy)</label>
+            <label><i class="fa-solid fa-comment-dots"></i> Qo'shimcha istaklar (ixtiyoriy)</label>
             {{ form.notes }}
           </div>
 
-          <button type="submit" class="btn-submit">Band qilishni tasdiqlash</button>
+          <button type="submit" class="btn-submit">
+            <i class="fa-solid fa-shield-halved"></i> Xonani xavfsiz band qilish
+          </button>
         </form>
       </div>
     </div>
   </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var checkInInput = document.getElementById('bookingCheckIn');
+      var checkOutInput = document.getElementById('bookingCheckOut');
+      var roomSelect = document.getElementById('bookingRoomSelect');
+      var roomHidden = document.getElementById('bookingRoomSelectHidden');
+      var calcRoomTitle = document.getElementById('calcRoomTitle');
+      var calcNightsCount = document.getElementById('calcNightsCount');
+      var calcTotalPrice = document.getElementById('calcTotalPrice');
+      var calcTotalUzs = document.getElementById('calcTotalUzs');
+      var paymentCards = document.querySelectorAll('.payment-card');
+      var selectedPaymentInput = document.getElementById('selectedPaymentMethod');
+      var hintText = document.getElementById('paymentHintText');
+
+      // USD to UZS approximate exchange rate for user convenience
+      var USD_TO_UZS = 12850;
+
+      var paymentHints = {
+        'cash': "Mehmonxonaga tashrif buyurib (Check-in), qabulxonada naqd pul (so'm yoki erkin konvertatsiya qilinadigan valyuta) shaklida to'lashingiz mumkin.",
+        'uzcard': "UzCard bank kartasi orqali to'lov qabulxonadagi terminal orqali yoki administrator yuboradigan to'lov havolasi yordamida amalga oshiriladi.",
+        'humo': "Humo kontaktsiz to'lov kartasi orqali qabulxonada bir zumda yoki onlayn to'lov orqali hisob-kitob qilish mumkin.",
+        'visa_mastercard': "Visa yoki MasterCard xalqaro kartalari qabulxonadagi ko'p valyutali POS-terminallar orqali qulay qabul qilinadi.",
+        'payme': "Buyurtma berilgach, administratorimiz siz bilan bog'lanib, Payme to'lov havolasi yoki QR-kodini taqdim etadi.",
+        'click': "Buyurtmangiz qabul qilingach, Click Up orqali bir martalik to'lov hisobi yuboriladi yoki qabulxonada Click orqali to'lashingiz mumkin."
+      };
+
+      // Set default minimum date to today
+      var today = new Date().toISOString().split('T')[0];
+      if (checkInInput && !checkInInput.value) {
+        checkInInput.min = today;
+      }
+      if (checkOutInput && !checkOutInput.value) {
+        checkOutInput.min = today;
+      }
+
+      function updateCalculations() {
+        var pricePerNight = 0;
+        var roomTitleText = "Tanlanmagan";
+
+        if (roomHidden) {
+          pricePerNight = parseFloat(roomHidden.getAttribute('data-price')) || 0;
+          {% if room %}
+            roomTitleText = "{{ room.title }}";
+          {% endif %}
+        } else if (roomSelect && roomSelect.selectedIndex > 0) {
+          var selectedOption = roomSelect.options[roomSelect.selectedIndex];
+          pricePerNight = parseFloat(selectedOption.getAttribute('data-price')) || 0;
+          roomTitleText = selectedOption.text.split('—')[0].trim();
+        }
+
+        var nights = 1;
+        if (checkInInput && checkOutInput && checkInInput.value && checkOutInput.value) {
+          var d1 = new Date(checkInInput.value);
+          var d2 = new Date(checkOutInput.value);
+          var diffTime = d2 - d1;
+          var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+          if (diffDays > 0) {
+            nights = diffDays;
+          }
+        }
+
+        var total = pricePerNight * nights;
+        var totalUzs = total * USD_TO_UZS;
+
+        if (calcRoomTitle) calcRoomTitle.textContent = roomTitleText;
+        if (calcNightsCount) calcNightsCount.textContent = nights + (nights === 1 ? " kecha" : " kecha");
+        if (calcTotalPrice) calcTotalPrice.textContent = "$" + total.toFixed(0);
+        if (calcTotalUzs) {
+          if (total > 0) {
+            calcTotalUzs.textContent = "~ " + totalUzs.toLocaleString('uz-UZ') + " so'm";
+          } else {
+            calcTotalUzs.textContent = "taxminan so'mda hisoblanadi";
+          }
+        }
+      }
+
+      // Payment Method Click Handlers
+      paymentCards.forEach(function(card) {
+        card.addEventListener('click', function() {
+          paymentCards.forEach(function(c) { c.classList.remove('active'); });
+          this.classList.add('active');
+
+          var method = this.getAttribute('data-method');
+          if (selectedPaymentInput) {
+            selectedPaymentInput.value = method;
+          }
+          if (hintText && paymentHints[method]) {
+            hintText.textContent = paymentHints[method];
+          }
+        });
+      });
+
+      if (checkInInput) {
+        checkInInput.addEventListener('change', function() {
+          if (checkOutInput && checkInInput.value) {
+            checkOutInput.min = checkInInput.value;
+            if (checkOutInput.value && checkOutInput.value <= checkInInput.value) {
+              var nextDay = new Date(checkInInput.value);
+              nextDay.setDate(nextDay.getDate() + 1);
+              checkOutInput.value = nextDay.toISOString().split('T')[0];
+            }
+          }
+          updateCalculations();
+        });
+      }
+
+      if (checkOutInput) {
+        checkOutInput.addEventListener('change', updateCalculations);
+      }
+
+      if (roomSelect) {
+        roomSelect.addEventListener('change', updateCalculations);
+      }
+
+      // Initial calculation
+      updateCalculations();
+    });
+  </script>
 {% endblock %}

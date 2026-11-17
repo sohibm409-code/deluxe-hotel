@@ -62,6 +62,8 @@ class QuickBookingView(View):
             
             return redirect(f"/book/create/?{urlencode(params)}")
 
+        payment_method = request.POST.get("payment_method", "cash")
+
         Booking.objects.create(
             room=room,
             room_name=room_title or (room.title if room else "Noma'lum xona"),
@@ -70,7 +72,8 @@ class QuickBookingView(View):
             guests=guests,
             customer_name=customer_name or "Mijoz",
             customer_phone=customer_phone,
-            customer_email=customer_email
+            customer_email=customer_email,
+            payment_method=payment_method
         )
 
         messages.success(request, "Xonani bron qilish so'rovingiz qabul qilindi! Admin Telegram orqali tasdiqlashi bilanoq xona siz uchun rasman band qilinadi.")
@@ -97,11 +100,14 @@ class BookingCreateView(View):
             initial['check_out'] = request.GET.get("check_out")
         if request.GET.get("guests"):
             initial['guests'] = request.GET.get("guests")
+        if request.GET.get("payment_method"):
+            initial['payment_method'] = request.GET.get("payment_method")
         if request.GET.get("room_name") and not room:
             initial['room_name'] = request.GET.get("room_name")
 
         form = BookingForm(initial=initial)
-        return render(request, "book/booking.html", {"form": form, "room": room})
+        all_rooms = Room.objects.all()
+        return render(request, "book/booking.html", {"form": form, "room": room, "all_rooms": all_rooms})
 
     def post(self, request, room_id=None):
         room = None
@@ -120,27 +126,18 @@ class BookingCreateView(View):
                 booking.room_name = booking.room.title
             elif not booking.room_name:
                 booking.room_name = "Umumiy buyurtma"
+            
+            # Booking.save() calculates total_price and signals.py sends Telegram notification
             booking.save()
 
-            # Telegram notification
-            try:
-                from core.telegram import notify_telegram
-                notify_telegram(
-                    f"🏨 <b>Yangi Xona Bron Qilindi!</b>\n\n"
-                    f"👤 <b>Mehmon:</b> {booking.customer_name}\n"
-                    f"📞 <b>Telefon:</b> {booking.customer_phone}\n"
-                    f"🛏 <b>Xona:</b> {booking.room_name}\n"
-                    f"📅 <b>Sanalar:</b> {booking.check_in.strftime('%d.%m.%Y')} — {booking.check_out.strftime('%d.%m.%Y')}\n"
-                    f"👥 <b>Mehmonlar:</b> {booking.guests}\n"
-                    f"💬 <b>Qo'shimcha:</b> {booking.notes or 'Yo\'q'}"
-                )
-            except Exception:
-                pass
-
-            messages.success(request, "Xonani bron qilish so'rovingiz qabul qilindi! Admin tasdiqlashi bilanoq xona siz uchun rasman band qilinadi.")
+            messages.success(
+                request, 
+                "Xonani bron qilish so'rovingiz qabul qilindi! Administratorimiz tez orada siz bilan bog'lanib, buyurtmangizni tasdiqlaydi."
+            )
             return redirect("rooms:index")
 
-        return render(request, "book/booking.html", {"form": form, "room": room})
+        all_rooms = Room.objects.all()
+        return render(request, "book/booking.html", {"form": form, "room": room, "all_rooms": all_rooms})
 
 
 class BookingStatusView(View):

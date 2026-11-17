@@ -3,26 +3,31 @@ from datetime import date
 from .models import Booking
 from .utils import get_conflicting_booking
 
+
 class BookingForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         if 'room' in self.fields:
             self.fields['room'].empty_label = "--- Xonani tanlang ---"
+        if 'payment_method' in self.fields:
+            self.fields['payment_method'].empty_label = None
 
     class Meta:
         model = Booking
         fields = [
             'room', 'room_name', 'check_in', 'check_out', 
-            'guests', 'customer_name', 'customer_phone', 'customer_email', 'notes'
+            'guests', 'customer_name', 'customer_phone', 'customer_email',
+            'payment_method', 'notes'
         ]
         widgets = {
-            'room': forms.Select(attrs={'class': 'form-select'}),
-            'check_in': forms.DateInput(attrs={'type': 'date', 'required': True}),
-            'check_out': forms.DateInput(attrs={'type': 'date', 'required': True}),
-            'customer_name': forms.TextInput(attrs={'placeholder': 'Ismingiz', 'required': True}),
-            'customer_phone': forms.TextInput(attrs={'placeholder': 'Telefon raqamingiz', 'required': True}),
-            'customer_email': forms.EmailInput(attrs={'placeholder': 'Email manzilingiz'}),
-            'notes': forms.Textarea(attrs={'placeholder': 'Qo\'shimcha istaklar...', 'rows': 3}),
+            'room': forms.Select(attrs={'class': 'form-select', 'id': 'bookingRoomSelect'}),
+            'check_in': forms.DateInput(attrs={'type': 'date', 'required': True, 'id': 'bookingCheckIn'}),
+            'check_out': forms.DateInput(attrs={'type': 'date', 'required': True, 'id': 'bookingCheckOut'}),
+            'customer_name': forms.TextInput(attrs={'placeholder': 'Ismingiz va familiyangiz', 'required': True}),
+            'customer_phone': forms.TextInput(attrs={'placeholder': '+998 (90) 123-45-67', 'required': True}),
+            'customer_email': forms.EmailInput(attrs={'placeholder': 'misol@mail.uz'}),
+            'payment_method': forms.Select(attrs={'class': 'form-select payment-select', 'id': 'bookingPaymentMethod'}),
+            'notes': forms.Textarea(attrs={'placeholder': 'Qo\'shimcha istaklar (masalan, yuqori qavat, bolalar karavoti va h.k.)...', 'rows': 3}),
         }
 
     def clean(self):

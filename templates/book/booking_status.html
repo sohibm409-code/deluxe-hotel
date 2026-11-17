@@ -166,6 +166,31 @@
     color: #c92a2a;
     border: 1px solid #f8c4c4;
   }
+  .badge-payment {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-top: 5px;
+  }
+  .badge-payment-paid {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+  }
+  .badge-payment-arrival {
+    background: #e3f2fd;
+    color: #1565c0;
+    border: 1px solid #bbdefb;
+  }
+  .badge-payment-pending {
+    background: #fff3e0;
+    color: #e65100;
+    border: 1px solid #ffe0b2;
+  }
 
   .no-results {
     text-align: center;
@@ -244,16 +269,28 @@
                       <span><i class="fa-solid fa-calendar-check"></i> Kelish: <b>{{ b.check_in|date:"d.m.Y" }}</b></span>
                       <span><i class="fa-solid fa-calendar-xmark"></i> Ketish: <b>{{ b.check_out|date:"d.m.Y" }}</b></span>
                       <span><i class="fa-solid fa-user-group"></i> Mehmonlar: {{ b.guests }}</span>
+                      <span><i class="{{ b.get_payment_method_icon }}"></i> To'lov: <b>{{ b.get_payment_method_display }}</b></span>
+                      {% if b.total_price %}
+                        <span><i class="fa-solid fa-money-bill-wave"></i> Summa: <b>${{ b.total_price }} ({{ b.nights_count }} kecha)</b></span>
+                      {% endif %}
                       <span><i class="fa-solid fa-clock"></i> Buyurtma sanasi: {{ b.created_at|date:"d.m.Y, H:i" }}</span>
                     </div>
                   </div>
-                  <div>
+                  <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
                     {% if b.status == 'confirmed' %}
                       <span class="badge-status badge-confirmed"><i class="fa-solid fa-circle-check"></i> Tasdiqlangan</span>
                     {% elif b.status == 'cancelled' %}
                       <span class="badge-status badge-cancelled"><i class="fa-solid fa-circle-xmark"></i> Bekor qilingan</span>
                     {% else %}
                       <span class="badge-status badge-pending"><i class="fa-solid fa-clock-rotate-left"></i> Kutilmoqda</span>
+                    {% endif %}
+
+                    {% if b.payment_status == 'paid' %}
+                      <span class="badge-payment badge-payment-paid"><i class="fa-solid fa-check-double"></i> To'langan</span>
+                    {% elif b.payment_status == 'pay_on_arrival' %}
+                      <span class="badge-payment badge-payment-arrival"><i class="fa-solid fa-hotel"></i> Kelganda to'lanadi</span>
+                    {% else %}
+                      <span class="badge-payment badge-payment-pending"><i class="fa-solid fa-hourglass-half"></i> To'lov kutilmoqda</span>
                     {% endif %}
                   </div>
                 </div>

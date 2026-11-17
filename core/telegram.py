@@ -138,6 +138,13 @@ def build_booking_message(booking) -> tuple[str, dict]:
     room_name = html.escape(room_title)
     guests = html.escape(str(booking.guests or "1"))
     notes = html.escape(booking.notes or "Mavjud emas")
+
+    nights = booking.nights_count if hasattr(booking, 'nights_count') else 1
+    total_price = getattr(booking, 'total_price', 0)
+    payment_method = booking.get_payment_method_display() if hasattr(booking, 'get_payment_method_display') else "Naqd to'lov"
+    payment_status = booking.get_payment_status_display() if hasattr(booking, 'get_payment_status_display') else "Kelganda to'lanadi"
+
+    price_str = f"${total_price} ({nights} kecha)" if total_price else "Hisoblanmagan"
     
     if booking.created_at:
         created = booking.created_at.strftime("%d.%m.%Y, %H:%M")
@@ -173,7 +180,10 @@ def build_booking_message(booking) -> tuple[str, dict]:
         f"📞 <b>Telefon:</b> {phone}\n"
         f"📧 <b>Email:</b> {email}\n"
         f"📅 <b>Kelish:</b> {booking.check_in}\n"
-        f"📅 <b>Ketish:</b> {booking.check_out}\n"
+        f"📅 <b>Ketish:</b> {booking.check_out} ({nights} kecha)\n"
+        f"💰 <b>Jami summa:</b> {price_str}\n"
+        f"💳 <b>To'lov turi:</b> {payment_method}\n"
+        f"🏷 <b>To'lov holati:</b> {payment_status}\n"
         f"👥 <b>Mehmonlar:</b> {guests}\n"
         f"📝 <b>Izoh:</b> {notes}\n"
         f"⏰ <b>Buyurtma vaqti:</b> {created}\n"
