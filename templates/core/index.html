@@ -18,11 +18,11 @@
           <p class="hero__welcome">Welcome To Deluxe</p>
           <span class="hero__sub">Hotels &amp; Resorts</span>
           <h1 class="hero__title">Enjoy A Luxury Experience</h1>
-          <div style="margin-top: 35px; display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;">
-            <a href="{% url 'rooms:index' %}" style="display: inline-flex; align-items: center; gap: 10px; background: #c19b76; color: #fff; padding: 16px 38px; border-radius: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(193, 155, 118, 0.45);">
+          <div class="hero__actions" style="margin-top: 35px; display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;">
+            <a href="{% url 'rooms:index' %}" class="hero__btn hero__btn--primary" style="display: inline-flex; align-items: center; gap: 10px; background: #c19b76; color: #fff; padding: 16px 38px; border-radius: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(193, 155, 118, 0.45);">
               <i class="fa-solid fa-bed"></i> Xonalarni Tanlash
             </a>
-            <a href="{% url 'restaurant:index' %}" style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(6px); border: 1px solid rgba(255, 255, 255, 0.65); color: #fff; padding: 16px 38px; border-radius: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; text-decoration: none; transition: all 0.3s ease;">
+            <a href="{% url 'restaurant:index' %}" class="hero__btn hero__btn--secondary" style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(6px); border: 1px solid rgba(255, 255, 255, 0.65); color: #fff; padding: 16px 38px; border-radius: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; text-decoration: none; transition: all 0.3s ease;">
               <i class="fa-solid fa-utensils"></i> Restoran
             </a>
           </div>

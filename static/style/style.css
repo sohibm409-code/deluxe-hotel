@@ -935,8 +935,24 @@ select {
 .instagram__grid,
 .instagram-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+@media (min-width: 769px) {
+  .instagram__grid,
+  .instagram-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (min-width: 993px) {
+  .instagram__grid,
+  .instagram-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+  }
 }
 
 .insta,
@@ -1011,10 +1027,27 @@ select {
 }
 
 .footer__grid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
-  gap: 35px;
-  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-bottom: 35px;
+}
+
+@media (min-width: 769px) {
+  .footer__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (min-width: 993px) {
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: 35px;
+    padding-bottom: 50px;
+  }
 }
 
 .footer__col h3 {

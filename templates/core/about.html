@@ -6,9 +6,9 @@
 
 {% block extra_css %}
 
-<link rel="stylesheet" href="{% static 'style/about.css' %}?v=12">
-<link rel="stylesheet" href="{% static 'style/about-media.css' %}?v=12">
-<link rel="stylesheet" href="{% static 'style/footer.css' %}" />
+<link rel="stylesheet" href="{% static 'style/about.css' %}?v=15">
+<link rel="stylesheet" href="{% static 'style/about-media.css' %}?v=15">
+<link rel="stylesheet" href="{% static 'style/footer.css' %}?v=15" />
 
 {% endblock %}
 
@@ -81,7 +81,7 @@
         </p>
 
         <!-- CTA Action Buttons (Rooms + Video Tour) like on Home -->
-        <div style="display: flex; align-items: center; gap: 18px; margin-top: 28px; flex-wrap: wrap;">
+        <div class="about-welcome-actions" style="display: flex; align-items: center; gap: 18px; margin-top: 28px; flex-wrap: wrap;">
           <a href="{% url 'rooms:index' %}" class="btn-deluxe-gold" style="display: inline-flex; align-items: center; gap: 10px; background: #c19b76; color: #fff; padding: 13px 26px; border-radius: 4px; font-weight: 600; text-decoration: none; transition: 0.3s; font-size: 14.5px;">
             Xonalarni Tanlash <i class="fa-solid fa-arrow-right"></i>
           </a>

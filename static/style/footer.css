@@ -6,10 +6,19 @@
 }
 
 .footer-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 30px;
-  padding-bottom: 50px;
+  padding-bottom: 35px;
+}
+
+@media (min-width: 993px) {
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding-bottom: 50px;
+  }
 }
 
 .footer-col h3 {

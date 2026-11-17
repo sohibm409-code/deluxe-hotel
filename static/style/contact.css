@@ -144,9 +144,25 @@ button {
 }
 
 .contact-info-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 769px) {
+  .contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+  }
 }
 
 .info-card {
@@ -195,10 +211,18 @@ button {
 }
 
 .contact-main__wrapper {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 30px;
-  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (min-width: 993px) {
+  .contact-main__wrapper {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 30px;
+    align-items: stretch;
+  }
 }
 
 .contact-form-box,
@@ -232,9 +256,17 @@ button {
 }
 
 .form-row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+@media (min-width: 769px) {
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
 }
 
 .contact-form input,
@@ -296,10 +328,27 @@ button {
 }
 
 .footer-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 30px;
-  padding-bottom: 50px;
+  padding-bottom: 35px;
+}
+
+@media (min-width: 769px) {
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (min-width: 993px) {
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding-bottom: 50px;
+  }
 }
 
 .footer-col h3 {

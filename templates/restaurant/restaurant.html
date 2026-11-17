@@ -5,8 +5,8 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'style/resterant.css' %}?v=12">
-<link rel="stylesheet" href="{% static 'style/restarnd-media.css' %}?v=12" />
+<link rel="stylesheet" href="{% static 'style/resterant.css' %}?v=15">
+<link rel="stylesheet" href="{% static 'style/restarnd-media.css' %}?v=15" />
 <style>
   /* Menu Category Filter */
   .menu-tabs {
@@ -124,10 +124,18 @@
   }
   @media (max-width: 768px) {
     .res-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 14px !important;
     }
     .reservation-form {
-      padding: 24px;
+      padding: 22px 16px !important;
+      border-radius: 12px !important;
+    }
+    .table-reservation-section {
+      padding: 55px 0 !important;
+      background-attachment: scroll !important;
     }
   }
 </style>
@@ -182,11 +190,11 @@
           Sokin jonli musiqa, sharqona nafis interyer hamda oliy toifali servis tantanali tadbirlar, do'stona uchrashuvlar va unutilmas romantik oqshomlaringiz uchun ajoyib muhit bag'ishlaydi.
         </p>
 
-        <div style="display: flex; gap: 16px; margin-top: 25px; flex-wrap: wrap;">
-          <a href="#reserve-table" style="background: #c19b76; color: #fff; padding: 13px 28px; border-radius: 4px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; font-size: 14.5px;">
+        <div class="about-restaurant-actions" style="display: flex; gap: 16px; margin-top: 25px; flex-wrap: wrap;">
+          <a href="#reserve-table" class="btn-restaurant-action" style="background: #c19b76; color: #fff; padding: 13px 28px; border-radius: 4px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; font-size: 14.5px;">
             <i class="fa-solid fa-chair"></i> Stol Band Qilish
           </a>
-          <a href="#menu" style="border: 1.5px solid #c19b76; color: #222; padding: 12px 24px; border-radius: 4px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; font-size: 14.5px;">
+          <a href="#menu" class="btn-restaurant-action btn-restaurant-outline" style="border: 1.5px solid #c19b76; color: #222; padding: 12px 24px; border-radius: 4px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; font-size: 14.5px;">
             <i class="fa-solid fa-utensils" style="color: #c19b76;"></i> Menyu Bilan Tanishish
           </a>
         </div>
