@@ -1,6 +1,7 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block title %}Deluxe Hotel &amp; Resort — Toshkentdagi 5 Yulduzli Mehmonxona{% endblock %}
+{% block title %}{% trans "Deluxe Hotel & Resort — 5-Star Luxury Hotel in Tashkent" %}{% endblock %}
 
 {% block content %}
 
@@ -15,15 +16,15 @@
       <div class="hero__overlay"></div>
       <div class="container">
         <div class="hero__content" style="margin-bottom: 0;">
-          <p class="hero__welcome">Welcome To Deluxe</p>
-          <span class="hero__sub">Hotels &amp; Resorts</span>
-          <h1 class="hero__title">Enjoy A Luxury Experience</h1>
+          <p class="hero__welcome">{% trans "Welcome To Deluxe" %}</p>
+          <span class="hero__sub">{% trans "Hotels & Resorts" %}</span>
+          <h1 class="hero__title">{% trans "Enjoy A Luxury Experience" %}</h1>
           <div class="hero__actions" style="margin-top: 35px; display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;">
             <a href="{% url 'rooms:index' %}" class="hero__btn hero__btn--primary" style="display: inline-flex; align-items: center; gap: 10px; background: #c19b76; color: #fff; padding: 16px 38px; border-radius: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(193, 155, 118, 0.45);">
-              <i class="fa-solid fa-bed"></i> Xonalarni Tanlash
+              <i class="fa-solid fa-bed"></i> {% trans "Choose Rooms" %}
             </a>
             <a href="{% url 'restaurant:index' %}" class="hero__btn hero__btn--secondary" style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(6px); border: 1px solid rgba(255, 255, 255, 0.65); color: #fff; padding: 16px 38px; border-radius: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; text-decoration: none; transition: all 0.3s ease;">
-              <i class="fa-solid fa-utensils"></i> Restoran
+              <i class="fa-solid fa-utensils"></i> {% trans "Restaurant" %}
             </a>
           </div>
         </div>
@@ -43,26 +44,26 @@
             <div class="about__exp-badge">
               <i class="fa-solid fa-crown badge-icon"></i>
               <span class="badge-number">15+</span>
-              <span class="badge-text">Yillik Tajriba</span>
+              <span class="badge-text">{% trans "Years of Experience" %}</span>
             </div>
 
             <!-- Pulsing Video Play Button -->
-            <a href="javascript:void(0)" onclick="openVideoModal()" class="play-btn" aria-label="Video Sayohatni Ko'rish">
+            <a href="javascript:void(0)" onclick="openVideoModal()" class="play-btn" aria-label="{% trans "Watch Video Tour" %}">
               <i class="fa-solid fa-play"></i>
             </a>
           </div>
 
           <div class="about__content">
             <div class="about__badge">
-              <i class="fa-solid fa-crown"></i> 5-YULDUZLI HASHAMAT VA QULAYLIK
+              <i class="fa-solid fa-crown"></i> {% trans "5-STAR LUXURY & COMFORT" %}
             </div>
-            <h2 class="about__title">Deluxe Hotelga Xush Kelibsiz</h2>
+            <h2 class="about__title">{% trans "Welcome to Deluxe Hotel" %}</h2>
             
             <p class="about__lead">
-              Sharqona samimiy mehmondo‘stlik va xalqaro 5 yulduzli qulaylik uyg‘unlashgan muazzam maskan.
+              {% trans "About Welcome Lead" %}
             </p>
             <p class="about__desc">
-              Toshkentning eng nufuzli manzilida joylashgan Deluxe Hotel — nafis interyer, sokin muhit va har bir mehmonga ko‘rsatiladigan individual e'tibor bilan ajralib turadi. Biz sizga shunchaki xona emas, balki betakror dam olish lahzalari va unutilmas xotiralarni tortiq etamiz.
+              {% trans "About Welcome Desc" %}
             </p>
 
             <!-- 4 Key Advantages Grid -->
@@ -72,8 +73,8 @@
                   <i class="fa-solid fa-bed"></i>
                 </div>
                 <div class="about__highlight-info">
-                  <h5>50+ Hashamatli Xonalar</h5>
-                  <p>Panoramali derazalar, ortopedik karavotlar va shohona qulaylik.</p>
+                  <h5>{% trans "50+ Luxury Rooms" %}</h5>
+                  <p>{% trans "Panoramic windows, orthopedic beds and royal comfort." %}</p>
                 </div>
               </div>
 
@@ -82,8 +83,8 @@
                   <i class="fa-solid fa-utensils"></i>
                 </div>
                 <div class="about__highlight-info">
-                  <h5>Gourmet Restoran</h5>
-                  <p>Yevropa va milliy taomlarning boy mualliflik menyusi.</p>
+                  <h5>{% trans "Gourmet Restaurant" %}</h5>
+                  <p>{% trans "Rich author menu of European and national dishes." %}</p>
                 </div>
               </div>
 
@@ -92,8 +93,8 @@
                   <i class="fa-solid fa-location-dot"></i>
                 </div>
                 <div class="about__highlight-info">
-                  <h5>Qulay Markaziy Lokatsiya</h5>
-                  <p>Aeroport va shahar diqqatga sazovor joylariga bir necha daqiqa.</p>
+                  <h5>{% trans "Prime Central Location" %}</h5>
+                  <p>{% trans "A few minutes from the airport and city attractions." %}</p>
                 </div>
               </div>
 
@@ -102,8 +103,8 @@
                   <i class="fa-solid fa-bell-concierge"></i>
                 </div>
                 <div class="about__highlight-info">
-                  <h5>24/7 Shaxsiy Konsyerj</h5>
-                  <p>Har bir mehmonimiz uchun kechayu-kunduz individual e'tibor.</p>
+                  <h5>{% trans "24/7 Personal Concierge" %}</h5>
+                  <p>{% trans "Round-the-clock individual attention for each guest." %}</p>
                 </div>
               </div>
             </div>
@@ -118,16 +119,16 @@
                 <i class="fa-solid fa-star"></i>
               </div>
               <span class="about__rating-score">4.9 / 5.0</span>
-              <span class="about__rating-text">2,800+ mamnun mehmonlar e'tirofi (Booking.com &amp; TripAdvisor)</span>
+              <span class="about__rating-text">{% trans "Guest Recognition Rating" %}</span>
             </div>
 
             <!-- Actions -->
             <div class="about__actions">
               <a href="{% url 'rooms:index' %}" class="about__btn-primary">
-                <i class="fa-solid fa-door-open"></i> Xonalar bilan tanishish
+                <i class="fa-solid fa-door-open"></i> {% trans "Explore Rooms" %}
               </a>
               <button type="button" onclick="openVideoModal()" class="about__btn-video">
-                <i class="fa-solid fa-circle-play"></i> Video Sayohat
+                <i class="fa-solid fa-circle-play"></i> {% trans "Video Tour" %}
               </button>
             </div>
           </div>
@@ -138,8 +139,8 @@
     <section class="services section" id="services">
       <div class="container">
         <div class="services__header" data-aos="fade-up">
-          <span class="section__sub">EKSKLYUZIV QULAYLIKLAR</span>
-          <h2 class="section__title">Mehmonxona Xizmatlari</h2>
+          <span class="section__sub">{% trans "EXCLUSIVE AMENITIES" %}</span>
+          <h2 class="section__title">{% trans "Hotel Services" %}</h2>
         </div>
 
         <div class="services__grid">
@@ -222,8 +223,8 @@
     <section class="rooms section">
       <div class="container">
         <div class="section__head">
-          <span class="section__sub">Our Hotel Rooms</span>
-          <h2 class="section__title center">Our Rooms</h2>
+          <span class="section__sub">{% trans "Our Hotel Rooms" %}</span>
+          <h2 class="section__title center">{% trans "Our Rooms" %}</h2>
         </div>
 
         <div class="rooms__grid">
@@ -234,12 +235,12 @@
                 <img src="{{ room.get_display_image }}" alt="{{ room.title }}">
               </a>
               <span style="position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); color: #fff; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 500; display: flex; align-items: center; gap: 5px;">
-                <i class="fa-solid fa-camera"></i> {{ room.images.count|add:1 }} ta rasm
+                <i class="fa-solid fa-camera"></i> {{ room.images.count|add:1 }} {% trans "photos" %}
               </span>
             </div>
             <div class="room__content">
               <h3><a href="{% url 'rooms:detail' room.pk %}">{{ room.title }}</a></h3>
-              <p><span>${{ room.price }}</span> per night</p>
+              <p><span>${{ room.price }}</span> {% trans "per night" %}</p>
               <div class="room__stars">
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
@@ -247,11 +248,11 @@
                 <i class="fa-solid fa-star"></i>
                 <i class="fa-solid fa-star"></i>
               </div>
-              <a href="{% url 'book:book_room' room.pk %}" class="room__link">Book Now</a>
+              <a href="{% url 'book:book_room' room.pk %}" class="room__link">{% trans "Book Now" %}</a>
             </div>
           </article>
           {% empty %}
-          <p>Hozircha xonalar mavjud emas.</p>
+          <p>{% trans "No rooms available at the moment." %}</p>
           {% endfor %}
         </div>
       </div>
@@ -291,8 +292,8 @@
     <section class="testimonial section" id="testimonials">
       <div class="container">
         <div class="section__head center" data-aos="fade-up" style="margin-bottom: 45px;">
-          <span class="section__sub">MEHMONLARIMIZ FIKRLARI</span>
-          <h2 class="section__title">Mijozlarimiz Nima Deydi?</h2>
+          <span class="section__sub">{% trans "GUEST REVIEWS" %}</span>
+          <h2 class="section__title">{% trans "What Our Clients Say" %}</h2>
         </div>
 
         <div class="testimonial__grid">
@@ -337,7 +338,7 @@
 
         <div style="text-align: center; margin-top: 40px;" data-aos="fade-up">
           <button type="button" onclick="openReviewModal()" class="btn-leave-review">
-            <i class="fa-solid fa-pen-to-square"></i> Mehmonxona Haqida Fikr Qoldirish
+            <i class="fa-solid fa-pen-to-square"></i> {% trans "Leave a Review About Hotel" %}
           </button>
         </div>
       </div>
@@ -347,8 +348,8 @@
     <section class="faq section" id="faq" style="background: #ffffff; padding: 90px 0;">
       <div class="container" style="max-width: 960px; margin: 0 auto;">
         <div class="section__head center" data-aos="fade-up" style="margin-bottom: 45px;">
-          <span class="section__sub">SAVOLLAR VA JAVOBLAR</span>
-          <h2 class="section__title">Ko‘p Beriladigan Savollar (FAQ)</h2>
+          <span class="section__sub">{% trans "QUESTIONS & ANSWERS" %}</span>
+          <h2 class="section__title">{% trans "Frequently Asked Questions (FAQ)" %}</h2>
         </div>
 
         <div class="faq-accordion" data-aos="fade-up">
@@ -437,8 +438,8 @@
     <section class="blog section" id="blog">
       <div class="container">
         <div class="section__head">
-          <span class="section__sub">Latest News</span>
-          <h2 class="section__title center">Recent Blog</h2>
+          <span class="section__sub">{% trans "Latest News" %}</span>
+          <h2 class="section__title center">{% trans "Recent Blog" %}</h2>
         </div>
 
         <div class="blog__grid">
@@ -455,7 +456,7 @@
             </div>
           </article>
           {% empty %}
-          <p>Hozircha bloglar mavjud emas.</p>
+          <p>{% trans "No blog posts available at the moment." %}</p>
           {% endfor %}
         </div>
       </div>
@@ -465,7 +466,7 @@
       <div class="container">
         <div class="section__head center" data-aos="fade-up">
           <span class="section__sub">@jovliyev1626</span>
-          <h2 class="section__title center">Instagram Galereya</h2>
+          <h2 class="section__title center">{% trans "Instagram Gallery" %}</h2>
         </div>
 
         <div class="instagram__grid" data-aos="fade-up">
@@ -508,7 +509,7 @@
 
         <div style="text-align: center; margin-top: 35px;" data-aos="fade-up">
           <a href="https://www.instagram.com/jovliyev1626/" target="_blank" class="btn-leave-review" style="background: transparent; color: #c19b76; border: 1.5px solid #c19b76; text-decoration: none;">
-            <i class="fa-brands fa-instagram" style="font-size: 18px;"></i> Instagram'da kuzatib boring: @jovliyev1626
+            <i class="fa-brands fa-instagram" style="font-size: 18px;"></i> {% trans "Follow us on Instagram: @jovliyev1626" %}
           </a>
         </div>
       </div>

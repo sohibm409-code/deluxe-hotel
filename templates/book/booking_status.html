@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% block title %}Bron Holatini Tekshirish | Deluxe Hotel{% endblock %}
-{% load static %}
+{% load static i18n %}
+{% block title %}{% trans "Check Booking Status" %} | Deluxe Hotel{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -237,21 +237,21 @@
     </div>
     <div class="hero-overlay"></div>
     <div class="container">
-      <p>DELUXE HOTEL &nbsp; &gt; &nbsp; BRON STATUSI</p>
-      <h1>Buyurtma Holati</h1>
+      <p>{% trans "Home" %} &nbsp; &gt; &nbsp; {% trans "Check Booking Status" %}</p>
+      <h1>{% trans "Check Booking Status" %}</h1>
     </div>
   </section>
 
   <section class="status-section">
     <div class="container">
       <div class="search-box-card">
-        <h3><i class="fa-solid fa-magnifying-glass"></i> Buyurtmangizni tekshiring</h3>
-        <p>Bron qilish vaqtida kiritgan telefon raqamingizni yozing</p>
+        <h3><i class="fa-solid fa-magnifying-glass"></i> {% trans "Check Booking Status" %}</h3>
+        <p>{% trans "Enter your phone number or booking code:" %}</p>
 
         <form method="GET" action="{% url 'book:status' %}">
           <div class="search-form-row">
-            <input type="text" name="phone" value="{{ phone_query }}" placeholder="Masalan: +998901234567 yoki 901234567" required>
-            <button type="submit"><i class="fa-solid fa-search"></i> Tekshirish</button>
+            <input type="text" name="phone" value="{{ phone_query }}" placeholder="+998..." required>
+            <button type="submit"><i class="fa-solid fa-search"></i> {% trans "Search" %}</button>
           </div>
         </form>
       </div>

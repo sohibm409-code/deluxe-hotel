@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% block title %}Mehmonxona Blogi &amp; Yangiliklar | Deluxe Hotel &amp; Resort{% endblock %}
-{% load static %}
+{% load static i18n %}
+{% block title %}{% trans "Hotel News & Articles" %} | Deluxe Hotel &amp; Resort{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'style/blog.css' %}?v=15">
@@ -18,8 +18,8 @@
     </div>
     <div class="hero-overlay"></div>
     <div class="container hero-content">
-      <p class="hero-subtitle">BOSH SAHIFA &nbsp; &gt; &nbsp; BLOG</p>
-      <h1>Mehmonxona Yangiliklari va Blog</h1>
+      <p class="hero-subtitle">{% trans "Home" %} &nbsp; &gt; &nbsp; {% trans "Blog" %}</p>
+      <h1>{% trans "Hotel News & Articles" %}</h1>
     </div>
   </section>
 
@@ -30,7 +30,7 @@
       <div class="blog-category-tabs" style="display: flex; gap: 10px; justify-content: center; margin-bottom: 40px; flex-wrap: wrap;">
         <a href="{% url 'blog:blog' %}" 
            style="padding: 9px 20px; border-radius: 20px; font-size: 13.5px; font-weight: 500; text-decoration: none; transition: 0.3s; {% if not selected_cat %}background: #c19b76; color: #fff;{% else %}background: #f0ece7; color: #444;{% endif %}">
-          Barchasi
+          {% trans "All" %}
         </a>
         {% for cat_key, cat_name in categories %}
           <a href="{% url 'blog:blog' %}?category={{ cat_key }}" 

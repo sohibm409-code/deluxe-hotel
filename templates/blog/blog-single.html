@@ -1,8 +1,7 @@
 {% extends "base.html" %}
+{% load static i18n %}
 
 {% block title %}{{ blog.full_name }} | Deluxe Hotel Blog{% endblock %}
-
-{% load static %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static  'style/blog.css' %}?v=15">
@@ -16,9 +15,9 @@
     <div class="overlay"></div>
     <div class="container hero-content">
       <p class="breadcrumb">
-        <a href="{% url 'core:index' %}">Bosh sahifa</a>
+        <a href="{% url 'core:index' %}">{% trans "Home" %}</a>
         <span>/</span>
-        <a href="{% url 'blog:blog' %}">Blog</a>
+        <a href="{% url 'blog:blog' %}">{% trans "Blog" %}</a>
         <span>/</span>
         <span>{{ blog.full_name|truncatechars:35 }}</span>
       </p>
@@ -107,23 +106,23 @@
             {% csrf_token %}
             <div class="form-row">
               <div class="input-group">
-                <label for="name">Ismingiz *</label>
-                <input type="text" id="name" name="name" placeholder="Ism va familiyangiz" required />
+                <label for="name">{% trans "Full Name" %} *</label>
+                <input type="text" id="name" name="name" placeholder="{% trans "Full Name" %}" required />
               </div>
 
               <div class="input-group">
-                <label for="email">Email manzilingiz *</label>
-                <input type="email" id="email" name="email" placeholder="Elektron pochtangiz" required />
+                <label for="email">{% trans "Email" %} *</label>
+                <input type="email" id="email" name="email" placeholder="{% trans "Email" %}" required />
               </div>
             </div>
 
             <div class="input-group">
-              <label for="comment">Xabaringiz / Fikringiz *</label>
-              <textarea id="comment" name="comment" rows="5" placeholder="Maqola bo'yicha fikringizni yozing..." required></textarea>
+              <label for="comment">{% trans "Your Message" %} *</label>
+              <textarea id="comment" name="comment" rows="5" placeholder="{% trans "Your Message" %}..." required></textarea>
             </div>
 
             <button type="submit" class="submit-btn" style="background: #c19b76; color: #fff; border: none; padding: 14px 28px; border-radius: 4px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s;">
-              <i class="fa-solid fa-paper-plane"></i> Fikrni Yuborish
+              <i class="fa-solid fa-paper-plane"></i> {% trans "Send Message" %}
             </button>
           </form>
         </section>

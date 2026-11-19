@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 <!-- =========================================================
      DELUXE HOTEL - SERVICES INTERACTIVE MODALS
      ========================================================= -->
@@ -8,19 +8,19 @@
   <div class="service-modal-box">
     <div class="service-modal-header">
       <h3 id="receptionModalTitle">
-        <i class="fa-regular fa-clock"></i> 24/7 Qabulxona & Konsyerj
+        <i class="fa-regular fa-clock"></i> {% trans "24/7 Reception & Concierge" %}
       </h3>
-      <button type="button" class="service-modal-close" onclick="closeServiceModal('modal-reception')" aria-label="Yopish">&times;</button>
+      <button type="button" class="service-modal-close" onclick="closeServiceModal('modal-reception')" aria-label="{% trans "Close" %}">&times;</button>
     </div>
     <div class="service-modal-body">
       <!-- Quick Contact Block -->
       <div class="reception-contact-card">
         <div class="reception-contact-info">
-          <h4>Kechayu-kunduz resepshn</h4>
+          <h4>{% trans "Round-the-clock front desk" %}</h4>
           <div class="phone-number">+998 (94) 055-08-55</div>
         </div>
         <a href="tel:+998940550855" class="reception-call-btn">
-          <i class="fa-solid fa-phone"></i> Qo'ng'iroq qilish
+          <i class="fa-solid fa-phone"></i> {% trans "Call" %}
         </a>
       </div>
 
@@ -28,19 +28,19 @@
       <div class="reception-services-grid">
         <div class="reception-service-item">
           <i class="fa-solid fa-bell-concierge"></i>
-          <span>Konsyerj va xona xizmati</span>
+          <span>{% trans "Concierge & Room Service" %}</span>
         </div>
         <div class="reception-service-item">
           <i class="fa-solid fa-suitcase-rolling"></i>
-          <span>Bagaj saqlash va eltish</span>
+          <span>{% trans "Luggage Storage" %}</span>
         </div>
         <div class="reception-service-item">
           <i class="fa-solid fa-car"></i>
-          <span>Taksi va transfer chaqirish</span>
+          <span>{% trans "Taxi & Transfer Service" %}</span>
         </div>
         <div class="reception-service-item">
           <i class="fa-solid fa-clock-rotate-left"></i>
-          <span>Tezkor check-in / check-out</span>
+          <span>{% trans "Express Check-in / Check-out" %}</span>
         </div>
       </div>
 
@@ -85,13 +85,13 @@
   <div class="service-modal-box">
     <div class="service-modal-header">
       <h3 id="transferModalTitle">
-        <i class="fa-solid fa-car-side"></i> VIP Transfer Buyurtma Qilish
+        <i class="fa-solid fa-car-side"></i> {% trans "VIP Transfer Booking" %}
       </h3>
-      <button type="button" class="service-modal-close" onclick="closeServiceModal('modal-transfer')" aria-label="Yopish">&times;</button>
+      <button type="button" class="service-modal-close" onclick="closeServiceModal('modal-transfer')" aria-label="{% trans "Close" %}">&times;</button>
     </div>
     <div class="service-modal-body">
       <p style="font-size: 14px; color: #555; margin-bottom: 18px; line-height: 1.5;">
-        Aeroport yoki vokzalda shaxsiy haydovchimiz ismingiz yozilgan planshet bilan kutib oladi va hashamatli premium avtomobilda to'g'ridan-to'g'ri mehmonxonamizga eltadi.
+        {% trans "A few minutes from the airport and city attractions." %}
       </p>
 
       <form class="service-form" onsubmit="handleServiceFormSubmit(event, 'modal-transfer')">
@@ -102,18 +102,18 @@
 
         <div class="form-group-row">
           <div>
-            <label class="service-form-label">Ism va Familiyangiz *</label>
-            <input type="text" name="name" class="service-form-input" placeholder="Aziz Karimov" required />
+            <label class="service-form-label">{% trans "Full Name" %} *</label>
+            <input type="text" name="name" class="service-form-input" placeholder="{% trans "Full Name" %}" required />
           </div>
           <div>
-            <label class="service-form-label">Telefon raqamingiz *</label>
-            <input type="tel" name="phone" class="service-form-input" placeholder="+998 90 123 45 67" required />
+            <label class="service-form-label">{% trans "Phone Number" %} *</label>
+            <input type="tel" name="phone" class="service-form-input" placeholder="+998..." required />
           </div>
         </div>
 
         <div class="form-group-row">
           <div>
-            <label class="service-form-label">Kutib olish / Borish joyi *</label>
+            <label class="service-form-label">{% trans "Pickup Location" %} *</label>
             <select name="pickup" class="service-form-select" required>
               <option value="Islom Karimov nomidagi Toshkent Xalqaro Aeroporti (TAS)">Islom Karimov Toshkent Aeroporti (TAS)</option>
               <option value="Shimoliy Temiryo'l Vokzali (Markaziy)">Shimoliy Vokzal (Toshkent)</option>
@@ -123,7 +123,7 @@
             </select>
           </div>
           <div>
-            <label class="service-form-label">Avtomobil toifasi *</label>
+            <label class="service-form-label">{% trans "Car Category" %} *</label>
             <select name="car_type" class="service-form-select" required>
               <option value="Business Sedan (Mercedes E-Class / BYD Han)">Business Sedan (Mercedes E-Class / BYD)</option>
               <option value="VIP Minivan (Mercedes V-Class, 6-7 kishi)">VIP Minivan (Mercedes V-Class, 6-7 kishi)</option>
@@ -134,22 +134,22 @@
 
         <div class="form-group-row">
           <div>
-            <label class="service-form-label">Kutib olish sanasi</label>
+            <label class="service-form-label">{% trans "Arrival Date" %}</label>
             <input type="date" name="date" class="service-form-input" />
           </div>
           <div>
-            <label class="service-form-label">Taxminiy vaqt / Reys raqami</label>
-            <input type="text" name="time" class="service-form-input" placeholder="Masalan: 14:30 yoki HY-271" />
+            <label class="service-form-label">{% trans "Approximate Time / Flight Number" %}</label>
+            <input type="text" name="time" class="service-form-input" placeholder="14:30 / HY-271" />
           </div>
         </div>
 
         <div>
-          <label class="service-form-label">Qo'shimcha izoh yoki yo'lovchilar soni</label>
-          <textarea name="notes" rows="2" class="service-form-textarea" placeholder="Bolalar o'rindig'i, katta bagaj yoki boshqa talablar..."></textarea>
+          <label class="service-form-label">{% trans "Special Wishes (Optional)" %}</label>
+          <textarea name="notes" rows="2" class="service-form-textarea" placeholder="..."></textarea>
         </div>
 
         <button type="submit" class="service-submit-btn">
-          <i class="fa-solid fa-check"></i> Transferni tasdiqlash va so'rov yuborish
+          <i class="fa-solid fa-check"></i> {% trans "Submit Request" %}
         </button>
       </form>
     </div>

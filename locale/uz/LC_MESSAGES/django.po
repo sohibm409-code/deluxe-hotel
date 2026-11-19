@@ -1,0 +1,550 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Deluxe Hotel 1.0\n"
+"Report-Msgid-Bugs-To: info@deluxe-hotel.uz\n"
+"POT-Creation-Date: 2026-11-19 22:30+0500\n"
+"PO-Revision-Date: 2026-11-19 22:30+0500\n"
+"Last-Translator: Antigravity <support@deluxe.uz>\n"
+"Language-Team: uz\n"
+"Language: uz\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Home"
+msgstr "Bosh sahifa"
+
+msgid "Rooms"
+msgstr "Xonalar"
+
+msgid "Restaurant"
+msgstr "Restoran"
+
+msgid "About"
+msgstr "Biz haqimizda"
+
+msgid "About Us"
+msgstr "Biz haqimizda"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Contact"
+msgstr "Aloqa"
+
+msgid "My Booking"
+msgstr "Mening bronim"
+
+msgid "Book Now"
+msgstr "Band qilish"
+
+msgid "Deluxe Hotel & Resort — 5-Star Luxury Hotel in Tashkent"
+msgstr "Deluxe Hotel & Resort — Toshkentdagi 5 Yulduzli Hashamatli Mehmonxona"
+
+msgid "Welcome To Deluxe"
+msgstr "Deluxe Hotelga Xush Kelibsiz"
+
+msgid "Hotels & Resorts"
+msgstr "Mehmonxona & Dam Olish Maskani"
+
+msgid "Enjoy A Luxury Experience"
+msgstr "Shohona Hashamat va Qulaylikdan Bahramand Bo'ling"
+
+msgid "Choose Rooms"
+msgstr "Xonalarni tanlash"
+
+msgid "Explore Restaurant"
+msgstr "Restoranni ko'rish"
+
+msgid "5-STAR LUXURY & COMFORT"
+msgstr "5-YULDUZLI HASHAMAT VA QULAYLIK"
+
+msgid "Welcome to Deluxe Hotel"
+msgstr "Deluxe Hotelga Xush Kelibsiz"
+
+msgid "About Welcome Lead"
+msgstr ""
+"Sharqona samimiy mehmondo‘stlik va xalqaro 5 yulduzli qulaylik uyg‘unlashgan"
+" muazzam maskan."
+
+msgid "About Welcome Desc"
+msgstr ""
+"Toshkentning eng nufuzli manzilida joylashgan Deluxe Hotel — nafis interyer,"
+" sokin muhit va har bir mehmonga ko‘rsatiladigan individual e'tibor bilan "
+"ajralib turadi. Biz sizga shunchaki xona emas, balki betakror dam olish "
+"lahzalari va unutilmas xotiralarni tortiq etamiz."
+
+msgid "Years of Experience"
+msgstr "Yillik Tajriba"
+
+msgid "15+ Years Experience"
+msgstr "15+ Yillik Tajriba"
+
+msgid "Watch Video Tour"
+msgstr "Video sayohatni ko'rish"
+
+msgid "Video Tour"
+msgstr "Video sayohat"
+
+msgid "Satisfied Guests"
+msgstr "Mamnun Mehmonlar"
+
+msgid "Luxury Rooms"
+msgstr "Lyuks Xonalar"
+
+msgid "Professional Staff"
+msgstr "Professional Xodimlar"
+
+msgid "Read More"
+msgstr "Batafsil o'qish"
+
+msgid "Explore Rooms"
+msgstr "Xonalar bilan tanishish"
+
+msgid "50+ Luxury Rooms"
+msgstr "50+ Hashamatli Xonalar"
+
+msgid "Panoramic windows, orthopedic beds and royal comfort."
+msgstr "Panoramali derazalar, ortopedik karavotlar va shohona qulaylik."
+
+msgid "Gourmet Restaurant"
+msgstr "Gourmet Restoran"
+
+msgid "Rich author menu of European and national dishes."
+msgstr "Yevropa va milliy taomlarning boy mualliflik menyusi."
+
+msgid "Prime Central Location"
+msgstr "Qulay Markaziy Lokatsiya"
+
+msgid "A few minutes from the airport and city attractions."
+msgstr "Aeroport va shahar diqqatga sazovor joylariga bir necha daqiqa."
+
+msgid "24/7 Personal Concierge"
+msgstr "24/7 Shaxsiy Konsyerj"
+
+msgid "Round-the-clock individual attention for each guest."
+msgstr "Har bir mehmonimiz uchun kechayu-kunduz individual e'tibor."
+
+msgid "Guest Recognition Rating"
+msgstr "2,800+ mamnun mehmonlar e'tirofi (Booking.com & TripAdvisor)"
+
+msgid "EXCLUSIVE AMENITIES"
+msgstr "EKSKLYUZIV QULAYLIKLAR"
+
+msgid "Hotel Services"
+msgstr "Mehmonxona Xizmatlari"
+
+msgid "Exclusive Hotel Services"
+msgstr "Eksklyuziv Mehmonxona Xizmatlari"
+
+msgid "Designed for Your Utmost Comfort"
+msgstr "Sizning oliy darajadagi qulayligingiz uchun"
+
+msgid "24/7 Reception & Concierge"
+msgstr "24/7 Resepshn va Konsyerj"
+
+msgid "Round-the-clock front desk"
+msgstr "Kechayu-kunduz resepshn"
+
+msgid "Call Desk"
+msgstr "Qo'ng'iroq qilish"
+
+msgid "VIP Transfer Service"
+msgstr "VIP Transfer xizmati"
+
+msgid "SPA & Wellness Center"
+msgstr "SPA & Salomatlik markazi"
+
+msgid "Swimming Pool"
+msgstr "Suzish havzasi"
+
+msgid "Fast Free Wi-Fi"
+msgstr "Tezkor bepul Wi-Fi"
+
+msgid "Order VIP Transfer"
+msgstr "VIP Transfer buyurtma qilish"
+
+msgid "Menu & Table Reservation"
+msgstr "Menyu & Stol band qilish"
+
+msgid "24/7 SERVICE"
+msgstr "24/7 XIZMAT"
+
+msgid "GOURMET"
+msgstr "GOURMET"
+
+msgid "VIP TRANSPORT"
+msgstr "VIP TRANSPORT"
+
+msgid "Our Hotel Rooms"
+msgstr "Bizning Xonalarimiz"
+
+msgid "Our Rooms"
+msgstr "Xonalarimiz"
+
+msgid "Rooms & Suites"
+msgstr "Xonalar va Lyukslar"
+
+msgid "Discover Comfort & Elegance"
+msgstr "Shohona qulaylik va nafislikni kashf eting"
+
+msgid "View All Rooms"
+msgstr "Barcha xonalarni ko'rish"
+
+msgid "per night"
+msgstr "/ tun"
+
+msgid "Capacity"
+msgstr "Sig'imi"
+
+msgid "Capacity:"
+msgstr "Sig'imi:"
+
+msgid "Size"
+msgstr "Maydoni"
+
+msgid "Size:"
+msgstr "Maydoni:"
+
+msgid "View"
+msgstr "Manzara"
+
+msgid "View:"
+msgstr "Manzara:"
+
+msgid "Bed"
+msgstr "Yotoq"
+
+msgid "Bed:"
+msgstr "Yotoq:"
+
+msgid "guests"
+msgstr "kishi"
+
+msgid "photos"
+msgstr "ta rasm"
+
+msgid "View Details"
+msgstr "Batafsil ko'rish"
+
+msgid "Book This Room"
+msgstr "Ushbu xonani band qilish"
+
+msgid "Room Amenities & Features"
+msgstr "Xona qulayliklari va jihozlari"
+
+msgid "Description"
+msgstr "Tavsif"
+
+msgid "Gallery"
+msgstr "Galereya"
+
+msgid "Search & Filter"
+msgstr "Qidiruv va Filtr"
+
+msgid "All Room Types"
+msgstr "Barcha xona toifalari"
+
+msgid "All Guests"
+msgstr "Barcha mehmonlar"
+
+msgid "Clear Filter"
+msgstr "Filtrni tozalash"
+
+msgid "Exclusive Amenities"
+msgstr "Eksklyuziv Qulayliklar"
+
+msgid "Sorry, no rooms found"
+msgstr "Kechirasiz, xonalar topilmadi"
+
+msgid "No rooms available at the moment."
+msgstr "Hozircha xonalar mavjud emas."
+
+msgid "Gourmet Restaurant & Bar"
+msgstr "Restoran va Gourmet Oshxona"
+
+msgid "Authentic Culinary Excellence"
+msgstr "Nafis ta'mlar va unutilmas mehmondo'stlik"
+
+msgid "Reserve A Table"
+msgstr "Stol Band Qilish"
+
+msgid "Book Table"
+msgstr "Stol band qilish"
+
+msgid "All Dishes"
+msgstr "Barcha taomlar"
+
+msgid "All"
+msgstr "Barchasi"
+
+msgid "Breakfast"
+msgstr "Nonushta"
+
+msgid "Main Dishes"
+msgstr "Asosiy taomlar"
+
+msgid "Desserts"
+msgstr "Shirinliklar"
+
+msgid "Drinks & Wine"
+msgstr "Ichimliklar & Kokteyllar"
+
+msgid "ROYAL FEAST"
+msgstr "SHOHONA DASTURXON"
+
+msgid "National & European Cuisine Menu"
+msgstr "Milliy va Yevropa Taomlari Menyusi"
+
+msgid "Recommended"
+msgstr "Tavsiya etiladi"
+
+msgid "Full Name"
+msgstr "To'liq ismingiz"
+
+msgid "Phone Number"
+msgstr "Telefon raqamingiz"
+
+msgid "Reservation Date"
+msgstr "Band qilish sanasi"
+
+msgid "Reservation Time"
+msgstr "Band qilish vaqti"
+
+msgid "Number of Persons"
+msgstr "Mehmonlar soni"
+
+msgid "Special Wishes (Optional)"
+msgstr "Qo'shimcha istaklar (ixtiyoriy)"
+
+msgid "Confirm Table Reservation"
+msgstr "Stolni band qilish"
+
+msgid "100% Halal & Premium Quality"
+msgstr "100% Halol & Premium Sifat"
+
+msgid "GUEST REVIEWS"
+msgstr "MEHMONLARIMIZ FIKRLARI"
+
+msgid "What Our Guests Say"
+msgstr "Mehmonlarimiz Fikrlari"
+
+msgid "What Our Clients Say"
+msgstr "Mijozlarimiz Nima Deydi?"
+
+msgid "Leave a Review About Hotel"
+msgstr "Mehmonxona Haqida Fikr Qoldirish"
+
+msgid "QUESTIONS & ANSWERS"
+msgstr "SAVOLLAR VA JAVOBLAR"
+
+msgid "Frequently Asked Questions (FAQ)"
+msgstr "Ko‘p Beriladigan Savollar (FAQ)"
+
+msgid "What are the check-in and check-out times?"
+msgstr "Check-in va Check-out vaqtlari qanday belgilangan?"
+
+msgid "Is breakfast included in the room rate and what time is it served?"
+msgstr "Nonushta xona narxiga kiritilganmi va qaysi vaqtda beriladi?"
+
+msgid "What payment methods are accepted?"
+msgstr "Qanday to‘lov usullari qabul qilinadi?"
+
+msgid "How to book an airport or train station transfer?"
+msgstr "Aeroport yoki vokzaldan transfer qanday buyurtma qilinadi?"
+
+msgid "What are the policies when traveling with children?"
+msgstr "Bolalar bilan tashrif buyurganda shartlar qanaqa?"
+
+msgid "What is the cancellation policy for bookings?"
+msgstr "Bronni bekor qilish (Cancellation policy) tartibi qanday?"
+
+msgid "Hotel News & Articles"
+msgstr "Mehmonxona Yangiliklari va Maqolalar"
+
+msgid "Latest News"
+msgstr "So'nggi Yangiliklar"
+
+msgid "Recent Blog"
+msgstr "Mehmonxona Blogi"
+
+msgid "Read Article"
+msgstr "Maqolani o'qish"
+
+msgid "comments"
+msgstr "ta izoh"
+
+msgid "No blog posts available at the moment."
+msgstr "Hozircha bloglar mavjud emas."
+
+msgid "Instagram Gallery"
+msgstr "Instagram Galereya"
+
+msgid "Follow us on Instagram: @jovliyev1626"
+msgstr "Instagram'da kuzatib boring: @jovliyev1626"
+
+msgid "Online Room Reservation"
+msgstr "Onlayn Xona Band Qilish"
+
+msgid "1. Room & Travel Dates"
+msgstr "1. Xona va Tashrif Sanalari"
+
+msgid "Check-in Date"
+msgstr "Kelish sanasi"
+
+msgid "Check-out Date"
+msgstr "Ketish sanasi"
+
+msgid "Select Room"
+msgstr "Xonani tanlang"
+
+msgid "Adults"
+msgstr "Kattalar"
+
+msgid "Children"
+msgstr "Bolalar"
+
+msgid "Guests"
+msgstr "Mehmonlar"
+
+msgid "Selected Room"
+msgstr "Tanlangan xona"
+
+msgid "Duration"
+msgstr "Davomiyligi"
+
+msgid "Total Price"
+msgstr "Jami to'lov summasi"
+
+msgid "2. Select Payment Method"
+msgstr "2. To'lov Turini Tanlang"
+
+msgid "Cash"
+msgstr "Naqd to'lov"
+
+msgid "3. Guest Details"
+msgstr "3. Mehmon Ma'lumotlari"
+
+msgid "Email (Optional)"
+msgstr "Elektron pochta (ixtiyoriy)"
+
+msgid "Confirm Booking"
+msgstr "Xonani xavfsiz band qilish"
+
+msgid "Check Booking Status"
+msgstr "Bron Holatini Tekshirish"
+
+msgid "Enter your phone number or booking code:"
+msgstr "Telefon raqamingiz yoki bron kodini kiriting:"
+
+msgid "Search"
+msgstr "Qidirish"
+
+msgid "Booking Code"
+msgstr "Bron kodi"
+
+msgid "Status"
+msgstr "Holati"
+
+msgid "Confirmed"
+msgstr "Tasdiqlangan"
+
+msgid "Pending"
+msgstr "Kutilmoqda"
+
+msgid "Cancelled"
+msgstr "Bekor qilingan"
+
+msgid "Contact Us"
+msgstr "Biz Bilan Bog'lanish"
+
+msgid "Our Address"
+msgstr "Manzilimiz"
+
+msgid "Tashkent city, Amir Temur Ave, 107"
+msgstr "Toshkent sh., Amir Temur shox ko'chasi, 107-uy"
+
+msgid "Open on Google Maps"
+msgstr "Xaritada ochish"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Email"
+msgstr "Elektron pochta"
+
+msgid "Working Hours"
+msgstr "Ish vaqti"
+
+msgid "24/7 Round-the-clock"
+msgstr "24/7 Kechayu-kunduz xizmat"
+
+msgid "Send Us A Message"
+msgstr "Bizga Xabar Yuboring"
+
+msgid "Subject"
+msgstr "Mavzu"
+
+msgid "Your Message"
+msgstr "Xabaringiz"
+
+msgid "Send Message"
+msgstr "Xabarni yuborish"
+
+msgid "Useful Links"
+msgstr "Foydali Havolalar"
+
+msgid "Exclusive Services"
+msgstr "Eksklyuziv Xizmatlar"
+
+msgid "Contact Information"
+msgstr "Aloqa Ma'lumotlari"
+
+msgid "Footer About Text"
+msgstr ""
+"Toshkentning qoq markazida joylashgan 5 yulduzli hashamat maskani. Biz har "
+"bir mehmonimizga shohona qulaylik, sharqona mehmondo‘stlik va unutilmas "
+"xotiralarni taqdim etamiz."
+
+msgid "Accepted Payments:"
+msgstr "Qabul qilinadigan to'lovlar:"
+
+msgid "100% Secure Booking System"
+msgstr "100% Xavfsiz bron qilish tizimi"
+
+msgid "All Rights Reserved"
+msgstr "Barcha huquqlar himoyalangan."
+
+msgid "Quick Contact"
+msgstr "Tezkor Aloqa"
+
+msgid "Telegram Chat"
+msgstr "Telegram orqali bog'lanish"
+
+msgid "Call"
+msgstr "Qo'ng'iroq qilish"
+
+msgid "Back to top"
+msgstr "Yuqoriga qaytish"
+
+msgid "Close"
+msgstr "Yopish"
+
+msgid "Submit Request"
+msgstr "Murojaatni yuborish"
+
+msgid "VIP Transfer Booking"
+msgstr "VIP Transfer Buyurtma Qilish"
+
+msgid "Pickup Location"
+msgstr "Kutib olish joyi"
+
+msgid "Car Category"
+msgstr "Avtomobil toifasi"
+
+msgid "Arrival Date"
+msgstr "Kutib olish sanasi"
+
+msgid "Approximate Time / Flight Number"
+msgstr "Taxminiy vaqt / Reys raqami"

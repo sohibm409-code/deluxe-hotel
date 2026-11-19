@@ -1,10 +1,11 @@
-{% load static %}
+{% load static i18n %}
+{% get_current_language as CURRENT_LANG %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ CURRENT_LANG }}">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}Deluxe Hotel &amp; Resort — 5 Yulduzli Hashamatli Mehmonxona{% endblock %}</title>
+    <title>{% block title %}{% trans "Deluxe Hotel & Resort — 5-Star Luxury Hotel in Tashkent" %}{% endblock %}</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="{% static 'images/favicon.svg' %}" />
@@ -105,6 +106,124 @@
         }
       }
 
+      /* ================= LUXURY LANGUAGE SWITCHER ================= */
+      .nav__lang {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        margin-left: 6px;
+      }
+      .lang-selector {
+        position: relative;
+      }
+      .lang-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        color: #ffffff;
+        padding: 8px 14px;
+        border-radius: 20px;
+        font-size: 13.5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.25s ease;
+      }
+      .header--subpage .lang-btn {
+        background: #fbf9f6;
+        border: 1px solid #c19b76;
+        color: #222222;
+      }
+      .lang-btn:hover {
+        background: #c19b76;
+        border-color: #c19b76;
+        color: #ffffff;
+      }
+      .lang-btn i {
+        font-size: 11px;
+        transition: transform 0.25s ease;
+      }
+      .lang-dropdown {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        background: #ffffff;
+        min-width: 155px;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        border: 1px solid #ebe5df;
+        padding: 6px;
+        display: none;
+        flex-direction: column;
+        gap: 3px;
+        z-index: 1005;
+      }
+      .lang-dropdown.show {
+        display: flex;
+        animation: fadeInDown 0.2s ease;
+      }
+      .lang-choice {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding: 8px 12px;
+        border: none;
+        background: transparent;
+        color: #333;
+        font-size: 13.5px;
+        font-weight: 500;
+        text-align: left;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .lang-choice:hover {
+        background: #f6f1eb;
+        color: #c19b76;
+      }
+      .lang-choice.active {
+        background: #c19b76;
+        color: #ffffff;
+        font-weight: 600;
+      }
+      .mobile-lang-bar {
+        display: none;
+        margin: 15px 20px 8px;
+        padding: 4px;
+        background: #f4efe9;
+        border-radius: 30px;
+        justify-content: space-between;
+        gap: 4px;
+      }
+      @media (max-width: 992px) {
+        .nav__lang {
+          display: none !important;
+        }
+        .mobile-lang-bar {
+          display: flex;
+        }
+      }
+      .mobile-lang-pill {
+        flex: 1;
+        padding: 8px 0;
+        border: none;
+        border-radius: 25px;
+        background: transparent;
+        color: #555;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-align: center;
+      }
+      .mobile-lang-pill.active {
+        background: #c19b76;
+        color: #fff;
+        box-shadow: 0 2px 8px rgba(193, 155, 118, 0.4);
+      }
+
       /* ================= GLOBAL TOAST NOTIFICATIONS ================= */
       .toast-container {
         position: fixed;
@@ -146,27 +265,33 @@
         border-left-color: #ffc107;
       }
       .toast-alert.toast-warning .toast-icon {
-        color: #e0a800;
+        color: #ffc107;
+      }
+      .toast-alert.toast-info {
+        border-left-color: #17a2b8;
+      }
+      .toast-alert.toast-info .toast-icon {
+        color: #17a2b8;
       }
       .toast-icon {
         font-size: 22px;
         flex-shrink: 0;
       }
       .toast-text {
-        font-size: 14px;
-        line-height: 1.5;
-        flex: 1;
+        font-size: 14.5px;
+        line-height: 1.45;
         font-weight: 500;
+        flex-grow: 1;
       }
       .toast-close {
         background: transparent;
         border: none;
         font-size: 20px;
-        color: #999;
-        cursor: pointer;
         line-height: 1;
+        color: #888;
+        cursor: pointer;
         padding: 0 4px;
-        transition: color 0.2s;
+        transition: color 0.2s ease;
       }
       .toast-close:hover {
         color: #111;
@@ -247,32 +372,68 @@
             </div>
             <label for="menu-toggle" class="nav-drawer-close" aria-label="Close menu">&times;</label>
           </div>
+
+          <!-- Mobile Language Switcher Bar -->
+          <div class="mobile-lang-bar">
+            <button type="button" class="mobile-lang-pill {% if CURRENT_LANG == 'uz' %}active{% endif %}" onclick="changeLanguage('uz')">🇺🇿 O'zbek</button>
+            <button type="button" class="mobile-lang-pill {% if CURRENT_LANG == 'ru' %}active{% endif %}" onclick="changeLanguage('ru')">🇷🇺 Русский</button>
+            <button type="button" class="mobile-lang-pill {% if CURRENT_LANG == 'en' %}active{% endif %}" onclick="changeLanguage('en')">🇬🇧 English</button>
+          </div>
+
           <ul class="nav__list">
-            <li><a href="{% url 'core:index' %}" class="{% if request.resolver_match.view_name == 'core:index' %}active{% endif %}">Home</a></li>
-            <li><a href="{% url 'rooms:index' %}" class="{% if request.resolver_match.app_name == 'rooms' %}active{% endif %}">Rooms</a></li>
-            <li><a href="{% url 'restaurant:index' %}" class="{% if request.resolver_match.app_name == 'restaurant' %}active{% endif %}">Restaurant</a></li>
-            <li><a href="{% url 'core:about' %}" class="{% if request.resolver_match.view_name == 'core:about' %}active{% endif %}">About</a></li>
-            <li><a href="{% url 'blog:blog' %}" class="{% if request.resolver_match.app_name == 'blog' %}active{% endif %}">Blog</a></li>
-            <li><a href="{% url 'contact:index' %}" class="{% if request.resolver_match.app_name == 'contact' %}active{% endif %}">Contact</a></li>
-            <li><a href="{% url 'book:status' %}" class="{% if request.resolver_match.view_name == 'book:status' %}active{% endif %}"><i class="fa-solid fa-magnifying-glass"></i> My Booking</a></li>
-            <li><a href="{% url 'book:create' %}" class="nav__btn">Book Now</a></li>
+            <li><a href="{% url 'core:index' %}" class="{% if request.resolver_match.view_name == 'core:index' %}active{% endif %}">{% trans "Home" %}</a></li>
+            <li><a href="{% url 'rooms:index' %}" class="{% if request.resolver_match.app_name == 'rooms' %}active{% endif %}">{% trans "Rooms" %}</a></li>
+            <li><a href="{% url 'restaurant:index' %}" class="{% if request.resolver_match.app_name == 'restaurant' %}active{% endif %}">{% trans "Restaurant" %}</a></li>
+            <li><a href="{% url 'core:about' %}" class="{% if request.resolver_match.view_name == 'core:about' %}active{% endif %}">{% trans "About" %}</a></li>
+            <li><a href="{% url 'blog:blog' %}" class="{% if request.resolver_match.app_name == 'blog' %}active{% endif %}">{% trans "Blog" %}</a></li>
+            <li><a href="{% url 'contact:index' %}" class="{% if request.resolver_match.app_name == 'contact' %}active{% endif %}">{% trans "Contact" %}</a></li>
+            <li><a href="{% url 'book:status' %}" class="{% if request.resolver_match.view_name == 'book:status' %}active{% endif %}"><i class="fa-solid fa-magnifying-glass"></i> {% trans "My Booking" %}</a></li>
+            <li><a href="{% url 'book:create' %}" class="nav__btn">{% trans "Book Now" %}</a></li>
+
+            <!-- Desktop Language Switcher -->
+            <li class="nav__lang">
+              <div class="lang-selector">
+                <button type="button" class="lang-btn" id="langBtn" onclick="toggleLangMenu()" aria-label="Select Language">
+                  {% if CURRENT_LANG == 'ru' %}
+                    <span>🇷🇺 RU</span>
+                  {% elif CURRENT_LANG == 'en' %}
+                    <span>🇬🇧 EN</span>
+                  {% else %}
+                    <span>🇺🇿 UZ</span>
+                  {% endif %}
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="lang-dropdown" id="langDropdown">
+                  <button type="button" class="lang-choice {% if CURRENT_LANG == 'uz' %}active{% endif %}" onclick="changeLanguage('uz')">
+                    <span>🇺🇿</span> O'zbekcha
+                  </button>
+                  <button type="button" class="lang-choice {% if CURRENT_LANG == 'ru' %}active{% endif %}" onclick="changeLanguage('ru')">
+                    <span>🇷🇺</span> Русский
+                  </button>
+                  <button type="button" class="lang-choice {% if CURRENT_LANG == 'en' %}active{% endif %}" onclick="changeLanguage('en')">
+                    <span>🇬🇧</span> English
+                  </button>
+                </div>
+              </div>
+            </li>
           </ul>
         </nav>
       </div>
     </div>
   </header> 
-    <div>
-        {% block content %}
+  
+  <div>
+      {% block content %}
+      {% endblock %}
+  </div>
 
-        {%  endblock %}
-    </div>
   <footer class="footer" id="footer">
     <div class="container">
       <div class="footer__grid">
         <div class="footer__col">
           <h3>Deluxe Hotel</h3>
           <p>
-            Toshkentning qoq markazida joylashgan 5 yulduzli hashamat maskani. Biz har bir mehmonimizga shohona qulaylik, sharqona mehmondo‘stlik va unutilmas xotiralarni taqdim etamiz.
+            {% trans "Footer About Text" %}
           </p>
           <div class="footer__socials">
             <a href="https://t.me/deluxe_hotel_resort" target="_blank" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
@@ -283,34 +444,34 @@
         </div>
 
         <div class="footer__col">
-          <h3>Foydali Havolalar</h3>
+          <h3>{% trans "Useful Links" %}</h3>
           <ul>
-            <li><a href="{% url 'rooms:index' %}">Xonalar va Lyukslar</a></li>
-            <li><a href="{% url 'restaurant:index' %}">Restoran &amp; Menyu</a></li>
-            <li><a href="{% url 'book:status' %}">Bron holatini tekshirish</a></li>
-            <li><a href="{% url 'blog:blog' %}">Mehmonxona Blogi</a></li>
-            <li><a href="{% url 'book:create' %}">Xona band qilish</a></li>
+            <li><a href="{% url 'rooms:index' %}">{% trans "Rooms & Suites" %}</a></li>
+            <li><a href="{% url 'restaurant:index' %}">{% trans "Gourmet Restaurant & Bar" %}</a></li>
+            <li><a href="{% url 'book:status' %}">{% trans "Check Booking Status" %}</a></li>
+            <li><a href="{% url 'blog:blog' %}">{% trans "Hotel News & Articles" %}</a></li>
+            <li><a href="{% url 'book:create' %}">{% trans "Book Now" %}</a></li>
           </ul>
         </div>
 
         <div class="footer__col">
-          <h3>Eksklyuziv Xizmatlar</h3>
+          <h3>{% trans "Exclusive Services" %}</h3>
           <ul>
-            <li><a href="{% url 'core:about' %}">Mehmonxona haqida</a></li>
-            <li><a href="javascript:void(0)" onclick="openServiceModal('modal-reception')">24/7 Resepshn &amp; Konsyerj</a></li>
-            <li><a href="javascript:void(0)" onclick="openServiceModal('modal-transfer')">VIP Transfer buyurtma</a></li>
-            <li><a href="{% url 'restaurant:index' %}#reserve-table">Restoranda stol band qilish</a></li>
-            <li><a href="{% url 'contact:index' %}">Biz bilan bog'lanish</a></li>
+            <li><a href="{% url 'core:about' %}">{% trans "About Us" %}</a></li>
+            <li><a href="javascript:void(0)" onclick="openServiceModal('modal-reception')">{% trans "24/7 Reception & Concierge" %}</a></li>
+            <li><a href="javascript:void(0)" onclick="openServiceModal('modal-transfer')">{% trans "VIP Transfer Service" %}</a></li>
+            <li><a href="{% url 'restaurant:index' %}#reserve-table">{% trans "Reserve A Table" %}</a></li>
+            <li><a href="{% url 'contact:index' %}">{% trans "Contact Us" %}</a></li>
           </ul>
         </div>
 
         <div class="footer__col">
-          <h3>Bog'lanish Ma'lumotlari</h3>
+          <h3>{% trans "Contact Information" %}</h3>
           <ul>
-            <li><i class="fa-solid fa-location-dot"></i> Toshkent sh., Amir Temur shoh ko'chasi, 45-uy</li>
+            <li><i class="fa-solid fa-location-dot"></i> {% trans "Tashkent city, Amir Temur Ave, 107" %}</li>
             <li><i class="fa-solid fa-phone"></i> <a href="tel:+998940550855">+998 (94) 055-08-55</a></li>
             <li><i class="fa-solid fa-envelope"></i> <a href="mailto:info@deluxe-hotel.uz">info@deluxe-hotel.uz</a></li>
-            <li><i class="fa-solid fa-clock"></i> 24/7 Kechayu-kunduz xizmat</li>
+            <li><i class="fa-solid fa-clock"></i> {% trans "24/7 Round-the-clock" %}</li>
           </ul>
         </div>
       </div>
@@ -318,23 +479,30 @@
       <!-- Payment & Security Strip -->
       <div class="footer-payment-strip" style="display: flex; justify-content: space-between; align-items: center; padding: 25px 0 15px; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 35px; flex-wrap: wrap; gap: 16px;">
         <div class="payment-badges" style="display: flex; align-items: center; gap: 12px; font-size: 13px; color: rgba(255, 255, 255, 0.65); flex-wrap: wrap;">
-          <span>Qabul qilinadigan to'lovlar:</span>
+          <span>{% trans "Accepted Payments:" %}</span>
           <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; color: #fff; font-weight: 600; font-size: 11.5px;">UzCard</span>
           <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; color: #fff; font-weight: 600; font-size: 11.5px;">Humo</span>
           <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; color: #fff; font-weight: 600; font-size: 11.5px;">Visa</span>
           <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; color: #fff; font-weight: 600; font-size: 11.5px;">MasterCard</span>
-          <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; color: #fff; font-weight: 600; font-size: 11.5px;">Naqd</span>
+          <span style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; color: #fff; font-weight: 600; font-size: 11.5px;">{% trans "Cash" %}</span>
         </div>
         <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #c19b76;">
-          <i class="fa-solid fa-shield-halved"></i> 100% Xavfsiz bron qilish tizimi
+          <i class="fa-solid fa-shield-halved"></i> {% trans "100% Secure Booking System" %}
         </div>
       </div>
 
       <div class="footer__bottom" style="padding-top: 15px; border-top: none;">
-        Copyright © 2026 Deluxe Hotel &amp; Resort. Barcha huquqlar himoyalangan.
+        Copyright © 2026 Deluxe Hotel &amp; Resort. {% trans "All Rights Reserved" %}
       </div>
     </div>
   </footer>
+
+  <!-- Hidden Form for Django Language Switcher -->
+  <form id="langSwitchForm" action="{% url 'set_language_custom' %}" method="post" style="display:none;">
+    {% csrf_token %}
+    <input type="hidden" name="language" id="langSwitchInput" value="{{ CURRENT_LANG }}">
+    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+  </form>
 
   <!-- Service Interactive Modals (Reception, Transfer, Video) -->
   {% include 'includes/service_modals.html' %}
@@ -345,6 +513,29 @@
   <!-- AOS (Animate On Scroll) JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
+    // Language Switcher Handlers
+    function changeLanguage(langCode) {
+      var input = document.getElementById('langSwitchInput');
+      var form = document.getElementById('langSwitchForm');
+      if (input && form) {
+        input.value = langCode;
+        form.submit();
+      }
+    }
+
+    function toggleLangMenu() {
+      var dropdown = document.getElementById('langDropdown');
+      if (dropdown) dropdown.classList.toggle('show');
+    }
+
+    document.addEventListener('click', function(e) {
+      var selector = document.querySelector('.lang-selector');
+      var dropdown = document.getElementById('langDropdown');
+      if (dropdown && selector && !selector.contains(e.target)) {
+        dropdown.classList.remove('show');
+      }
+    });
+
     // Smooth Preloader Handler
     function dismissPreloader() {
       var p = document.getElementById('page-preloader');

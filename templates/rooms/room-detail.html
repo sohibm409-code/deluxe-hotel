@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% block title %}{{ room.title }} — Lyuks Xona | Deluxe Hotel{% endblock %}
-{% load static %}
+{% load static i18n %}
+{% block title %}{{ room.title }} — {% trans "Rooms & Suites" %} | Deluxe Hotel{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'style/rooms.css' %}?v=15">
@@ -423,7 +423,7 @@
     </div>
     <div class="hero-overlay"></div>
     <div class="container hero-content">
-      <p class="hero-subtitle">DELUXE HOTEL &nbsp; &gt; &nbsp; XONA TAFSILOTLARI</p>
+      <p class="hero-subtitle">{% trans "Home" %} &nbsp; &gt; &nbsp; {% trans "Rooms" %}</p>
       <h1>{{ room.title }}</h1>
     </div>
   </section>
@@ -479,20 +479,20 @@
 
           <div class="room-specs">
             <div class="spec-item">
-              <span>Sig'imi</span>
-              <span><i class="fa-solid fa-user-group"></i> {{ room.max_persons }} kishi</span>
+              <span>{% trans "Capacity" %}</span>
+              <span><i class="fa-solid fa-user-group"></i> {{ room.max_persons }} {% trans "guests" %}</span>
             </div>
             <div class="spec-item">
-              <span>Maydoni</span>
+              <span>{% trans "Size" %}</span>
               <span><i class="fa-solid fa-maximize"></i> {{ room.size }} m²</span>
             </div>
             <div class="spec-item">
-              <span>Manzara</span>
+              <span>{% trans "View" %}</span>
               <span><i class="fa-solid fa-mountain-sun"></i> {{ room.view }}</span>
             </div>
             <div class="spec-item">
-              <span>Krovat</span>
-              <span><i class="fa-solid fa-bed"></i> {{ room.bed }} ta King</span>
+              <span>{% trans "Bed" %}</span>
+              <span><i class="fa-solid fa-bed"></i> {{ room.bed }}</span>
             </div>
           </div>
 
@@ -507,7 +507,7 @@
           </div>
 
           <!-- AMENITIES -->
-          <h3 class="amenities-heading">Xonada mavjud qulayliklar</h3>
+          <h3 class="amenities-heading">{% trans "Room Amenities & Features" %}</h3>
           <div class="amenities-grid">
             <div class="amenity-card"><i class="fa-solid fa-wifi"></i> Tezkor Wi-Fi (Bepul)</div>
             <div class="amenity-card"><i class="fa-solid fa-snowflake"></i> Konditsioner &amp; Isitish</div>
@@ -544,12 +544,12 @@
       <div class="room-detail-sidebar" data-aos="fade-left">
         <div class="book-card-box">
           <div class="price-tag">
-            ${{ room.price }} <span>/ kuniga</span>
+            ${{ room.price }} <span>{% trans "per night" %}</span>
           </div>
-          <p style="color: #666; font-size: 14px; margin-bottom: 20px;">Barcha soliqlar va xizmatlar narx ichida</p>
+          <p style="color: #666; font-size: 14px; margin-bottom: 20px;">{% trans "100% Secure Booking System" %}</p>
 
           <a href="{% url 'book:book_room' room.pk %}" class="btn-book-now">
-            <i class="fa-solid fa-calendar-check"></i> Ushbu xonani band qilish
+            <i class="fa-solid fa-calendar-check"></i> {% trans "Book This Room" %}
           </a>
 
           <ul class="book-guarantee-list">

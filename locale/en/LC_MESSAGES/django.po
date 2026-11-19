@@ -1,0 +1,547 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Deluxe Hotel 1.0\n"
+"Report-Msgid-Bugs-To: info@deluxe-hotel.uz\n"
+"POT-Creation-Date: 2026-11-19 22:30+0500\n"
+"PO-Revision-Date: 2026-11-19 22:30+0500\n"
+"Last-Translator: Antigravity <support@deluxe.uz>\n"
+"Language-Team: en\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Rooms"
+msgstr "Rooms"
+
+msgid "Restaurant"
+msgstr "Restaurant"
+
+msgid "About"
+msgstr "About Us"
+
+msgid "About Us"
+msgstr "About Us"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "My Booking"
+msgstr "My Booking"
+
+msgid "Book Now"
+msgstr "Book Now"
+
+msgid "Deluxe Hotel & Resort — 5-Star Luxury Hotel in Tashkent"
+msgstr "Deluxe Hotel & Resort — 5-Star Luxury Hotel in Tashkent"
+
+msgid "Welcome To Deluxe"
+msgstr "Welcome To Deluxe"
+
+msgid "Hotels & Resorts"
+msgstr "Hotels & Resorts"
+
+msgid "Enjoy A Luxury Experience"
+msgstr "Enjoy A Luxury Experience"
+
+msgid "Choose Rooms"
+msgstr "Choose Rooms"
+
+msgid "Explore Restaurant"
+msgstr "Explore Restaurant"
+
+msgid "5-STAR LUXURY & COMFORT"
+msgstr "5-STAR LUXURY & COMFORT"
+
+msgid "Welcome to Deluxe Hotel"
+msgstr "Welcome to Deluxe Hotel"
+
+msgid "About Welcome Lead"
+msgstr ""
+"A magnificent haven blending warm oriental hospitality with international "
+"5-star comfort."
+
+msgid "About Welcome Desc"
+msgstr ""
+"Situated at Tashkent's most prestigious address, Deluxe Hotel features "
+"refined interiors, serene ambiance, and tailored attention for every guest."
+
+msgid "Years of Experience"
+msgstr "Years of Experience"
+
+msgid "15+ Years Experience"
+msgstr "15+ Years Experience"
+
+msgid "Watch Video Tour"
+msgstr "Watch Video Tour"
+
+msgid "Video Tour"
+msgstr "Video Tour"
+
+msgid "Satisfied Guests"
+msgstr "Satisfied Guests"
+
+msgid "Luxury Rooms"
+msgstr "Luxury Rooms"
+
+msgid "Professional Staff"
+msgstr "Professional Staff"
+
+msgid "Read More"
+msgstr "Read More"
+
+msgid "Explore Rooms"
+msgstr "Explore Rooms"
+
+msgid "50+ Luxury Rooms"
+msgstr "50+ Luxury Rooms"
+
+msgid "Panoramic windows, orthopedic beds and royal comfort."
+msgstr "Panoramic windows, orthopedic beds and royal comfort."
+
+msgid "Gourmet Restaurant"
+msgstr "Gourmet Restaurant"
+
+msgid "Rich author menu of European and national dishes."
+msgstr "Rich author menu of European and national dishes."
+
+msgid "Prime Central Location"
+msgstr "Prime Central Location"
+
+msgid "A few minutes from the airport and city attractions."
+msgstr "A few minutes from the airport and city attractions."
+
+msgid "24/7 Personal Concierge"
+msgstr "24/7 Personal Concierge"
+
+msgid "Round-the-clock individual attention for each guest."
+msgstr "Round-the-clock individual attention for each guest."
+
+msgid "Guest Recognition Rating"
+msgstr "Recognition by 2,800+ happy guests (Booking.com & TripAdvisor)"
+
+msgid "EXCLUSIVE AMENITIES"
+msgstr "EXCLUSIVE AMENITIES"
+
+msgid "Hotel Services"
+msgstr "Hotel Services"
+
+msgid "Exclusive Hotel Services"
+msgstr "Exclusive Hotel Services"
+
+msgid "Designed for Your Utmost Comfort"
+msgstr "Designed for Your Utmost Comfort"
+
+msgid "24/7 Reception & Concierge"
+msgstr "24/7 Reception & Concierge"
+
+msgid "Round-the-clock front desk"
+msgstr "Round-the-clock front desk"
+
+msgid "Call Desk"
+msgstr "Call Desk"
+
+msgid "VIP Transfer Service"
+msgstr "VIP Transfer Service"
+
+msgid "SPA & Wellness Center"
+msgstr "SPA & Wellness Center"
+
+msgid "Swimming Pool"
+msgstr "Swimming Pool"
+
+msgid "Fast Free Wi-Fi"
+msgstr "Fast Free Wi-Fi"
+
+msgid "Order VIP Transfer"
+msgstr "Order VIP Transfer"
+
+msgid "Menu & Table Reservation"
+msgstr "Menu & Table Reservation"
+
+msgid "24/7 SERVICE"
+msgstr "24/7 SERVICE"
+
+msgid "GOURMET"
+msgstr "GOURMET"
+
+msgid "VIP TRANSPORT"
+msgstr "VIP TRANSPORT"
+
+msgid "Our Hotel Rooms"
+msgstr "Our Hotel Rooms"
+
+msgid "Our Rooms"
+msgstr "Our Rooms"
+
+msgid "Rooms & Suites"
+msgstr "Rooms & Suites"
+
+msgid "Discover Comfort & Elegance"
+msgstr "Discover Comfort & Elegance"
+
+msgid "View All Rooms"
+msgstr "View All Rooms"
+
+msgid "per night"
+msgstr "/ night"
+
+msgid "Capacity"
+msgstr "Capacity"
+
+msgid "Capacity:"
+msgstr "Capacity:"
+
+msgid "Size"
+msgstr "Size"
+
+msgid "Size:"
+msgstr "Size:"
+
+msgid "View"
+msgstr "View"
+
+msgid "View:"
+msgstr "View:"
+
+msgid "Bed"
+msgstr "Bed"
+
+msgid "Bed:"
+msgstr "Bed:"
+
+msgid "guests"
+msgstr "guests"
+
+msgid "photos"
+msgstr "photos"
+
+msgid "View Details"
+msgstr "View Details"
+
+msgid "Book This Room"
+msgstr "Book This Room"
+
+msgid "Room Amenities & Features"
+msgstr "Room Amenities & Features"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Gallery"
+msgstr "Gallery"
+
+msgid "Search & Filter"
+msgstr "Search & Filter"
+
+msgid "All Room Types"
+msgstr "All Room Types"
+
+msgid "All Guests"
+msgstr "All Guests"
+
+msgid "Clear Filter"
+msgstr "Clear Filter"
+
+msgid "Exclusive Amenities"
+msgstr "Exclusive Amenities"
+
+msgid "Sorry, no rooms found"
+msgstr "Sorry, no rooms found"
+
+msgid "No rooms available at the moment."
+msgstr "No rooms available at the moment."
+
+msgid "Gourmet Restaurant & Bar"
+msgstr "Gourmet Restaurant & Bar"
+
+msgid "Authentic Culinary Excellence"
+msgstr "Authentic Culinary Excellence"
+
+msgid "Reserve A Table"
+msgstr "Reserve A Table"
+
+msgid "Book Table"
+msgstr "Book Table"
+
+msgid "All Dishes"
+msgstr "All Dishes"
+
+msgid "All"
+msgstr "All"
+
+msgid "Breakfast"
+msgstr "Breakfast"
+
+msgid "Main Dishes"
+msgstr "Main Dishes"
+
+msgid "Desserts"
+msgstr "Desserts"
+
+msgid "Drinks & Wine"
+msgstr "Drinks & Wine"
+
+msgid "ROYAL FEAST"
+msgstr "ROYAL FEAST"
+
+msgid "National & European Cuisine Menu"
+msgstr "National & European Cuisine Menu"
+
+msgid "Recommended"
+msgstr "Recommended"
+
+msgid "Full Name"
+msgstr "Full Name"
+
+msgid "Phone Number"
+msgstr "Phone Number"
+
+msgid "Reservation Date"
+msgstr "Reservation Date"
+
+msgid "Reservation Time"
+msgstr "Reservation Time"
+
+msgid "Number of Persons"
+msgstr "Number of Persons"
+
+msgid "Special Wishes (Optional)"
+msgstr "Special Wishes (Optional)"
+
+msgid "Confirm Table Reservation"
+msgstr "Confirm Table Reservation"
+
+msgid "100% Halal & Premium Quality"
+msgstr "100% Halal & Premium Quality"
+
+msgid "GUEST REVIEWS"
+msgstr "GUEST REVIEWS"
+
+msgid "What Our Guests Say"
+msgstr "What Our Guests Say"
+
+msgid "What Our Clients Say"
+msgstr "What Our Clients Say"
+
+msgid "Leave a Review About Hotel"
+msgstr "Leave a Review About Hotel"
+
+msgid "QUESTIONS & ANSWERS"
+msgstr "QUESTIONS & ANSWERS"
+
+msgid "Frequently Asked Questions (FAQ)"
+msgstr "Frequently Asked Questions (FAQ)"
+
+msgid "What are the check-in and check-out times?"
+msgstr "What are the check-in and check-out times?"
+
+msgid "Is breakfast included in the room rate and what time is it served?"
+msgstr "Is breakfast included in the room rate and what time is it served?"
+
+msgid "What payment methods are accepted?"
+msgstr "What payment methods are accepted?"
+
+msgid "How to book an airport or train station transfer?"
+msgstr "How to book an airport or train station transfer?"
+
+msgid "What are the policies when traveling with children?"
+msgstr "What are the policies when traveling with children?"
+
+msgid "What is the cancellation policy for bookings?"
+msgstr "What is the cancellation policy for bookings?"
+
+msgid "Hotel News & Articles"
+msgstr "Hotel News & Articles"
+
+msgid "Latest News"
+msgstr "Latest News"
+
+msgid "Recent Blog"
+msgstr "Recent Blog"
+
+msgid "Read Article"
+msgstr "Read Article"
+
+msgid "comments"
+msgstr "comments"
+
+msgid "No blog posts available at the moment."
+msgstr "No blog posts available at the moment."
+
+msgid "Instagram Gallery"
+msgstr "Instagram Gallery"
+
+msgid "Follow us on Instagram: @jovliyev1626"
+msgstr "Follow us on Instagram: @jovliyev1626"
+
+msgid "Online Room Reservation"
+msgstr "Online Room Reservation"
+
+msgid "1. Room & Travel Dates"
+msgstr "1. Room & Travel Dates"
+
+msgid "Check-in Date"
+msgstr "Check-in Date"
+
+msgid "Check-out Date"
+msgstr "Check-out Date"
+
+msgid "Select Room"
+msgstr "Select Room"
+
+msgid "Adults"
+msgstr "Adults"
+
+msgid "Children"
+msgstr "Children"
+
+msgid "Guests"
+msgstr "Guests"
+
+msgid "Selected Room"
+msgstr "Selected Room"
+
+msgid "Duration"
+msgstr "Duration"
+
+msgid "Total Price"
+msgstr "Total Price"
+
+msgid "2. Select Payment Method"
+msgstr "2. Select Payment Method"
+
+msgid "Cash"
+msgstr "Cash"
+
+msgid "3. Guest Details"
+msgstr "3. Guest Details"
+
+msgid "Email (Optional)"
+msgstr "Email (Optional)"
+
+msgid "Confirm Booking"
+msgstr "Confirm Booking"
+
+msgid "Check Booking Status"
+msgstr "Check Booking Status"
+
+msgid "Enter your phone number or booking code:"
+msgstr "Enter your phone number or booking code:"
+
+msgid "Search"
+msgstr "Search"
+
+msgid "Booking Code"
+msgstr "Booking Code"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Confirmed"
+msgstr "Confirmed"
+
+msgid "Pending"
+msgstr "Pending"
+
+msgid "Cancelled"
+msgstr "Cancelled"
+
+msgid "Contact Us"
+msgstr "Contact Us"
+
+msgid "Our Address"
+msgstr "Our Address"
+
+msgid "Tashkent city, Amir Temur Ave, 107"
+msgstr "107 Amir Temur Ave, Tashkent, Uzbekistan"
+
+msgid "Open on Google Maps"
+msgstr "Open on Google Maps"
+
+msgid "Phone"
+msgstr "Phone"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Working Hours"
+msgstr "Working Hours"
+
+msgid "24/7 Round-the-clock"
+msgstr "24/7 Round-the-clock service"
+
+msgid "Send Us A Message"
+msgstr "Send Us A Message"
+
+msgid "Subject"
+msgstr "Subject"
+
+msgid "Your Message"
+msgstr "Your Message"
+
+msgid "Send Message"
+msgstr "Send Message"
+
+msgid "Useful Links"
+msgstr "Useful Links"
+
+msgid "Exclusive Services"
+msgstr "Exclusive Services"
+
+msgid "Contact Information"
+msgstr "Contact Information"
+
+msgid "Footer About Text"
+msgstr ""
+"A 5-star haven of luxury in the heart of Tashkent. We offer royal comfort, "
+"genuine hospitality, and unforgettable memories to every guest."
+
+msgid "Accepted Payments:"
+msgstr "Accepted Payments:"
+
+msgid "100% Secure Booking System"
+msgstr "100% Secure Booking System"
+
+msgid "All Rights Reserved"
+msgstr "All Rights Reserved."
+
+msgid "Quick Contact"
+msgstr "Quick Contact"
+
+msgid "Telegram Chat"
+msgstr "Telegram Chat"
+
+msgid "Call"
+msgstr "Call"
+
+msgid "Back to top"
+msgstr "Back to top"
+
+msgid "Close"
+msgstr "Close"
+
+msgid "Submit Request"
+msgstr "Submit Request"
+
+msgid "VIP Transfer Booking"
+msgstr "VIP Transfer Booking"
+
+msgid "Pickup Location"
+msgstr "Pickup Location"
+
+msgid "Car Category"
+msgstr "Car Category"
+
+msgid "Arrival Date"
+msgstr "Arrival Date"
+
+msgid "Approximate Time / Flight Number"
+msgstr "Approximate Time / Flight Number"

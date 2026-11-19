@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% block title %}Xona Band Qilish (Onlayn Bron) | Deluxe Hotel &amp; Resort{% endblock %}
-{% load static %}
+{% load static i18n %}
+{% block title %}{% trans "Online Room Reservation" %} | Deluxe Hotel &amp; Resort{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'style/rooms.css' %}?v=16">
@@ -354,27 +354,27 @@
     </div>
     <div class="hero-overlay"></div>
     <div class="container hero-content">
-      <p class="hero-subtitle">BOSH SAHIFA &nbsp; &gt; &nbsp; XONA BRON QILISH</p>
-      <h1>Xonani Band Qilish</h1>
+      <p class="hero-subtitle">{% trans "Home" %} &nbsp; &gt; &nbsp; {% trans "Online Room Reservation" %}</p>
+      <h1>{% trans "Online Room Reservation" %}</h1>
     </div>
   </section>
 
   <section class="booking-section">
     <div class="container booking-container">
       <div class="booking-card">
-        <h2>Xonani Band Qilish</h2>
-        <p class="sub">Ma'lumotlaringizni to'ldiring, to'lov turini tanlang va qulay xonani band qiling.</p>
+        <h2>{% trans "Online Room Reservation" %}</h2>
+        <p class="sub">{% trans "Designed for Your Utmost Comfort" %}</p>
 
         <!-- Selected Room Highlight -->
         {% if room %}
         <div class="room-summary-box" id="preselectedRoomBox" data-room-price="{{ room.price }}">
           <div class="room-summary-details">
             <h4><i class="fa-solid fa-bed" style="color: #c19b76;"></i> {{ room.title }}</h4>
-            <p>Sig'imi: <b>{{ room.max_persons }} kishi</b> &bull; Maydoni: <b>{{ room.size }} m²</b> &bull; {{ room.view }}</p>
+            <p>{% trans "Capacity:" %} <b>{{ room.max_persons }} {% trans "guests" %}</b> &bull; {% trans "Size:" %} <b>{{ room.size }} m²</b> &bull; {{ room.view }}</p>
           </div>
           <div class="room-summary-price">
             <div class="price-val">${{ room.price }}</div>
-            <div class="price-unit">1 kecha uchun</div>
+            <div class="price-unit">{% trans "per night" %}</div>
           </div>
         </div>
         {% endif %}
@@ -400,14 +400,14 @@
 
           <!-- Section 1: Room & Dates -->
           <div class="form-section-title">
-            <i class="fa-solid fa-calendar-days"></i> 1. Xona va Tashrif Sanalari
+            <i class="fa-solid fa-calendar-days"></i> {% trans "1. Room & Travel Dates" %}
           </div>
 
           {% if not room %}
           <div class="form-group">
-            <label><i class="fa-solid fa-door-open"></i> Xonani tanlang</label>
+            <label><i class="fa-solid fa-door-open"></i> {% trans "Select Room" %}</label>
             <select name="room" class="form-select" id="bookingRoomSelect" required>
-              <option value="">--- Xonani tanlang ---</option>
+              <option value="">--- {% trans "Select Room" %} ---</option>
               {% for r in all_rooms %}
                 <option value="{{ r.id }}" data-price="{{ r.price }}" {% if form.room.value|stringformat:"s" == r.id|stringformat:"s" %}selected{% endif %}>
                   {{ r.title }} — ${{ r.price }}/kecha ({{ r.max_persons }} kishi)
@@ -424,14 +424,14 @@
 
           <div class="form-row">
             <div class="form-group">
-              <label><i class="fa-solid fa-calendar-check"></i> Kelish sanasi (Check-in)</label>
+              <label><i class="fa-solid fa-calendar-check"></i> {% trans "Check-in Date" %}</label>
               {{ form.check_in }}
               {% if form.check_in.errors %}
                 <div style="color: #d32f2f; font-size: 13px; margin-top: 4px;">{{ form.check_in.errors.0 }}</div>
               {% endif %}
             </div>
             <div class="form-group">
-              <label><i class="fa-solid fa-calendar-xmark"></i> Ketish sanasi (Check-out)</label>
+              <label><i class="fa-solid fa-calendar-xmark"></i> {% trans "Check-out Date" %}</label>
               {{ form.check_out }}
               {% if form.check_out.errors %}
                 <div style="color: #d32f2f; font-size: 13px; margin-top: 4px;">{{ form.check_out.errors.0 }}</div>
@@ -440,30 +440,30 @@
           </div>
 
           <div class="form-group">
-            <label><i class="fa-solid fa-users"></i> Mehmonlar soni</label>
+            <label><i class="fa-solid fa-users"></i> {% trans "Guests" %}</label>
             {{ form.guests }}
           </div>
 
           <!-- Live Real-Time Price Calculation Strip -->
           <div class="calc-summary-strip" id="calcSummaryStrip">
             <div class="calc-item">
-              <span class="calc-label">Tanlangan xona</span>
-              <span class="calc-val" id="calcRoomTitle">{% if room %}{{ room.title }}{% else %}Xona tanlanmagan{% endif %}</span>
+              <span class="calc-label">{% trans "Selected Room" %}</span>
+              <span class="calc-val" id="calcRoomTitle">{% if room %}{{ room.title }}{% else %}---{% endif %}</span>
             </div>
             <div class="calc-item">
-              <span class="calc-label">Davomiyligi</span>
-              <span class="calc-val" id="calcNightsCount">1 kecha</span>
+              <span class="calc-label">{% trans "Duration" %}</span>
+              <span class="calc-val" id="calcNightsCount">1 {% trans "per night" %}</span>
             </div>
             <div class="calc-item calc-total">
-              <span class="calc-label">Jami to'lov summasi</span>
+              <span class="calc-label">{% trans "Total Price" %}</span>
               <div class="total-amount" id="calcTotalPrice">${% if room %}{{ room.price }}{% else %}0{% endif %}</div>
-              <div class="total-uzs" id="calcTotalUzs">taxminan so'mda hisoblanadi</div>
+              <div class="total-uzs" id="calcTotalUzs">~</div>
             </div>
           </div>
 
           <!-- Section 2: Payment Method (To'lov turi) -->
           <div class="form-section-title">
-            <i class="fa-solid fa-credit-card"></i> 2. To'lov Turini Tanlang
+            <i class="fa-solid fa-credit-card"></i> {% trans "2. Select Payment Method" %}
           </div>
 
           <!-- Hidden actual input synced with payment cards -->
@@ -539,19 +539,19 @@
 
           <!-- Section 3: Contact Details -->
           <div class="form-section-title">
-            <i class="fa-solid fa-user-check"></i> 3. Mehmon Ma'lumotlari
+            <i class="fa-solid fa-user-check"></i> {% trans "3. Guest Details" %}
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label><i class="fa-solid fa-user"></i> Ism va Familiyangiz</label>
+              <label><i class="fa-solid fa-user"></i> {% trans "Full Name" %}</label>
               {{ form.customer_name }}
               {% if form.customer_name.errors %}
                 <div style="color: #d32f2f; font-size: 13px; margin-top: 4px;">{{ form.customer_name.errors.0 }}</div>
               {% endif %}
             </div>
             <div class="form-group">
-              <label><i class="fa-solid fa-phone"></i> Telefon raqamingiz</label>
+              <label><i class="fa-solid fa-phone"></i> {% trans "Phone Number" %}</label>
               {{ form.customer_phone }}
               {% if form.customer_phone.errors %}
                 <div style="color: #d32f2f; font-size: 13px; margin-top: 4px;">{{ form.customer_phone.errors.0 }}</div>
@@ -560,17 +560,17 @@
           </div>
 
           <div class="form-group">
-            <label><i class="fa-solid fa-envelope"></i> Elektron pochta manzilingiz (ixtiyoriy)</label>
+            <label><i class="fa-solid fa-envelope"></i> {% trans "Email (Optional)" %}</label>
             {{ form.customer_email }}
           </div>
 
           <div class="form-group">
-            <label><i class="fa-solid fa-comment-dots"></i> Qo'shimcha istaklar (ixtiyoriy)</label>
+            <label><i class="fa-solid fa-comment-dots"></i> {% trans "Special Wishes (Optional)" %}</label>
             {{ form.notes }}
           </div>
 
           <button type="submit" class="btn-submit">
-            <i class="fa-solid fa-shield-halved"></i> Xonani xavfsiz band qilish
+            <i class="fa-solid fa-shield-halved"></i> {% trans "Confirm Booking" %}
           </button>
         </form>
       </div>

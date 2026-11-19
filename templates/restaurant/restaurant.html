@@ -1,8 +1,7 @@
 {% extends "base.html" %}
+{% load static i18n %}
 
-{% block title %}Restoran &amp; Gourmet Menyu | Deluxe Hotel &amp; Resort{% endblock %}
-
-{% load static %}
+{% block title %}{% trans "Gourmet Restaurant & Bar" %} | Deluxe Hotel &amp; Resort{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'style/resterant.css' %}?v=16">
@@ -153,8 +152,8 @@
     </div>
     <div class="hero-overlay"></div>
     <div class="container hero-content">
-      <p class="hero-subtitle">BOSH SAHIFA &nbsp; &gt; &nbsp; RESTORAN</p>
-      <h1>Deluxe Gourmet Restoran</h1>
+      <p class="hero-subtitle">{% trans "Home" %} &nbsp; &gt; &nbsp; {% trans "Restaurant" %}</p>
+      <h1>{% trans "Gourmet Restaurant & Bar" %}</h1>
     </div>
   </section>
 
@@ -169,33 +168,27 @@
         <div class="about-quality-badge" style="position: absolute; bottom: 25px; left: 25px; background: rgba(17,17,17,0.88); backdrop-filter: blur(8px); border: 1.5px solid #c19b76; color: #fff; padding: 14px 22px; border-radius: 8px; display: flex; align-items: center; gap: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.35);">
           <i class="fa-solid fa-award" style="color: #c19b76; font-size: 28px;"></i>
           <div>
-            <strong style="display:block; font-size: 15px; color:#fff;">100% Halol &amp; Premium Sifat</strong>
-            <span style="font-size: 12px; color: rgba(255,255,255,0.75);">O'zbek milliy va Yevropa taomlari gultoji</span>
+            <strong style="display:block; font-size: 15px; color:#fff;">{% trans "100% Halal & Premium Quality" %}</strong>
+            <span style="font-size: 12px; color: rgba(255,255,255,0.75);">{% trans "Authentic Culinary Excellence" %}</span>
           </div>
         </div>
       </div>
 
       <div class="about-content">
         <span class="section-subtitle" style="display: inline-flex; align-items: center; gap: 6px; font-weight: 700; letter-spacing: 2px;">
-          <i class="fa-solid fa-crown" style="color: #c19b76;"></i> SHOHONA GOURMET &amp; MILLIY TAOMLAR MASKANI
+          <i class="fa-solid fa-crown" style="color: #c19b76;"></i> {% trans "ROYAL FEAST" %}
         </span>
-        <h2>Deluxe Royal Restoran — O'zbek Mehmondo'stligi va Nafis Lazzatlar</h2>
+        <h2>Deluxe Royal Restoran</h2>
         <p>
-          <strong>Deluxe Restaurant</strong> — Toshkent shahrining qoq markazida joylashgan, boy sharqona an'analar va xalqaro 5 yulduzli gastronomiya uyg'unlashgan muazzam maskan. Biz har bir aziz mehmonimizga haqiqiy shohona dasturxon, o'zbek milliy oshxonasining sara durdonalari hamda Yevropaning eng sara delikateslarini taqdim etamiz.
-        </p>
-        <p>
-          Maxsus qadimiy usulda tandirda pishirilgan Samarqandcha tandir kabob, olovli qozonlarda damlangan betakror Toshkent to'y oshi, shirador qozon kabob va xushbo'y somsalar — mohir bosh oshpazlarimiz tomonidan faqat tabiiy, toza va oliy toifali masalliqlardan pishiriladi.
-        </p>
-        <p>
-          Sokin jonli musiqa, sharqona nafis interyer hamda oliy toifali servis tantanali tadbirlar, do'stona uchrashuvlar va unutilmas romantik oqshomlaringiz uchun ajoyib muhit bag'ishlaydi.
+          {% trans "About Welcome Desc" %}
         </p>
 
         <div class="about-restaurant-actions" style="display: flex; gap: 16px; margin-top: 25px; flex-wrap: wrap;">
           <a href="#reserve-table" class="btn-restaurant-action" style="background: #c19b76; color: #fff; padding: 13px 28px; border-radius: 4px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; font-size: 14.5px;">
-            <i class="fa-solid fa-chair"></i> Stol Band Qilish
+            <i class="fa-solid fa-chair"></i> {% trans "Reserve A Table" %}
           </a>
           <a href="#menu" class="btn-restaurant-action btn-restaurant-outline" style="border: 1.5px solid #c19b76; color: #222; padding: 12px 24px; border-radius: 4px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; font-size: 14.5px;">
-            <i class="fa-solid fa-utensils" style="color: #c19b76;"></i> Menyu Bilan Tanishish
+            <i class="fa-solid fa-utensils" style="color: #c19b76;"></i> {% trans "Explore Restaurant" %}
           </a>
         </div>
       </div>
@@ -206,16 +199,16 @@
   <section class="menu-section" id="menu">
     <div class="container">
       <div class="section-title">
-        <span style="font-weight: 700; letter-spacing: 2px;">SHOHONA DASTURXON</span>
-        <h2>Milliy va Yevropa Taomlari Menyusi</h2>
+        <span style="font-weight: 700; letter-spacing: 2px;">{% trans "ROYAL FEAST" %}</span>
+        <h2>{% trans "National & European Cuisine Menu" %}</h2>
         <p style="max-width: 650px; margin: 12px auto 0; color: #666; font-size: 14.5px; line-height: 1.6;">
-          O'zbek milliy oshxonasining tansiq taomlari, shirinliklar hamda sara Yevropa delikateslaridan bahramand bo'ling
+          {% trans "Authentic Culinary Excellence" %}
         </p>
       </div>
 
       {% if categories %}
       <div class="menu-tabs">
-        <button class="menu-tab-btn active" onclick="filterMenu('all', this)">Barchasi</button>
+        <button class="menu-tab-btn active" onclick="filterMenu('all', this)">{% trans "All" %}</button>
         {% for cat in categories %}
           <button class="menu-tab-btn" onclick="filterMenu('cat-{{ cat.id }}', this)">{{ cat.name }}</button>
         {% endfor %}
@@ -296,9 +289,9 @@
   <section class="table-reservation-section" id="reserve-table">
     <div class="container reservation-container">
       <div class="section-title">
-        <span>Bron qilish</span>
-        <h2>Stol band qilish</h2>
-        <p>Restoranimizda yoqimli oqshom o'tkazish uchun oldindan stol band qiling. So'rovingiz qabul qilingach, administratorimiz tasdiqlaydi.</p>
+        <span>{% trans "Reserve A Table" %}</span>
+        <h2>{% trans "Reserve A Table" %}</h2>
+        <p>{% trans "Authentic Culinary Excellence" %}</p>
       </div>
 
       <div class="reservation-form" data-aos="zoom-in">
@@ -306,37 +299,37 @@
           {% csrf_token %}
           <div class="res-grid">
             <div class="res-group">
-              <label><i class="fa-solid fa-user"></i> Ism-familiyangiz</label>
+              <label><i class="fa-solid fa-user"></i> {% trans "Full Name" %}</label>
               {{ reservation_form.customer_name }}
             </div>
             <div class="res-group">
-              <label><i class="fa-solid fa-phone"></i> Telefon raqamingiz</label>
+              <label><i class="fa-solid fa-phone"></i> {% trans "Phone Number" %}</label>
               {{ reservation_form.customer_phone }}
             </div>
             <div class="res-group">
-              <label><i class="fa-solid fa-calendar-days"></i> Tashrif sanasi</label>
+              <label><i class="fa-solid fa-calendar-days"></i> {% trans "Reservation Date" %}</label>
               {{ reservation_form.reservation_date }}
             </div>
             <div class="res-group">
-              <label><i class="fa-solid fa-clock"></i> Tashrif vaqti</label>
+              <label><i class="fa-solid fa-clock"></i> {% trans "Reservation Time" %}</label>
               {{ reservation_form.reservation_time }}
             </div>
             <div class="res-group">
-              <label><i class="fa-solid fa-users"></i> Mehmonlar soni</label>
+              <label><i class="fa-solid fa-users"></i> {% trans "Number of Persons" %}</label>
               {{ reservation_form.guests }}
             </div>
             <div class="res-group">
-              <label><i class="fa-solid fa-envelope"></i> Elektron pochta (ixtiyoriy)</label>
+              <label><i class="fa-solid fa-envelope"></i> {% trans "Email (Optional)" %}</label>
               {{ reservation_form.customer_email }}
             </div>
             <div class="res-group res-full">
-              <label><i class="fa-solid fa-comment-dots"></i> Qo'shimcha istaklar / Izoh</label>
+              <label><i class="fa-solid fa-comment-dots"></i> {% trans "Special Wishes (Optional)" %}</label>
               {{ reservation_form.special_requests }}
             </div>
           </div>
 
           <button type="submit" class="btn-reserve-submit">
-            <i class="fa-solid fa-check"></i> Stolni band qilish
+            <i class="fa-solid fa-check"></i> {% trans "Confirm Table Reservation" %}
           </button>
         </form>
       </div>
@@ -347,7 +340,7 @@
   <section class="instagram">
     <div class="container">
       <span class="section-subtitle" style="display: block; text-align: center; color: #c19b76; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px;">@jovliyev1626</span>
-      <h2>Instagram Galereya</h2>
+      <h2>{% trans "Instagram Gallery" %}</h2>
       <div class="instagram-grid">
         <a href="https://www.instagram.com/jovliyev1626/" target="_blank" class="insta" title="Instagram: @jovliyev1626">
           <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=700&q=80" alt="@jovliyev1626 Restaurant">

@@ -1,0 +1,549 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Deluxe Hotel 1.0\n"
+"Report-Msgid-Bugs-To: info@deluxe-hotel.uz\n"
+"POT-Creation-Date: 2026-11-19 22:30+0500\n"
+"PO-Revision-Date: 2026-11-19 22:30+0500\n"
+"Last-Translator: Antigravity <support@deluxe.uz>\n"
+"Language-Team: ru\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Home"
+msgstr "Главная"
+
+msgid "Rooms"
+msgstr "Номера"
+
+msgid "Restaurant"
+msgstr "Ресторан"
+
+msgid "About"
+msgstr "О нас"
+
+msgid "About Us"
+msgstr "О нас"
+
+msgid "Blog"
+msgstr "Блог"
+
+msgid "Contact"
+msgstr "Контакты"
+
+msgid "My Booking"
+msgstr "Моя бронь"
+
+msgid "Book Now"
+msgstr "Забронировать"
+
+msgid "Deluxe Hotel & Resort — 5-Star Luxury Hotel in Tashkent"
+msgstr "Deluxe Hotel & Resort — 5-Звездочный Роскошный Отель в Ташкенте"
+
+msgid "Welcome To Deluxe"
+msgstr "Добро пожаловать в Deluxe"
+
+msgid "Hotels & Resorts"
+msgstr "Отели & Курорты"
+
+msgid "Enjoy A Luxury Experience"
+msgstr "Насладитесь непревзойденной роскошью"
+
+msgid "Choose Rooms"
+msgstr "Выбрать номер"
+
+msgid "Explore Restaurant"
+msgstr "Наш ресторан"
+
+msgid "5-STAR LUXURY & COMFORT"
+msgstr "5-ЗВЕЗДОЧНАЯ РОСКОШЬ И КОМФОРТ"
+
+msgid "Welcome to Deluxe Hotel"
+msgstr "Добро пожаловать в Deluxe Hotel"
+
+msgid "About Welcome Lead"
+msgstr ""
+"Уникальное сочетание восточного гостеприимства и международных стандартов "
+"пятизвездочного сервиса."
+
+msgid "About Welcome Desc"
+msgstr ""
+"Расположенный в самом престижном районе Ташкента, Deluxe Hotel отличается "
+"изысканным интерьером, спокойной атмосферой и безупречным персональным "
+"вниманием к каждому гостю."
+
+msgid "Years of Experience"
+msgstr "Лет Опыта"
+
+msgid "15+ Years Experience"
+msgstr "15+ Лет Опыта"
+
+msgid "Watch Video Tour"
+msgstr "Посмотреть видеотур"
+
+msgid "Video Tour"
+msgstr "Видеотур"
+
+msgid "Satisfied Guests"
+msgstr "Довольных Гостей"
+
+msgid "Luxury Rooms"
+msgstr "Люкс Номеров"
+
+msgid "Professional Staff"
+msgstr "Профессиональных Сотрудников"
+
+msgid "Read More"
+msgstr "Читать далее"
+
+msgid "Explore Rooms"
+msgstr "Ознакомиться с номерами"
+
+msgid "50+ Luxury Rooms"
+msgstr "50+ Роскошных Номеров"
+
+msgid "Panoramic windows, orthopedic beds and royal comfort."
+msgstr "Панорамные окна, ортопедические кровати и королевский комфорт."
+
+msgid "Gourmet Restaurant"
+msgstr "Ресторан Авторской Кухни"
+
+msgid "Rich author menu of European and national dishes."
+msgstr "Богатое авторское меню европейских и национальных блюд."
+
+msgid "Prime Central Location"
+msgstr "Удобное Центральное Расположение"
+
+msgid "A few minutes from the airport and city attractions."
+msgstr "В нескольких минутах от аэропорта и главных достопримечательностей."
+
+msgid "24/7 Personal Concierge"
+msgstr "24/7 Персональный Консьерж"
+
+msgid "Round-the-clock individual attention for each guest."
+msgstr "Круглосуточное индивидуальное внимание к каждому гостю."
+
+msgid "Guest Recognition Rating"
+msgstr "Признание более 2,800 гостей (Booking.com & TripAdvisor)"
+
+msgid "EXCLUSIVE AMENITIES"
+msgstr "ЭКСКЛЮЗИВНЫЕ УДОБСТВА"
+
+msgid "Hotel Services"
+msgstr "Услуги Отеля"
+
+msgid "Exclusive Hotel Services"
+msgstr "Эксклюзивные Услуги Отеля"
+
+msgid "Designed for Your Utmost Comfort"
+msgstr "Создано для вашего безупречного отдыха"
+
+msgid "24/7 Reception & Concierge"
+msgstr "24/7 Ресепшн и Консьерж"
+
+msgid "Round-the-clock front desk"
+msgstr "Круглосуточный ресепшн"
+
+msgid "Call Desk"
+msgstr "Позвонить"
+
+msgid "VIP Transfer Service"
+msgstr "VIP Трансфер сервис"
+
+msgid "SPA & Wellness Center"
+msgstr "СПА и Оздоровительный центр"
+
+msgid "Swimming Pool"
+msgstr "Плавательный бассейн"
+
+msgid "Fast Free Wi-Fi"
+msgstr "Скоростной Wi-Fi"
+
+msgid "Order VIP Transfer"
+msgstr "Заказать VIP трансфер"
+
+msgid "Menu & Table Reservation"
+msgstr "Меню и Бронь стола"
+
+msgid "24/7 SERVICE"
+msgstr "24/7 СЕРВИС"
+
+msgid "GOURMET"
+msgstr "ГУРМЭ"
+
+msgid "VIP TRANSPORT"
+msgstr "VIP ТРАНСПОРТ"
+
+msgid "Our Hotel Rooms"
+msgstr "Номера Отеля"
+
+msgid "Our Rooms"
+msgstr "Наши Номера"
+
+msgid "Rooms & Suites"
+msgstr "Номера и Люксы"
+
+msgid "Discover Comfort & Elegance"
+msgstr "Откройте для себя комфорт и элегантность"
+
+msgid "View All Rooms"
+msgstr "Все номера"
+
+msgid "per night"
+msgstr "/ ночь"
+
+msgid "Capacity"
+msgstr "Вместимость"
+
+msgid "Capacity:"
+msgstr "Вместимость:"
+
+msgid "Size"
+msgstr "Площадь"
+
+msgid "Size:"
+msgstr "Площадь:"
+
+msgid "View"
+msgstr "Вид"
+
+msgid "View:"
+msgstr "Вид:"
+
+msgid "Bed"
+msgstr "Кровать"
+
+msgid "Bed:"
+msgstr "Кровать:"
+
+msgid "guests"
+msgstr "гостя"
+
+msgid "photos"
+msgstr "фото"
+
+msgid "View Details"
+msgstr "Подробнее"
+
+msgid "Book This Room"
+msgstr "Забронировать этот номер"
+
+msgid "Room Amenities & Features"
+msgstr "Удобства и оснащение номера"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Gallery"
+msgstr "Галерея"
+
+msgid "Search & Filter"
+msgstr "Поиск и Фильтр"
+
+msgid "All Room Types"
+msgstr "Все категории номеров"
+
+msgid "All Guests"
+msgstr "Все гости"
+
+msgid "Clear Filter"
+msgstr "Сбросить фильтр"
+
+msgid "Exclusive Amenities"
+msgstr "Эксклюзивные Удобства"
+
+msgid "Sorry, no rooms found"
+msgstr "К сожалению, номера не найдены"
+
+msgid "No rooms available at the moment."
+msgstr "На данный момент номера отсутствуют."
+
+msgid "Gourmet Restaurant & Bar"
+msgstr "Ресторан и Авторская Кухня"
+
+msgid "Authentic Culinary Excellence"
+msgstr "Кулинарные шедевры и непревзойденный сервис"
+
+msgid "Reserve A Table"
+msgstr "Забронировать Стол"
+
+msgid "Book Table"
+msgstr "Забронировать стол"
+
+msgid "All Dishes"
+msgstr "Все блюда"
+
+msgid "All"
+msgstr "Все"
+
+msgid "Breakfast"
+msgstr "Завтрак"
+
+msgid "Main Dishes"
+msgstr "Основные блюда"
+
+msgid "Desserts"
+msgstr "Десерты"
+
+msgid "Drinks & Wine"
+msgstr "Напитки и Винная карта"
+
+msgid "ROYAL FEAST"
+msgstr "КОРОЛЕВСКИЙ СТОЛ"
+
+msgid "National & European Cuisine Menu"
+msgstr "Меню Национальной и Европейской Кухни"
+
+msgid "Recommended"
+msgstr "Рекомендуем"
+
+msgid "Full Name"
+msgstr "Ваше имя"
+
+msgid "Phone Number"
+msgstr "Номер телефона"
+
+msgid "Reservation Date"
+msgstr "Дата бронирования"
+
+msgid "Reservation Time"
+msgstr "Время бронирования"
+
+msgid "Number of Persons"
+msgstr "Количество персон"
+
+msgid "Special Wishes (Optional)"
+msgstr "Особые пожелания (необязательно)"
+
+msgid "Confirm Table Reservation"
+msgstr "Забронировать стол"
+
+msgid "100% Halal & Premium Quality"
+msgstr "100% Халяль и Премиум Качество"
+
+msgid "GUEST REVIEWS"
+msgstr "ОТЗЫВЫ ГОСТЕЙ"
+
+msgid "What Our Guests Say"
+msgstr "Отзывы Наших Гостей"
+
+msgid "What Our Clients Say"
+msgstr "Что Говорят Наши Клиенты"
+
+msgid "Leave a Review About Hotel"
+msgstr "Оставить Отзыв об Отеле"
+
+msgid "QUESTIONS & ANSWERS"
+msgstr "ВОПРОСЫ И ОТВЕТЫ"
+
+msgid "Frequently Asked Questions (FAQ)"
+msgstr "Часто Задаваемые Вопросы (FAQ)"
+
+msgid "What are the check-in and check-out times?"
+msgstr "Каковы правила и время заезда (Check-in) и выезда (Check-out)?"
+
+msgid "Is breakfast included in the room rate and what time is it served?"
+msgstr ""
+"Включен ли завтрак в стоимость проживания и в какое время он подается?"
+
+msgid "What payment methods are accepted?"
+msgstr "Какие способы оплаты принимаются в отеле?"
+
+msgid "How to book an airport or train station transfer?"
+msgstr "Как заказать трансфер из аэропорта или вокзала?"
+
+msgid "What are the policies when traveling with children?"
+msgstr "Каковы условия проживания с детьми?"
+
+msgid "What is the cancellation policy for bookings?"
+msgstr "Каковы правила отмены бронирования?"
+
+msgid "Hotel News & Articles"
+msgstr "Новости Отеля и Статьи"
+
+msgid "Latest News"
+msgstr "Свежие Новости"
+
+msgid "Recent Blog"
+msgstr "Блог Отеля"
+
+msgid "Read Article"
+msgstr "Читать статью"
+
+msgid "comments"
+msgstr "комментариев"
+
+msgid "No blog posts available at the moment."
+msgstr "На данный момент статей нет."
+
+msgid "Instagram Gallery"
+msgstr "Инстаграм Галерея"
+
+msgid "Follow us on Instagram: @jovliyev1626"
+msgstr "Подписывайтесь на Instagram: @jovliyev1626"
+
+msgid "Online Room Reservation"
+msgstr "Онлайн Бронирование Номера"
+
+msgid "1. Room & Travel Dates"
+msgstr "1. Номер и Даты Заезда"
+
+msgid "Check-in Date"
+msgstr "Дата заезда"
+
+msgid "Check-out Date"
+msgstr "Дата выезда"
+
+msgid "Select Room"
+msgstr "Выберите номер"
+
+msgid "Adults"
+msgstr "Взрослые"
+
+msgid "Children"
+msgstr "Дети"
+
+msgid "Guests"
+msgstr "Гости"
+
+msgid "Selected Room"
+msgstr "Выбранный номер"
+
+msgid "Duration"
+msgstr "Длительность"
+
+msgid "Total Price"
+msgstr "Итоговая сумма к оплате"
+
+msgid "2. Select Payment Method"
+msgstr "2. Выберите Способ Оплаты"
+
+msgid "Cash"
+msgstr "Наличный расчет"
+
+msgid "3. Guest Details"
+msgstr "3. Данные Гостя"
+
+msgid "Email (Optional)"
+msgstr "Электронная почта (необязательно)"
+
+msgid "Confirm Booking"
+msgstr "Безопасно забронировать номер"
+
+msgid "Check Booking Status"
+msgstr "Проверить Статус Брони"
+
+msgid "Enter your phone number or booking code:"
+msgstr "Введите ваш номер телефона или код бронирования:"
+
+msgid "Search"
+msgstr "Найти"
+
+msgid "Booking Code"
+msgstr "Код бронирования"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "Confirmed"
+msgstr "Подтверждено"
+
+msgid "Pending"
+msgstr "В ожидании"
+
+msgid "Cancelled"
+msgstr "Отменено"
+
+msgid "Contact Us"
+msgstr "Связаться с Нами"
+
+msgid "Our Address"
+msgstr "Наш Адрес"
+
+msgid "Tashkent city, Amir Temur Ave, 107"
+msgstr "г. Ташкент, пр-т Амира Темура, 107"
+
+msgid "Open on Google Maps"
+msgstr "Открыть на карте"
+
+msgid "Phone"
+msgstr "Телефон"
+
+msgid "Email"
+msgstr "Электронная почта"
+
+msgid "Working Hours"
+msgstr "Режим работы"
+
+msgid "24/7 Round-the-clock"
+msgstr "24/7 Круглосуточный сервис"
+
+msgid "Send Us A Message"
+msgstr "Напишите Нам Сообщение"
+
+msgid "Subject"
+msgstr "Тема"
+
+msgid "Your Message"
+msgstr "Ваше сообщение"
+
+msgid "Send Message"
+msgstr "Отправить сообщение"
+
+msgid "Useful Links"
+msgstr "Полезные Ссылки"
+
+msgid "Exclusive Services"
+msgstr "Эксклюзивные Услуги"
+
+msgid "Contact Information"
+msgstr "Контактная Информация"
+
+msgid "Footer About Text"
+msgstr ""
+"5-звездочный оазис роскоши в самом сердце Ташкента. Мы дарим каждому гостю "
+"королевский комфорт, восточное гостеприимство и незабываемые впечатления."
+
+msgid "Accepted Payments:"
+msgstr "Принимаемые способы оплаты:"
+
+msgid "100% Secure Booking System"
+msgstr "100% Безопасная система бронирования"
+
+msgid "All Rights Reserved"
+msgstr "Все права защищены."
+
+msgid "Quick Contact"
+msgstr "Быстрая Связь"
+
+msgid "Telegram Chat"
+msgstr "Связаться в Telegram"
+
+msgid "Call"
+msgstr "Позвонить нам"
+
+msgid "Back to top"
+msgstr "Наверх"
+
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "Submit Request"
+msgstr "Отправить заявку"
+
+msgid "VIP Transfer Booking"
+msgstr "Заказ VIP Трансфера"
+
+msgid "Pickup Location"
+msgstr "Место встречи"
+
+msgid "Car Category"
+msgstr "Категория автомобиля"
+
+msgid "Arrival Date"
+msgstr "Дата прибытия"
+
+msgid "Approximate Time / Flight Number"
+msgstr "Время / Номер рейса"
