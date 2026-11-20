@@ -276,37 +276,36 @@ def test_send_telegram_view(request):
 def set_language_view(request):
     """
     Sayt tilini aniq va xavfsiz almashtiruvchi view (UZ, RU, EN).
-    Oldingi sahifani saqlab, yangi til prefiksiga yo'naltiradi.
+    GET va POST so'rovlarini qabul qiladi, oldingi sahifani saqlab, yangi til prefiksiga yo'naltiradi.
     """
-    if request.method == "POST":
-        from django.http import HttpResponseRedirect
-        from django.utils.translation import activate, get_language_from_path, check_for_language
-        from django.urls import translate_url
-        
-        lang_code = request.POST.get("language")
-        next_url = request.POST.get("next") or "/"
-        
-        if lang_code and check_for_language(lang_code):
-            curr_lang = get_language_from_path(next_url) or settings.LANGUAGE_CODE
-            activate(curr_lang)
-            target_url = translate_url(next_url, lang_code)
-            
-            response = HttpResponseRedirect(target_url or "/")
-            response.set_cookie(
-                settings.LANGUAGE_COOKIE_NAME,
-                lang_code,
-                max_age=settings.LANGUAGE_COOKIE_AGE,
-                path=settings.LANGUAGE_COOKIE_PATH,
-                domain=settings.LANGUAGE_COOKIE_DOMAIN,
-                secure=settings.LANGUAGE_COOKIE_SECURE,
-                httponly=settings.LANGUAGE_COOKIE_HTTPONLY,
-                samesite=settings.LANGUAGE_COOKIE_SAMESITE,
-            )
-            if hasattr(request, "session"):
-                request.session["_language"] = lang_code
-            return response
-            
     from django.http import HttpResponseRedirect
-    return HttpResponseRedirect("/")
+    from django.utils.translation import activate, get_language_from_path, check_for_language
+    from django.urls import translate_url
+
+    lang_code = request.POST.get("language") or request.GET.get("language")
+    next_url = request.POST.get("next") or request.GET.get("next") or request.META.get("HTTP_REFERER") or "/"
+
+    if lang_code and check_for_language(lang_code):
+        curr_lang = get_language_from_path(next_url) or settings.LANGUAGE_CODE
+        activate(curr_lang)
+        target_url = translate_url(next_url, lang_code)
+
+        response = HttpResponseRedirect(target_url or "/")
+        cookie_age = getattr(settings, 'LANGUAGE_COOKIE_AGE', None) or (365 * 24 * 60 * 60)
+        response.set_cookie(
+            getattr(settings, 'LANGUAGE_COOKIE_NAME', 'django_language'),
+            lang_code,
+            max_age=cookie_age,
+            path=getattr(settings, 'LANGUAGE_COOKIE_PATH', '/'),
+            domain=getattr(settings, 'LANGUAGE_COOKIE_DOMAIN', None),
+            secure=getattr(settings, 'LANGUAGE_COOKIE_SECURE', False),
+            httponly=getattr(settings, 'LANGUAGE_COOKIE_HTTPONLY', False),
+            samesite=getattr(settings, 'LANGUAGE_COOKIE_SAMESITE', 'Lax'),
+        )
+        if hasattr(request, "session"):
+            request.session["_language"] = lang_code
+        return response
+
+    return HttpResponseRedirect(next_url or "/")
 
 

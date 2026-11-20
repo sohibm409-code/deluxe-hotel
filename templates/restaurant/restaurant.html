@@ -210,7 +210,7 @@
       <div class="menu-tabs">
         <button class="menu-tab-btn active" onclick="filterMenu('all', this)">{% trans "All" %}</button>
         {% for cat in categories %}
-          <button class="menu-tab-btn" onclick="filterMenu('cat-{{ cat.id }}', this)">{{ cat.name }}</button>
+          <button class="menu-tab-btn" onclick="filterMenu('cat-{{ cat.id }}', this)">{% trans cat.name %}</button>
         {% endfor %}
       </div>
       {% endif %}
@@ -225,16 +225,16 @@
               <div class="menu-item__content">
                 <div class="menu-top">
                   <h3 style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">
-                    <span>{{ item.title }}</span>
+                    <span>{% trans item.title %}</span>
                     {% if item.is_featured %}
                       <span style="background: rgba(193,155,118,0.15); color: #c19b76; border: 1px solid #c19b76; font-size: 10.5px; padding: 2px 8px; border-radius: 4px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; font-family: 'Poppins', sans-serif;">
-                        Tavsiya etiladi
+                        {% trans "Recommended" %}
                       </span>
                     {% endif %}
                   </h3>
                   <span class="price">${{ item.price }}</span>
                 </div>
-                <p>{{ item.description|default:"Oshpazimizning maxsus retsepti asosida tayyorlangan lazzatli taom." }}</p>
+                <p>{% if item.description %}{% trans item.description %}{% else %}{% trans "Delicious dish prepared according to our chef's signature recipe." %}{% endif %}</p>
               </div>
             </article>
           {% endfor %}

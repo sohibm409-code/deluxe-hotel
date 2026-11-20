@@ -548,3 +548,469 @@ msgstr "Kutib olish sanasi"
 
 msgid "Approximate Time / Flight Number"
 msgstr "Taxminiy vaqt / Reys raqami"
+
+msgid "Check-in and Check-out policy question"
+msgstr "Check-in va Check-out vaqtlari qanday belgilangan?"
+
+msgid "Check-in and Check-out policy answer"
+msgstr ""
+"Xonaga kirish (Check-in) soat 14:00 dan boshlanadi, xonani topshirish "
+"(Check-out) esa soat 12:00 gacha amalga oshiriladi. 24/7 qabulxonamiz bilan "
+"kelishilgan holda bepul yoki qo'shimcha qulaylik bilan erta kelish/kech "
+"ketishga ruxsat beriladi."
+
+msgid "Breakfast included question"
+msgstr "Nonushta xona narxiga kiritilganmi va qaysi vaqtda beriladi?"
+
+msgid "Breakfast included answer"
+msgstr ""
+"Ha, Deluxe Hotelning barcha xonalar toifasi uchun shohona shved stoli "
+"(Buffet) nonushtasi narxga to'liq kiritilgan. Nonushta har kuni 07:00 dan "
+"10:30 gacha restoranimizda tortiladi yoki xonangizga keltiriladi."
+
+msgid "Accepted payment methods question"
+msgstr "Qanday to‘lov usullari qabul qilinadi?"
+
+msgid "Accepted payment methods answer"
+msgstr ""
+"Biz barcha ommabop to'lov tizimlarini qabul qilamiz: UzCard, Humo, Visa, "
+"MasterCard, naqd to'lov, shuningdek Payme va Click ilovalari orqali "
+"to'lovlar."
+
+msgid "Airport transfer order question"
+msgstr "Aeroport yoki vokzaldan transfer qanday buyurtma qilinadi?"
+
+msgid "Airport transfer order answer"
+msgstr ""
+"Mehmonxonamiz shaxsiy biznes-klass avtoparkiga (Mercedes E-Class, VIP "
+"Minivan) ega. Saytimizdagi VIP Transfer oynasi orqali yoki resepshnga "
+"murojaat qilib reys raqamini aytsangiz, shaxsiy haydovchimiz sizni kutib "
+"oladi."
+
+msgid "Children accommodation policy question"
+msgstr "Bolalar bilan tashrif buyurganda shartlar qanaqa?"
+
+msgid "Children accommodation policy answer"
+msgstr ""
+"6 yoshgacha bo'lgan bolalar ota-onasi bilan alohida o'rin talab qilinmagan "
+"holda mutlaqo bepul istiqomat qilishadi. Shuningdek, talabingizga binoan "
+"bepul bolalar karavotcha (Baby cot) taqdim etiladi."
+
+msgid "Cancellation policy question"
+msgstr "Bronni bekor qilish (Cancellation policy) tartibi qanday?"
+
+msgid "Cancellation policy answer"
+msgstr ""
+"Mehmonxonaga kelish rejalashtirilgan sanadan kamida 24 soat oldin xonani "
+"bekor qilsangiz, jarimasiz to'liq qaytariladi yoki boshqa sanaga "
+"ko'chiriladi."
+
+msgid "24/7 Resepshn & Konsyerj"
+msgstr "24/7 Resepshn & Konsyerj"
+
+msgid ""
+"Kechayu-kunduz professional qabulxona va konsyerj xizmati. Mehmonlarimizning"
+" har qanday iltimos yoki savollariga istalgan vaqtda darhol javob beramiz."
+msgstr ""
+"Kechayu-kunduz professional qabulxona va konsyerj xizmati. Mehmonlarimizning"
+" har qanday iltimos yoki savollariga istalgan vaqtda darhol javob beramiz."
+
+msgid "24/7 XIZMAT"
+msgstr "24/7 XIZMAT"
+
+msgid "Bog'lanish / Qo'ng'iroq"
+msgstr "Bog'lanish / Qo'ng'iroq"
+
+msgid "Tezkor ro'yxatga olish & Checkout"
+msgstr "Tezkor ro'yxatga olish & Checkout"
+
+msgid "Bagaj saqlash va eltib berish"
+msgstr "Bagaj saqlash va eltib berish"
+
+msgid "24/7 konsyerj va qo'llab-quvvatlash"
+msgstr "24/7 konsyerj va qo'llab-quvvatlash"
+
+msgid "Restoran & Bar"
+msgstr "Restoran & Bar"
+
+msgid ""
+"Yevropa va sharqona taomlarning boy mualliflik menyusi, elit sharoblar "
+"kolleksiyasi hamda shinam muhitda sokin jonli musiqa sadolari."
+msgstr ""
+"Yevropa va sharqona taomlarning boy mualliflik menyusi, elit sharoblar "
+"kolleksiyasi hamda shinam muhitda sokin jonli musiqa sadolari."
+
+msgid "Menyu & Stol band qilish"
+msgstr "Menyu & Stol band qilish"
+
+msgid "Shohona shved stoli nonushtasi"
+msgstr "Shohona shved stoli nonushtasi"
+
+msgid "A-la-carte kechki ovqat menyusi"
+msgstr "A-la-carte kechki ovqat menyusi"
+
+msgid "Onlayn stol band qilish xizmati"
+msgstr "Onlayn stol band qilish xizmati"
+
+msgid "VIP Transfer Xizmati"
+msgstr "VIP Transfer Xizmati"
+
+msgid ""
+"Toshkent xalqaro aeroporti va vokzallardan hashamatli biznes-klass "
+"avtomobillarda kutib olish hamda manzilga qulay yetkazish xizmati."
+msgstr ""
+"Toshkent xalqaro aeroporti va vokzallardan hashamatli biznes-klass "
+"avtomobillarda kutib olish hamda manzilga qulay yetkazish xizmati."
+
+msgid "PREMIUM TRANSPORT"
+msgstr "PREMIUM TRANSPORT"
+
+msgid "Transfer buyurtma qilish"
+msgstr "Transfer buyurtma qilish"
+
+msgid "Aeroportda kutib olish va kuzatish"
+msgstr "Aeroportda kutib olish va kuzatish"
+
+msgid "Mercedes & VIP Minivan avtoparki"
+msgstr "Mercedes & VIP Minivan avtoparki"
+
+msgid "Konditsioner, Wi-Fi va ichimliklar"
+msgstr "Konditsioner, Wi-Fi va ichimliklar"
+
+msgid "Mamnun Mehmonlar"
+msgstr "Mamnun Mehmonlar"
+
+msgid "Hashamatli Xonalar"
+msgstr "Hashamatli Xonalar"
+
+msgid "Professional Xodimlar"
+msgstr "Professional Xodimlar"
+
+msgid "Yillik Tajriba"
+msgstr "Yillik Tajriba"
+
+msgid ""
+"Or leave your contact information and our front desk will call you back "
+"within 3 minutes:"
+msgstr ""
+"Yoki aloqa ma'lumotlaringizni qoldiring, resepshn navbatchi xodimi 3 daqiqa "
+"ichida sizga qo'ng'iroq qiladi:"
+
+msgid "Your Name"
+msgstr "Ismingiz"
+
+msgid "Your Phone Number"
+msgstr "Telefon raqamingiz"
+
+msgid "Request or Question (Optional)"
+msgstr "Iltimos yoki savolingiz (ixtiyoriy)"
+
+msgid "Room service, wake-up call or special request..."
+msgstr "Xona xizmati, uyg'otish vaqti yoki qo'shimcha so'rov..."
+
+msgid "Islam Karimov Tashkent Airport (TAS)"
+msgstr "Islom Karimov Toshkent Aeroporti (TAS)"
+
+msgid "Northern Railway Station (Central)"
+msgstr "Shimoliy Vokzal (Toshkent)"
+
+msgid "Southern Railway Station"
+msgstr "Janubiy Vokzal"
+
+msgid "Hotel to Airport Transfer"
+msgstr "Mehmonxonadan Aeroportga kuzatish"
+
+msgid "Custom City Route"
+msgstr "Shahar ichida shaxsiy marshrut"
+
+msgid "Business Sedan (Mercedes E-Class / BYD)"
+msgstr "Business Sedan (Mercedes E-Class / BYD)"
+
+msgid "VIP Minivan (Mercedes V-Class, 6-7 pax)"
+msgstr "VIP Minivan (Mercedes V-Class, 6-7 kishi)"
+
+msgid "Executive SUV (Lexus / Land Cruiser)"
+msgstr "Executive SUV (Lexus / Land Cruiser)"
+
+msgid "Deluxe Hotel - Virtual Video Tour"
+msgstr "Deluxe Hotel - Virtual Video Sayohat"
+
+msgid "Open on YouTube"
+msgstr "YouTube'da ochish"
+
+msgid "Virtual video overview of Deluxe Hotel 5-star luxury destination"
+msgstr "Deluxe Hotel 5-yulduzli hashamat maskanining virtual video sharhi"
+
+msgid "Subscribe to YouTube Channel"
+msgstr "YouTube kanalimizga obuna bo'ling"
+
+msgid "Leave A Guest Review"
+msgstr "Mehmonxona Haqida Fikr Bildirish"
+
+msgid ""
+"Your feedback is very valuable to us! Leave your honest review about your "
+"stay at Deluxe Hotel:"
+msgstr ""
+"Sizning samimiy fikringiz biz uchun juda qadrlidir! Deluxe Hotelda o'tkazgan"
+" dam olishingiz yoki xizmat sifati haqida o'z xolis taassurotlaringizni "
+"qoldiring:"
+
+msgid "Your Rating"
+msgstr "Bahoyingiz (Reyting)"
+
+msgid "5 stars (Excellent!)"
+msgstr "5 yulduz (A'lo darajada!)"
+
+msgid "City or Status"
+msgstr "Shahar yoki Maqomingiz"
+
+msgid "e.g. Tourist, Tashkent"
+msgstr "Masalan: Sayyoh, Toshkent"
+
+msgid "Your Review & Impressions"
+msgstr "Fikr va taassurotlaringiz"
+
+msgid "Cleanliness, hospitality, restaurant and general impressions..."
+msgstr ""
+"Xonalar tozaligi, mehmondo'stlik, restoran va umumiy taassurotlaringiz..."
+
+msgid "Photo or Selfie (Optional)"
+msgstr "Rasmingiz yoki selfi (ixtiyoriy)"
+
+msgid "Submit Review"
+msgstr "Fikrimni e'lon qilish"
+
+msgid "Cash Payment"
+msgstr "Naqd to'lov"
+
+msgid "Pay cash at the front desk upon check-in"
+msgstr "Mehmonxonaga joylashish vaqtida qabulxonada naqd to'lash"
+
+msgid "National bank card payment (terminal or online)"
+msgstr "Milliy bank kartasi orqali to'lov (terminal yoki onlayn)"
+
+msgid "Contactless Humo bank card payment"
+msgstr "Humo kontaktsiz bank kartasi orqali to'lov"
+
+msgid "International bank card payment"
+msgstr "Xalqaro xorijiy bank kartalari orqali to'lov"
+
+msgid "Direct payment link via Payme app"
+msgstr "Payme ilovasi orqali to'g'ridan-to'g'ri to'lov havolasi"
+
+msgid "Convenient and fast payment via Click Up"
+msgstr "Click Up ilovasi orqali qulay va tezkor to'lov"
+
+msgid "Cash payment hint"
+msgstr ""
+"Mehmonxonaga tashrif buyurib (Check-in), qabulxonada naqd pul (so'm yoki "
+"valyuta) shaklida to'lashingiz mumkin."
+
+msgid "UzCard payment hint"
+msgstr ""
+"UzCard bank kartasi orqali to'lov qabulxonadagi terminal orqali yoki "
+"administrator yuboradigan to'lov havolasi yordamida amalga oshiriladi."
+
+msgid "Humo payment hint"
+msgstr ""
+"Humo kontaktsiz to'lov kartasi orqali qabulxonada bir zumda yoki onlayn "
+"to'lov orqali hisob-kitob qilish mumkin."
+
+msgid "Visa payment hint"
+msgstr ""
+"Visa yoki MasterCard xalqaro kartalari qabulxonadagi ko'p valyutali POS-"
+"terminallar orqali qulay qabul qilinadi."
+
+msgid "Payme payment hint"
+msgstr ""
+"Buyurtma berilgach, administratorimiz siz bilan bog'lanib, Payme to'lov "
+"havolasi yoki QR-kodini taqdim etadi."
+
+msgid "Click payment hint"
+msgstr ""
+"Buyurtmangiz qabul qilingach, Click Up orqali bir martalik to'lov hisobi "
+"yuboriladi yoki qabulxonada to'lashingiz mumkin."
+
+msgid "Kutilmoqda"
+msgstr "Kutilmoqda"
+
+msgid "Tasdiqlangan"
+msgstr "Tasdiqlangan"
+
+msgid "Bekor qilingan"
+msgstr "Bekor qilingan"
+
+msgid "Naqd to'lov (Mehmonxonada to'lash)"
+msgstr "Naqd to'lov (Mehmonxonada to'lash)"
+
+msgid "UzCard (Bank kartasi)"
+msgstr "UzCard (Bank kartasi)"
+
+msgid "Humo (Bank kartasi)"
+msgstr "Humo (Bank kartasi)"
+
+msgid "Visa / MasterCard (Xalqaro karta)"
+msgstr "Visa / MasterCard (Xalqaro karta)"
+
+msgid "Payme ilovasi"
+msgstr "Payme ilovasi"
+
+msgid "Click ilovasi"
+msgstr "Click ilovasi"
+
+msgid "Kelganda to'lanadi"
+msgstr "Kelganda to'lanadi"
+
+msgid "To'lov kutilmoqda"
+msgstr "To'lov kutilmoqda"
+
+msgid "To'langan"
+msgstr "To'langan"
+
+msgid "Hotel Rooms"
+msgstr "Mehmonxona Xonalari"
+
+msgid "Restaurant Table Reservations"
+msgstr "Restoran Stol Bronlari"
+
+msgid "Table Reservation:"
+msgstr "Stol bron:"
+
+msgid "Check-in:"
+msgstr "Kelish:"
+
+msgid "Check-out:"
+msgstr "Ketish:"
+
+msgid "Guests:"
+msgstr "Mehmonlar:"
+
+msgid "Payment:"
+msgstr "To'lov:"
+
+msgid "Total:"
+msgstr "Jami summa:"
+
+msgid "Booking Date:"
+msgstr "Buyurtma sanasi:"
+
+msgid "Guest Name:"
+msgstr "Mijoz ismi:"
+
+msgid "Special Request:"
+msgstr "Maxsus istaklar:"
+
+msgid "No Bookings Found"
+msgstr "Hech qanday buyurtma topilmadi"
+
+msgid ""
+"No booking found with this phone number. Please check the entered number."
+msgstr ""
+"Ushbu telefon raqami bilan rasmiylashtirilgan bron topilmadi. Raqamni "
+"tekshirib qayta urinib ko'ring."
+
+msgid "Track your reservation status easily!"
+msgstr "Buyurtma holatini bilish oson!"
+
+msgid ""
+"Enter your phone number above to see the current status of all your room and"
+" table bookings."
+msgstr ""
+"Yuqoridagi maydonga telefon raqamingizni kiriting va barcha xona hamda "
+"restoran buyurtmalaringiz holatini bilib oling."
+
+msgid "Sea View"
+msgstr "Dengiz manzarasi"
+
+msgid "City View"
+msgstr "Shahar manzarasi"
+
+msgid "Garden View"
+msgstr "Bog' manzarasi"
+
+msgid "Mountain View"
+msgstr "Tog' manzarasi"
+
+msgid "Ocean View"
+msgstr "Okean manzarasi"
+
+msgid "beds"
+msgstr "ta karavot"
+
+msgid "Fast Wi-Fi (Free)"
+msgstr "Tezkor Wi-Fi (Bepul)"
+
+msgid "Air Conditioning & Heating"
+msgstr "Konditsioner & Isitish"
+
+msgid "55 4K Smart TV"
+msgstr "55\" 4K Smart TV"
+
+msgid "Coffee Machine & Tea"
+msgstr "Qahva mashinasi & Choy"
+
+msgid "Jacuzzi / Marble Bath"
+msgstr "Jakuzzi / Marmar vanna"
+
+msgid "Private Balcony & View"
+msgstr "Shaxsiy balkon & Manzara"
+
+msgid "Personal Safe"
+msgstr "Shaxsiy seyf"
+
+msgid "24/7 Room Service"
+msgstr "24/7 Xona xizmati"
+
+msgid "Laundry & Ironing"
+msgstr "Kir yuvish & Dazmol"
+
+msgid "Room Photo Gallery"
+msgstr "Xona fotogalereyasi"
+
+msgid "Explore every corner and amenity of this room"
+msgstr ""
+"Ushbu xonaning har bir go'shasi va qulayliklari bilan yaqindan tanishing"
+
+msgid ""
+"This luxury room at Deluxe Hotel offers you premier elegance, peace and "
+"comfort. Featuring modern interior design, free high-speed Wi-Fi, individual"
+" climate control, fully stocked minibar and private marble bathroom at your "
+"service."
+msgstr ""
+"Deluxe mehmonxonasidagi ushbu xona sizga yuqori darajadagi hashamat, "
+"osoyishtalik va qulaylikni taqdim etadi. Zamonaviy dizayn, bepul yuqori "
+"tezlikdagi Wi-Fi, mikroiqlim konditsioneri, to'liq jihozlangan mini-bar "
+"hamda shaxsiy marmar vanna xonasi sizning xizmatingizda."
+
+msgid "O'zbek Milliy Taomlari"
+msgstr "O'zbek Milliy Taomlari"
+
+msgid "Asosiy taomlar"
+msgstr "Asosiy taomlar"
+
+msgid "Salatlar va Gazaklar"
+msgstr "Salatlar va Gazaklar"
+
+msgid "Nonushta"
+msgstr "Nonushta"
+
+msgid "Shirinliklar va Ichimliklar"
+msgstr "Shirinliklar va Ichimliklar"
+
+msgid "Delicious dish prepared according to our chef's signature recipe."
+msgstr "Oshpazimizning maxsus retsepti asosida tayyorlangan lazzatli taom."
+
+msgid "Mehmonxona yangiliklari"
+msgstr "Mehmonxona yangiliklari"
+
+msgid "Restoran & Taomlar"
+msgstr "Restoran & Taomlar"
+
+msgid "Tadbirlar & To'ylar"
+msgstr "Tadbirlar & To'ylar"
+
+msgid "Toshkent Bo'ylab Sayohat"
+msgstr "Toshkent Bo'ylab Sayohat"
+
+msgid "Mehmonlar uchun Maslahatlar"
+msgstr "Mehmonlar uchun Maslahatlar"

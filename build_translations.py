@@ -917,6 +917,697 @@ TRANSLATIONS = {
         "ru": "Время / Номер рейса",
         "en": "Approximate Time / Flight Number",
     },
+
+    # --- FAQ Section ---
+    "Check-in and Check-out policy question": {
+        "uz": "Check-in va Check-out vaqtlari qanday belgilangan?",
+        "ru": "Как установлены часы заезда (Check-in) и выезда (Check-out)?",
+        "en": "What are the check-in and check-out times?",
+    },
+    "Check-in and Check-out policy answer": {
+        "uz": "Xonaga kirish (Check-in) soat 14:00 dan boshlanadi, xonani topshirish (Check-out) esa soat 12:00 gacha amalga oshiriladi. 24/7 qabulxonamiz bilan kelishilgan holda bepul yoki qo'shimcha qulaylik bilan erta kelish/kech ketishga ruxsat beriladi.",
+        "ru": "Заезд (Check-in) начинается с 14:00, а выезд (Check-out) осуществляется до 12:00. При наличии свободных номеров и по согласованию с круглосуточной стойкой регистрации возможен ранний заезд или поздний выезд.",
+        "en": "Check-in starts at 14:00 and check-out is until 12:00. Early check-in or late check-out is available upon request with our 24/7 front desk subject to room availability.",
+    },
+    "Breakfast included question": {
+        "uz": "Nonushta xona narxiga kiritilganmi va qaysi vaqtda beriladi?",
+        "ru": "Включен ли завтрак в стоимость номера и в какое время он подается?",
+        "en": "Is breakfast included in the room rate and what are the serving hours?",
+    },
+    "Breakfast included answer": {
+        "uz": "Ha, Deluxe Hotelning barcha xonalar toifasi uchun shohona shved stoli (Buffet) nonushtasi narxga to'liq kiritilgan. Nonushta har kuni 07:00 dan 10:30 gacha restoranimizda tortiladi yoki xonangizga keltiriladi.",
+        "ru": "Да, для всех категорий номеров Deluxe Hotel роскошный завтрак «шведский стол» (Buffet) полностью включен в стоимость. Завтрак сервируется ежедневно с 07:00 до 10:30 в ресторане или доставляется в номер.",
+        "en": "Yes, a lavish buffet breakfast is complimentary for all room categories at Deluxe Hotel. Breakfast is served daily from 07:00 to 10:30 in our main restaurant or delivered to your room.",
+    },
+    "Accepted payment methods question": {
+        "uz": "Qanday to‘lov usullari qabul qilinadi?",
+        "ru": "Какие способы оплаты принимаются?",
+        "en": "What payment methods are accepted?",
+    },
+    "Accepted payment methods answer": {
+        "uz": "Biz barcha ommabop to'lov tizimlarini qabul qilamiz: UzCard, Humo, Visa, MasterCard, naqd to'lov, shuningdek Payme va Click ilovalari orqali to'lovlar.",
+        "ru": "Мы принимаем все популярные платежные системы: карты UzCard, Humo, Visa, MasterCard, наличный расчет, а также платежи через приложения Payme и Click.",
+        "en": "We accept all major payment systems: UzCard, Humo, Visa, MasterCard, cash upon arrival, as well as mobile payments via Payme and Click.",
+    },
+    "Airport transfer order question": {
+        "uz": "Aeroport yoki vokzaldan transfer qanday buyurtma qilinadi?",
+        "ru": "Как заказать трансфер из аэропорта или вокзала?",
+        "en": "How can I arrange an airport or railway transfer?",
+    },
+    "Airport transfer order answer": {
+        "uz": "Mehmonxonamiz shaxsiy biznes-klass avtoparkiga (Mercedes E-Class, VIP Minivan) ega. Saytimizdagi VIP Transfer oynasi orqali yoki resepshnga murojaat qilib reys raqamini aytsangiz, shaxsiy haydovchimiz sizni kutib oladi.",
+        "ru": "У нас собственный автопарк бизнес-класса (Mercedes E-Class, VIP Minivan). Закажите трансфер через онлайн-форму на сайте или свяжитесь со стойкой регистрации, указав номер рейса.",
+        "en": "Our hotel operates an executive fleet (Mercedes E-Class, VIP Minivans). You can order a transfer via our online modal or inform reception of your flight details for a personal pickup.",
+    },
+    "Children accommodation policy question": {
+        "uz": "Bolalar bilan tashrif buyurganda shartlar qanaqa?",
+        "ru": "Каковы условия проживания с детьми?",
+        "en": "What is the policy for children staying at the hotel?",
+    },
+    "Children accommodation policy answer": {
+        "uz": "6 yoshgacha bo'lgan bolalar ota-onasi bilan alohida o'rin talab qilinmagan holda mutlaqo bepul istiqomat qilishadi. Shuningdek, talabingizga binoan bepul bolalar karavotcha (Baby cot) taqdim etiladi.",
+        "ru": "Дети до 6 лет проживают бесплатно без предоставления отдельного спального места. По запросу в номер бесплатно предоставляется детская кроватка.",
+        "en": "Children under 6 stay free of charge when sharing existing bedding. Complimentary baby cots are also available upon request.",
+    },
+    "Cancellation policy question": {
+        "uz": "Bronni bekor qilish (Cancellation policy) tartibi qanday?",
+        "ru": "Каковы правила и условия отмены бронирования?",
+        "en": "What is the cancellation policy?",
+    },
+    "Cancellation policy answer": {
+        "uz": "Mehmonxonaga kelish rejalashtirilgan sanadan kamida 24 soat oldin xonani bekor qilsangiz, jarimasiz to'liq qaytariladi yoki boshqa sanaga ko'chiriladi.",
+        "ru": "При отмене бронирования не менее чем за 24 часа до заезда штраф не взимается, предоплата возвращается в полном объеме или бронь переносится на другие даты.",
+        "en": "Free cancellation is available up to 24 hours prior to scheduled arrival with 100% refund or free date modification.",
+    },
+
+    # --- Services & Stats ---
+    "24/7 Resepshn & Konsyerj": {
+        "uz": "24/7 Resepshn & Konsyerj",
+        "ru": "24/7 Ресепшн и Консьерж",
+        "en": "24/7 Front Desk & Concierge",
+    },
+    "Kechayu-kunduz professional qabulxona va konsyerj xizmati. Mehmonlarimizning har qanday iltimos yoki savollariga istalgan vaqtda darhol javob beramiz.": {
+        "uz": "Kechayu-kunduz professional qabulxona va konsyerj xizmati. Mehmonlarimizning har qanday iltimos yoki savollariga istalgan vaqtda darhol javob beramiz.",
+        "ru": "Круглосуточная профессиональная служба приема и консьерж-сервис. Мы оперативно реагируем на любые пожелания и вопросы наших гостей.",
+        "en": "Round-the-clock professional reception and concierge service. We attend to every guest request and inquiry promptly at any time.",
+    },
+    "24/7 XIZMAT": {
+        "uz": "24/7 XIZMAT",
+        "ru": "24/7 СЕРВИС",
+        "en": "24/7 SERVICE",
+    },
+    "Bog'lanish / Qo'ng'iroq": {
+        "uz": "Bog'lanish / Qo'ng'iroq",
+        "ru": "Связаться / Позвонить",
+        "en": "Call / Contact",
+    },
+    "Tezkor ro'yxatga olish & Checkout": {
+        "uz": "Tezkor ro'yxatga olish & Checkout",
+        "ru": "Экспресс регистрация и выезд",
+        "en": "Express Check-in & Check-out",
+    },
+    "Bagaj saqlash va eltib berish": {
+        "uz": "Bagaj saqlash va eltib berish",
+        "ru": "Хранение и доставка багажа",
+        "en": "Luggage Storage & Delivery",
+    },
+    "24/7 konsyerj va qo'llab-quvvatlash": {
+        "uz": "24/7 konsyerj va qo'llab-quvvatlash",
+        "ru": "24/7 поддержка и консьерж",
+        "en": "24/7 Concierge Support",
+    },
+    "Restoran & Bar": {
+        "uz": "Restoran & Bar",
+        "ru": "Ресторан & Бар",
+        "en": "Restaurant & Bar",
+    },
+    "Yevropa va sharqona taomlarning boy mualliflik menyusi, elit sharoblar kolleksiyasi hamda shinam muhitda sokin jonli musiqa sadolari.": {
+        "uz": "Yevropa va sharqona taomlarning boy mualliflik menyusi, elit sharoblar kolleksiyasi hamda shinam muhitda sokin jonli musiqa sadolari.",
+        "ru": "Богатое авторское меню европейских и восточных блюд, коллекция элитных вин и живая музыка в уютной атмосфере.",
+        "en": "Rich signature menu of European and Oriental cuisine, fine wine selection and live acoustic music in a sophisticated ambiance.",
+    },
+    "GOURMET": {
+        "uz": "GOURMET",
+        "ru": "ГУРМЕ",
+        "en": "GOURMET",
+    },
+    "Menyu & Stol band qilish": {
+        "uz": "Menyu & Stol band qilish",
+        "ru": "Меню и Бронь столика",
+        "en": "Menu & Reserve Table",
+    },
+    "Shohona shved stoli nonushtasi": {
+        "uz": "Shohona shved stoli nonushtasi",
+        "ru": "Королевский завтрак «шведский стол»",
+        "en": "Lavish Buffet Breakfast",
+    },
+    "A-la-carte kechki ovqat menyusi": {
+        "uz": "A-la-carte kechki ovqat menyusi",
+        "ru": "Меню ужина a-la-carte",
+        "en": "A-la-carte Dinner Menu",
+    },
+    "Onlayn stol band qilish xizmati": {
+        "uz": "Onlayn stol band qilish xizmati",
+        "ru": "Онлайн бронирование столиков",
+        "en": "Online Table Reservation",
+    },
+    "VIP Transfer Xizmati": {
+        "uz": "VIP Transfer Xizmati",
+        "ru": "VIP Трансфер сервис",
+        "en": "VIP Transfer Service",
+    },
+    "Toshkent xalqaro aeroporti va vokzallardan hashamatli biznes-klass avtomobillarda kutib olish hamda manzilga qulay yetkazish xizmati.": {
+        "uz": "Toshkent xalqaro aeroporti va vokzallardan hashamatli biznes-klass avtomobillarda kutib olish hamda manzilga qulay yetkazish xizmati.",
+        "ru": "Встреча в международном аэропорту Ташкента и на вокзалах на роскошных автомобилях бизнес-класса и комфортная доставка.",
+        "en": "Luxury business-class airport and railway transfers with personal meet-and-greet in Tashkent.",
+    },
+    "PREMIUM TRANSPORT": {
+        "uz": "PREMIUM TRANSPORT",
+        "ru": "ПРЕМИУМ ТРАНСПОРТ",
+        "en": "PREMIUM TRANSPORT",
+    },
+    "Transfer buyurtma qilish": {
+        "uz": "Transfer buyurtma qilish",
+        "ru": "Заказать трансфер",
+        "en": "Book Transfer",
+    },
+    "Aeroportda kutib olish va kuzatish": {
+        "uz": "Aeroportda kutib olish va kuzatish",
+        "ru": "Встреча и проводы в аэропорту",
+        "en": "Airport Meet & Greet",
+    },
+    "Mercedes & VIP Minivan avtoparki": {
+        "uz": "Mercedes & VIP Minivan avtoparki",
+        "ru": "Автопарк Mercedes и VIP Minivan",
+        "en": "Mercedes & VIP Minivan Fleet",
+    },
+    "Konditsioner, Wi-Fi va ichimliklar": {
+        "uz": "Konditsioner, Wi-Fi va ichimliklar",
+        "ru": "Кондиционер, Wi-Fi и прохладительные напитки",
+        "en": "Climate Control, Wi-Fi & Drinks",
+    },
+    "Mamnun Mehmonlar": {
+        "uz": "Mamnun Mehmonlar",
+        "ru": "Довольных гостей",
+        "en": "Satisfied Guests",
+    },
+    "Hashamatli Xonalar": {
+        "uz": "Hashamatli Xonalar",
+        "ru": "Роскошных номеров",
+        "en": "Luxury Rooms",
+    },
+    "Professional Xodimlar": {
+        "uz": "Professional Xodimlar",
+        "ru": "Профессиональных сотрудников",
+        "en": "Professional Staff",
+    },
+    "Yillik Tajriba": {
+        "uz": "Yillik Tajriba",
+        "ru": "Лет безупречного опыта",
+        "en": "Years of Experience",
+    },
+
+    # --- Modals ---
+    "Or leave your contact information and our front desk will call you back within 3 minutes:": {
+        "uz": "Yoki aloqa ma'lumotlaringizni qoldiring, resepshn navbatchi xodimi 3 daqiqa ichida sizga qo'ng'iroq qiladi:",
+        "ru": "Или оставьте свои контактные данные, и дежурный администратор перезвонит вам в течение 3 минут:",
+        "en": "Or leave your contact details and our front desk will call you back within 3 minutes:",
+    },
+    "Your Name": {
+        "uz": "Ismingiz",
+        "ru": "Ваше имя",
+        "en": "Your Name",
+    },
+    "Your Phone Number": {
+        "uz": "Telefon raqamingiz",
+        "ru": "Номер телефона",
+        "en": "Your Phone Number",
+    },
+    "Request or Question (Optional)": {
+        "uz": "Iltimos yoki savolingiz (ixtiyoriy)",
+        "ru": "Пожелание или вопрос (необязательно)",
+        "en": "Request or Question (Optional)",
+    },
+    "Room service, wake-up call or special request...": {
+        "uz": "Xona xizmati, uyg'otish vaqti yoki qo'shimcha so'rov...",
+        "ru": "Обслуживание в номере, будильник или пожелание...",
+        "en": "Room service, wake-up call or special request...",
+    },
+    "Submit Request": {
+        "uz": "Murojaatni yuborish",
+        "ru": "Отправить заявку",
+        "en": "Submit Request",
+    },
+    "Islam Karimov Tashkent Airport (TAS)": {
+        "uz": "Islom Karimov Toshkent Aeroporti (TAS)",
+        "ru": "Аэропорт Ташкента им. Ислама Каримова (TAS)",
+        "en": "Islam Karimov Tashkent Airport (TAS)",
+    },
+    "Northern Railway Station (Central)": {
+        "uz": "Shimoliy Vokzal (Toshkent)",
+        "ru": "Северный вокзал (Центральный)",
+        "en": "Northern Railway Station (Central)",
+    },
+    "Southern Railway Station": {
+        "uz": "Janubiy Vokzal",
+        "ru": "Южный вокзал",
+        "en": "Southern Railway Station",
+    },
+    "Hotel to Airport Transfer": {
+        "uz": "Mehmonxonadan Aeroportga kuzatish",
+        "ru": "Трансфер из отеля в аэропорт",
+        "en": "Hotel to Airport Transfer",
+    },
+    "Custom City Route": {
+        "uz": "Shahar ichida shaxsiy marshrut",
+        "ru": "Индивидуальный маршрут по городу",
+        "en": "Custom City Route",
+    },
+    "Business Sedan (Mercedes E-Class / BYD)": {
+        "uz": "Business Sedan (Mercedes E-Class / BYD)",
+        "ru": "Бизнес-седан (Mercedes E-Class / BYD)",
+        "en": "Business Sedan (Mercedes E-Class / BYD)",
+    },
+    "VIP Minivan (Mercedes V-Class, 6-7 pax)": {
+        "uz": "VIP Minivan (Mercedes V-Class, 6-7 kishi)",
+        "ru": "VIP Минивэн (Mercedes V-Class, 6-7 мест)",
+        "en": "VIP Minivan (Mercedes V-Class, 6-7 pax)",
+    },
+    "Executive SUV (Lexus / Land Cruiser)": {
+        "uz": "Executive SUV (Lexus / Land Cruiser)",
+        "ru": "Представительский внедорожник (Lexus / Land Cruiser)",
+        "en": "Executive SUV (Lexus / Land Cruiser)",
+    },
+    "Deluxe Hotel - Virtual Video Tour": {
+        "uz": "Deluxe Hotel - Virtual Video Sayohat",
+        "ru": "Deluxe Hotel — Виртуальный видеотур",
+        "en": "Deluxe Hotel - Virtual Video Tour",
+    },
+    "Open on YouTube": {
+        "uz": "YouTube'da ochish",
+        "ru": "Открыть на YouTube",
+        "en": "Open on YouTube",
+    },
+    "Virtual video overview of Deluxe Hotel 5-star luxury destination": {
+        "uz": "Deluxe Hotel 5-yulduzli hashamat maskanining virtual video sharhi",
+        "ru": "Виртуальный видеообзор 5-звездочного роскошного отеля Deluxe",
+        "en": "Virtual video overview of Deluxe Hotel 5-star luxury destination",
+    },
+    "Subscribe to YouTube Channel": {
+        "uz": "YouTube kanalimizga obuna bo'ling",
+        "ru": "Подписывайтесь на наш YouTube канал",
+        "en": "Subscribe to YouTube Channel",
+    },
+    "Leave A Guest Review": {
+        "uz": "Mehmonxona Haqida Fikr Bildirish",
+        "ru": "Оставить отзыв об отеле",
+        "en": "Leave A Guest Review",
+    },
+    "Your feedback is very valuable to us! Leave your honest review about your stay at Deluxe Hotel:": {
+        "uz": "Sizning samimiy fikringiz biz uchun juda qadrlidir! Deluxe Hotelda o'tkazgan dam olishingiz yoki xizmat sifati haqida o'z xolis taassurotlaringizni qoldiring:",
+        "ru": "Ваш отзыв очень важен для нас! Поделитесь впечатлениями о вашем отдыхе и сервисе в Deluxe Hotel:",
+        "en": "Your feedback is very valuable to us! Leave your honest review about your stay at Deluxe Hotel:",
+    },
+    "Your Rating": {
+        "uz": "Bahoyingiz (Reyting)",
+        "ru": "Ваша оценка",
+        "en": "Your Rating",
+    },
+    "5 stars (Excellent!)": {
+        "uz": "5 yulduz (A'lo darajada!)",
+        "ru": "5 звезд (Превосходно!)",
+        "en": "5 stars (Excellent!)",
+    },
+    "City or Status": {
+        "uz": "Shahar yoki Maqomingiz",
+        "ru": "Город или статус",
+        "en": "City or Status",
+    },
+    "e.g. Tourist, Tashkent": {
+        "uz": "Masalan: Sayyoh, Toshkent",
+        "ru": "Например: Турист, Санкт-Петербург",
+        "en": "e.g. Tourist, London",
+    },
+    "Your Review & Impressions": {
+        "uz": "Fikr va taassurotlaringiz",
+        "ru": "Ваш отзыв и впечатления",
+        "en": "Your Review & Impressions",
+    },
+    "Cleanliness, hospitality, restaurant and general impressions...": {
+        "uz": "Xonalar tozaligi, mehmondo'stlik, restoran va umumiy taassurotlaringiz...",
+        "ru": "Чистота номеров, гостеприимство, ресторан и общие впечатления...",
+        "en": "Room cleanliness, hospitality, restaurant and impressions...",
+    },
+    "Photo or Selfie (Optional)": {
+        "uz": "Rasmingiz yoki selfi (ixtiyoriy)",
+        "ru": "Фотография или селфи (необязательно)",
+        "en": "Photo or Selfie (Optional)",
+    },
+    "Submit Review": {
+        "uz": "Fikrimni e'lon qilish",
+        "ru": "Опубликовать отзыв",
+        "en": "Submit Review",
+    },
+
+    # --- Payment Methods & Hints ---
+    "Cash Payment": {
+        "uz": "Naqd to'lov",
+        "ru": "Оплата наличными",
+        "en": "Cash Payment",
+    },
+    "Pay cash at the front desk upon check-in": {
+        "uz": "Mehmonxonaga joylashish vaqtida qabulxonada naqd to'lash",
+        "ru": "Оплата наличными на стойке регистрации при заселении",
+        "en": "Pay cash at the front desk upon check-in",
+    },
+    "National bank card payment (terminal or online)": {
+        "uz": "Milliy bank kartasi orqali to'lov (terminal yoki onlayn)",
+        "ru": "Оплата национальной картой UzCard (через терминал или онлайн)",
+        "en": "National bank card payment (terminal or online)",
+    },
+    "Contactless Humo bank card payment": {
+        "uz": "Humo kontaktsiz bank kartasi orqali to'lov",
+        "ru": "Оплата бесконтактной картой Humo",
+        "en": "Contactless Humo bank card payment",
+    },
+    "International bank card payment": {
+        "uz": "Xalqaro xorijiy bank kartalari orqali to'lov",
+        "ru": "Оплата международными банковскими картами Visa / MasterCard",
+        "en": "International bank card payment",
+    },
+    "Direct payment link via Payme app": {
+        "uz": "Payme ilovasi orqali to'g'ridan-to'g'ri to'lov havolasi",
+        "ru": "Прямой платеж через приложение Payme",
+        "en": "Direct payment link via Payme app",
+    },
+    "Convenient and fast payment via Click Up": {
+        "uz": "Click Up ilovasi orqali qulay va tezkor to'lov",
+        "ru": "Удобная и быстрая оплата через Click Up",
+        "en": "Convenient and fast payment via Click Up",
+    },
+    "Cash payment hint": {
+        "uz": "Mehmonxonaga tashrif buyurib (Check-in), qabulxonada naqd pul (so'm yoki valyuta) shaklida to'lashingiz mumkin.",
+        "ru": "Вы можете оплатить проживание наличными (в сумах или валюте) на стойке регистрации при заселении (Check-in).",
+        "en": "You can pay in cash (UZS or foreign currency) directly at the front desk upon arrival (Check-in).",
+    },
+    "UzCard payment hint": {
+        "uz": "UzCard bank kartasi orqali to'lov qabulxonadagi terminal orqali yoki administrator yuboradigan to'lov havolasi yordamida amalga oshiriladi.",
+        "ru": "Оплата картой UzCard производится через терминал на стойке регистрации или по платежной ссылке администратора.",
+        "en": "UzCard payment can be processed via terminal at reception or through a secure payment link sent by the manager.",
+    },
+    "Humo payment hint": {
+        "uz": "Humo kontaktsiz to'lov kartasi orqali qabulxonada bir zumda yoki onlayn to'lov orqali hisob-kitob qilish mumkin.",
+        "ru": "Оплата бесконтактной картой Humo возможна моментально на стойке регистрации или онлайн.",
+        "en": "Humo contactless card payments can be settled instantly at reception or online.",
+    },
+    "Visa payment hint": {
+        "uz": "Visa yoki MasterCard xalqaro kartalari qabulxonadagi ko'p valyutali POS-terminallar orqali qulay qabul qilinadi.",
+        "ru": "Международные карты Visa и MasterCard принимаются через мультивалютные POS-терминалы отеля.",
+        "en": "International Visa and MasterCard cards are accepted via our multicurrency POS terminals.",
+    },
+    "Payme payment hint": {
+        "uz": "Buyurtma berilgach, administratorimiz siz bilan bog'lanib, Payme to'lov havolasi yoki QR-kodini taqdim etadi.",
+        "ru": "После оформления администратор свяжется с вами и предоставит платежную ссылку или QR-код Payme.",
+        "en": "Upon booking, our manager will contact you with a Payme payment link or QR code.",
+    },
+    "Click payment hint": {
+        "uz": "Buyurtmangiz qabul qilingach, Click Up orqali bir martalik to'lov hisobi yuboriladi yoki qabulxonada to'lashingiz mumkin.",
+        "ru": "После оформления вам будет выставлен счет в приложении Click Up или вы можете оплатить на месте.",
+        "en": "An invoice will be generated in your Click Up app, or you can pay via Click at the front desk.",
+    },
+
+    # --- Booking Model Choices & Status ---
+    "Kutilmoqda": {
+        "uz": "Kutilmoqda",
+        "ru": "Ожидает подтверждения",
+        "en": "Pending",
+    },
+    "Tasdiqlangan": {
+        "uz": "Tasdiqlangan",
+        "ru": "Подтверждено",
+        "en": "Confirmed",
+    },
+    "Bekor qilingan": {
+        "uz": "Bekor qilingan",
+        "ru": "Отменено",
+        "en": "Cancelled",
+    },
+    "Naqd to'lov (Mehmonxonada to'lash)": {
+        "uz": "Naqd to'lov (Mehmonxonada to'lash)",
+        "ru": "Наличный расчет (в отеле)",
+        "en": "Cash payment (at hotel)",
+    },
+    "UzCard (Bank kartasi)": {
+        "uz": "UzCard (Bank kartasi)",
+        "ru": "UzCard (Банковская карта)",
+        "en": "UzCard (Bank card)",
+    },
+    "Humo (Bank kartasi)": {
+        "uz": "Humo (Bank kartasi)",
+        "ru": "Humo (Банковская карта)",
+        "en": "Humo (Bank card)",
+    },
+    "Visa / MasterCard (Xalqaro karta)": {
+        "uz": "Visa / MasterCard (Xalqaro karta)",
+        "ru": "Visa / MasterCard (Международная карта)",
+        "en": "Visa / MasterCard (International card)",
+    },
+    "Payme ilovasi": {
+        "uz": "Payme ilovasi",
+        "ru": "Приложение Payme",
+        "en": "Payme app",
+    },
+    "Click ilovasi": {
+        "uz": "Click ilovasi",
+        "ru": "Приложение Click",
+        "en": "Click app",
+    },
+    "Kelganda to'lanadi": {
+        "uz": "Kelganda to'lanadi",
+        "ru": "Оплата при заезде",
+        "en": "Pay on arrival",
+    },
+    "To'lov kutilmoqda": {
+        "uz": "To'lov kutilmoqda",
+        "ru": "Ожидается оплата",
+        "en": "Payment pending",
+    },
+    "To'langan": {
+        "uz": "To'langan",
+        "ru": "Оплачено",
+        "en": "Paid",
+    },
+    "Hotel Rooms": {
+        "uz": "Mehmonxona Xonalari",
+        "ru": "Номера в отеле",
+        "en": "Hotel Rooms",
+    },
+    "Restaurant Table Reservations": {
+        "uz": "Restoran Stol Bronlari",
+        "ru": "Бронирование столиков в ресторане",
+        "en": "Restaurant Table Reservations",
+    },
+    "Table Reservation:": {
+        "uz": "Stol bron:",
+        "ru": "Бронь столика:",
+        "en": "Table Reservation:",
+    },
+    "Check-in:": {
+        "uz": "Kelish:",
+        "ru": "Заезд:",
+        "en": "Check-in:",
+    },
+    "Check-out:": {
+        "uz": "Ketish:",
+        "ru": "Выезд:",
+        "en": "Check-out:",
+    },
+    "Guests:": {
+        "uz": "Mehmonlar:",
+        "ru": "Гости:",
+        "en": "Guests:",
+    },
+    "Payment:": {
+        "uz": "To'lov:",
+        "ru": "Оплата:",
+        "en": "Payment:",
+    },
+    "Total:": {
+        "uz": "Jami summa:",
+        "ru": "Итого:",
+        "en": "Total:",
+    },
+    "Booking Date:": {
+        "uz": "Buyurtma sanasi:",
+        "ru": "Дата заказа:",
+        "en": "Booking Date:",
+    },
+    "Guest Name:": {
+        "uz": "Mijoz ismi:",
+        "ru": "Имя гостя:",
+        "en": "Guest Name:",
+    },
+    "Special Request:": {
+        "uz": "Maxsus istaklar:",
+        "ru": "Особые пожелания:",
+        "en": "Special Request:",
+    },
+    "No Bookings Found": {
+        "uz": "Hech qanday buyurtma topilmadi",
+        "ru": "Бронирований не найдено",
+        "en": "No Bookings Found",
+    },
+    "No booking found with this phone number. Please check the entered number.": {
+        "uz": "Ushbu telefon raqami bilan rasmiylashtirilgan bron topilmadi. Raqamni tekshirib qayta urinib ko'ring.",
+        "ru": "По указанному номеру телефона бронирований не найдено. Проверьте правильность введенного номера.",
+        "en": "No booking was found with this phone number. Please check the number and try again.",
+    },
+    "Track your reservation status easily!": {
+        "uz": "Buyurtma holatini bilish oson!",
+        "ru": "Узнайте статус вашей брони легко!",
+        "en": "Track your reservation status easily!",
+    },
+    "Enter your phone number above to see the current status of all your room and table bookings.": {
+        "uz": "Yuqoridagi maydonga telefon raqamingizni kiriting va barcha xona hamda restoran buyurtmalaringiz holatini bilib oling.",
+        "ru": "Введите номер телефона выше, чтобы проверить статус всех ваших бронирований номеров и столиков.",
+        "en": "Enter your phone number above to check the status of all your room and restaurant table bookings.",
+    },
+
+    # --- Room Details, Views, Amenities ---
+    "Sea View": {
+        "uz": "Dengiz manzarasi",
+        "ru": "Вид на море",
+        "en": "Sea View",
+    },
+    "City View": {
+        "uz": "Shahar manzarasi",
+        "ru": "Вид на город",
+        "en": "City View",
+    },
+    "Garden View": {
+        "uz": "Bog' manzarasi",
+        "ru": "Вид на сад",
+        "en": "Garden View",
+    },
+    "Mountain View": {
+        "uz": "Tog' manzarasi",
+        "ru": "Вид на горы",
+        "en": "Mountain View",
+    },
+    "Ocean View": {
+        "uz": "Okean manzarasi",
+        "ru": "Вид на океан",
+        "en": "Ocean View",
+    },
+    "beds": {
+        "uz": "ta karavot",
+        "ru": "кровати",
+        "en": "beds",
+    },
+    "Fast Wi-Fi (Free)": {
+        "uz": "Tezkor Wi-Fi (Bepul)",
+        "ru": "Скоростной Wi-Fi (Бесплатно)",
+        "en": "Fast Wi-Fi (Free)",
+    },
+    "Air Conditioning & Heating": {
+        "uz": "Konditsioner & Isitish",
+        "ru": "Кондиционер и отопление",
+        "en": "Air Conditioning & Heating",
+    },
+    "55 4K Smart TV": {
+        "uz": "55\" 4K Smart TV",
+        "ru": "55\" 4K Smart TV",
+        "en": "55\" 4K Smart TV",
+    },
+    "Coffee Machine & Tea": {
+        "uz": "Qahva mashinasi & Choy",
+        "ru": "Кофемашина и чайный набор",
+        "en": "Coffee Machine & Tea",
+    },
+    "Jacuzzi / Marble Bath": {
+        "uz": "Jakuzzi / Marmar vanna",
+        "ru": "Джакузи / Мраморная ванна",
+        "en": "Jacuzzi / Marble Bath",
+    },
+    "Private Balcony & View": {
+        "uz": "Shaxsiy balkon & Manzara",
+        "ru": "Личный балкон с панорамой",
+        "en": "Private Balcony & View",
+    },
+    "Personal Safe": {
+        "uz": "Shaxsiy seyf",
+        "ru": "Сейф в номере",
+        "en": "Personal Safe",
+    },
+    "24/7 Room Service": {
+        "uz": "24/7 Xona xizmati",
+        "ru": "Круглосуточное обслуживание в номерах",
+        "en": "24/7 Room Service",
+    },
+    "Laundry & Ironing": {
+        "uz": "Kir yuvish & Dazmol",
+        "ru": "Прачечная и глажка",
+        "en": "Laundry & Ironing",
+    },
+    "Room Photo Gallery": {
+        "uz": "Xona fotogalereyasi",
+        "ru": "Фотогалерея номера",
+        "en": "Room Photo Gallery",
+    },
+    "Explore every corner and amenity of this room": {
+        "uz": "Ushbu xonaning har bir go'shasi va qulayliklari bilan yaqindan tanishing",
+        "ru": "Ознакомьтесь с каждым уголком и удобствами этого номера",
+        "en": "Explore every corner and amenity of this room",
+    },
+    "This luxury room at Deluxe Hotel offers you premier elegance, peace and comfort. Featuring modern interior design, free high-speed Wi-Fi, individual climate control, fully stocked minibar and private marble bathroom at your service.": {
+        "uz": "Deluxe mehmonxonasidagi ushbu xona sizga yuqori darajadagi hashamat, osoyishtalik va qulaylikni taqdim etadi. Zamonaviy dizayn, bepul yuqori tezlikdagi Wi-Fi, mikroiqlim konditsioneri, to'liq jihozlangan mini-bar hamda shaxsiy marmar vanna xonasi sizning xizmatingizda.",
+        "ru": "Этот роскошный номер в Deluxe Hotel дарит вам непревзойденный комфорт и умиротворение. К вашим услугам современный авторский интерьер, скоростной Wi-Fi, климат-контроль, укомплектованный мини-бар и ванная комната из натурального мрамора.",
+        "en": "This luxury room at Deluxe Hotel offers you premier elegance, peace and comfort. Featuring modern interior design, free high-speed Wi-Fi, individual climate control, fully stocked minibar and private marble bathroom at your service.",
+    },
+
+    # --- Restaurant Categories ---
+    "O'zbek Milliy Taomlari": {
+        "uz": "O'zbek Milliy Taomlari",
+        "ru": "Узбекские национальные блюда",
+        "en": "Uzbek National Cuisine",
+    },
+    "Asosiy taomlar": {
+        "uz": "Asosiy taomlar",
+        "ru": "Основные блюда",
+        "en": "Main Courses",
+    },
+    "Salatlar va Gazaklar": {
+        "uz": "Salatlar va Gazaklar",
+        "ru": "Салаты и закуски",
+        "en": "Salads & Appetizers",
+    },
+    "Nonushta": {
+        "uz": "Nonushta",
+        "ru": "Завтраки",
+        "en": "Breakfast",
+    },
+    "Shirinliklar va Ichimliklar": {
+        "uz": "Shirinliklar va Ichimliklar",
+        "ru": "Десерты и напитки",
+        "en": "Desserts & Beverages",
+    },
+    "Recommended": {
+        "uz": "Tavsiya etiladi",
+        "ru": "Рекомендуем",
+        "en": "Recommended",
+    },
+    "Delicious dish prepared according to our chef's signature recipe.": {
+        "uz": "Oshpazimizning maxsus retsepti asosida tayyorlangan lazzatli taom.",
+        "ru": "Изысканное блюдо, приготовленное по авторскому рецепту шеф-повара.",
+        "en": "Delicious dish prepared according to our chef's signature recipe.",
+    },
+
+    # --- Blog Categories ---
+    "Mehmonxona yangiliklari": {
+        "uz": "Mehmonxona yangiliklari",
+        "ru": "Новости отеля",
+        "en": "Hotel News",
+    },
+    "Restoran & Taomlar": {
+        "uz": "Restoran & Taomlar",
+        "ru": "Ресторан и кухня",
+        "en": "Restaurant & Cuisine",
+    },
+    "Tadbirlar & To'ylar": {
+        "uz": "Tadbirlar & To'ylar",
+        "ru": "События и торжества",
+        "en": "Events & Weddings",
+    },
+    "Toshkent Bo'ylab Sayohat": {
+        "uz": "Toshkent Bo'ylab Sayohat",
+        "ru": "Путешествия по Ташкенту",
+        "en": "Tashkent Travel Guide",
+    },
+    "Mehmonlar uchun Maslahatlar": {
+        "uz": "Mehmonlar uchun Maslahatlar",
+        "ru": "Советы для гостей",
+        "en": "Tips for Guests",
+    },
 }
 
 def generate_translations():

@@ -476,8 +476,8 @@
                 <div class="payment-card-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
                 <div class="payment-card-check"><i class="fa-solid fa-check"></i></div>
               </div>
-              <div class="payment-card-title">Naqd to'lov</div>
-              <div class="payment-card-desc">Mehmonxonaga joylashish vaqtida qabulxonada naqd to'lash</div>
+              <div class="payment-card-title">{% trans "Cash Payment" %}</div>
+              <div class="payment-card-desc">{% trans "Pay cash at the front desk upon check-in" %}</div>
             </div>
 
             <!-- 2. UzCard -->
@@ -487,7 +487,7 @@
                 <div class="payment-card-check"><i class="fa-solid fa-check"></i></div>
               </div>
               <div class="payment-card-title">UzCard</div>
-              <div class="payment-card-desc">Milliy bank kartasi orqali to'lov (terminal yoki onlayn)</div>
+              <div class="payment-card-desc">{% trans "National bank card payment (terminal or online)" %}</div>
             </div>
 
             <!-- 3. Humo -->
@@ -497,7 +497,7 @@
                 <div class="payment-card-check"><i class="fa-solid fa-check"></i></div>
               </div>
               <div class="payment-card-title">Humo</div>
-              <div class="payment-card-desc">Humo kontaktsiz bank kartasi orqali to'lov</div>
+              <div class="payment-card-desc">{% trans "Contactless Humo bank card payment" %}</div>
             </div>
 
             <!-- 4. Visa / MasterCard -->
@@ -507,7 +507,7 @@
                 <div class="payment-card-check"><i class="fa-solid fa-check"></i></div>
               </div>
               <div class="payment-card-title">Visa / MasterCard</div>
-              <div class="payment-card-desc">Xalqaro xorijiy bank kartalari orqali to'lov</div>
+              <div class="payment-card-desc">{% trans "International bank card payment" %}</div>
             </div>
 
             <!-- 5. Payme -->
@@ -516,8 +516,8 @@
                 <div class="payment-card-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
                 <div class="payment-card-check"><i class="fa-solid fa-check"></i></div>
               </div>
-              <div class="payment-card-title">Payme ilovasi</div>
-              <div class="payment-card-desc">Payme ilovasi orqali to'g'ridan-to'g'ri to'lov havolasi</div>
+              <div class="payment-card-title">Payme</div>
+              <div class="payment-card-desc">{% trans "Direct payment link via Payme app" %}</div>
             </div>
 
             <!-- 6. Click -->
@@ -526,15 +526,15 @@
                 <div class="payment-card-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
                 <div class="payment-card-check"><i class="fa-solid fa-check"></i></div>
               </div>
-              <div class="payment-card-title">Click ilovasi</div>
-              <div class="payment-card-desc">Click Up ilovasi orqali qulay va tezkor to'lov</div>
+              <div class="payment-card-title">Click Up</div>
+              <div class="payment-card-desc">{% trans "Convenient and fast payment via Click Up" %}</div>
             </div>
           </div>
 
           <!-- Dynamic payment explanation hint -->
           <div class="payment-hint-box" id="paymentHintBox">
             <i class="fa-solid fa-circle-info"></i>
-            <span id="paymentHintText">Mehmonxonaga tashrif buyurib (Check-in), qabulxonada naqd pul (so'm yoki valyuta) shaklida to'lashingiz mumkin.</span>
+            <span id="paymentHintText">{% trans "Cash payment hint" %}</span>
           </div>
 
           <!-- Section 3: Contact Details -->
@@ -595,12 +595,12 @@
       var USD_TO_UZS = 12850;
 
       var paymentHints = {
-        'cash': "Mehmonxonaga tashrif buyurib (Check-in), qabulxonada naqd pul (so'm yoki erkin konvertatsiya qilinadigan valyuta) shaklida to'lashingiz mumkin.",
-        'uzcard': "UzCard bank kartasi orqali to'lov qabulxonadagi terminal orqali yoki administrator yuboradigan to'lov havolasi yordamida amalga oshiriladi.",
-        'humo': "Humo kontaktsiz to'lov kartasi orqali qabulxonada bir zumda yoki onlayn to'lov orqali hisob-kitob qilish mumkin.",
-        'visa_mastercard': "Visa yoki MasterCard xalqaro kartalari qabulxonadagi ko'p valyutali POS-terminallar orqali qulay qabul qilinadi.",
-        'payme': "Buyurtma berilgach, administratorimiz siz bilan bog'lanib, Payme to'lov havolasi yoki QR-kodini taqdim etadi.",
-        'click': "Buyurtmangiz qabul qilingach, Click Up orqali bir martalik to'lov hisobi yuboriladi yoki qabulxonada Click orqali to'lashingiz mumkin."
+        'cash': "{% trans 'Cash payment hint'|escapejs %}",
+        'uzcard': "{% trans 'UzCard payment hint'|escapejs %}",
+        'humo': "{% trans 'Humo payment hint'|escapejs %}",
+        'visa_mastercard': "{% trans 'Visa payment hint'|escapejs %}",
+        'payme': "{% trans 'Payme payment hint'|escapejs %}",
+        'click': "{% trans 'Click payment hint'|escapejs %}"
       };
 
       // Set default minimum date to today

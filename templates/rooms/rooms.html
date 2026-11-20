@@ -51,8 +51,8 @@
               <ul>
                 <li><span>{% trans "Capacity:" %}</span> {{ room.max_persons }} {% trans "guests" %}</li>
                 <li><span>{% trans "Size:" %}</span> {{ room.size }} m²</li>
-                <li><span>{% trans "View:" %}</span> {{ room.view }}</li>
-                <li><span>{% trans "Bed:" %}</span> {{ room.bed }}</li>
+                <li><span>{% trans "View:" %}</span> {% trans room.view %}</li>
+                <li><span>{% trans "Bed:" %}</span> {{ room.bed }} {% trans "beds" %}</li>
               </ul>
               <a href="{% url 'book:book_room' room.pk %}" class="book-btn">{% trans "Book Now" %} <i class="fa-solid fa-arrow-right-long"></i></a>
             </div>

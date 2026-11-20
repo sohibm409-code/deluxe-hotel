@@ -175,6 +175,7 @@
         font-size: 13.5px;
         font-weight: 500;
         text-align: left;
+        text-decoration: none;
         border-radius: 6px;
         cursor: pointer;
         transition: all 0.2s ease;
@@ -188,6 +189,40 @@
         color: #ffffff;
         font-weight: 600;
       }
+
+      /* Mobile Quick Header Lang */
+      .mobile-lang-quick {
+        display: none;
+        align-items: center;
+        gap: 4px;
+        margin-left: auto;
+        margin-right: 15px;
+      }
+      .mobile-q-lang {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 8px;
+        font-size: 11.5px;
+        font-weight: 700;
+        text-decoration: none;
+        border-radius: 12px;
+        border: 1px solid rgba(193, 155, 118, 0.5);
+        color: #222;
+        background: rgba(255, 255, 255, 0.85);
+        transition: all 0.2s ease;
+      }
+      .header--home .mobile-q-lang {
+        color: #fff;
+        background: rgba(0, 0, 0, 0.25);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+      .mobile-q-lang.active {
+        background: #c19b76 !important;
+        border-color: #c19b76 !important;
+        color: #fff !important;
+      }
+
       .mobile-lang-bar {
         display: none;
         margin: 15px 20px 8px;
@@ -196,14 +231,6 @@
         border-radius: 30px;
         justify-content: space-between;
         gap: 4px;
-      }
-      @media (max-width: 992px) {
-        .nav__lang {
-          display: none !important;
-        }
-        .mobile-lang-bar {
-          display: flex;
-        }
       }
       .mobile-lang-pill {
         flex: 1;
@@ -214,14 +241,46 @@
         color: #555;
         font-size: 13px;
         font-weight: 600;
+        text-decoration: none;
         cursor: pointer;
         transition: all 0.2s ease;
         text-align: center;
+        display: inline-block;
       }
       .mobile-lang-pill.active {
         background: #c19b76;
         color: #fff;
         box-shadow: 0 2px 8px rgba(193, 155, 118, 0.4);
+      }
+
+      @media (max-width: 992px) {
+        .nav__lang {
+          display: none !important;
+        }
+        .mobile-lang-quick {
+          display: flex;
+        }
+        .mobile-lang-bar {
+          display: flex;
+        }
+      }
+
+      @media (min-width: 993px) and (max-width: 1280px) {
+        .nav__list {
+          gap: 14px !important;
+        }
+        .nav__list > li > a {
+          font-size: 13px !important;
+        }
+        .header--home .nav__btn,
+        .header--subpage .nav__btn {
+          padding: 8px 14px !important;
+          font-size: 13px !important;
+        }
+        .lang-btn {
+          padding: 6px 11px !important;
+          font-size: 12.5px !important;
+        }
       }
 
       /* ================= GLOBAL TOAST NOTIFICATIONS ================= */
@@ -356,6 +415,13 @@
       <div class="header__wrapper">
         <a href="{% url 'core:index' %}" class="logo">Deluxe</a>
 
+        <!-- Mobile Header Quick Language Switcher -->
+        <div class="mobile-lang-quick">
+          <a href="{% url 'set_language_custom' %}?language=uz&next={{ request.get_full_path|urlencode }}" class="mobile-q-lang {% if CURRENT_LANG == 'uz' %}active{% endif %}">UZ</a>
+          <a href="{% url 'set_language_custom' %}?language=ru&next={{ request.get_full_path|urlencode }}" class="mobile-q-lang {% if CURRENT_LANG == 'ru' %}active{% endif %}">RU</a>
+          <a href="{% url 'set_language_custom' %}?language=en&next={{ request.get_full_path|urlencode }}" class="mobile-q-lang {% if CURRENT_LANG == 'en' %}active{% endif %}">EN</a>
+        </div>
+
         <input type="checkbox" id="menu-toggle" />
         <label for="menu-toggle" class="menu-btn" aria-label="Open menu">
           <span></span>
@@ -375,9 +441,9 @@
 
           <!-- Mobile Language Switcher Bar -->
           <div class="mobile-lang-bar">
-            <button type="button" class="mobile-lang-pill {% if CURRENT_LANG == 'uz' %}active{% endif %}" onclick="changeLanguage('uz')">🇺🇿 O'zbek</button>
-            <button type="button" class="mobile-lang-pill {% if CURRENT_LANG == 'ru' %}active{% endif %}" onclick="changeLanguage('ru')">🇷🇺 Русский</button>
-            <button type="button" class="mobile-lang-pill {% if CURRENT_LANG == 'en' %}active{% endif %}" onclick="changeLanguage('en')">🇬🇧 English</button>
+            <a href="{% url 'set_language_custom' %}?language=uz&next={{ request.get_full_path|urlencode }}" class="mobile-lang-pill {% if CURRENT_LANG == 'uz' %}active{% endif %}">🇺🇿 O'zbek</a>
+            <a href="{% url 'set_language_custom' %}?language=ru&next={{ request.get_full_path|urlencode }}" class="mobile-lang-pill {% if CURRENT_LANG == 'ru' %}active{% endif %}">🇷🇺 Русский</a>
+            <a href="{% url 'set_language_custom' %}?language=en&next={{ request.get_full_path|urlencode }}" class="mobile-lang-pill {% if CURRENT_LANG == 'en' %}active{% endif %}">🇬🇧 English</a>
           </div>
 
           <ul class="nav__list">
@@ -404,15 +470,15 @@
                   <i class="fa-solid fa-chevron-down"></i>
                 </button>
                 <div class="lang-dropdown" id="langDropdown">
-                  <button type="button" class="lang-choice {% if CURRENT_LANG == 'uz' %}active{% endif %}" onclick="changeLanguage('uz')">
+                  <a href="{% url 'set_language_custom' %}?language=uz&next={{ request.get_full_path|urlencode }}" class="lang-choice {% if CURRENT_LANG == 'uz' %}active{% endif %}">
                     <span>🇺🇿</span> O'zbekcha
-                  </button>
-                  <button type="button" class="lang-choice {% if CURRENT_LANG == 'ru' %}active{% endif %}" onclick="changeLanguage('ru')">
+                  </a>
+                  <a href="{% url 'set_language_custom' %}?language=ru&next={{ request.get_full_path|urlencode }}" class="lang-choice {% if CURRENT_LANG == 'ru' %}active{% endif %}">
                     <span>🇷🇺</span> Русский
-                  </button>
-                  <button type="button" class="lang-choice {% if CURRENT_LANG == 'en' %}active{% endif %}" onclick="changeLanguage('en')">
+                  </a>
+                  <a href="{% url 'set_language_custom' %}?language=en&next={{ request.get_full_path|urlencode }}" class="lang-choice {% if CURRENT_LANG == 'en' %}active{% endif %}">
                     <span>🇬🇧</span> English
-                  </button>
+                  </a>
                 </div>
               </div>
             </li>

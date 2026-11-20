@@ -1,12 +1,13 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 class Blog(models.Model):
     CATEGORY_CHOICES = [
-        ('hotels', "Mehmonxona yangiliklari"),
-        ('restaurant', "Restoran & Taomlar"),
-        ('events', "Tadbirlar & To'ylar"),
-        ('tourism', "Toshkent Bo'ylab Sayohat"),
-        ('tips', "Mehmonlar uchun Maslahatlar"),
+        ('hotels', _("Mehmonxona yangiliklari")),
+        ('restaurant', _("Restoran & Taomlar")),
+        ('events', _("Tadbirlar & To'ylar")),
+        ('tourism', _("Toshkent Bo'ylab Sayohat")),
+        ('tips', _("Mehmonlar uchun Maslahatlar")),
     ]
 
     full_name = models.CharField(max_length=200, verbose_name="Sarlavha")

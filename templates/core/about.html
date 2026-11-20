@@ -27,7 +27,7 @@
         {% for stat in stats %}
         <div class="stat-box" data-aos="zoom-in" data-aos-delay="{% cycle '100' '200' '300' '400' %}">
           <h3>{{ stat.value }}</h3>
-          <p>{{ stat.title }}</p>
+          <p>{% trans stat.title %}</p>
         </div>
         {% empty %}
         <div class="stat-box">
@@ -102,21 +102,21 @@
         {% for service in services %}
         <article class="service-card-item" data-aos="fade-up" data-aos-delay="{% cycle '100' '200' '300' '400' %}">
           {% if service.badge %}
-          <span class="service-badge">{{ service.badge }}</span>
+          <span class="service-badge">{% trans service.badge %}</span>
           {% endif %}
           
           <div class="service-icon-wrap">
             <i class="{{ service.icon }}"></i>
           </div>
           
-          <h3>{{ service.title }}</h3>
-          <p>{{ service.description }}</p>
+          <h3>{% trans service.title %}</h3>
+          <p>{% trans service.description %}</p>
 
           {% with features=service.get_features_list %}
             {% if features %}
             <ul class="service-features-list">
               {% for feat in features %}
-              <li><i class="fa-solid fa-check"></i> {{ feat }}</li>
+              <li><i class="fa-solid fa-check"></i> {% trans feat %}</li>
               {% endfor %}
             </ul>
             {% endif %}
@@ -124,19 +124,19 @@
 
           {% if service.action_type == 'modal_reception' %}
           <button type="button" class="service-action-btn" onclick="openServiceModal('modal-reception')">
-            <i class="fa-solid fa-phone"></i> {{ service.link_text|default:"Call Desk" }}
+            <i class="fa-solid fa-phone"></i> {% trans service.link_text %}
           </button>
           {% elif service.action_type == 'modal_transfer' %}
           <button type="button" class="service-action-btn" onclick="openServiceModal('modal-transfer')">
-            <i class="fa-solid fa-car-side"></i> {{ service.link_text|default:"Order VIP Transfer" }}
+            <i class="fa-solid fa-car-side"></i> {% trans service.link_text %}
           </button>
           {% elif service.action_type == 'modal_spa' %}
           <button type="button" class="service-action-btn" onclick="openServiceModal('modal-spa')">
-            <i class="fa-solid fa-water-ladder"></i> {{ service.link_text|default:"SPA & Wellness Center" }}
+            <i class="fa-solid fa-water-ladder"></i> {% trans service.link_text %}
           </button>
           {% else %}
-          <a href="{{ service.link_url|default:'/restaurant/' }}" class="service-action-btn">
-            <i class="fa-solid fa-arrow-right"></i> {{ service.link_text|default:"Read More" }}
+          <a href="{% url 'restaurant:index' %}" class="service-action-btn">
+            <i class="fa-solid fa-arrow-right"></i> {% trans service.link_text %}
           </a>
           {% endif %}
         </article>

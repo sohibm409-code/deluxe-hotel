@@ -260,37 +260,37 @@
         {% if searched %}
           {% if room_bookings or table_reservations %}
             {% if room_bookings %}
-              <h3 class="section-heading-status"><i class="fa-solid fa-hotel"></i> Mehmonxona Xonalari ({{ room_bookings.count }})</h3>
+              <h3 class="section-heading-status"><i class="fa-solid fa-hotel"></i> {% trans "Hotel Rooms" %} ({{ room_bookings.count }})</h3>
               {% for b in room_bookings %}
                 <div class="booking-card">
                   <div class="booking-info">
                     <h4>{{ b.room.title|default:b.room_name }}</h4>
                     <div class="booking-meta">
-                      <span><i class="fa-solid fa-calendar-check"></i> Kelish: <b>{{ b.check_in|date:"d.m.Y" }}</b></span>
-                      <span><i class="fa-solid fa-calendar-xmark"></i> Ketish: <b>{{ b.check_out|date:"d.m.Y" }}</b></span>
-                      <span><i class="fa-solid fa-user-group"></i> Mehmonlar: {{ b.guests }}</span>
-                      <span><i class="{{ b.get_payment_method_icon }}"></i> To'lov: <b>{{ b.get_payment_method_display }}</b></span>
+                      <span><i class="fa-solid fa-calendar-check"></i> {% trans "Check-in:" %} <b>{{ b.check_in|date:"d.m.Y" }}</b></span>
+                      <span><i class="fa-solid fa-calendar-xmark"></i> {% trans "Check-out:" %} <b>{{ b.check_out|date:"d.m.Y" }}</b></span>
+                      <span><i class="fa-solid fa-user-group"></i> {% trans "Guests:" %} {{ b.guests }}</span>
+                      <span><i class="{{ b.get_payment_method_icon }}"></i> {% trans "Payment:" %} <b>{{ b.get_payment_method_display }}</b></span>
                       {% if b.total_price %}
-                        <span><i class="fa-solid fa-money-bill-wave"></i> Summa: <b>${{ b.total_price }} ({{ b.nights_count }} kecha)</b></span>
+                        <span><i class="fa-solid fa-money-bill-wave"></i> {% trans "Total:" %} <b>${{ b.total_price }} ({{ b.nights_count }} {% trans "nights" %})</b></span>
                       {% endif %}
-                      <span><i class="fa-solid fa-clock"></i> Buyurtma sanasi: {{ b.created_at|date:"d.m.Y, H:i" }}</span>
+                      <span><i class="fa-solid fa-clock"></i> {% trans "Booking Date:" %} {{ b.created_at|date:"d.m.Y, H:i" }}</span>
                     </div>
                   </div>
                   <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
                     {% if b.status == 'confirmed' %}
-                      <span class="badge-status badge-confirmed"><i class="fa-solid fa-circle-check"></i> Tasdiqlangan</span>
+                      <span class="badge-status badge-confirmed"><i class="fa-solid fa-circle-check"></i> {% trans "Confirmed" %}</span>
                     {% elif b.status == 'cancelled' %}
-                      <span class="badge-status badge-cancelled"><i class="fa-solid fa-circle-xmark"></i> Bekor qilingan</span>
+                      <span class="badge-status badge-cancelled"><i class="fa-solid fa-circle-xmark"></i> {% trans "Cancelled" %}</span>
                     {% else %}
-                      <span class="badge-status badge-pending"><i class="fa-solid fa-clock-rotate-left"></i> Kutilmoqda</span>
+                      <span class="badge-status badge-pending"><i class="fa-solid fa-clock-rotate-left"></i> {% trans "Pending" %}</span>
                     {% endif %}
 
                     {% if b.payment_status == 'paid' %}
-                      <span class="badge-payment badge-payment-paid"><i class="fa-solid fa-check-double"></i> To'langan</span>
+                      <span class="badge-payment badge-payment-paid"><i class="fa-solid fa-check-double"></i> {% trans "Paid" %}</span>
                     {% elif b.payment_status == 'pay_on_arrival' %}
-                      <span class="badge-payment badge-payment-arrival"><i class="fa-solid fa-hotel"></i> Kelganda to'lanadi</span>
+                      <span class="badge-payment badge-payment-arrival"><i class="fa-solid fa-hotel"></i> {% trans "Pay on arrival" %}</span>
                     {% else %}
-                      <span class="badge-payment badge-payment-pending"><i class="fa-solid fa-hourglass-half"></i> To'lov kutilmoqda</span>
+                      <span class="badge-payment badge-payment-pending"><i class="fa-solid fa-hourglass-half"></i> {% trans "Payment pending" %}</span>
                     {% endif %}
                   </div>
                 </div>
@@ -298,27 +298,27 @@
             {% endif %}
 
             {% if table_reservations %}
-              <h3 class="section-heading-status"><i class="fa-solid fa-utensils"></i> Restoran Stol Bronlari ({{ table_reservations.count }})</h3>
+              <h3 class="section-heading-status"><i class="fa-solid fa-utensils"></i> {% trans "Restaurant Table Reservations" %} ({{ table_reservations.count }})</h3>
               {% for tr in table_reservations %}
                 <div class="booking-card">
                   <div class="booking-info">
-                    <h4>Stol bron: {{ tr.guests }}</h4>
+                    <h4>{% trans "Table Reservation:" %} {{ tr.guests }}</h4>
                     <div class="booking-meta">
-                      <span><i class="fa-solid fa-calendar-day"></i> Sana: <b>{{ tr.reservation_date|date:"d.m.Y" }}</b></span>
-                      <span><i class="fa-solid fa-clock"></i> Vaqt: <b>{{ tr.reservation_time }}</b></span>
-                      <span><i class="fa-solid fa-user"></i> Mijoz: {{ tr.customer_name }}</span>
+                      <span><i class="fa-solid fa-calendar-day"></i> {% trans "Date:" %} <b>{{ tr.reservation_date|date:"d.m.Y" }}</b></span>
+                      <span><i class="fa-solid fa-clock"></i> {% trans "Time:" %} <b>{{ tr.reservation_time }}</b></span>
+                      <span><i class="fa-solid fa-user"></i> {% trans "Guest Name:" %} {{ tr.customer_name }}</span>
                       {% if tr.special_requests %}
-                        <span><i class="fa-solid fa-comment-dots"></i> Istak: {{ tr.special_requests|truncatechars:35 }}</span>
+                        <span><i class="fa-solid fa-comment-dots"></i> {% trans "Special Request:" %} {{ tr.special_requests|truncatechars:35 }}</span>
                       {% endif %}
                     </div>
                   </div>
                   <div>
                     {% if tr.status == 'confirmed' %}
-                      <span class="badge-status badge-confirmed"><i class="fa-solid fa-circle-check"></i> Tasdiqlangan</span>
+                      <span class="badge-status badge-confirmed"><i class="fa-solid fa-circle-check"></i> {% trans "Confirmed" %}</span>
                     {% elif tr.status == 'cancelled' %}
-                      <span class="badge-status badge-cancelled"><i class="fa-solid fa-circle-xmark"></i> Bekor qilingan</span>
+                      <span class="badge-status badge-cancelled"><i class="fa-solid fa-circle-xmark"></i> {% trans "Cancelled" %}</span>
                     {% else %}
-                      <span class="badge-status badge-pending"><i class="fa-solid fa-clock-rotate-left"></i> Kutilmoqda</span>
+                      <span class="badge-status badge-pending"><i class="fa-solid fa-clock-rotate-left"></i> {% trans "Pending" %}</span>
                     {% endif %}
                   </div>
                 </div>
@@ -328,11 +328,11 @@
           {% else %}
             <div class="no-results">
               <i class="fa-regular fa-folder-open"></i>
-              <h4>Hech qanday buyurtma topilmadi</h4>
-              <p><b>"{{ phone_query }}"</b> raqami bilan rasmiylashtirilgan bron mavjud emas. Iltimos raqamni to'g'ri kiritganingizni tekshiring.</p>
+              <h4>{% trans "No Bookings Found" %}</h4>
+              <p>{% trans "No booking found with this phone number. Please check the entered number." %}</p>
               <div style="margin-top: 25px;">
                 <a href="{% url 'rooms:index' %}" style="display: inline-block; background: #c19b76; color: #fff; padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: 500;">
-                  Xonalar ro'yxatiga o'tish
+                  {% trans "View All Rooms" %}
                 </a>
               </div>
             </div>
@@ -340,8 +340,8 @@
         {% else %}
           <div class="no-results">
             <i class="fa-solid fa-mobile-screen-button"></i>
-            <h4>Buyurtma holatini bilish oson!</h4>
-            <p>Yuqoridagi maydonga telefon raqamingizni kiriting va barcha xona hamda restoran buyurtmalaringizning joriy holatini bilib oling.</p>
+            <h4>{% trans "Track your reservation status easily!" %}</h4>
+            <p>{% trans "Enter your phone number above to see the current status of all your room and table bookings." %}</p>
           </div>
         {% endif %}
       </div>

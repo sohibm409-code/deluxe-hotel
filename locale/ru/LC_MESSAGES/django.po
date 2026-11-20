@@ -171,7 +171,7 @@ msgid "24/7 SERVICE"
 msgstr "24/7 СЕРВИС"
 
 msgid "GOURMET"
-msgstr "ГУРМЭ"
+msgstr "ГУРМЕ"
 
 msgid "VIP TRANSPORT"
 msgstr "VIP ТРАНСПОРТ"
@@ -547,3 +547,462 @@ msgstr "Дата прибытия"
 
 msgid "Approximate Time / Flight Number"
 msgstr "Время / Номер рейса"
+
+msgid "Check-in and Check-out policy question"
+msgstr "Как установлены часы заезда (Check-in) и выезда (Check-out)?"
+
+msgid "Check-in and Check-out policy answer"
+msgstr ""
+"Заезд (Check-in) начинается с 14:00, а выезд (Check-out) осуществляется до "
+"12:00. При наличии свободных номеров и по согласованию с круглосуточной "
+"стойкой регистрации возможен ранний заезд или поздний выезд."
+
+msgid "Breakfast included question"
+msgstr "Включен ли завтрак в стоимость номера и в какое время он подается?"
+
+msgid "Breakfast included answer"
+msgstr ""
+"Да, для всех категорий номеров Deluxe Hotel роскошный завтрак «шведский "
+"стол» (Buffet) полностью включен в стоимость. Завтрак сервируется ежедневно "
+"с 07:00 до 10:30 в ресторане или доставляется в номер."
+
+msgid "Accepted payment methods question"
+msgstr "Какие способы оплаты принимаются?"
+
+msgid "Accepted payment methods answer"
+msgstr ""
+"Мы принимаем все популярные платежные системы: карты UzCard, Humo, Visa, "
+"MasterCard, наличный расчет, а также платежи через приложения Payme и Click."
+
+msgid "Airport transfer order question"
+msgstr "Как заказать трансфер из аэропорта или вокзала?"
+
+msgid "Airport transfer order answer"
+msgstr ""
+"У нас собственный автопарк бизнес-класса (Mercedes E-Class, VIP Minivan). "
+"Закажите трансфер через онлайн-форму на сайте или свяжитесь со стойкой "
+"регистрации, указав номер рейса."
+
+msgid "Children accommodation policy question"
+msgstr "Каковы условия проживания с детьми?"
+
+msgid "Children accommodation policy answer"
+msgstr ""
+"Дети до 6 лет проживают бесплатно без предоставления отдельного спального "
+"места. По запросу в номер бесплатно предоставляется детская кроватка."
+
+msgid "Cancellation policy question"
+msgstr "Каковы правила и условия отмены бронирования?"
+
+msgid "Cancellation policy answer"
+msgstr ""
+"При отмене бронирования не менее чем за 24 часа до заезда штраф не "
+"взимается, предоплата возвращается в полном объеме или бронь переносится на "
+"другие даты."
+
+msgid "24/7 Resepshn & Konsyerj"
+msgstr "24/7 Ресепшн и Консьерж"
+
+msgid ""
+"Kechayu-kunduz professional qabulxona va konsyerj xizmati. Mehmonlarimizning"
+" har qanday iltimos yoki savollariga istalgan vaqtda darhol javob beramiz."
+msgstr ""
+"Круглосуточная профессиональная служба приема и консьерж-сервис. Мы "
+"оперативно реагируем на любые пожелания и вопросы наших гостей."
+
+msgid "24/7 XIZMAT"
+msgstr "24/7 СЕРВИС"
+
+msgid "Bog'lanish / Qo'ng'iroq"
+msgstr "Связаться / Позвонить"
+
+msgid "Tezkor ro'yxatga olish & Checkout"
+msgstr "Экспресс регистрация и выезд"
+
+msgid "Bagaj saqlash va eltib berish"
+msgstr "Хранение и доставка багажа"
+
+msgid "24/7 konsyerj va qo'llab-quvvatlash"
+msgstr "24/7 поддержка и консьерж"
+
+msgid "Restoran & Bar"
+msgstr "Ресторан & Бар"
+
+msgid ""
+"Yevropa va sharqona taomlarning boy mualliflik menyusi, elit sharoblar "
+"kolleksiyasi hamda shinam muhitda sokin jonli musiqa sadolari."
+msgstr ""
+"Богатое авторское меню европейских и восточных блюд, коллекция элитных вин и"
+" живая музыка в уютной атмосфере."
+
+msgid "Menyu & Stol band qilish"
+msgstr "Меню и Бронь столика"
+
+msgid "Shohona shved stoli nonushtasi"
+msgstr "Королевский завтрак «шведский стол»"
+
+msgid "A-la-carte kechki ovqat menyusi"
+msgstr "Меню ужина a-la-carte"
+
+msgid "Onlayn stol band qilish xizmati"
+msgstr "Онлайн бронирование столиков"
+
+msgid "VIP Transfer Xizmati"
+msgstr "VIP Трансфер сервис"
+
+msgid ""
+"Toshkent xalqaro aeroporti va vokzallardan hashamatli biznes-klass "
+"avtomobillarda kutib olish hamda manzilga qulay yetkazish xizmati."
+msgstr ""
+"Встреча в международном аэропорту Ташкента и на вокзалах на роскошных "
+"автомобилях бизнес-класса и комфортная доставка."
+
+msgid "PREMIUM TRANSPORT"
+msgstr "ПРЕМИУМ ТРАНСПОРТ"
+
+msgid "Transfer buyurtma qilish"
+msgstr "Заказать трансфер"
+
+msgid "Aeroportda kutib olish va kuzatish"
+msgstr "Встреча и проводы в аэропорту"
+
+msgid "Mercedes & VIP Minivan avtoparki"
+msgstr "Автопарк Mercedes и VIP Minivan"
+
+msgid "Konditsioner, Wi-Fi va ichimliklar"
+msgstr "Кондиционер, Wi-Fi и прохладительные напитки"
+
+msgid "Mamnun Mehmonlar"
+msgstr "Довольных гостей"
+
+msgid "Hashamatli Xonalar"
+msgstr "Роскошных номеров"
+
+msgid "Professional Xodimlar"
+msgstr "Профессиональных сотрудников"
+
+msgid "Yillik Tajriba"
+msgstr "Лет безупречного опыта"
+
+msgid ""
+"Or leave your contact information and our front desk will call you back "
+"within 3 minutes:"
+msgstr ""
+"Или оставьте свои контактные данные, и дежурный администратор перезвонит вам"
+" в течение 3 минут:"
+
+msgid "Your Name"
+msgstr "Ваше имя"
+
+msgid "Your Phone Number"
+msgstr "Номер телефона"
+
+msgid "Request or Question (Optional)"
+msgstr "Пожелание или вопрос (необязательно)"
+
+msgid "Room service, wake-up call or special request..."
+msgstr "Обслуживание в номере, будильник или пожелание..."
+
+msgid "Islam Karimov Tashkent Airport (TAS)"
+msgstr "Аэропорт Ташкента им. Ислама Каримова (TAS)"
+
+msgid "Northern Railway Station (Central)"
+msgstr "Северный вокзал (Центральный)"
+
+msgid "Southern Railway Station"
+msgstr "Южный вокзал"
+
+msgid "Hotel to Airport Transfer"
+msgstr "Трансфер из отеля в аэропорт"
+
+msgid "Custom City Route"
+msgstr "Индивидуальный маршрут по городу"
+
+msgid "Business Sedan (Mercedes E-Class / BYD)"
+msgstr "Бизнес-седан (Mercedes E-Class / BYD)"
+
+msgid "VIP Minivan (Mercedes V-Class, 6-7 pax)"
+msgstr "VIP Минивэн (Mercedes V-Class, 6-7 мест)"
+
+msgid "Executive SUV (Lexus / Land Cruiser)"
+msgstr "Представительский внедорожник (Lexus / Land Cruiser)"
+
+msgid "Deluxe Hotel - Virtual Video Tour"
+msgstr "Deluxe Hotel — Виртуальный видеотур"
+
+msgid "Open on YouTube"
+msgstr "Открыть на YouTube"
+
+msgid "Virtual video overview of Deluxe Hotel 5-star luxury destination"
+msgstr "Виртуальный видеообзор 5-звездочного роскошного отеля Deluxe"
+
+msgid "Subscribe to YouTube Channel"
+msgstr "Подписывайтесь на наш YouTube канал"
+
+msgid "Leave A Guest Review"
+msgstr "Оставить отзыв об отеле"
+
+msgid ""
+"Your feedback is very valuable to us! Leave your honest review about your "
+"stay at Deluxe Hotel:"
+msgstr ""
+"Ваш отзыв очень важен для нас! Поделитесь впечатлениями о вашем отдыхе и "
+"сервисе в Deluxe Hotel:"
+
+msgid "Your Rating"
+msgstr "Ваша оценка"
+
+msgid "5 stars (Excellent!)"
+msgstr "5 звезд (Превосходно!)"
+
+msgid "City or Status"
+msgstr "Город или статус"
+
+msgid "e.g. Tourist, Tashkent"
+msgstr "Например: Турист, Санкт-Петербург"
+
+msgid "Your Review & Impressions"
+msgstr "Ваш отзыв и впечатления"
+
+msgid "Cleanliness, hospitality, restaurant and general impressions..."
+msgstr "Чистота номеров, гостеприимство, ресторан и общие впечатления..."
+
+msgid "Photo or Selfie (Optional)"
+msgstr "Фотография или селфи (необязательно)"
+
+msgid "Submit Review"
+msgstr "Опубликовать отзыв"
+
+msgid "Cash Payment"
+msgstr "Оплата наличными"
+
+msgid "Pay cash at the front desk upon check-in"
+msgstr "Оплата наличными на стойке регистрации при заселении"
+
+msgid "National bank card payment (terminal or online)"
+msgstr "Оплата национальной картой UzCard (через терминал или онлайн)"
+
+msgid "Contactless Humo bank card payment"
+msgstr "Оплата бесконтактной картой Humo"
+
+msgid "International bank card payment"
+msgstr "Оплата международными банковскими картами Visa / MasterCard"
+
+msgid "Direct payment link via Payme app"
+msgstr "Прямой платеж через приложение Payme"
+
+msgid "Convenient and fast payment via Click Up"
+msgstr "Удобная и быстрая оплата через Click Up"
+
+msgid "Cash payment hint"
+msgstr ""
+"Вы можете оплатить проживание наличными (в сумах или валюте) на стойке "
+"регистрации при заселении (Check-in)."
+
+msgid "UzCard payment hint"
+msgstr ""
+"Оплата картой UzCard производится через терминал на стойке регистрации или "
+"по платежной ссылке администратора."
+
+msgid "Humo payment hint"
+msgstr ""
+"Оплата бесконтактной картой Humo возможна моментально на стойке регистрации "
+"или онлайн."
+
+msgid "Visa payment hint"
+msgstr ""
+"Международные карты Visa и MasterCard принимаются через мультивалютные POS-"
+"терминалы отеля."
+
+msgid "Payme payment hint"
+msgstr ""
+"После оформления администратор свяжется с вами и предоставит платежную "
+"ссылку или QR-код Payme."
+
+msgid "Click payment hint"
+msgstr ""
+"После оформления вам будет выставлен счет в приложении Click Up или вы "
+"можете оплатить на месте."
+
+msgid "Kutilmoqda"
+msgstr "Ожидает подтверждения"
+
+msgid "Tasdiqlangan"
+msgstr "Подтверждено"
+
+msgid "Bekor qilingan"
+msgstr "Отменено"
+
+msgid "Naqd to'lov (Mehmonxonada to'lash)"
+msgstr "Наличный расчет (в отеле)"
+
+msgid "UzCard (Bank kartasi)"
+msgstr "UzCard (Банковская карта)"
+
+msgid "Humo (Bank kartasi)"
+msgstr "Humo (Банковская карта)"
+
+msgid "Visa / MasterCard (Xalqaro karta)"
+msgstr "Visa / MasterCard (Международная карта)"
+
+msgid "Payme ilovasi"
+msgstr "Приложение Payme"
+
+msgid "Click ilovasi"
+msgstr "Приложение Click"
+
+msgid "Kelganda to'lanadi"
+msgstr "Оплата при заезде"
+
+msgid "To'lov kutilmoqda"
+msgstr "Ожидается оплата"
+
+msgid "To'langan"
+msgstr "Оплачено"
+
+msgid "Hotel Rooms"
+msgstr "Номера в отеле"
+
+msgid "Restaurant Table Reservations"
+msgstr "Бронирование столиков в ресторане"
+
+msgid "Table Reservation:"
+msgstr "Бронь столика:"
+
+msgid "Check-in:"
+msgstr "Заезд:"
+
+msgid "Check-out:"
+msgstr "Выезд:"
+
+msgid "Guests:"
+msgstr "Гости:"
+
+msgid "Payment:"
+msgstr "Оплата:"
+
+msgid "Total:"
+msgstr "Итого:"
+
+msgid "Booking Date:"
+msgstr "Дата заказа:"
+
+msgid "Guest Name:"
+msgstr "Имя гостя:"
+
+msgid "Special Request:"
+msgstr "Особые пожелания:"
+
+msgid "No Bookings Found"
+msgstr "Бронирований не найдено"
+
+msgid ""
+"No booking found with this phone number. Please check the entered number."
+msgstr ""
+"По указанному номеру телефона бронирований не найдено. Проверьте "
+"правильность введенного номера."
+
+msgid "Track your reservation status easily!"
+msgstr "Узнайте статус вашей брони легко!"
+
+msgid ""
+"Enter your phone number above to see the current status of all your room and"
+" table bookings."
+msgstr ""
+"Введите номер телефона выше, чтобы проверить статус всех ваших бронирований "
+"номеров и столиков."
+
+msgid "Sea View"
+msgstr "Вид на море"
+
+msgid "City View"
+msgstr "Вид на город"
+
+msgid "Garden View"
+msgstr "Вид на сад"
+
+msgid "Mountain View"
+msgstr "Вид на горы"
+
+msgid "Ocean View"
+msgstr "Вид на океан"
+
+msgid "beds"
+msgstr "кровати"
+
+msgid "Fast Wi-Fi (Free)"
+msgstr "Скоростной Wi-Fi (Бесплатно)"
+
+msgid "Air Conditioning & Heating"
+msgstr "Кондиционер и отопление"
+
+msgid "55 4K Smart TV"
+msgstr "55\" 4K Smart TV"
+
+msgid "Coffee Machine & Tea"
+msgstr "Кофемашина и чайный набор"
+
+msgid "Jacuzzi / Marble Bath"
+msgstr "Джакузи / Мраморная ванна"
+
+msgid "Private Balcony & View"
+msgstr "Личный балкон с панорамой"
+
+msgid "Personal Safe"
+msgstr "Сейф в номере"
+
+msgid "24/7 Room Service"
+msgstr "Круглосуточное обслуживание в номерах"
+
+msgid "Laundry & Ironing"
+msgstr "Прачечная и глажка"
+
+msgid "Room Photo Gallery"
+msgstr "Фотогалерея номера"
+
+msgid "Explore every corner and amenity of this room"
+msgstr "Ознакомьтесь с каждым уголком и удобствами этого номера"
+
+msgid ""
+"This luxury room at Deluxe Hotel offers you premier elegance, peace and "
+"comfort. Featuring modern interior design, free high-speed Wi-Fi, individual"
+" climate control, fully stocked minibar and private marble bathroom at your "
+"service."
+msgstr ""
+"Этот роскошный номер в Deluxe Hotel дарит вам непревзойденный комфорт и "
+"умиротворение. К вашим услугам современный авторский интерьер, скоростной "
+"Wi-Fi, климат-контроль, укомплектованный мини-бар и ванная комната из "
+"натурального мрамора."
+
+msgid "O'zbek Milliy Taomlari"
+msgstr "Узбекские национальные блюда"
+
+msgid "Asosiy taomlar"
+msgstr "Основные блюда"
+
+msgid "Salatlar va Gazaklar"
+msgstr "Салаты и закуски"
+
+msgid "Nonushta"
+msgstr "Завтраки"
+
+msgid "Shirinliklar va Ichimliklar"
+msgstr "Десерты и напитки"
+
+msgid "Delicious dish prepared according to our chef's signature recipe."
+msgstr "Изысканное блюдо, приготовленное по авторскому рецепту шеф-повара."
+
+msgid "Mehmonxona yangiliklari"
+msgstr "Новости отеля"
+
+msgid "Restoran & Taomlar"
+msgstr "Ресторан и кухня"
+
+msgid "Tadbirlar & To'ylar"
+msgstr "События и торжества"
+
+msgid "Toshkent Bo'ylab Sayohat"
+msgstr "Путешествия по Ташкенту"
+
+msgid "Mehmonlar uchun Maslahatlar"
+msgstr "Советы для гостей"

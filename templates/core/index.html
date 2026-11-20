@@ -147,21 +147,21 @@
           {% for service in services %}
           <article class="service-card-item" data-aos="fade-up" data-aos-delay="{% cycle '100' '200' '300' '400' %}">
             {% if service.badge %}
-            <span class="service-badge">{{ service.badge }}</span>
+            <span class="service-badge">{% trans service.badge %}</span>
             {% endif %}
             
             <div class="service-icon-wrap">
               <i class="{{ service.icon }}"></i>
             </div>
             
-            <h3>{{ service.title }}</h3>
-            <p>{{ service.description }}</p>
+            <h3>{% trans service.title %}</h3>
+            <p>{% trans service.description %}</p>
 
             {% with features=service.get_features_list %}
               {% if features %}
               <ul class="service-features-list">
                 {% for feat in features %}
-                <li><i class="fa-solid fa-check"></i> {{ feat }}</li>
+                <li><i class="fa-solid fa-check"></i> {% trans feat %}</li>
                 {% endfor %}
               </ul>
               {% endif %}
@@ -169,50 +169,50 @@
 
             {% if service.action_type == 'modal_reception' %}
             <button type="button" class="service-action-btn" onclick="openServiceModal('modal-reception')">
-              <i class="fa-solid fa-phone"></i> {{ service.link_text|default:"Bog'lanish / Qo'ng'iroq" }}
+              <i class="fa-solid fa-phone"></i> {% trans service.link_text %}
             </button>
             {% elif service.action_type == 'modal_transfer' %}
             <button type="button" class="service-action-btn" onclick="openServiceModal('modal-transfer')">
-              <i class="fa-solid fa-car-side"></i> {{ service.link_text|default:"Transfer buyurtma qilish" }}
+              <i class="fa-solid fa-car-side"></i> {% trans service.link_text %}
             </button>
             {% elif service.action_type == 'modal_spa' %}
             <button type="button" class="service-action-btn" onclick="openServiceModal('modal-spa')">
-              <i class="fa-solid fa-water-ladder"></i> {{ service.link_text|default:"Spa haqida batafsil" }}
+              <i class="fa-solid fa-water-ladder"></i> {% trans service.link_text %}
             </button>
             {% else %}
-            <a href="{{ service.link_url|default:'/restaurant/' }}" class="service-action-btn">
-              <i class="fa-solid fa-arrow-right"></i> {{ service.link_text|default:"Batafsil" }}
+            <a href="{% url 'restaurant:index' %}" class="service-action-btn">
+              <i class="fa-solid fa-arrow-right"></i> {% trans service.link_text %}
             </a>
             {% endif %}
           </article>
           {% empty %}
           <article class="service-card-item">
-            <span class="service-badge">24/7 XIZMAT</span>
+            <span class="service-badge">{% trans "24/7 XIZMAT" %}</span>
             <div class="service-icon-wrap"><i class="fa-regular fa-clock"></i></div>
-            <h3>24/7 Front Desk</h3>
-            <p>Kechayu-kunduz professional resepshn va konsyerj xizmati.</p>
+            <h3>{% trans "24/7 Resepshn & Konsyerj" %}</h3>
+            <p>{% trans "Kechayu-kunduz professional qabulxona va konsyerj xizmati. Mehmonlarimizning har qanday iltimos yoki savollariga istalgan vaqtda darhol javob beramiz." %}</p>
             <button type="button" class="service-action-btn" onclick="openServiceModal('modal-reception')">
-              <i class="fa-solid fa-phone"></i> Bog'lanish / Qo'ng'iroq
+              <i class="fa-solid fa-phone"></i> {% trans "Bog'lanish / Qo'ng'iroq" %}
             </button>
           </article>
 
           <article class="service-card-item">
-            <span class="service-badge">GOURMET</span>
+            <span class="service-badge">{% trans "GOURMET" %}</span>
             <div class="service-icon-wrap"><i class="fa-solid fa-champagne-glasses"></i></div>
-            <h3>Restoran & Bar</h3>
-            <p>Yevropa va milliy taomlar, elit sharoblar va sokin musiqa.</p>
-            <a href="/restaurant/" class="service-action-btn">
-              <i class="fa-solid fa-arrow-right"></i> Menyu & Stol band qilish
+            <h3>{% trans "Restoran & Bar" %}</h3>
+            <p>{% trans "Yevropa va sharqona taomlarning boy mualliflik menyusi, elit sharoblar kolleksiyasi hamda shinam muhitda sokin jonli musiqa sadolari." %}</p>
+            <a href="{% url 'restaurant:index' %}" class="service-action-btn">
+              <i class="fa-solid fa-arrow-right"></i> {% trans "Menyu & Stol band qilish" %}
             </a>
           </article>
 
           <article class="service-card-item">
-            <span class="service-badge">VIP TRANSPORT</span>
+            <span class="service-badge">{% trans "PREMIUM TRANSPORT" %}</span>
             <div class="service-icon-wrap"><i class="fa-solid fa-car-side"></i></div>
-            <h3>VIP Transfer Xizmati</h3>
-            <p>Aeroport va vokzaldan hashamatli biznes-klass avtomobillarda kutib olish.</p>
+            <h3>{% trans "VIP Transfer Xizmati" %}</h3>
+            <p>{% trans "Toshkent xalqaro aeroporti va vokzallardan hashamatli biznes-klass avtomobillarda kutib olish hamda manzilga qulay yetkazish xizmati." %}</p>
             <button type="button" class="service-action-btn" onclick="openServiceModal('modal-transfer')">
-              <i class="fa-solid fa-car-side"></i> Transfer buyurtma qilish
+              <i class="fa-solid fa-car-side"></i> {% trans "Transfer buyurtma qilish" %}
             </button>
           </article>
           {% endfor %}
@@ -265,24 +265,24 @@
           {% for stat in stats %}
           <div class="stat" data-aos="zoom-in" data-aos-delay="{% cycle '100' '200' '300' '400' %}">
             <h3 class="stat-counter" data-target="{{ stat.value }}">0</h3>
-            <p>{{ stat.title }}</p>
+            <p>{% trans stat.title %}</p>
           </div>
           {% empty %}
           <div class="stat">
             <h3 class="stat-counter" data-target="25000">25,000+</h3>
-            <p>Mamnun Mehmonlar</p>
+            <p>{% trans "Satisfied Guests" %}</p>
           </div>
           <div class="stat">
             <h3 class="stat-counter" data-target="60">60</h3>
-            <p>Hashamatli Xonalar</p>
+            <p>{% trans "Luxury Rooms" %}</p>
           </div>
           <div class="stat">
             <h3 class="stat-counter" data-target="85">85+</h3>
-            <p>Professional Xodimlar</p>
+            <p>{% trans "Professional Staff" %}</p>
           </div>
           <div class="stat">
             <h3 class="stat-counter" data-target="15">15+</h3>
-            <p>Yillik Tajriba</p>
+            <p>{% trans "Years of Experience" %}</p>
           </div>
           {% endfor %}
         </div>
@@ -356,66 +356,66 @@
           <!-- FAQ 1 -->
           <div class="faq-item active">
             <button type="button" class="faq-question" onclick="toggleFaq(this)">
-              <span><i class="fa-regular fa-clock" style="color: #c19b76; margin-right: 10px;"></i> Check-in va Check-out vaqtlari qanday belgilangan?</span>
+              <span><i class="fa-regular fa-clock" style="color: #c19b76; margin-right: 10px;"></i> {% trans "Check-in and Check-out policy question" %}</span>
               <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
             <div class="faq-answer">
-              Xonaga kirish (Check-in) soat <strong>14:00</strong> dan boshlanadi, xonani topshirish (Check-out) esa soat <strong>12:00</strong> gacha amalga oshiriladi. Agar siz erta kelishingiz yoki kechroq ketishingiz kerak bo'lsa, xonalar mavjudligiga qarab 24/7 qabulxonamiz bilan kelishilgan holda bepul yoki qo'shimcha qulaylik bilan ruxsat beriladi.
+              {% trans "Check-in and Check-out policy answer" %}
             </div>
           </div>
 
           <!-- FAQ 2 -->
           <div class="faq-item">
             <button type="button" class="faq-question" onclick="toggleFaq(this)">
-              <span><i class="fa-solid fa-utensils" style="color: #c19b76; margin-right: 10px;"></i> Nonushta xona narxiga kiritilganmi va qaysi vaqtda beriladi?</span>
+              <span><i class="fa-solid fa-utensils" style="color: #c19b76; margin-right: 10px;"></i> {% trans "Breakfast included question" %}</span>
               <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
             <div class="faq-answer">
-              Ha, Deluxe Hotelning barcha xonalar toifasi uchun shohona <strong>shved stoli (Buffet)</strong> nonushtasi narxga to'liq kiritilgan. Nonushta har kuni erta tong soat <strong>07:00 dan 10:30 gacha</strong> asosiy restoranimizda tortiladi. Istasangiz, xonangizga ham bepul eltib beriladi (Room Service).
+              {% trans "Breakfast included answer" %}
             </div>
           </div>
 
           <!-- FAQ 3 -->
           <div class="faq-item">
             <button type="button" class="faq-question" onclick="toggleFaq(this)">
-              <span><i class="fa-solid fa-credit-card" style="color: #c19b76; margin-right: 10px;"></i> Qanday to‘lov usullari qabul qilinadi?</span>
+              <span><i class="fa-solid fa-credit-card" style="color: #c19b76; margin-right: 10px;"></i> {% trans "Accepted payment methods question" %}</span>
               <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
             <div class="faq-answer">
-              Biz barcha ommabop to'lov tizimlarini qabul qilamiz: <strong>UzCard, Humo, Visa, MasterCard, Mir</strong> bank kartalari hamda milliy valyuta (so'm) yoki erkin konvertatsiya qilinadigan valyutalar orqali naqd to'lov. Saytimiz orqali band qilganda hech qanday ortiqcha komissiya olinmaydi.
+              {% trans "Accepted payment methods answer" %}
             </div>
           </div>
 
           <!-- FAQ 4 -->
           <div class="faq-item">
             <button type="button" class="faq-question" onclick="toggleFaq(this)">
-              <span><i class="fa-solid fa-car-side" style="color: #c19b76; margin-right: 10px;"></i> Aeroport yoki vokzaldan transfer qanday buyurtma qilinadi?</span>
+              <span><i class="fa-solid fa-car-side" style="color: #c19b76; margin-right: 10px;"></i> {% trans "Airport transfer order question" %}</span>
               <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
             <div class="faq-answer">
-              Mehmonxonamiz shaxsiy biznes-klass avtoparkiga (Mercedes E-Class, VIP Minivan Mercedes V-Class, Executive SUV) ega. Saytimizdagi <a href="javascript:void(0)" onclick="openServiceModal('modal-transfer')" style="color: #c19b76; font-weight: 600; text-decoration: underline;">Transfer buyurtma oynasi</a> orqali yoki resepshnga qo'ng'iroq qilib samolyot reysi raqamini aytsangiz, shaxsiy haydovchimiz sizni ismingiz yozilgan planshet bilan kutib oladi.
+              {% trans "Airport transfer order answer" %}
             </div>
           </div>
 
           <!-- FAQ 5 -->
           <div class="faq-item">
             <button type="button" class="faq-question" onclick="toggleFaq(this)">
-              <span><i class="fa-solid fa-children" style="color: #c19b76; margin-right: 10px;"></i> Bolalar bilan tashrif buyurganda shartlar qanaqa?</span>
+              <span><i class="fa-solid fa-children" style="color: #c19b76; margin-right: 10px;"></i> {% trans "Children accommodation policy question" %}</span>
               <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
             <div class="faq-answer">
-              <strong>6 yoshgacha</strong> bo'lgan bolalar ota-onasi bilan alohida o'rin talab qilinmagan holda mutlaqo <strong>bepul</strong> istiqomat qilishadi. Shuningdek, talabingizga binoan xonaga bepul chaqaloqlar uchun qulay karavotcha (Baby cot) o'rnatib beriladi.
+              {% trans "Children accommodation policy answer" %}
             </div>
           </div>
 
           <!-- FAQ 6 -->
           <div class="faq-item">
             <button type="button" class="faq-question" onclick="toggleFaq(this)">
-              <span><i class="fa-solid fa-calendar-xmark" style="color: #c19b76; margin-right: 10px;"></i> Bronni bekor qilish (Cancellation policy) tartibi qanday?</span>
+              <span><i class="fa-solid fa-calendar-xmark" style="color: #c19b76; margin-right: 10px;"></i> {% trans "Cancellation policy question" %}</span>
               <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
             </button>
             <div class="faq-answer">
-              Mehmonxonaga kelish rejalashtirilgan sanadan kamida <strong>24 soat oldin</strong> xonani bekor qilsangiz, hech qanday jarima qo'llanilmaydi va oldindan to'langan mablag' 100% qaytariladi yoki boshqa sanaga bepul ko'chiriladi.
+              {% trans "Cancellation policy answer" %}
             </div>
           </div>
         </div>

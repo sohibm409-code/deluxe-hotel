@@ -1,28 +1,29 @@
 from decimal import Decimal
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from rooms.models import Room
 
 
 class Booking(models.Model):
     STATUS_CHOICES = [
-        ('pending', 'Kutilmoqda'),
-        ('confirmed', 'Tasdiqlangan'),
-        ('cancelled', 'Bekor qilingan'),
+        ('pending', _('Kutilmoqda')),
+        ('confirmed', _('Tasdiqlangan')),
+        ('cancelled', _('Bekor qilingan')),
     ]
 
     PAYMENT_METHOD_CHOICES = [
-        ('cash', "Naqd to'lov (Mehmonxonada to'lash)"),
-        ('uzcard', "UzCard (Bank kartasi)"),
-        ('humo', "Humo (Bank kartasi)"),
-        ('visa_mastercard', "Visa / MasterCard (Xalqaro karta)"),
-        ('payme', "Payme ilovasi"),
-        ('click', "Click ilovasi"),
+        ('cash', _("Naqd to'lov (Mehmonxonada to'lash)")),
+        ('uzcard', _("UzCard (Bank kartasi)")),
+        ('humo', _("Humo (Bank kartasi)")),
+        ('visa_mastercard', _("Visa / MasterCard (Xalqaro karta)")),
+        ('payme', _("Payme ilovasi")),
+        ('click', _("Click ilovasi")),
     ]
 
     PAYMENT_STATUS_CHOICES = [
-        ('pay_on_arrival', "Kelganda to'lanadi"),
-        ('pending', "To'lov kutilmoqda"),
-        ('paid', "To'langan"),
+        ('pay_on_arrival', _("Kelganda to'lanadi")),
+        ('pending', _("To'lov kutilmoqda")),
+        ('paid', _("To'langan")),
     ]
 
     room = models.ForeignKey(Room, on_delete=models.SET_NULL, null=True, blank=True, related_name="bookings", verbose_name="Xona")

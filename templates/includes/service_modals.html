@@ -52,27 +52,27 @@
         <div id="modal-reception-alert" class="modal-feedback-alert"></div>
 
         <p style="font-size: 13.5px; color: #666; margin: 0 0 4px;">
-          Yoki aloqa ma'lumotlaringizni qoldiring, resepshn navbatchi xodimi 3 daqiqa ichida sizga qo'ng'iroq qiladi:
+          {% trans "Or leave your contact information and our front desk will call you back within 3 minutes:" %}
         </p>
 
         <div class="form-group-row">
           <div>
-            <label class="service-form-label">Ismingiz *</label>
-            <input type="text" name="name" class="service-form-input" placeholder="Masalan: Azizbek" required />
+            <label class="service-form-label">{% trans "Your Name" %} *</label>
+            <input type="text" name="name" class="service-form-input" placeholder="{% trans "Your Name" %}" required />
           </div>
           <div>
-            <label class="service-form-label">Telefon raqamingiz *</label>
-            <input type="tel" name="phone" class="service-form-input" placeholder="+998 90 123 45 67" required />
+            <label class="service-form-label">{% trans "Your Phone Number" %} *</label>
+            <input type="tel" name="phone" class="service-form-input" placeholder="+998..." required />
           </div>
         </div>
 
         <div>
-          <label class="service-form-label">Iltimos yoki savolingiz (ixtiyoriy)</label>
-          <textarea name="notes" rows="2" class="service-form-textarea" placeholder="Xona xizmati, uyg'otish vaqti yoki qo'shimcha so'rov..."></textarea>
+          <label class="service-form-label">{% trans "Request or Question (Optional)" %}</label>
+          <textarea name="notes" rows="2" class="service-form-textarea" placeholder="{% trans "Room service, wake-up call or special request..." %}"></textarea>
         </div>
 
         <button type="submit" class="service-submit-btn">
-          <i class="fa-solid fa-paper-plane"></i> Murojaatni yuborish
+          <i class="fa-solid fa-paper-plane"></i> {% trans "Submit Request" %}
         </button>
       </form>
     </div>
@@ -115,19 +115,19 @@
           <div>
             <label class="service-form-label">{% trans "Pickup Location" %} *</label>
             <select name="pickup" class="service-form-select" required>
-              <option value="Islom Karimov nomidagi Toshkent Xalqaro Aeroporti (TAS)">Islom Karimov Toshkent Aeroporti (TAS)</option>
-              <option value="Shimoliy Temiryo'l Vokzali (Markaziy)">Shimoliy Vokzal (Toshkent)</option>
-              <option value="Janubiy Temiryo'l Vokzali">Janubiy Vokzal</option>
-              <option value="Mehmonxonadan Aeroportga kuzatish">Mehmonxonadan Aeroportga kuzatish</option>
-              <option value="Shahar ichida shaxsiy marshrut">Shahar ichida shaxsiy marshrut</option>
+              <option value="Islom Karimov nomidagi Toshkent Xalqaro Aeroporti (TAS)">{% trans "Islam Karimov Tashkent Airport (TAS)" %}</option>
+              <option value="Shimoliy Temiryo'l Vokzali (Markaziy)">{% trans "Northern Railway Station (Central)" %}</option>
+              <option value="Janubiy Temiryo'l Vokzali">{% trans "Southern Railway Station" %}</option>
+              <option value="Mehmonxonadan Aeroportga kuzatish">{% trans "Hotel to Airport Transfer" %}</option>
+              <option value="Shahar ichida shaxsiy marshrut">{% trans "Custom City Route" %}</option>
             </select>
           </div>
           <div>
             <label class="service-form-label">{% trans "Car Category" %} *</label>
             <select name="car_type" class="service-form-select" required>
-              <option value="Business Sedan (Mercedes E-Class / BYD Han)">Business Sedan (Mercedes E-Class / BYD)</option>
-              <option value="VIP Minivan (Mercedes V-Class, 6-7 kishi)">VIP Minivan (Mercedes V-Class, 6-7 kishi)</option>
-              <option value="Executive SUV (Lexus LX / Land Cruiser)">Executive SUV (Lexus / Land Cruiser)</option>
+              <option value="Business Sedan (Mercedes E-Class / BYD Han)">{% trans "Business Sedan (Mercedes E-Class / BYD)" %}</option>
+              <option value="VIP Minivan (Mercedes V-Class, 6-7 kishi)">{% trans "VIP Minivan (Mercedes V-Class, 6-7 pax)" %}</option>
+              <option value="Executive SUV (Lexus LX / Land Cruiser)">{% trans "Executive SUV (Lexus / Land Cruiser)" %}</option>
             </select>
           </div>
         </div>
@@ -161,13 +161,13 @@
   <div class="service-modal-box" style="max-width: 860px; background: #000000; border: 1px solid rgba(193, 155, 118, 0.4); padding: 0; overflow: hidden; border-radius: 12px;">
     <div class="service-modal-header" style="background: #111111; padding: 14px 22px; border-bottom: 1.5px solid #c19b76; display: flex; align-items: center; justify-content: space-between;">
       <h3 id="videoModalTitle" style="font-size: 17px; margin: 0; color: #ffffff; display: flex; align-items: center; gap: 10px;">
-        <i class="fa-solid fa-play" style="color: #c19b76; font-size: 14px;"></i> Deluxe Hotel - Virtual Video Sayohat
+        <i class="fa-solid fa-play" style="color: #c19b76; font-size: 14px;"></i> {% trans "Deluxe Hotel - Virtual Video Tour" %}
       </h3>
       <div style="display: flex; align-items: center; gap: 14px;">
         <a href="https://www.youtube.com/watch?v=ScMzIvxBSi4" target="_blank" style="color: #ffffff; font-size: 12.5px; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 6px; background: #cc0000; padding: 6px 14px; border-radius: 4px; transition: 0.2s;">
-          <i class="fa-brands fa-youtube" style="font-size: 15px;"></i> YouTube'da ochish
+          <i class="fa-brands fa-youtube" style="font-size: 15px;"></i> {% trans "Open on YouTube" %}
         </a>
-        <button type="button" class="service-modal-close" onclick="closeVideoModal()" aria-label="Yopish" style="color: #ffffff; font-size: 26px; background: none; border: none; cursor: pointer; line-height: 1;">&times;</button>
+        <button type="button" class="service-modal-close" onclick="closeVideoModal()" aria-label="{% trans "Close" %}" style="color: #ffffff; font-size: 26px; background: none; border: none; cursor: pointer; line-height: 1;">&times;</button>
       </div>
     </div>
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000000;">
@@ -182,9 +182,9 @@
       </iframe>
     </div>
     <div style="padding: 12px 20px; background: #111111; color: rgba(255,255,255,0.7); font-size: 13px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-      <span><i class="fa-solid fa-circle-info" style="color: #c19b76;"></i> Deluxe Hotel 5-yulduzli hashamat maskanining virtual video sharhi</span>
+      <span><i class="fa-solid fa-circle-info" style="color: #c19b76;"></i> {% trans "Virtual video overview of Deluxe Hotel 5-star luxury destination" %}</span>
       <a href="https://www.youtube.com/@deluxe_hotel" target="_blank" style="color: #c19b76; text-decoration: none; font-weight: 600;">
-        <i class="fa-brands fa-youtube"></i> YouTube kanalimizga obuna bo'ling &rarr;
+        <i class="fa-brands fa-youtube"></i> {% trans "Subscribe to YouTube Channel" %} &rarr;
       </a>
     </div>
   </div>
@@ -195,13 +195,13 @@
   <div class="service-modal-box">
     <div class="service-modal-header">
       <h3 id="reviewModalTitle">
-        <i class="fa-solid fa-pen-to-square"></i> Mehmonxona Haqida Fikr Bildirish
+        <i class="fa-solid fa-pen-to-square"></i> {% trans "Leave A Guest Review" %}
       </h3>
-      <button type="button" class="service-modal-close" onclick="closeServiceModal('modal-leave-review')" aria-label="Yopish">&times;</button>
+      <button type="button" class="service-modal-close" onclick="closeServiceModal('modal-leave-review')" aria-label="{% trans "Close" %}">&times;</button>
     </div>
     <div class="service-modal-body">
       <p style="font-size: 14px; color: #555; margin-bottom: 18px; line-height: 1.5;">
-        Sizning samimiy fikringiz biz uchun juda qadrlidir! Deluxe Hotelda o'tkazgan dam olishingiz yoki xizmat sifati haqida o'z xolis taassurotlaringizni qoldiring:
+        {% trans "Your feedback is very valuable to us! Leave your honest review about your stay at Deluxe Hotel:" %}
       </p>
 
       <form class="service-form" id="leaveReviewForm" onsubmit="handleReviewFormSubmit(event)" enctype="multipart/form-data">
@@ -210,41 +210,41 @@
 
         <!-- Star Rating Selector -->
         <div>
-          <label class="service-form-label">Bahoyingiz (Reyting) *</label>
+          <label class="service-form-label">{% trans "Your Rating" %} *</label>
           <div class="star-rating-select" id="starRatingSelect">
             <span class="star-btn" data-val="1">★</span>
             <span class="star-btn" data-val="2">★</span>
             <span class="star-btn" data-val="3">★</span>
             <span class="star-btn" data-val="4">★</span>
             <span class="star-btn active" data-val="5">★</span>
-            <span id="starRatingText" style="font-size: 13.5px; color: #c19b76; font-weight: 600; margin-left: 10px;">5 yulduz (A'lo darajada!)</span>
+            <span id="starRatingText" style="font-size: 13.5px; color: #c19b76; font-weight: 600; margin-left: 10px;">{% trans "5 stars (Excellent!)" %}</span>
             <input type="hidden" name="rating" id="reviewRatingInput" value="5" />
           </div>
         </div>
 
         <div class="form-group-row">
           <div>
-            <label class="service-form-label">Ism va Familiyangiz *</label>
-            <input type="text" name="name" class="service-form-input" placeholder="Masalan: Sardor Rahimov" required />
+            <label class="service-form-label">{% trans "Full Name" %} *</label>
+            <input type="text" name="name" class="service-form-input" placeholder="{% trans "Full Name" %}" required />
           </div>
           <div>
-            <label class="service-form-label">Shahar yoki Maqomingiz</label>
-            <input type="text" name="role" class="service-form-input" placeholder="Masalan: Sayyoh, Toshkent" />
+            <label class="service-form-label">{% trans "City or Status" %}</label>
+            <input type="text" name="role" class="service-form-input" placeholder="{% trans "e.g. Tourist, Tashkent" %}" />
           </div>
         </div>
 
         <div>
-          <label class="service-form-label">Fikr va taassurotlaringiz *</label>
-          <textarea name="content" rows="3" class="service-form-textarea" placeholder="Xonalar tozaligi, mehmondo'stlik, restoran va umumiy taassurotlaringiz..." required></textarea>
+          <label class="service-form-label">{% trans "Your Review & Impressions" %} *</label>
+          <textarea name="content" rows="3" class="service-form-textarea" placeholder="{% trans "Cleanliness, hospitality, restaurant and general impressions..." %}" required></textarea>
         </div>
 
         <div>
-          <label class="service-form-label">Rasmingiz yoki selfi (ixtiyoriy)</label>
+          <label class="service-form-label">{% trans "Photo or Selfie (Optional)" %}</label>
           <input type="file" name="image" accept="image/*" class="service-form-input" style="padding: 8px 12px;" />
         </div>
 
         <button type="submit" class="service-submit-btn">
-          <i class="fa-solid fa-paper-plane"></i> Fikrimni e'lon qilish
+          <i class="fa-solid fa-paper-plane"></i> {% trans "Submit Review" %}
         </button>
       </form>
     </div>

@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 class Category(models.Model):
@@ -50,9 +51,9 @@ class MenuItem(models.Model):
 
 class TableReservation(models.Model):
     STATUS_CHOICES = [
-        ('pending', 'Kutilmoqda'),
-        ('confirmed', 'Tasdiqlangan'),
-        ('cancelled', 'Bekor qilingan'),
+        ('pending', _('Kutilmoqda')),
+        ('confirmed', _('Tasdiqlangan')),
+        ('cancelled', _('Bekor qilingan')),
     ]
 
     customer_name = models.CharField(max_length=150, verbose_name="Mijoz ismi")

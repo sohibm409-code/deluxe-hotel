@@ -488,11 +488,11 @@
             </div>
             <div class="spec-item">
               <span>{% trans "View" %}</span>
-              <span><i class="fa-solid fa-mountain-sun"></i> {{ room.view }}</span>
+              <span><i class="fa-solid fa-mountain-sun"></i> {% trans room.view %}</span>
             </div>
             <div class="spec-item">
               <span>{% trans "Bed" %}</span>
-              <span><i class="fa-solid fa-bed"></i> {{ room.bed }}</span>
+              <span><i class="fa-solid fa-bed"></i> {{ room.bed }} {% trans "beds" %}</span>
             </div>
           </div>
 
@@ -501,7 +501,7 @@
               {{ room.description|linebreaks }}
             {% else %}
               <p>
-                Deluxe mehmonxonasidagi ushbu xona sizga yuqori darajadagi hashamat, osoyishtalik va qulaylikni taqdim etadi. Zamonaviy dizayn, bepul yuqori tezlikdagi Wi-Fi, mikroiqlim konditsioneri, to'liq jihozlangan mini-bar hamda shaxsiy marmar vanna xonasi sizning xizmatingizda.
+                {% trans "This luxury room at Deluxe Hotel offers you premier elegance, peace and comfort. Featuring modern interior design, free high-speed Wi-Fi, individual climate control, fully stocked minibar and private marble bathroom at your service." %}
               </p>
             {% endif %}
           </div>
@@ -509,22 +509,22 @@
           <!-- AMENITIES -->
           <h3 class="amenities-heading">{% trans "Room Amenities & Features" %}</h3>
           <div class="amenities-grid">
-            <div class="amenity-card"><i class="fa-solid fa-wifi"></i> Tezkor Wi-Fi (Bepul)</div>
-            <div class="amenity-card"><i class="fa-solid fa-snowflake"></i> Konditsioner &amp; Isitish</div>
-            <div class="amenity-card"><i class="fa-solid fa-tv"></i> 55" 4K Smart TV</div>
-            <div class="amenity-card"><i class="fa-solid fa-mug-hot"></i> Qahva mashinasi &amp; Choy</div>
-            <div class="amenity-card"><i class="fa-solid fa-hot-tub-person"></i> Jakuzzi / Marmar vanna</div>
-            <div class="amenity-card"><i class="fa-solid fa-mountain"></i> Shaxsiy balkon &amp; Manzara</div>
-            <div class="amenity-card"><i class="fa-solid fa-vault"></i> Shaxsiy seyf</div>
-            <div class="amenity-card"><i class="fa-solid fa-bell-concierge"></i> 24/7 Xona xizmati</div>
-            <div class="amenity-card"><i class="fa-solid fa-shirt"></i> Kir yuvish &amp; Dazmol</div>
+            <div class="amenity-card"><i class="fa-solid fa-wifi"></i> {% trans "Fast Wi-Fi (Free)" %}</div>
+            <div class="amenity-card"><i class="fa-solid fa-snowflake"></i> {% trans "Air Conditioning & Heating" %}</div>
+            <div class="amenity-card"><i class="fa-solid fa-tv"></i> {% trans "55 4K Smart TV" %}</div>
+            <div class="amenity-card"><i class="fa-solid fa-mug-hot"></i> {% trans "Coffee Machine & Tea" %}</div>
+            <div class="amenity-card"><i class="fa-solid fa-hot-tub-person"></i> {% trans "Jacuzzi / Marble Bath" %}</div>
+            <div class="amenity-card"><i class="fa-solid fa-mountain"></i> {% trans "Private Balcony & View" %}</div>
+            <div class="amenity-card"><i class="fa-solid fa-vault"></i> {% trans "Personal Safe" %}</div>
+            <div class="amenity-card"><i class="fa-solid fa-bell-concierge"></i> {% trans "24/7 Room Service" %}</div>
+            <div class="amenity-card"><i class="fa-solid fa-shirt"></i> {% trans "Laundry & Ironing" %}</div>
           </div>
         </div>
 
         <!-- FULL PHOTO GALLERY GRID -->
         <div class="gallery-grid-section" data-aos="fade-up">
-          <h3><i class="fa-solid fa-images" style="color: #c19b76;"></i> Xona fotogalereyasi</h3>
-          <p>Ushbu xonaning har bir go'shasi va qulayliklari bilan yaqindan tanishing</p>
+          <h3><i class="fa-solid fa-images" style="color: #c19b76;"></i> {% trans "Room Photo Gallery" %}</h3>
+          <p>{% trans "Explore every corner and amenity of this room" %}</p>
 
           <div class="photo-tiles-grid">
             {% for img in room.get_all_images %}
